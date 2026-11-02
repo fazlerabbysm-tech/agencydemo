@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "@/components/site/navbar";
 import Hero from "@/components/site/hero";
 import BrandMarquee from "@/components/site/marquee";
@@ -7,13 +10,16 @@ import WorkShowcase from "@/components/site/work-showcase";
 import FinalCTA from "@/components/site/final-cta";
 import FAQ from "@/components/site/faq";
 import Footer from "@/components/site/footer";
+import ServiceDetailModal from "@/components/site/service-detail-modal";
 
 export default function Home() {
+  const [activeService, setActiveService] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen flex flex-col bg-white text-black">
       <Navbar />
       <main className="flex-1">
-        {/* 01 — Hero with image slider + Get Started CTA */}
+        {/* 01 — Hero with showreel video + Get Started CTA */}
         <Hero />
 
         {/* 02 — Brand marquee, 2 lines, anti-clockwise rotation */}
@@ -22,10 +28,10 @@ export default function Home() {
         {/* 03 — "What can we do for you?" with visual image */}
         <WhatWeDo />
 
-        {/* 04 — "WHAT CAN WE HELP YOU WITH" auto-rotating service cards */}
-        <Services />
+        {/* 04 — "WHAT CAN WE HELP YOU WITH" — click to open service detail */}
+        <Services onServiceClick={(slug) => setActiveService(slug)} />
 
-        {/* 05 — Work showcase, 4 image/video cards, rotating with title only */}
+        {/* 05 — Work showcase, 4 image cards, rotating */}
         <WorkShowcase />
 
         {/* 06 — Final call to action, one-line text */}
@@ -35,6 +41,13 @@ export default function Home() {
         <FAQ />
       </main>
       <Footer />
+
+      {/* Service detail modal — opens when a service card is clicked */}
+      <ServiceDetailModal
+        slug={activeService}
+        onClose={() => setActiveService(null)}
+        onSwitchService={(slug) => setActiveService(slug)}
+      />
     </div>
   );
 }

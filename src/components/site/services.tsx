@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
     no: "01",
+    slug: "ecommerce",
     title: "E-commerce Catalog Optimization",
     desc: "Studio-grade product imagery, listing architecture, and conversion-driven catalog systems for digital storefronts.",
     image:
@@ -12,6 +14,7 @@ const services = [
   },
   {
     no: "02",
+    slug: "color",
     title: "Color Standardization Protocol",
     desc: "Precise color systems — Pantone, ICC profiles, and brand palettes calibrated across every screen, print, and surface.",
     image:
@@ -19,6 +22,7 @@ const services = [
   },
   {
     no: "03",
+    slug: "cgi",
     title: "Virtual Production & CGI Studio",
     desc: "Real-time virtual sets, photoreal CGI, and unreal environments built for film, brand, and product worlds.",
     image:
@@ -26,6 +30,7 @@ const services = [
   },
   {
     no: "04",
+    slug: "whitelabel",
     title: "White-Label Agency Extension",
     desc: "Embedded production for agencies — design, dev, and motion capacity that ships under your brand, not ours.",
     image:
@@ -33,7 +38,11 @@ const services = [
   },
 ];
 
-export default function Services() {
+interface Props {
+  onServiceClick?: (slug: string) => void;
+}
+
+export default function Services({ onServiceClick }: Props) {
   // Duplicate the list so the marquee loops seamlessly
   const loop = [...services, ...services];
 
@@ -49,7 +58,7 @@ export default function Services() {
             ( 04 ) — Capabilities
           </span>
           <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50 hidden sm:block">
-            Auto-rotating · Hover to pause
+            Click a service to explore · Auto-rotating
           </span>
         </div>
 
@@ -74,7 +83,12 @@ export default function Services() {
 
         <div className="flex w-max marquee-track-left-slow">
           {loop.map((s, i) => (
-            <ServiceCard key={i} service={s} total={services.length} />
+            <ServiceCard
+              key={i}
+              service={s}
+              total={services.length}
+              onClick={onServiceClick}
+            />
           ))}
         </div>
       </div>
@@ -85,13 +99,18 @@ export default function Services() {
 function ServiceCard({
   service,
   total,
+  onClick,
 }: {
   service: (typeof services)[number];
   total: number;
+  onClick?: (slug: string) => void;
 }) {
   const padTotal = String(total).padStart(2, "0");
   return (
-    <article className="group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4">
+    <article
+      className="group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4 cursor-pointer"
+      onClick={() => onClick?.(service.slug)}
+    >
       <div className="relative aspect-[5/6] overflow-hidden bg-neutral-900">
         <img
           src={service.image}
@@ -122,9 +141,10 @@ function ServiceCard({
           </p>
           <div className="mt-2.5 sm:mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
             <span>Explore</span>
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
+            <ArrowRight
+              size={12}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </div>
         </div>
       </div>

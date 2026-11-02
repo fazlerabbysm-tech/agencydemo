@@ -77,7 +77,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/20" />
 
       {/* Main copy — all text at the bottom, header area stays completely clean */}
-      <div className="relative z-10 h-full mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 flex flex-col justify-end pb-24 sm:pb-28 md:pb-32">
+      <div className="relative z-10 h-full mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 flex flex-col justify-end pb-20 sm:pb-24 md:pb-28 pt-28 sm:pt-32 md:pt-40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] xl:text-[8.5rem] break-words"
+            className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[9vw] md:text-[6vw] lg:text-[6rem] xl:text-[7rem] break-words"
           >
             We build
             <br />
@@ -108,7 +108,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-lg text-white/70 max-w-xl"
+            className="mt-3 sm:mt-5 md:mt-6 text-sm sm:text-base md:text-lg text-white/70 max-w-xl"
           >
             E-commerce catalogs, color protocols, virtual production & CGI, and
             white-label agency extension — all under one studio.
@@ -120,7 +120,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 sm:mt-12 md:mt-16 flex items-end justify-between gap-4 sm:gap-6"
+          className="mt-6 sm:mt-10 md:mt-12 flex items-end justify-between gap-4 sm:gap-6"
         >
           <a
             href="#services"
