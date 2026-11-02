@@ -15,7 +15,6 @@ export default function Hero() {
     if (!v) return;
     const tryPlay = () => {
       v.play().catch(() => {
-        // If autoplay with sound fails, force muted and retry
         v.muted = true;
         v.play().catch(() => {});
       });
@@ -77,28 +76,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/40" />
       <div className="absolute inset-0 bg-black/20" />
 
-      {/* Sound toggle (top-right, below navbar) */}
-      <button
-        onClick={toggleMute}
-        className="absolute right-4 sm:right-6 md:right-10 top-20 md:top-28 z-30 h-10 w-10 sm:h-11 sm:w-11 rounded-full border border-white/30 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white/80 hover:bg-white hover:text-black transition-colors duration-300"
-        aria-label={muted ? "Unmute showreel" : "Mute showreel"}
-      >
-        {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-      </button>
-
-      {/* "Showreel" badge (top-left, below navbar) */}
-      <div className="absolute left-4 sm:left-6 md:left-10 top-20 md:top-28 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/30 bg-black/30 backdrop-blur-sm">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75 animate-ping" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
-        </span>
-        <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white/90">
-          Showreel · 2026
-        </span>
-      </div>
-
-      {/* Main copy — positioned below navbar with safe top padding */}
-      <div className="relative z-10 h-full mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 flex flex-col justify-end pb-24 sm:pb-28 md:pb-32 pt-28 sm:pt-32 md:pt-36">
+      {/* Main copy — all text at the bottom, header area stays completely clean */}
+      <div className="relative z-10 h-full mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 flex flex-col justify-end pb-24 sm:pb-28 md:pb-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -136,7 +115,7 @@ export default function Hero() {
           </motion.p>
         </motion.div>
 
-        {/* Bottom row: CTA + showreel hint */}
+        {/* Bottom row: CTA + sound toggle + showreel hint */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -156,9 +135,21 @@ export default function Hero() {
             </span>
           </a>
 
-          <div className="hidden sm:flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-white/60">
-            <span className="h-px w-8 bg-white/30" />
-            <span>Playing showreel</span>
+          <div className="flex items-center gap-3 sm:gap-4">
+            {/* Sound toggle — moved here from top, so header area stays clean */}
+            <button
+              onClick={toggleMute}
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-full border border-white/30 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white/80 hover:bg-white hover:text-black transition-colors duration-300"
+              aria-label={muted ? "Unmute showreel" : "Mute showreel"}
+            >
+              {muted ? <VolumeX size={14} className="sm:hidden" /> : <Volume2 size={14} className="sm:hidden" />}
+              {muted ? <VolumeX size={16} className="hidden sm:block" /> : <Volume2 size={16} className="hidden sm:block" />}
+            </button>
+
+            <div className="hidden sm:flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-white/60">
+              <span className="h-px w-8 bg-white/30" />
+              <span>Playing showreel</span>
+            </div>
           </div>
         </motion.div>
       </div>
