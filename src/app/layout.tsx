@@ -16,7 +16,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CUTTINGEDGER — Creative Studio Agency",
+  title: "CUTTING EDGER — Creative Studio Agency",
   description:
     "A black & white creative studio crafting brands, films, and digital experiences with relentless precision.",
   keywords: [
@@ -24,15 +24,15 @@ export const metadata: Metadata = {
     "branding agency",
     "design studio",
     "monochrome",
-    "CUTTINGEDGER",
+    "CUTTING EDGER",
     "creative agency",
   ],
-  authors: [{ name: "CUTTINGEDGER" }],
+  authors: [{ name: "CUTTING EDGER" }],
   openGraph: {
-    title: "CUTTINGEDGER — Creative Studio Agency",
+    title: "CUTTING EDGER — Creative Studio Agency",
     description:
       "A black & white creative studio crafting brands, films, and digital experiences with relentless precision.",
-    siteName: "CUTTINGEDGER",
+    siteName: "CUTTING EDGER",
     type: "website",
   },
 };

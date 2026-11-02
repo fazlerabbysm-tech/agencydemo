@@ -103,7 +103,7 @@ export default function FAQ() {
                           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                           className="overflow-hidden"
                         >
-                          <p className="pb-6 sm:pb-7 md:pb-8 pl-8 sm:pl-10 md:pl-12 pr-9 sm:pr-12 md:pr-14 text-sm sm:text-base md:text-lg text-black/70 leading-relaxed max-w-2xl">
+                          <p className="pb-6 sm:pb-7 md:pb-8 pl-8 sm:pl-10 md:pl-12 pr-9 sm:pr-12 md:pr-14 text-sm sm:text-base md:text-lg text-white/70 leading-relaxed max-w-2xl">
                             {f.a}
                           </p>
                         </motion.div>

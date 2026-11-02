@@ -568,7 +568,7 @@ function ServiceContent({
               >
                 <span className="h-2.5 w-2.5 bg-white rounded-full transition-transform group-hover:scale-150" />
                 <span className="font-bold tracking-tight text-lg md:text-xl">
-                  CUTTING<span className="font-light">EDGER</span>
+                  CUTTING <span className="font-light">EDGER</span>
                 </span>
               </a>
               <p className="text-white/60 text-sm md:text-base max-w-sm leading-relaxed">
@@ -635,7 +635,7 @@ function ServiceContent({
         {/* Mega wordmark */}
         <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
           <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-white select-none">
-            CUTTINGEDGER
+            CUTTING EDGER
           </div>
         </div>
 

@@ -92,7 +92,7 @@ export default function Navbar({
               onDark ? "text-white" : "text-black"
             }`}
           >
-            CUTTING<span className="font-light">EDGER</span>
+            CUTTING <span className="font-light">EDGER</span>
           </span>
         </a>
 
