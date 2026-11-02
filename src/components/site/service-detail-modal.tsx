@@ -3,16 +3,14 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowLeft,
   ArrowUpRight,
   ArrowRight,
   Plus,
   Calendar,
   FileText,
-  Menu,
-  X,
 } from "lucide-react";
 import { serviceDetails, type ServiceDetail } from "@/data/services";
+import Navbar from "@/components/site/navbar";
 
 interface Props {
   slug: string | null;
@@ -26,8 +24,6 @@ export default function ServiceDetailModal({
   onSwitchService,
 }: Props) {
   const service = serviceDetails.find((s) => s.slug === slug);
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   // Lock body scroll when page is open
   useEffect(() => {
@@ -41,16 +37,6 @@ export default function ServiceDetailModal({
     return () => {
       document.body.style.overflow = "";
     };
-  }, [service]);
-
-  // Track scroll for sticky header style
-  useEffect(() => {
-    if (!service) return;
-    const el = document.getElementById("service-page-scroll");
-    if (!el) return;
-    const onScroll = () => setScrolled(el.scrollTop > 40);
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
   }, [service]);
 
   // ESC to close
@@ -72,93 +58,12 @@ export default function ServiceDetailModal({
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-[100] bg-white"
         >
-          {/* === STICKY HEADER (acts like navbar on a real page) === */}
-          <header
-            className={`absolute top-0 left-0 right-0 z-50 transition-all duration-500 ${
-              scrolled
-                ? "bg-white/90 backdrop-blur-md border-b border-black/10"
-                : "bg-transparent border-b border-transparent"
-            }`}
-          >
-            <nav className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
-              {/* Back + Logo */}
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={onClose}
-                  className="flex items-center gap-2 text-sm font-medium tracking-wide group"
-                >
-                  <span className="h-9 w-9 rounded-full border border-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                    <ArrowLeft size={16} />
-                  </span>
-                  <span className="hidden sm:inline uppercase">Back</span>
-                </button>
-                <a
-                  href="#top"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onClose();
-                  }}
-                  className="flex items-center gap-2 group"
-                >
-                  <span
-                    className={`h-2.5 w-2.5 rounded-full transition-transform group-hover:scale-150 ${
-                      scrolled ? "bg-black" : "bg-black"
-                    }`}
-                  />
-                  <span className="font-bold tracking-tight text-lg md:text-xl">
-                    CUTTING<span className="font-light">EDGER</span>
-                  </span>
-                </a>
-              </div>
-
-              {/* Service name (center, desktop) */}
-              <span className="hidden lg:block font-mono text-[10px] tracking-[0.25em] uppercase text-black/50">
-                {service.no} — {service.name}
-              </span>
-
-              {/* CTA + mobile menu */}
-              <div className="hidden md:flex items-center gap-3">
-                <a
-                  href="#contact-page"
-                  className="group inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 text-sm font-medium tracking-wide uppercase hover:bg-white hover:text-black border border-black transition-colors duration-300"
-                >
-                  Start a project
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
-              </div>
-
-              <button
-                onClick={() => setMenuOpen((v) => !v)}
-                className="md:hidden h-10 w-10 flex items-center justify-center"
-                aria-label="Toggle menu"
-              >
-                {menuOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
-            </nav>
-
-            {/* Mobile dropdown */}
-            <AnimatePresence>
-              {menuOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="md:hidden overflow-hidden bg-white border-t border-black/10"
-                >
-                  <div className="px-5 sm:px-6 py-6 flex flex-col gap-5">
-                    <a
-                      href="#contact-page"
-                      onClick={() => setMenuOpen(false)}
-                      className="inline-flex items-center justify-center gap-2 bg-black text-white px-5 py-3 text-sm font-medium tracking-wide uppercase"
-                    >
-                      Start a project →
-                    </a>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </header>
+          {/* === HOMEPAGE NAVBAR (same as homepage, with back button) === */}
+          <Navbar
+            variant="service"
+            onBack={onClose}
+            scrollContainerId="service-page-scroll"
+          />
 
           {/* === SCROLLABLE PAGE CONTENT === */}
           <motion.div

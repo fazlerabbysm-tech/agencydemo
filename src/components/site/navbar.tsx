@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowLeft } from "lucide-react";
 
 const navLinks = [
   { label: "Work", href: "#work" },
@@ -10,21 +10,54 @@ const navLinks = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  variant?: "home" | "service";
+  onBack?: () => void;
+  scrollContainerId?: string;
+}
+
+export default function Navbar({
+  variant = "home",
+  onBack,
+  scrollContainerId,
+}: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    // For "home" variant, listen to window scroll
+    // For "service" variant, listen to the scroll container
+    if (variant === "home") {
+      const onScroll = () => setScrolled(window.scrollY > 24);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    } else {
+      const el = document.getElementById(scrollContainerId || "service-page-scroll");
+      if (!el) return;
+      const onScroll = () => setScrolled(el.scrollTop > 24);
+      onScroll();
+      el.addEventListener("scroll", onScroll, { passive: true });
+      return () => el.removeEventListener("scroll", onScroll);
+    }
+  }, [variant, scrollContainerId]);
 
-  // When at the very top (hero) the navbar sits on a black background,
-  // so everything flips to white. Once the user scrolls past the hero
-  // (or opens the mobile menu), it switches back to the white/black scheme.
+  // Home: dark when at top (over black hero).
+  // Service: dark when at top (over dark hero image), light when scrolled.
   const onDark = !scrolled && !open;
+
+  const handleNavClick = (href: string) => {
+    setOpen(false);
+    if (variant === "service" && onBack) {
+      // On service page, nav links go back to home then to the section
+      onBack();
+      // Small delay to let the home page render, then scroll
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
 
   return (
     <motion.header
@@ -38,29 +71,58 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
-        {/* Logo — white when at top (over black hero), black when scrolled */}
-        <a href="#top" className="flex items-center gap-2 group">
-          <span
-            className={`h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${
-              onDark ? "bg-white" : "bg-black"
-            }`}
-          />
-          <span
-            className={`font-display font-bold tracking-tight text-base sm:text-lg md:text-xl transition-colors duration-300 ${
-              onDark ? "text-white" : "text-black"
-            }`}
+        {/* Left: Back button (service only) + Logo */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          {variant === "service" && onBack && (
+            <button
+              onClick={onBack}
+              className="flex items-center gap-2 text-sm font-medium tracking-wide group"
+              aria-label="Back to home"
+            >
+              <span className="h-9 w-9 rounded-full border border-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                <ArrowLeft size={16} />
+              </span>
+              <span className="hidden sm:inline uppercase">Back</span>
+            </button>
+          )}
+          <a
+            href="#top"
+            onClick={(e) => {
+              if (variant === "service" && onBack) {
+                e.preventDefault();
+                onBack();
+              }
+            }}
+            className="flex items-center gap-2 group"
           >
-            CUTTING<span className="font-light">EDGER</span>
-          </span>
-        </a>
+            <span
+              className={`h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${
+                onDark ? "bg-white" : "bg-black"
+              }`}
+            />
+            <span
+              className={`font-display font-bold tracking-tight text-base sm:text-lg md:text-xl transition-colors duration-300 ${
+                onDark ? "text-white" : "text-black"
+              }`}
+            >
+              CUTTING<span className="font-light">EDGER</span>
+            </span>
+          </a>
+        </div>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10">
           {navLinks.map((l) => (
             <a
               key={l.href}
-              href={l.href}
-              className={`text-xs lg:text-sm font-medium tracking-wide uppercase relative group transition-colors duration-300 ${
+              href={variant === "service" ? undefined : l.href}
+              onClick={(e) => {
+                if (variant === "service") {
+                  e.preventDefault();
+                  handleNavClick(l.href);
+                }
+              }}
+              className={`text-xs lg:text-sm font-medium tracking-wide uppercase relative group transition-colors duration-300 cursor-pointer ${
                 onDark ? "text-white/90 hover:text-white" : "text-black/80 hover:text-black"
               }`}
             >
@@ -76,8 +138,22 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <a
-            href="#contact"
-            className={`group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 ${
+            href={variant === "service" ? undefined : "#contact"}
+            onClick={(e) => {
+              if (variant === "service") {
+                e.preventDefault();
+                // Scroll to the contact section inside the service page
+                const contactEl = document.getElementById("contact-page");
+                const scrollEl = document.getElementById("service-page-scroll");
+                if (contactEl && scrollEl) {
+                  scrollEl.scrollTo({
+                    top: contactEl.offsetTop - 80,
+                    behavior: "smooth",
+                  });
+                }
+              }
+            }}
+            className={`group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${
               onDark
                 ? "bg-white text-black border-white hover:bg-transparent hover:text-white"
                 : "bg-black text-white border-black hover:bg-white hover:text-black"
@@ -116,15 +192,47 @@ export default function Navbar() {
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    if (variant === "service" && onBack) {
+                      onBack();
+                      setTimeout(() => {
+                        const el = document.querySelector(l.href);
+                        if (el) el.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }
+                  }}
                   className="text-2xl font-display font-medium tracking-tight text-black"
                 >
                   {l.label}
                 </a>
               ))}
+              {variant === "service" && onBack && (
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    onBack();
+                  }}
+                  className="text-2xl font-display font-medium tracking-tight text-black/60 flex items-center gap-2"
+                >
+                  <ArrowLeft size={20} /> Back to home
+                </button>
+              )}
               <a
                 href="#contact"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setOpen(false);
+                  if (variant === "service") {
+                    const contactEl = document.getElementById("contact-page");
+                    const scrollEl = document.getElementById("service-page-scroll");
+                    if (contactEl && scrollEl) {
+                      scrollEl.scrollTo({
+                        top: contactEl.offsetTop - 80,
+                        behavior: "smooth",
+                      });
+                    }
+                  }
+                }}
                 className="mt-2 inline-flex items-center justify-center gap-2 bg-black text-white px-5 py-3 text-sm font-medium tracking-wide uppercase"
               >
                 Start a project →
