@@ -6,28 +6,32 @@ import { ArrowUpRight } from "lucide-react";
 
 const slides = [
   {
-    image: "https://picsum.photos/seed/cuttingedger-hero-1/1920/1080?grayscale",
-    kicker: "01 — Brand Identity",
-    title: "Quiet power,\nloud presence.",
-    subtitle: "Identity system for Maison Voss",
+    image: "https://picsum.photos/seed/cuttingedger-hero-ecommerce/1920/1080",
+    kicker: "01 — E-commerce Catalog Optimization",
+    title: "Catalogs that\nsell themselves.",
+    subtitle:
+      "Studio-grade product imagery and listing systems for digital storefronts",
   },
   {
-    image: "https://picsum.photos/seed/cuttingedger-hero-2/1920/1080?grayscale",
-    kicker: "02 — Art Direction",
-    title: "Shadow as\nthe storyteller.",
-    subtitle: "Cinematic campaign for Atlas Films",
+    image: "https://picsum.photos/seed/cuttingedger-hero-color/1920/1080",
+    kicker: "02 — Color Standardization Protocol",
+    title: "One color,\nevery surface.",
+    subtitle:
+      "Pantone-precise color systems calibrated across screen, print, and product",
   },
   {
-    image: "https://picsum.photos/seed/cuttingedger-hero-3/1920/1080?grayscale",
-    kicker: "03 — Digital Experience",
-    title: "Architecture\nfor the void.",
-    subtitle: "Web experience for Forma Studio",
+    image: "https://picsum.photos/seed/cuttingedger-hero-cgi/1920/1080",
+    kicker: "03 — Virtual Production & CGI Studio",
+    title: "Worlds built\nin pixels.",
+    subtitle:
+      "Real-time virtual sets and photoreal CGI for film, brand, and product",
   },
   {
-    image: "https://picsum.photos/seed/cuttingedger-hero-4/1920/1080?grayscale",
-    kicker: "04 — Motion Design",
-    title: "Movement\nin monochrome.",
-    subtitle: "Title sequence for ECHO Records",
+    image: "https://picsum.photos/seed/cuttingedger-hero-whitelabel/1920/1080",
+    kicker: "04 — White-Label Agency Extension",
+    title: "Your studio,\nour hands.",
+    subtitle:
+      "Embedded production capacity that ships under your brand, not ours",
   },
 ];
 
@@ -66,7 +70,7 @@ export default function Hero() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Background image slider */}
+      {/* Background image slider — full color */}
       <AnimatePresence mode="sync">
         <motion.div
           key={index}
@@ -89,12 +93,12 @@ export default function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Loading skeleton — only shows while first image is pending */}
+      {/* Loading skeleton */}
       {!loaded[0] && (
         <div className="absolute inset-0 bg-neutral-900 animate-pulse" />
       )}
 
-      {/* Dark gradient overlays for legibility */}
+      {/* Dark gradient overlays for legibility (keeps UI B&W while images are color) */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30" />
       <div className="absolute inset-0 bg-black/20" />
 

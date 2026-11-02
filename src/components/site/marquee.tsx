@@ -1,25 +1,25 @@
 "use client";
 
 const brandsTop = [
-  "MAISON VOSS",
-  "ATLAS FILMS",
-  "ECHO RECORDS",
-  "FORMA STUDIO",
-  "NORD ATELIER",
+  "AURORA GOODS",
+  "ECHO MOTORS",
   "MERIDIAN CO",
-  "CIPHER LABS",
-  "OAKLEY & CO",
+  "HARBOR GOODS",
+  "STELLAR HOTEL",
+  "ZENITH PRESS",
+  "NOMAD JNL",
+  "VANTA STUDIO",
 ];
 
 const brandsBottom = [
-  "STELLAR HOTEL",
-  "VOSS AGENCY",
-  "PRISM TYPE",
-  "ZENITH PRESS",
-  "HARBOR GOODS",
+  "AGENCY COLLECTIVE",
   "VECTOR FORM",
-  "NOMAD JNL",
+  "CIPHER LABS",
+  "PRISM TYPE",
+  "OAKLEY & CO",
   "ORBIT KIT",
+  "FORMA STUDIO",
+  "NORD ATELIER",
 ];
 
 export default function BrandMarquee() {
@@ -30,7 +30,7 @@ export default function BrandMarquee() {
     >
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-10 md:mb-14">
         <p className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
-          ✦ Selected collaborators — 2018 / 2026
+          ✦ Trusted by brands & agencies — 2018 / 2026
         </p>
       </div>
 

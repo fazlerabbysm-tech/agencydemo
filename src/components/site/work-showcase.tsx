@@ -5,31 +5,31 @@ import { motion } from "framer-motion";
 const works = [
   {
     no: "01",
-    title: "Maison Voss",
-    cat: "Brand Identity · 2025",
+    title: "Aurora Goods",
+    cat: "Catalog System · 500 SKUs · 2025",
     image:
-      "https://picsum.photos/seed/cuttingedger-work-1/1200/1440?grayscale",
+      "https://picsum.photos/seed/cuttingedger-work-ecommerce/1200/1440",
   },
   {
     no: "02",
-    title: "Atlas — Echoes",
-    cat: "Art Direction · 2025",
+    title: "Maison Noir",
+    cat: "Color Protocol · 12 Touchpoints · 2025",
     image:
-      "https://picsum.photos/seed/cuttingedger-work-2/1200/1440?grayscale",
+      "https://picsum.photos/seed/cuttingedger-work-color/1200/1440",
   },
   {
     no: "03",
-    title: "Forma Studio",
-    cat: "Web Experience · 2024",
+    title: "ECHO Motors",
+    cat: "CGI Launch Film · Zero Shoot · 2024",
     image:
-      "https://picsum.photos/seed/cuttingedger-work-3/1200/1440?grayscale",
+      "https://picsum.photos/seed/cuttingedger-work-cgi/1200/1440",
   },
   {
     no: "04",
-    title: "ECHO Records",
-    cat: "Motion · 2024",
+    title: "Agency Collective",
+    cat: "White-Label · 200+ Assets · 2024",
     image:
-      "https://picsum.photos/seed/cuttingedger-work-4/1200/1440?grayscale",
+      "https://picsum.photos/seed/cuttingedger-work-whitelabel/1200/1440",
   },
 ];
 
@@ -107,7 +107,7 @@ function WorkCard({ work }: { work: (typeof works)[number] }) {
           src={work.image}
           alt={`${work.title} — ${work.cat}`}
           loading="eager"
-          className="h-full w-full object-cover grayscale transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
           }}

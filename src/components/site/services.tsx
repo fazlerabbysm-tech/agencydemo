@@ -8,28 +8,28 @@ const services = [
     title: "E-commerce Catalog Optimization",
     desc: "Studio-grade product imagery, listing architecture, and conversion-driven catalog systems for digital storefronts.",
     image:
-      "https://picsum.photos/seed/cuttingedger-svc-ecommerce/900/1125?grayscale",
+      "https://picsum.photos/seed/cuttingedger-svc-ecommerce/900/1125",
   },
   {
     no: "02",
     title: "Color Standardization Protocol",
     desc: "Precise color systems — Pantone, ICC profiles, and brand palettes calibrated across every screen, print, and surface.",
     image:
-      "https://picsum.photos/seed/cuttingedger-svc-color/900/1125?grayscale",
+      "https://picsum.photos/seed/cuttingedger-svc-color/900/1125",
   },
   {
     no: "03",
     title: "Virtual Production & CGI Studio",
     desc: "Real-time virtual sets, photoreal CGI, and unreal environments built for film, brand, and product worlds.",
     image:
-      "https://picsum.photos/seed/cuttingedger-svc-cgi/900/1125?grayscale",
+      "https://picsum.photos/seed/cuttingedger-svc-cgi/900/1125",
   },
   {
     no: "04",
     title: "White-Label Agency Extension",
     desc: "Embedded production for agencies — design, dev, and motion capacity that ships under your brand, not ours.",
     image:
-      "https://picsum.photos/seed/cuttingedger-svc-whitelabel/900/1125?grayscale",
+      "https://picsum.photos/seed/cuttingedger-svc-whitelabel/900/1125",
   },
 ];
 
@@ -97,7 +97,7 @@ function ServiceCard({
           src={service.image}
           alt={service.title}
           loading="eager"
-          className="h-full w-full object-cover grayscale opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+          className="h-full w-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
           }}

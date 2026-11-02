@@ -15,11 +15,11 @@ const faqs = [
   },
   {
     q: "What does a typical engagement look like?",
-    a: "Ten weeks, four phases: Listen, Define, Design, Deliver. We present three directions, never more, and we defend them. You'll work directly with the people doing the work — no account layer, no junior hand-offs.",
+    a: "Each service runs differently. E-commerce catalogs take 4–6 weeks per 100 SKUs. Color protocols take 2–3 weeks of audit + system design. CGI productions are scoped per scene. White-label runs on monthly retainer. You'll work directly with senior specialists in each — no account layer.",
   },
   {
     q: "How much does a project cost?",
-    a: "Identity systems start at €45,000. Digital experiences and motion work are scoped per engagement after the first conversation. We send a fixed proposal before any contract — no surprises, no hourly billing.",
+    a: "Pricing scales with scope. Catalog optimization is per-SKU, color protocols are flat-rate, CGI is per-scene, and white-label is monthly retainer. We send a fixed proposal after the first call — no hourly billing, no surprises.",
   },
   {
     q: "Do you work with clients remotely?",

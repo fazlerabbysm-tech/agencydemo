@@ -31,9 +31,9 @@ export default function WhatWeDo() {
           >
             <div className="relative aspect-[4/5] sm:aspect-[4/5] w-full overflow-hidden bg-neutral-100 group">
               <img
-                src="https://picsum.photos/seed/cuttingedger-studio/1200/1500?grayscale"
-                alt="Creative studio workspace in monochrome"
-                className="h-full w-full object-cover grayscale transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                src="https://picsum.photos/seed/cuttingedger-studio-work/1200/1500"
+                alt="Creative studio workspace"
+                className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                 loading="lazy"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).style.backgroundColor = "#1a1a1a";
@@ -72,19 +72,19 @@ export default function WhatWeDo() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 sm:mt-10 md:mt-12 text-base sm:text-lg md:text-xl text-black/70 leading-relaxed max-w-2xl"
             >
-              We build brands, films, and digital products with the discipline
-              of a Swiss typographer and the patience of a film editor. Every
-              decision is reduced to its essentials — light, contrast, rhythm —
-              until only the idea remains.
+              We do four things, and we do them better than anyone: optimize
+              e-commerce catalogs, standardize brand color across every surface,
+              build virtual production worlds in CGI, and extend agency capacity
+              under white-label. Four services, one studio, relentless precision.
             </motion.p>
 
             {/* Stats */}
             <div className="mt-10 sm:mt-14 md:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-6 border-t border-black/10 pt-8 sm:pt-10">
               {[
-                { n: "08", l: "Years of practice" },
-                { n: "120+", l: "Projects shipped" },
-                { n: "24", l: "Industry awards" },
-                { n: "∞", l: "Cups of black coffee" },
+                { n: "04", l: "Core services" },
+                { n: "120+", l: "Catalogs optimized" },
+                { n: "24", l: "Color systems deployed" },
+                { n: "60+", l: "CGI worlds built" },
               ].map((s, i) => (
                 <motion.div
                   key={s.l}

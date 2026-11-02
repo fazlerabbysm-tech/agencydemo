@@ -36,7 +36,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="font-display font-bold tracking-[-0.03em] leading-[0.95] text-[10vw] sm:text-[8vw] lg:text-[7vw] max-w-[14ch] mx-auto text-balance break-words"
         >
-          Let&apos;s make something that lasts.
+          Four services. One studio. Let&apos;s begin.
         </motion.h2>
 
         <motion.div

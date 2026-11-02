@@ -67,8 +67,9 @@ export default function Footer() {
                 </span>
               </a>
               <p className="text-white/60 text-sm md:text-base max-w-sm leading-relaxed">
-                A black & white creative studio crafting brands, films, and
-                digital experiences with relentless precision.
+                E-commerce catalogs, color protocols, virtual production & CGI,
+                and white-label agency extension. Four services, one studio,
+                relentless precision.
               </p>
 
               {/* Berlin clock */}
