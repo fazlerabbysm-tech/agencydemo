@@ -1,167 +1,148 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-
-const slides = [
-  {
-    image: "https://picsum.photos/seed/cuttingedger-hero-ecommerce/1920/1080",
-    kicker: "01 — E-commerce Catalog Optimization",
-    title: "Catalogs that\nsell themselves.",
-    subtitle:
-      "Studio-grade product imagery and listing systems for digital storefronts",
-  },
-  {
-    image: "https://picsum.photos/seed/cuttingedger-hero-color/1920/1080",
-    kicker: "02 — Color Standardization Protocol",
-    title: "One color,\nevery surface.",
-    subtitle:
-      "Pantone-precise color systems calibrated across screen, print, and product",
-  },
-  {
-    image: "https://picsum.photos/seed/cuttingedger-hero-cgi/1920/1080",
-    kicker: "03 — Virtual Production & CGI Studio",
-    title: "Worlds built\nin pixels.",
-    subtitle:
-      "Real-time virtual sets and photoreal CGI for film, brand, and product",
-  },
-  {
-    image: "https://picsum.photos/seed/cuttingedger-hero-whitelabel/1920/1080",
-    kicker: "04 — White-Label Agency Extension",
-    title: "Your studio,\nour hands.",
-    subtitle:
-      "Embedded production capacity that ships under your brand, not ours",
-  },
-];
-
-const SLIDE_DURATION = 5000;
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Volume2, VolumeX } from "lucide-react";
 
 export default function Hero() {
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [loaded, setLoaded] = useState<Record<number, boolean>>({});
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const [videoReady, setVideoReady] = useState(false);
 
-  const next = useCallback(
-    () => setIndex((i) => (i + 1) % slides.length),
-    []
-  );
-
-  // Preload all slide images on mount
+  // Ensure video plays (browsers may block autoplay with sound)
   useEffect(() => {
-    slides.forEach((s, i) => {
-      const img = new Image();
-      img.onload = () => setLoaded((p) => ({ ...p, [i]: true }));
-      img.onerror = () => setLoaded((p) => ({ ...p, [i]: false }));
-      img.src = s.image;
-    });
+    const v = videoRef.current;
+    if (!v) return;
+    const tryPlay = () => {
+      v.play().catch(() => {
+        // If autoplay with sound fails, force muted and retry
+        v.muted = true;
+        v.play().catch(() => {});
+      });
+    };
+    if (v.readyState >= 2) tryPlay();
+    else v.addEventListener("loadeddata", tryPlay, { once: true });
+    return () => v.removeEventListener("loadeddata", tryPlay);
   }, []);
 
-  useEffect(() => {
-    if (paused) return;
-    const t = setInterval(next, SLIDE_DURATION);
-    return () => clearInterval(t);
-  }, [next, paused]);
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+    if (!v.muted) v.play().catch(() => {});
+  };
 
   return (
     <section
       id="top"
       className="relative h-[100svh] min-h-[600px] sm:min-h-[640px] w-full overflow-hidden bg-black text-white"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
-      {/* Background image slider — full color */}
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.02 }}
-          transition={{
-            opacity: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
-            scale: { duration: 6, ease: "linear" },
-          }}
-          className="absolute inset-0"
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `url(${slides[index].image})`,
-              backgroundColor: "#0a0a0a",
-            }}
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* Background showreel video — represents all 4 services */}
+      <video
+        ref={videoRef}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+          videoReady ? "opacity-100" : "opacity-0"
+        }`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80&auto=format&fit=crop"
+        onCanPlay={() => setVideoReady(true)}
+        onLoadedData={() => setVideoReady(true)}
+      >
+        {/* Creative production showreel — video editing / post production / studio work */}
+        <source
+          src="https://assets.mixkit.co/videos/4791/4791-1080.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://assets.mixkit.co/videos/4791/4791-720.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://assets.mixkit.co/videos/4789/4789-720.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      {/* Loading skeleton */}
-      {!loaded[0] && (
+      {/* Loading skeleton while video buffers */}
+      {!videoReady && (
         <div className="absolute inset-0 bg-neutral-900 animate-pulse" />
       )}
 
-      {/* Dark gradient overlays for legibility (keeps UI B&W while images are color) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/30" />
+      {/* Dark gradient overlays for legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/40" />
       <div className="absolute inset-0 bg-black/20" />
 
-      {/* Slide indicators (right) */}
-      <div className="absolute right-4 sm:right-6 md:right-10 top-1/2 -translate-y-1/2 z-20 hidden sm:flex flex-col gap-3">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIndex(i)}
-            aria-label={`Slide ${i + 1}`}
-            className="group flex items-center gap-3"
-          >
-            <span
-              className={`text-xs font-mono tabular-nums transition-opacity ${
-                i === index ? "opacity-100" : "opacity-40 group-hover:opacity-80"
-              }`}
-            >
-              0{i + 1}
-            </span>
-            <span className="relative h-px w-10 bg-white/30 overflow-hidden">
-              {i === index && (
-                <motion.span
-                  key={index + "-bar"}
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
-                  className="absolute inset-0 bg-white origin-left"
-                />
-              )}
-            </span>
-          </button>
-        ))}
+      {/* Sound toggle (top-right, below navbar) */}
+      <button
+        onClick={toggleMute}
+        className="absolute right-4 sm:right-6 md:right-10 top-20 md:top-28 z-30 h-10 w-10 sm:h-11 sm:w-11 rounded-full border border-white/30 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white/80 hover:bg-white hover:text-black transition-colors duration-300"
+        aria-label={muted ? "Unmute showreel" : "Mute showreel"}
+      >
+        {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+      </button>
+
+      {/* "Showreel" badge (top-left, below navbar) */}
+      <div className="absolute left-4 sm:left-6 md:left-10 top-20 md:top-28 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/30 bg-black/30 backdrop-blur-sm">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75 animate-ping" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+        </span>
+        <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white/90">
+          Showreel · 2026
+        </span>
       </div>
 
-      {/* Main copy */}
-      <div className="relative z-10 h-full mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 flex flex-col justify-end pb-24 sm:pb-28 md:pb-32 pt-20 md:pt-24">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
+      {/* Main copy — positioned below navbar with safe top padding */}
+      <div className="relative z-10 h-full mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 flex flex-col justify-end pb-24 sm:pb-28 md:pb-32 pt-28 sm:pt-32 md:pt-36">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-5xl"
+        >
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-5xl"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mb-4 sm:mb-6"
           >
-            <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mb-4 sm:mb-6">
-              {slides[index].kicker}
-            </p>
-            <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] xl:text-[8.5rem] break-words">
-              {slides[index].title.split("\n").map((line, i) => (
-                <span key={i} className="block">
-                  {line}
-                </span>
-              ))}
-            </h1>
-            <p className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-lg text-white/70 max-w-md">
-              {slides[index].subtitle}
-            </p>
-          </motion.div>
-        </AnimatePresence>
+            ✦ Studio Showreel — Four Services, One Studio
+          </motion.p>
 
-        {/* Bottom row: CTA + counter */}
-        <div className="mt-8 sm:mt-12 md:mt-16 flex items-end justify-between gap-4 sm:gap-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] xl:text-[8.5rem] break-words"
+          >
+            We build
+            <br />
+            <span className="font-light italic">visual worlds.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-lg text-white/70 max-w-xl"
+          >
+            E-commerce catalogs, color protocols, virtual production & CGI, and
+            white-label agency extension — all under one studio.
+          </motion.p>
+        </motion.div>
+
+        {/* Bottom row: CTA + showreel hint */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 sm:mt-12 md:mt-16 flex items-end justify-between gap-4 sm:gap-6"
+        >
           <a
             href="#services"
             className="group inline-flex items-center gap-2 sm:gap-3 bg-white text-black pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-black hover:text-white border border-white transition-colors duration-300"
@@ -175,13 +156,11 @@ export default function Hero() {
             </span>
           </a>
 
-          <div className="hidden sm:flex items-baseline gap-2 font-mono text-sm tabular-nums text-white/80">
-            <span className="text-3xl md:text-5xl font-display font-light">
-              0{index + 1}
-            </span>
-            <span className="text-white/40">/ 0{slides.length}</span>
+          <div className="hidden sm:flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-white/60">
+            <span className="h-px w-8 bg-white/30" />
+            <span>Playing showreel</span>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll hint */}
