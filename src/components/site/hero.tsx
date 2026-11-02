@@ -62,7 +62,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black text-white"
+      className="relative h-[100svh] min-h-[600px] sm:min-h-[640px] w-full overflow-hidden bg-black text-white"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -99,7 +99,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/20" />
 
       {/* Slide indicators (right) */}
-      <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 z-20 hidden sm:flex flex-col gap-3">
+      <div className="absolute right-4 sm:right-6 md:right-10 top-1/2 -translate-y-1/2 z-20 hidden sm:flex flex-col gap-3">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -130,7 +130,7 @@ export default function Hero() {
       </div>
 
       {/* Main copy */}
-      <div className="relative z-10 h-full mx-auto max-w-[1600px] px-6 md:px-10 flex flex-col justify-end pb-24 md:pb-28">
+      <div className="relative z-10 h-full mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 flex flex-col justify-end pb-20 sm:pb-24 md:pb-28">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -140,33 +140,34 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-5xl"
           >
-            <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mb-6">
+            <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mb-4 sm:mb-6">
               {slides[index].kicker}
             </p>
-            <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] xl:text-[8.5rem]">
+            <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] xl:text-[8.5rem]">
               {slides[index].title.split("\n").map((line, i) => (
                 <span key={i} className="block">
                   {line}
                 </span>
               ))}
             </h1>
-            <p className="mt-6 md:mt-8 text-base md:text-lg text-white/70 max-w-md">
+            <p className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-lg text-white/70 max-w-md">
               {slides[index].subtitle}
             </p>
           </motion.div>
         </AnimatePresence>
 
         {/* Bottom row: CTA + counter */}
-        <div className="mt-12 md:mt-16 flex items-end justify-between gap-6">
+        <div className="mt-8 sm:mt-12 md:mt-16 flex items-end justify-between gap-4 sm:gap-6">
           <a
             href="#services"
-            className="group inline-flex items-center gap-3 bg-white text-black pl-6 pr-2 py-2 rounded-full hover:bg-black hover:text-white border border-white transition-colors duration-300"
+            className="group inline-flex items-center gap-2 sm:gap-3 bg-white text-black pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-black hover:text-white border border-white transition-colors duration-300"
           >
-            <span className="text-sm font-medium tracking-wide uppercase">
+            <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
               Get Started
             </span>
-            <span className="h-10 w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
-              <ArrowUpRight size={18} strokeWidth={2} />
+            <span className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+              <ArrowUpRight size={16} strokeWidth={2} className="sm:hidden" />
+              <ArrowUpRight size={18} strokeWidth={2} className="hidden sm:block" />
             </span>
           </a>
 
@@ -180,14 +181,14 @@ export default function Hero() {
       </div>
 
       {/* Scroll hint */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
-        <span className="text-[10px] font-mono tracking-[0.3em] uppercase">
+      <div className="absolute bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
+        <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.3em] uppercase">
           Scroll
         </span>
         <motion.span
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          className="h-8 w-px bg-white/40"
+          className="h-6 sm:h-8 w-px bg-white/40"
         />
       </div>
     </section>

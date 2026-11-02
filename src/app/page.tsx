@@ -4,7 +4,6 @@ import BrandMarquee from "@/components/site/marquee";
 import WhatWeDo from "@/components/site/what-we-do";
 import Services from "@/components/site/services";
 import WorkShowcase from "@/components/site/work-showcase";
-import Process from "@/components/site/process";
 import FinalCTA from "@/components/site/final-cta";
 import FAQ from "@/components/site/faq";
 import Footer from "@/components/site/footer";
@@ -29,13 +28,10 @@ export default function Home() {
         {/* 05 — Work showcase, 4 image/video cards, rotating with title only */}
         <WorkShowcase />
 
-        {/* 06 — Our process */}
-        <Process />
-
-        {/* 07 — Final call to action, one-line text */}
+        {/* 06 — Final call to action, one-line text */}
         <FinalCTA />
 
-        {/* 08 — FAQ */}
+        {/* 07 — FAQ */}
         <FAQ />
       </main>
       <Footer />

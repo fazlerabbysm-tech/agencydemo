@@ -7,8 +7,8 @@ const footerLinks = [
     title: "Studio",
     items: [
       { label: "About", href: "#about" },
-      { label: "Process", href: "#process" },
       { label: "Work", href: "#work" },
+      { label: "Services", href: "#services" },
       { label: "FAQ", href: "#faq" },
     ],
   },
@@ -56,13 +56,13 @@ export default function Footer() {
     <footer className="bg-black text-white">
       {/* Big footer wordmark */}
       <div className="border-t border-white/10 overflow-hidden">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 pt-16 md:pt-24 pb-10">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+        <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-10">
+          <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
             {/* Brand + tagline */}
-            <div className="md:col-span-5">
-              <a href="#top" className="flex items-center gap-2 group mb-6">
+            <div className="col-span-2 md:col-span-5">
+              <a href="#top" className="flex items-center gap-2 group mb-5 md:mb-6">
                 <span className="h-2.5 w-2.5 bg-white rounded-full transition-transform group-hover:scale-150" />
-                <span className="font-display font-bold tracking-tight text-xl">
+                <span className="font-display font-bold tracking-tight text-lg md:text-xl">
                   CUTTING<span className="font-light">EDGER</span>
                 </span>
               </a>
@@ -72,7 +72,7 @@ export default function Footer() {
               </p>
 
               {/* Berlin clock */}
-              <div className="mt-10 flex items-center gap-3 text-white/70 font-mono text-xs tracking-[0.2em] uppercase">
+              <div className="mt-8 md:mt-10 flex items-center gap-3 text-white/70 font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
                 Berlin · {time || "—"}
               </div>
@@ -81,10 +81,10 @@ export default function Footer() {
             {/* Link columns */}
             {footerLinks.map((col) => (
               <div key={col.title} className="md:col-span-2">
-                <p className="font-mono text-[11px] tracking-[0.25em] uppercase text-white/40 mb-5">
+                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
                   {col.title}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {col.items.map((item) => (
                     <li key={item.label}>
                       <a
@@ -106,17 +106,17 @@ export default function Footer() {
         </div>
 
         {/* Mega wordmark */}
-        <div className="px-6 md:px-10 pb-8">
-          <div className="font-display font-bold tracking-[-0.04em] leading-none text-[18vw] md:text-[14vw] lg:text-[13vw] text-white select-none">
+        <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
+          <div className="font-display font-bold tracking-[-0.04em] leading-none text-[16vw] md:text-[14vw] lg:text-[13vw] text-white select-none">
             CUTTINGEDGER
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-white/10">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs font-mono tracking-[0.15em] uppercase text-white/40">
+          <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
             <span>© 2026 Cuttingedger GmbH — Berlin</span>
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-4 sm:gap-6">
               <a href="#" className="hover:text-white transition-colors">
                 Privacy
               </a>
