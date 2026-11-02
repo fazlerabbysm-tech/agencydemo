@@ -4,7 +4,6 @@ import { useState } from "react";
 import Navbar from "@/components/site/navbar";
 import Hero from "@/components/site/hero";
 import BrandMarquee from "@/components/site/marquee";
-import WhatWeDo from "@/components/site/what-we-do";
 import Services from "@/components/site/services";
 import WorkShowcase from "@/components/site/work-showcase";
 import FinalCTA from "@/components/site/final-cta";
@@ -21,25 +20,22 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white text-black">
       <Navbar />
       <main className="flex-1">
-        {/* 01 — Hero with showreel video + Get Started CTA */}
+        {/* 01 — Hero with 3-image slider */}
         <Hero />
 
         {/* 02 — Brand marquee, 2 lines, anti-clockwise rotation */}
         <BrandMarquee />
 
-        {/* 03 — "What can we do for you?" with visual image */}
-        <WhatWeDo />
-
-        {/* 04 — "WHAT CAN WE HELP YOU WITH" — click to open service detail */}
+        {/* 03 — "WHAT CAN WE HELP YOU WITH" — click to open service detail */}
         <Services onServiceClick={(slug) => setActiveService(slug)} />
 
-        {/* 05 — Work showcase — click to open portfolio detail */}
+        {/* 04 — Work showcase — click to open portfolio detail */}
         <WorkShowcase onWorkClick={(slug) => setActivePortfolio(slug)} />
 
-        {/* 06 — Final call to action, one-line text */}
+        {/* 05 — Final call to action, one-line text */}
         <FinalCTA />
 
-        {/* 07 — FAQ */}
+        {/* 06 — FAQ */}
         <FAQ />
       </main>
       <Footer />

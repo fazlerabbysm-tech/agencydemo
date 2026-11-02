@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Plus,
   Calendar,
-  FileText,
 } from "lucide-react";
 import { serviceDetails, type ServiceDetail } from "@/data/services";
 import Navbar from "@/components/site/navbar";
@@ -298,45 +297,6 @@ function ServiceContent({
                 loading="eager"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ DELIVERABLES + SCOPE ============ */}
-      <section className="bg-black text-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900">
-              <img
-                src={service.deliverablesImage}
-                alt="Deliverables"
-                className="h-full w-full object-cover"
-                loading="eager"
-              />
-            </div>
-            <div>
-              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
-                {service.deliverablesTitle}
-              </span>
-              <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl">
-                {service.deliverablesStarting}
-              </h2>
-              <p className="mt-6 text-base md:text-lg text-white/70 leading-relaxed">
-                {service.deliverablesScope}
-              </p>
-              <a
-                href="#contact"
-                onClick={onClose}
-                className="mt-8 inline-flex items-center gap-3 bg-white text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-white border border-white transition-colors duration-300"
-              >
-                <span className="text-sm font-medium tracking-wide uppercase">
-                  Request a proposal
-                </span>
-                <span className="h-10 w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
-                  <FileText size={16} />
-                </span>
-              </a>
             </div>
           </div>
         </div>

@@ -45,15 +45,15 @@ export default function WorkShowcase({ onWorkClick }: Props) {
   return (
     <section
       id="work"
-      className="relative bg-black text-white py-8 sm:py-12 md:py-14 lg:py-16 overflow-hidden"
+      className="relative bg-white text-black py-8 sm:py-12 md:py-14 lg:py-16 overflow-hidden border-t border-black/10"
     >
       {/* Header */}
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-8 md:mb-10">
         <div className="flex items-center justify-between mb-4 sm:mb-6">
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
             ( 05 ) — Selected Work
           </span>
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
+          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50 hidden sm:block">
             Click a project to explore · Auto-rotating
           </span>
         </div>
@@ -74,8 +74,8 @@ export default function WorkShowcase({ onWorkClick }: Props) {
       {/* Auto-rotating carousel — moves RIGHT (opposite direction to services) */}
       <div className="marquee-pause relative">
         {/* Edge fades */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-r from-black to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-l from-black to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
         <div className="flex w-max marquee-track-right-slow items-center gap-3 sm:gap-4 md:gap-6 px-2 sm:px-3 md:px-5">
           {loop.map((w, i) => (
@@ -86,13 +86,13 @@ export default function WorkShowcase({ onWorkClick }: Props) {
 
       {/* Bottom CTA */}
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mt-6 sm:mt-8 md:mt-10 flex flex-wrap items-end justify-between gap-4 sm:gap-6">
-        <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-md">
+        <p className="text-black/60 text-xs sm:text-sm md:text-base max-w-md">
           A complete archive lives in our studio. Below is what fit on a single
           strip of 35mm.
         </p>
         <a
           href="#contact"
-          className="group inline-flex items-center gap-3 border border-white/30 hover:bg-white hover:text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+          className="group inline-flex items-center gap-3 border border-black/30 hover:bg-black hover:text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
         >
           View full archive
           <span className="transition-transform duration-300 group-hover:translate-x-1">

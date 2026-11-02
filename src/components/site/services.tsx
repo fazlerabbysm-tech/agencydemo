@@ -45,15 +45,15 @@ export default function Services({ onServiceClick }: Props) {
   return (
     <section
       id="services"
-      className="relative bg-white text-black py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden border-t border-black/10"
+      className="relative bg-black text-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden border-t border-white/10"
     >
       {/* Header */}
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-8 sm:mb-10 md:mb-12">
         <div className="flex items-center justify-between mb-4 sm:mb-6">
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
             ( 04 ) — Capabilities
           </span>
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50 hidden sm:block">
+          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
             Click a service to explore · Auto-rotating
           </span>
         </div>
@@ -74,8 +74,8 @@ export default function Services({ onServiceClick }: Props) {
       {/* Auto-rotating service cards marquee */}
       <div className="marquee-pause relative">
         {/* Edge fades */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-r from-black to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-l from-black to-transparent z-10" />
 
         <div className="flex w-max marquee-track-left-slow">
           {loop.map((s, i) => (
