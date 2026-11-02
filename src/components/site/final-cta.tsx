@@ -7,14 +7,14 @@ export default function FinalCTA() {
   return (
     <section
       id="contact"
-      className="relative bg-black text-white py-20 sm:py-32 md:py-48 overflow-hidden"
+      className="relative bg-white text-black py-20 sm:py-32 md:py-48 overflow-hidden border-t border-black/10"
     >
-      {/* Subtle radial spotlight */}
+      {/* Subtle dark radial spotlight on white */}
       <div
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0 opacity-50"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 60%)",
+            "radial-gradient(circle at 50% 50%, rgba(0,0,0,0.04), transparent 60%)",
         }}
       />
 
@@ -24,7 +24,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-white/50 mb-8 sm:mb-10 md:mb-14"
+          className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-black/50 mb-8 sm:mb-10 md:mb-14"
         >
           ✦ Ready when you are
         </motion.p>
@@ -34,7 +34,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-bold tracking-[-0.03em] leading-[0.95] text-[11vw] sm:text-[8vw] lg:text-[7vw] max-w-[14ch] mx-auto text-balance"
+          className="font-display font-bold tracking-[-0.03em] leading-[0.95] text-[10vw] sm:text-[8vw] lg:text-[7vw] max-w-[14ch] mx-auto text-balance break-words"
         >
           Let&apos;s make something that lasts.
         </motion.h2>
@@ -48,12 +48,12 @@ export default function FinalCTA() {
         >
           <a
             href="mailto:hello@cuttingedger.co"
-            className="group inline-flex items-center gap-3 bg-white text-black pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-white border border-white transition-colors duration-300"
+            className="group inline-flex items-center gap-3 bg-black text-white pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300"
           >
             <span className="text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
               Start a project
             </span>
-            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-white text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
               <ArrowUpRight size={16} strokeWidth={2} className="sm:hidden" />
               <ArrowUpRight size={20} strokeWidth={2} className="hidden sm:block" />
             </span>
@@ -61,7 +61,7 @@ export default function FinalCTA() {
 
           <a
             href="mailto:hello@cuttingedger.co"
-            className="font-mono text-xs sm:text-sm tracking-wide text-white/70 hover:text-white transition-colors underline underline-offset-4 decoration-white/30"
+            className="font-mono text-xs sm:text-sm tracking-wide text-black/60 hover:text-black transition-colors underline underline-offset-4 decoration-black/30"
           >
             hello@cuttingedger.co
           </a>

@@ -58,7 +58,7 @@ export default function WorkShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[12vw] sm:text-[9vw] lg:text-[6.5vw]"
+          className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[9vw] lg:text-[6.5vw] break-words"
         >
           Recent
           <br />

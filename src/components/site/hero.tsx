@@ -143,7 +143,7 @@ export default function Hero() {
             <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mb-4 sm:mb-6">
               {slides[index].kicker}
             </p>
-            <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] xl:text-[8.5rem]">
+            <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[10vw] md:text-[8vw] lg:text-[7.5rem] xl:text-[8.5rem] break-words">
               {slides[index].title.split("\n").map((line, i) => (
                 <span key={i} className="block">
                   {line}

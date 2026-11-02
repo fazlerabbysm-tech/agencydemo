@@ -107,7 +107,7 @@ export default function Footer() {
 
         {/* Mega wordmark */}
         <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
-          <div className="font-display font-bold tracking-[-0.04em] leading-none text-[16vw] md:text-[14vw] lg:text-[13vw] text-white select-none">
+          <div className="font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-white select-none">
             CUTTINGEDGER
           </div>
         </div>
