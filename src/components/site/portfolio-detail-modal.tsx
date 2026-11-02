@@ -11,6 +11,7 @@ interface Props {
   onClose: () => void;
   onSwitchProject: (slug: string) => void;
   onOpenService: (slug: string) => void;
+  onOpenCaseStudy: (slug: string) => void;
 }
 
 export default function PortfolioDetailModal({
@@ -18,6 +19,7 @@ export default function PortfolioDetailModal({
   onClose,
   onSwitchProject,
   onOpenService,
+  onOpenCaseStudy,
 }: Props) {
   const project = portfolioDetails.find((p) => p.slug === slug);
 
@@ -75,6 +77,7 @@ export default function PortfolioDetailModal({
               project={project}
               onSwitchProject={onSwitchProject}
               onOpenService={onOpenService}
+              onOpenCaseStudy={onOpenCaseStudy}
               onClose={onClose}
             />
           </motion.div>
@@ -88,11 +91,13 @@ function PortfolioContent({
   project,
   onSwitchProject,
   onOpenService,
+  onOpenCaseStudy,
   onClose,
 }: {
   project: PortfolioDetail;
   onSwitchProject: (slug: string) => void;
   onOpenService: (slug: string) => void;
+  onOpenCaseStudy: (slug: string) => void;
   onClose: () => void;
 }) {
   const otherProjects = portfolioDetails.filter((p) => p.slug !== project.slug);
@@ -273,13 +278,13 @@ function PortfolioContent({
               </div>
             ))}
           </div>
-          <a
-            href="#contact-portfolio"
+          <button
+            onClick={() => onOpenCaseStudy(project.slug)}
             className="mt-10 inline-flex items-center gap-3 border border-white/30 hover:bg-white hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
           >
             Read the full case study
             <ArrowRight size={16} />
-          </a>
+          </button>
         </div>
       </section>
 

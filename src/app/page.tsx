@@ -11,10 +11,12 @@ import FAQ from "@/components/site/faq";
 import Footer from "@/components/site/footer";
 import ServiceDetailModal from "@/components/site/service-detail-modal";
 import PortfolioDetailModal from "@/components/site/portfolio-detail-modal";
+import CaseStudyModal from "@/components/site/casestudy-detail-modal";
 
 export default function Home() {
   const [activeService, setActiveService] = useState<string | null>(null);
   const [activePortfolio, setActivePortfolio] = useState<string | null>(null);
+  const [activeCaseStudy, setActiveCaseStudy] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-black">
@@ -54,6 +56,21 @@ export default function Home() {
         onSwitchProject={(slug) => setActivePortfolio(slug)}
         onOpenService={(slug) => {
           setActivePortfolio(null);
+          setActiveService(slug);
+        }}
+        onOpenCaseStudy={(slug) => {
+          setActivePortfolio(null);
+          setActiveCaseStudy(slug);
+        }}
+      />
+
+      {/* Case study detail page — opens when "Read the full case study" is clicked */}
+      <CaseStudyModal
+        slug={activeCaseStudy}
+        onClose={() => setActiveCaseStudy(null)}
+        onSwitchCaseStudy={(slug) => setActiveCaseStudy(slug)}
+        onOpenService={(slug) => {
+          setActiveCaseStudy(null);
           setActiveService(slug);
         }}
       />
