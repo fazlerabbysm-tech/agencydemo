@@ -26,10 +26,10 @@ export default function BrandMarquee() {
   return (
     <section
       aria-label="Trusted by"
-      className="bg-black text-white py-10 sm:py-14 md:py-20 overflow-hidden border-y border-white/10"
+      className="bg-white text-black py-10 sm:py-14 md:py-20 overflow-hidden border-y border-black/10"
     >
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-10 md:mb-14">
-        <p className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+        <p className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
           ✦ Trusted by brands & agencies — 2018 / 2026
         </p>
       </div>
@@ -69,13 +69,13 @@ function BrandItem({
       <span
         className={`font-display font-semibold tracking-tight text-[8vw] sm:text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-none px-5 sm:px-8 md:px-12 ${
           variant === "outline"
-            ? "text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.55)]"
-            : "text-white"
+            ? "text-transparent [-webkit-text-stroke:1px_rgba(0,0,0,0.55)]"
+            : "text-black"
         }`}
       >
         {name}
       </span>
-      <span className="text-white/40 text-xl sm:text-2xl md:text-3xl">✦</span>
+      <span className="text-black/40 text-xl sm:text-2xl md:text-3xl">✦</span>
     </span>
   );
 }

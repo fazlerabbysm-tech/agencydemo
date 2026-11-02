@@ -7,15 +7,15 @@ export default function WhatWeDo() {
   return (
     <section
       id="about"
-      className="relative bg-white text-black py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-black text-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
     >
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10">
         {/* Section label */}
         <div className="flex items-center justify-between mb-6 sm:mb-8 md:mb-10">
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
             ( 03 ) — Approach
           </span>
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50 hidden sm:block">
+          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
             Monochrome by design
           </span>
         </div>
@@ -39,7 +39,7 @@ export default function WhatWeDo() {
                   (e.currentTarget as HTMLImageElement).style.backgroundColor = "#1a1a1a";
                 }}
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
               <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 flex items-end justify-between">
                 <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-white/90 bg-black/40 backdrop-blur-sm px-2 sm:px-2.5 py-1">
                   Studio · 2026
@@ -70,7 +70,7 @@ export default function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-5 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-lg text-black/70 leading-relaxed max-w-2xl"
+              className="mt-5 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-lg text-white/70 leading-relaxed max-w-2xl"
             >
               We do four things, and we do them better than anyone: optimize
               e-commerce catalogs, standardize brand color across every surface,
@@ -79,7 +79,7 @@ export default function WhatWeDo() {
             </motion.p>
 
             {/* Stats */}
-            <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 border-t border-black/10 pt-6 sm:pt-8">
+            <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 border-t border-white/10 pt-6 sm:pt-8">
               {[
                 { n: "04", l: "Core services" },
                 { n: "120+", l: "Catalogs optimized" },
@@ -100,7 +100,7 @@ export default function WhatWeDo() {
                   <div className="font-display font-light text-3xl sm:text-4xl md:text-5xl tracking-tight">
                     {s.n}
                   </div>
-                  <div className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-black/60 uppercase tracking-wide">
+                  <div className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-white/60 uppercase tracking-wide">
                     {s.l}
                   </div>
                 </motion.div>
@@ -113,7 +113,7 @@ export default function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 sm:mt-10 md:mt-12 group inline-flex items-center gap-3 text-sm sm:text-base font-medium border-b border-black pb-1 hover:gap-5 transition-all duration-300"
+              className="mt-8 sm:mt-10 md:mt-12 group inline-flex items-center gap-3 text-sm sm:text-base font-medium border-b border-white pb-1 hover:gap-5 transition-all duration-300"
             >
               Tell us about your project
               <ArrowUpRight

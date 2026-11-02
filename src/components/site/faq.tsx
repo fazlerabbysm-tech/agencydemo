@@ -37,15 +37,15 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative bg-white text-black py-20 sm:py-24 md:py-36 border-t border-black/10"
+      className="relative bg-black text-white py-20 sm:py-24 md:py-36 border-t border-white/10"
     >
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10">
         {/* Header */}
         <div className="flex items-center justify-between mb-10 sm:mb-12 md:mb-20">
-          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
             ( 06 ) — Questions
           </span>
-          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50 hidden sm:block">
+          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
             Still curious? Write to us.
           </span>
         </div>
@@ -68,25 +68,25 @@ export default function FAQ() {
 
           {/* Right: accordion */}
           <div className="lg:col-span-7">
-            <div className="border-t border-black/15">
+            <div className="border-t border-white/15">
               {faqs.map((f, i) => {
                 const isOpen = open === i;
                 return (
-                  <div key={i} className="border-b border-black/15">
+                  <div key={i} className="border-b border-white/15">
                     <button
                       onClick={() => setOpen(isOpen ? null : i)}
                       className="w-full py-5 sm:py-6 md:py-7 flex items-center gap-3 sm:gap-5 md:gap-6 text-left group"
                       aria-expanded={isOpen}
                     >
-                      <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-black/40 tabular-nums shrink-0">
+                      <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/40 tabular-nums shrink-0">
                         0{i + 1}
                       </span>
                       <span className="flex-1 font-display font-medium text-base sm:text-lg md:text-2xl tracking-tight group-hover:translate-x-1 transition-transform duration-300">
                         {f.q}
                       </span>
                       <span
-                        className={`shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-black/30 flex items-center justify-center transition-all duration-300 ${
-                          isOpen ? "bg-black text-white rotate-45" : ""
+                        className={`shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${
+                          isOpen ? "bg-white text-black rotate-45" : ""
                         }`}
                       >
                         <Plus size={14} strokeWidth={2} className="sm:hidden" />
