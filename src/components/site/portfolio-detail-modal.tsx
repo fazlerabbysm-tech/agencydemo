@@ -212,44 +212,42 @@ function PortfolioContent({
           </h2>
 
           <div className="space-y-6 md:space-y-8">
-            {project.gallery.map((img, i) => (
-              <div key={i}>
-                {/* Mid-gallery strip after the 3rd image */}
-                {i === 3 && (
-                  <div className="my-10 md:my-12 bg-black text-white py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p className="font-display font-bold text-xl md:text-2xl tracking-tight">
-                      Like this? Let&apos;s talk.
-                    </p>
-                    <a
-                      href="#contact-portfolio"
-                      className="group inline-flex items-center gap-3 bg-white text-black pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-white border border-white transition-colors duration-300"
-                    >
-                      <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
-                        Start a project
-                      </span>
-                      <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
-                        <ArrowUpRight size={14} />
-                      </span>
-                    </a>
-                  </div>
-                )}
-                <figure>
-                  <div className="relative aspect-[16/9] overflow-hidden bg-neutral-100">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      width={1344}
-                      height={768}
-                      loading={i < 2 ? "eager" : "lazy"}
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
-                    />
-                  </div>
-                  <figcaption className="mt-3 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-black/50">
-                    {img.caption}
-                  </figcaption>
-                </figure>
-              </div>
+            {/* Show only the first 3 images, then the "Like this? Let's talk" strip, then stop */}
+            {project.gallery.slice(0, 3).map((img, i) => (
+              <figure key={i}>
+                <div className="relative aspect-[16/9] overflow-hidden bg-neutral-100">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    width={1344}
+                    height={768}
+                    loading={i < 2 ? "eager" : "lazy"}
+                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-black/50">
+                  {img.caption}
+                </figcaption>
+              </figure>
             ))}
+          </div>
+
+          {/* Mid-gallery strip: "Like this? Let's talk" — gallery ends here, no more images after */}
+          <div className="my-10 md:my-12 bg-black text-white py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="font-display font-bold text-xl md:text-2xl tracking-tight">
+              Like this? Let&apos;s talk.
+            </p>
+            <a
+              href="#contact-portfolio"
+              className="group inline-flex items-center gap-3 bg-white text-black pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-white border border-white transition-colors duration-300"
+            >
+              <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
+                Start a project
+              </span>
+              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+                <ArrowUpRight size={14} />
+              </span>
+            </a>
           </div>
         </div>
       </section>
