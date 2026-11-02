@@ -1,0 +1,48 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# build
+build/
+dist/
+
+# logs
+*.log
+dev.log
+server.log
+
+# env
+.env
+.env*.local
+
+# database
+db/
+*.db
+*.db-journal
+
+# sandbox runtime / scaffolding
+.zscripts/
+.sandbox/
+mini-services/
+tests/
+examples/
+download/
+skills/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# misc
+*.tsbuildinfo
+.vercel

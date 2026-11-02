@@ -1,0 +1,138 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
+
+const faqs = [
+  {
+    q: "What kind of work do you take on?",
+    a: "Brand identity systems, art direction, digital experiences, motion design, and editorial. We take on roughly twelve projects a year — small enough to know every client by name, large enough to staff a senior team on every brief.",
+  },
+  {
+    q: "Why black and white only?",
+    a: "Constraint is a feature. Working in monochrome forces every decision through the same filter — hierarchy, contrast, rhythm — and exposes anything that isn't earning its place. Colour, when we do reach for it, lands harder because of what came before.",
+  },
+  {
+    q: "What does a typical engagement look like?",
+    a: "Ten weeks, four phases: Listen, Define, Design, Deliver. We present three directions, never more, and we defend them. You'll work directly with the people doing the work — no account layer, no junior hand-offs.",
+  },
+  {
+    q: "How much does a project cost?",
+    a: "Identity systems start at €45,000. Digital experiences and motion work are scoped per engagement after the first conversation. We send a fixed proposal before any contract — no surprises, no hourly billing.",
+  },
+  {
+    q: "Do you work with clients remotely?",
+    a: "Yes. About half of our clients are remote. We meet in person for the kickoff and the final presentation, and work synchronously over video for everything in between. Our studio is in Berlin; clients are everywhere.",
+  },
+  {
+    q: "Can we see a full case study before reaching out?",
+    a: "Of course. The site shows a curated four. Write to us with a sentence about your project and we'll send a tailored deck — including work under NDA we can't publish here.",
+  },
+];
+
+export default function FAQ() {
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <section
+      id="faq"
+      className="relative bg-white text-black py-24 md:py-36 border-t border-black/10"
+    >
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-12 md:mb-20">
+          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+            ( 07 ) — Questions
+          </span>
+          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50 hidden sm:block">
+            Still curious? Write to us.
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          {/* Left: heading */}
+          <div className="lg:col-span-5">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[12vw] sm:text-[8vw] lg:text-[5.5vw] lg:sticky lg:top-28"
+            >
+              Frequent
+              <br />
+              <span className="font-light italic">questions.</span>
+            </motion.h2>
+          </div>
+
+          {/* Right: accordion */}
+          <div className="lg:col-span-7">
+            <div className="border-t border-black/15">
+              {faqs.map((f, i) => {
+                const isOpen = open === i;
+                return (
+                  <div key={i} className="border-b border-black/15">
+                    <button
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      className="w-full py-6 md:py-7 flex items-center gap-6 text-left group"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="font-mono text-xs tracking-[0.2em] text-black/40 tabular-nums shrink-0">
+                        0{i + 1}
+                      </span>
+                      <span className="flex-1 font-display font-medium text-xl md:text-2xl tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                        {f.q}
+                      </span>
+                      <span
+                        className={`shrink-0 h-9 w-9 rounded-full border border-black/30 flex items-center justify-center transition-all duration-300 ${
+                          isOpen ? "bg-black text-white rotate-45" : ""
+                        }`}
+                      >
+                        <Plus size={16} strokeWidth={2} />
+                      </span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <p className="pb-7 md:pb-8 pl-10 md:pl-12 pr-12 md:pr-14 text-base md:text-lg text-black/70 leading-relaxed max-w-2xl">
+                            {f.a}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Contact nudge */}
+            <div className="mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-6 md:p-8 bg-black text-white">
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.25em] uppercase text-white/50">
+                  Didn&apos;t find it?
+                </p>
+                <p className="mt-2 font-display text-xl md:text-2xl tracking-tight">
+                  Write to us directly.
+                </p>
+              </div>
+              <a
+                href="mailto:hello@cuttingedger.co"
+                className="inline-flex items-center gap-2 border border-white/40 hover:bg-white hover:text-black px-5 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+              >
+                hello@cuttingedger.co →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
