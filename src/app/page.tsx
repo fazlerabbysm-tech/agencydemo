@@ -11,9 +11,11 @@ import FinalCTA from "@/components/site/final-cta";
 import FAQ from "@/components/site/faq";
 import Footer from "@/components/site/footer";
 import ServiceDetailModal from "@/components/site/service-detail-modal";
+import PortfolioDetailModal from "@/components/site/portfolio-detail-modal";
 
 export default function Home() {
   const [activeService, setActiveService] = useState<string | null>(null);
+  const [activePortfolio, setActivePortfolio] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-black">
@@ -31,8 +33,8 @@ export default function Home() {
         {/* 04 — "WHAT CAN WE HELP YOU WITH" — click to open service detail */}
         <Services onServiceClick={(slug) => setActiveService(slug)} />
 
-        {/* 05 — Work showcase, 4 image cards, rotating */}
-        <WorkShowcase />
+        {/* 05 — Work showcase — click to open portfolio detail */}
+        <WorkShowcase onWorkClick={(slug) => setActivePortfolio(slug)} />
 
         {/* 06 — Final call to action, one-line text */}
         <FinalCTA />
@@ -42,11 +44,22 @@ export default function Home() {
       </main>
       <Footer />
 
-      {/* Service detail modal — opens when a service card is clicked */}
+      {/* Service detail page — opens when a service card is clicked */}
       <ServiceDetailModal
         slug={activeService}
         onClose={() => setActiveService(null)}
         onSwitchService={(slug) => setActiveService(slug)}
+      />
+
+      {/* Portfolio detail page — opens when a work card is clicked */}
+      <PortfolioDetailModal
+        slug={activePortfolio}
+        onClose={() => setActivePortfolio(null)}
+        onSwitchProject={(slug) => setActivePortfolio(slug)}
+        onOpenService={(slug) => {
+          setActivePortfolio(null);
+          setActiveService(slug);
+        }}
       />
     </div>
   );

@@ -1,35 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const works = [
   {
     no: "01",
+    slug: "aurora-goods",
     title: "Aurora Goods",
     cat: "Catalog System · 500 SKUs · 2025",
     image: "/images/work-ecommerce.jpg",
   },
   {
     no: "02",
+    slug: "maison-noir",
     title: "Maison Noir",
     cat: "Color Protocol · 12 Touchpoints · 2025",
     image: "/images/work-color.jpg",
   },
   {
     no: "03",
+    slug: "echo-motors",
     title: "ECHO Motors",
     cat: "CGI Launch Film · Zero Shoot · 2024",
     image: "/images/work-cgi.jpg",
   },
   {
     no: "04",
+    slug: "agency-collective",
     title: "Agency Collective",
     cat: "White-Label · 200+ Assets · 2024",
     image: "/images/work-whitelabel.jpg",
   },
 ];
 
-export default function WorkShowcase() {
+interface Props {
+  onWorkClick?: (slug: string) => void;
+}
+
+export default function WorkShowcase({ onWorkClick }: Props) {
   // Triple for a longer seamless loop
   const loop = [...works, ...works, ...works];
 
@@ -45,7 +54,7 @@ export default function WorkShowcase() {
             ( 05 ) — Selected Work
           </span>
           <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
-            04 featured · Auto-rotating
+            Click a project to explore · Auto-rotating
           </span>
         </div>
 
@@ -70,7 +79,7 @@ export default function WorkShowcase() {
 
         <div className="flex w-max marquee-track-right-slow items-center gap-3 sm:gap-4 md:gap-6 px-2 sm:px-3 md:px-5">
           {loop.map((w, i) => (
-            <WorkCard key={i} work={w} />
+            <WorkCard key={i} work={w} onClick={onWorkClick} />
           ))}
         </div>
       </div>
@@ -95,9 +104,18 @@ export default function WorkShowcase() {
   );
 }
 
-function WorkCard({ work }: { work: (typeof works)[number] }) {
+function WorkCard({
+  work,
+  onClick,
+}: {
+  work: (typeof works)[number];
+  onClick?: (slug: string) => void;
+}) {
   return (
-    <article className="group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px]">
+    <article
+      className="group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px] cursor-pointer"
+      onClick={() => onClick?.(work.slug)}
+    >
       <div className="relative aspect-[5/6] md:aspect-[5/6] overflow-hidden bg-neutral-900">
         <img
           src={work.image}
@@ -157,6 +175,13 @@ function WorkCard({ work }: { work: (typeof works)[number] }) {
           <p className="mt-1.5 sm:mt-2 md:mt-3 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/60">
             {work.cat}
           </p>
+          <div className="mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
+            <span>View project</span>
+            <ArrowRight
+              size={12}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </div>
         </div>
       </div>
     </article>
