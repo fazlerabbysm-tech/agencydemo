@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowLeft } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Work", href: "#work" },
@@ -71,44 +71,30 @@ export default function Navbar({
       }`}
     >
       <nav className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
-        {/* Left: Back button (service only) + Logo */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          {variant === "service" && onBack && (
-            <button
-              onClick={onBack}
-              className="flex items-center gap-2 text-sm font-medium tracking-wide group"
-              aria-label="Back to home"
-            >
-              <span className="h-9 w-9 rounded-full border border-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                <ArrowLeft size={16} />
-              </span>
-              <span className="hidden sm:inline uppercase">Back</span>
-            </button>
-          )}
-          <a
-            href="#top"
-            onClick={(e) => {
-              if (variant === "service" && onBack) {
-                e.preventDefault();
-                onBack();
-              }
-            }}
-            className="flex items-center gap-2 group"
+        {/* Logo */}
+        <a
+          href="#top"
+          onClick={(e) => {
+            if (variant === "service" && onBack) {
+              e.preventDefault();
+              onBack();
+            }
+          }}
+          className="flex items-center gap-2 group"
+        >
+          <span
+            className={`h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${
+              onDark ? "bg-white" : "bg-black"
+            }`}
+          />
+          <span
+            className={`font-display font-bold tracking-tight text-base sm:text-lg md:text-xl transition-colors duration-300 ${
+              onDark ? "text-white" : "text-black"
+            }`}
           >
-            <span
-              className={`h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${
-                onDark ? "bg-white" : "bg-black"
-              }`}
-            />
-            <span
-              className={`font-display font-bold tracking-tight text-base sm:text-lg md:text-xl transition-colors duration-300 ${
-                onDark ? "text-white" : "text-black"
-              }`}
-            >
-              CUTTING<span className="font-light">EDGER</span>
-            </span>
-          </a>
-        </div>
+            CUTTING<span className="font-light">EDGER</span>
+          </span>
+        </a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10">
@@ -207,17 +193,6 @@ export default function Navbar({
                   {l.label}
                 </a>
               ))}
-              {variant === "service" && onBack && (
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                    onBack();
-                  }}
-                  className="text-2xl font-display font-medium tracking-tight text-black/60 flex items-center gap-2"
-                >
-                  <ArrowLeft size={20} /> Back to home
-                </button>
-              )}
               <a
                 href="#contact"
                 onClick={() => {

@@ -643,9 +643,6 @@ function ServiceContent({
         <div className="border-t border-white/10">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
             <span>© 2026 Cuttingedger — Berlin</span>
-            <button onClick={onClose} className="hover:text-white transition-colors">
-              ← Back to home
-            </button>
             <span>Made in monochrome</span>
           </div>
         </div>
