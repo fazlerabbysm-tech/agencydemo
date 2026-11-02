@@ -7,7 +7,7 @@ import { Plus } from "lucide-react";
 const faqs = [
   {
     q: "What kind of work do you take on?",
-    a: "Brand identity systems, art direction, digital experiences, motion design, and editorial. We take on roughly twelve projects a year — small enough to know every client by name, large enough to staff a senior team on every brief.",
+    a: "E-commerce catalog optimization, color standardization protocols, virtual production & CGI, and white-label production for agencies. We take on roughly twelve projects a year — small enough to know every client by name, large enough to staff a senior team on every brief.",
   },
   {
     q: "Why black and white only?",

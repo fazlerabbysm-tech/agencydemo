@@ -5,45 +5,31 @@ import { motion } from "framer-motion";
 const services = [
   {
     no: "01",
-    title: "Brand Identity",
-    desc: "Logos, type, voice, and the systems that hold them together.",
+    title: "E-commerce Catalog Optimization",
+    desc: "Studio-grade product imagery, listing architecture, and conversion-driven catalog systems for digital storefronts.",
     image:
-      "https://picsum.photos/seed/cuttingedger-svc-1/900/1125?grayscale",
+      "https://picsum.photos/seed/cuttingedger-svc-ecommerce/900/1125?grayscale",
   },
   {
     no: "02",
-    title: "Art Direction",
-    desc: "Photography, set design, and the mood that defines a campaign.",
+    title: "Color Standardization Protocol",
+    desc: "Precise color systems — Pantone, ICC profiles, and brand palettes calibrated across every screen, print, and surface.",
     image:
-      "https://picsum.photos/seed/cuttingedger-svc-2/900/1125?grayscale",
+      "https://picsum.photos/seed/cuttingedger-svc-color/900/1125?grayscale",
   },
   {
     no: "03",
-    title: "Digital Experience",
-    desc: "Websites and products engineered with the precision of an architect.",
+    title: "Virtual Production & CGI Studio",
+    desc: "Real-time virtual sets, photoreal CGI, and unreal environments built for film, brand, and product worlds.",
     image:
-      "https://picsum.photos/seed/cuttingedger-svc-3/900/1125?grayscale",
+      "https://picsum.photos/seed/cuttingedger-svc-cgi/900/1125?grayscale",
   },
   {
     no: "04",
-    title: "Motion & Film",
-    desc: "Title sequences, brand films, and the rhythm between frames.",
+    title: "White-Label Agency Extension",
+    desc: "Embedded production for agencies — design, dev, and motion capacity that ships under your brand, not ours.",
     image:
-      "https://picsum.photos/seed/cuttingedger-svc-4/900/1125?grayscale",
-  },
-  {
-    no: "05",
-    title: "Editorial Design",
-    desc: "Print, books, and magazines made for the slow second look.",
-    image:
-      "https://picsum.photos/seed/cuttingedger-svc-5/900/1125?grayscale",
-  },
-  {
-    no: "06",
-    title: "Strategy",
-    desc: "Positioning, naming, and the words that make a brand legible.",
-    image:
-      "https://picsum.photos/seed/cuttingedger-svc-6/900/1125?grayscale",
+      "https://picsum.photos/seed/cuttingedger-svc-whitelabel/900/1125?grayscale",
   },
 ];
 
@@ -88,7 +74,7 @@ export default function Services() {
 
         <div className="flex w-max marquee-track-left-slow">
           {loop.map((s, i) => (
-            <ServiceCard key={i} service={s} />
+            <ServiceCard key={i} service={s} total={services.length} />
           ))}
         </div>
       </div>
@@ -98,9 +84,12 @@ export default function Services() {
 
 function ServiceCard({
   service,
+  total,
 }: {
   service: (typeof services)[number];
+  total: number;
 }) {
+  const padTotal = String(total).padStart(2, "0");
   return (
     <article className="group relative shrink-0 w-[78vw] sm:w-[420px] md:w-[460px] mx-2 sm:mx-3 md:mx-4">
       <div className="relative aspect-[4/5] overflow-hidden bg-neutral-900">
@@ -118,14 +107,14 @@ function ServiceCard({
         {/* Number badge */}
         <div className="absolute top-4 sm:top-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between">
           <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/80">
-            {service.no} / 06
+            {service.no} / {padTotal}
           </span>
           <span className="h-2 w-2 rounded-full bg-white/80 group-hover:scale-150 transition-transform duration-300" />
         </div>
 
         {/* Title + desc */}
         <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white">
-          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none">
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-[1.05]">
             {service.title}
           </h3>
           <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-[15px] text-white/70 max-w-[280px] leading-relaxed">

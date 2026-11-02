@@ -15,10 +15,10 @@ const footerLinks = [
   {
     title: "Services",
     items: [
-      { label: "Brand Identity", href: "#services" },
-      { label: "Art Direction", href: "#services" },
-      { label: "Digital Experience", href: "#services" },
-      { label: "Motion & Film", href: "#services" },
+      { label: "E-commerce Catalog", href: "#services" },
+      { label: "Color Protocol", href: "#services" },
+      { label: "CGI & Virtual Production", href: "#services" },
+      { label: "White-Label", href: "#services" },
     ],
   },
   {
