@@ -49,3 +49,6 @@ Thumbs.db
 
 # user uploads
 upload/
+
+# internal scripts (contain push token reference)
+scripts/
