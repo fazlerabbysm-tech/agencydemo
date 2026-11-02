@@ -201,7 +201,7 @@ function ServiceContent({
                 src={service.problemImage}
                 alt={service.problemTitle}
                 className="h-full w-full object-cover"
-                loading="lazy"
+                loading="eager"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
             </div>
@@ -226,7 +226,7 @@ function ServiceContent({
                     src={s.image}
                     alt={s.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <span className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] text-white/80">
@@ -300,7 +300,7 @@ function ServiceContent({
                 src={service.processImage}
                 alt="Process"
                 className="h-full w-full object-cover"
-                loading="lazy"
+                loading="eager"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
             </div>
@@ -317,7 +317,7 @@ function ServiceContent({
                 src={service.deliverablesImage}
                 alt="Deliverables"
                 className="h-full w-full object-cover"
-                loading="lazy"
+                loading="eager"
               />
             </div>
             <div>
@@ -364,7 +364,7 @@ function ServiceContent({
                     src={w.image}
                     alt={w.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    loading="eager"
                   />
                   <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
                 </div>
@@ -403,7 +403,7 @@ function ServiceContent({
                 src={service.caseStudyImage}
                 alt="Case study"
                 className="h-full w-full object-cover"
-                loading="lazy"
+                loading="eager"
               />
             </div>
             <div>

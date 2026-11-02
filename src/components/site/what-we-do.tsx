@@ -31,7 +31,7 @@ export default function WhatWeDo() {
           >
             <div className="relative aspect-[4/5] sm:aspect-[4/5] lg:aspect-[5/6] w-full overflow-hidden bg-neutral-100 group">
               <img
-                src="https://picsum.photos/seed/cuttingedger-studio-work/1200/1500"
+                src="/images/studio-work.jpg"
                 alt="Creative studio workspace"
                 className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                 loading="lazy"

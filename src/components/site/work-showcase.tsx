@@ -7,29 +7,25 @@ const works = [
     no: "01",
     title: "Aurora Goods",
     cat: "Catalog System · 500 SKUs · 2025",
-    image:
-      "https://picsum.photos/seed/cuttingedger-work-ecommerce/1200/1440",
+    image: "/images/work-ecommerce.jpg",
   },
   {
     no: "02",
     title: "Maison Noir",
     cat: "Color Protocol · 12 Touchpoints · 2025",
-    image:
-      "https://picsum.photos/seed/cuttingedger-work-color/1200/1440",
+    image: "/images/work-color.jpg",
   },
   {
     no: "03",
     title: "ECHO Motors",
     cat: "CGI Launch Film · Zero Shoot · 2024",
-    image:
-      "https://picsum.photos/seed/cuttingedger-work-cgi/1200/1440",
+    image: "/images/work-cgi.jpg",
   },
   {
     no: "04",
     title: "Agency Collective",
     cat: "White-Label · 200+ Assets · 2024",
-    image:
-      "https://picsum.photos/seed/cuttingedger-work-whitelabel/1200/1440",
+    image: "/images/work-whitelabel.jpg",
   },
 ];
 

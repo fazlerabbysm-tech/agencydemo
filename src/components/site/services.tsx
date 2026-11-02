@@ -9,32 +9,28 @@ const services = [
     slug: "ecommerce",
     title: "E-commerce Catalog Optimization",
     desc: "Studio-grade product imagery, listing architecture, and conversion-driven catalog systems for digital storefronts.",
-    image:
-      "https://picsum.photos/seed/cuttingedger-svc-ecommerce/900/1125",
+    image: "/images/svc-ecommerce.jpg",
   },
   {
     no: "02",
     slug: "color",
     title: "Color Standardization Protocol",
     desc: "Precise color systems — Pantone, ICC profiles, and brand palettes calibrated across every screen, print, and surface.",
-    image:
-      "https://picsum.photos/seed/cuttingedger-svc-color/900/1125",
+    image: "/images/svc-color.jpg",
   },
   {
     no: "03",
     slug: "cgi",
     title: "Virtual Production & CGI Studio",
     desc: "Real-time virtual sets, photoreal CGI, and unreal environments built for film, brand, and product worlds.",
-    image:
-      "https://picsum.photos/seed/cuttingedger-svc-cgi/900/1125",
+    image: "/images/svc-cgi.jpg",
   },
   {
     no: "04",
     slug: "whitelabel",
     title: "White-Label Agency Extension",
     desc: "Embedded production for agencies — design, dev, and motion capacity that ships under your brand, not ours.",
-    image:
-      "https://picsum.photos/seed/cuttingedger-svc-whitelabel/900/1125",
+    image: "/images/svc-whitelabel.jpg",
   },
 ];
 

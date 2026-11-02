@@ -37,7 +37,7 @@ export default function Hero() {
       id="top"
       className="relative h-[100svh] min-h-[600px] sm:min-h-[640px] w-full overflow-hidden bg-black text-white"
     >
-      {/* Background showreel video — represents all 4 services */}
+      {/* Background showreel video — local file for reliable loading */}
       <video
         ref={videoRef}
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
@@ -48,23 +48,10 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
-        poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80&auto=format&fit=crop"
         onCanPlay={() => setVideoReady(true)}
         onLoadedData={() => setVideoReady(true)}
       >
-        {/* Creative production showreel — video editing / post production / studio work */}
-        <source
-          src="https://assets.mixkit.co/videos/4791/4791-1080.mp4"
-          type="video/mp4"
-        />
-        <source
-          src="https://assets.mixkit.co/videos/4791/4791-720.mp4"
-          type="video/mp4"
-        />
-        <source
-          src="https://assets.mixkit.co/videos/4789/4789-720.mp4"
-          type="video/mp4"
-        />
+        <source src="/videos/showreel.mp4" type="video/mp4" />
       </video>
 
       {/* Loading skeleton while video buffers */}
