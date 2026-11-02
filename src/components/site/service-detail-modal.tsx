@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  X,
+  ArrowLeft,
   ArrowUpRight,
   ArrowRight,
   Plus,
-  Check,
   Calendar,
   FileText,
+  Menu,
+  X,
 } from "lucide-react";
 import { serviceDetails, type ServiceDetail } from "@/data/services";
 
@@ -25,13 +26,14 @@ export default function ServiceDetailModal({
   onSwitchService,
 }: Props) {
   const service = serviceDetails.find((s) => s.slug === slug);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Lock body scroll when modal is open
+  // Lock body scroll when page is open
   useEffect(() => {
     if (service) {
       document.body.style.overflow = "hidden";
-      // Scroll modal to top when service changes
-      const el = document.getElementById("service-modal-scroll");
+      const el = document.getElementById("service-page-scroll");
       if (el) el.scrollTop = 0;
     } else {
       document.body.style.overflow = "";
@@ -39,6 +41,16 @@ export default function ServiceDetailModal({
     return () => {
       document.body.style.overflow = "";
     };
+  }, [service]);
+
+  // Track scroll for sticky header style
+  useEffect(() => {
+    if (!service) return;
+    const el = document.getElementById("service-page-scroll");
+    if (!el) return;
+    const onScroll = () => setScrolled(el.scrollTop > 40);
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
   }, [service]);
 
   // ESC to close
@@ -58,27 +70,105 @@ export default function ServiceDetailModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-start justify-center"
-          onClick={onClose}
+          className="fixed inset-0 z-[100] bg-white"
         >
+          {/* === STICKY HEADER (acts like navbar on a real page) === */}
+          <header
+            className={`absolute top-0 left-0 right-0 z-50 transition-all duration-500 ${
+              scrolled
+                ? "bg-white/90 backdrop-blur-md border-b border-black/10"
+                : "bg-transparent border-b border-transparent"
+            }`}
+          >
+            <nav className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
+              {/* Back + Logo */}
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={onClose}
+                  className="flex items-center gap-2 text-sm font-medium tracking-wide group"
+                >
+                  <span className="h-9 w-9 rounded-full border border-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                    <ArrowLeft size={16} />
+                  </span>
+                  <span className="hidden sm:inline uppercase">Back</span>
+                </button>
+                <a
+                  href="#top"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onClose();
+                  }}
+                  className="flex items-center gap-2 group"
+                >
+                  <span
+                    className={`h-2.5 w-2.5 rounded-full transition-transform group-hover:scale-150 ${
+                      scrolled ? "bg-black" : "bg-black"
+                    }`}
+                  />
+                  <span className="font-bold tracking-tight text-lg md:text-xl">
+                    CUTTING<span className="font-light">EDGER</span>
+                  </span>
+                </a>
+              </div>
+
+              {/* Service name (center, desktop) */}
+              <span className="hidden lg:block font-mono text-[10px] tracking-[0.25em] uppercase text-black/50">
+                {service.no} — {service.name}
+              </span>
+
+              {/* CTA + mobile menu */}
+              <div className="hidden md:flex items-center gap-3">
+                <a
+                  href="#contact-page"
+                  className="group inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 text-sm font-medium tracking-wide uppercase hover:bg-white hover:text-black border border-black transition-colors duration-300"
+                >
+                  Start a project
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </a>
+              </div>
+
+              <button
+                onClick={() => setMenuOpen((v) => !v)}
+                className="md:hidden h-10 w-10 flex items-center justify-center"
+                aria-label="Toggle menu"
+              >
+                {menuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </nav>
+
+            {/* Mobile dropdown */}
+            <AnimatePresence>
+              {menuOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="md:hidden overflow-hidden bg-white border-t border-black/10"
+                >
+                  <div className="px-5 sm:px-6 py-6 flex flex-col gap-5">
+                    <a
+                      href="#contact-page"
+                      onClick={() => setMenuOpen(false)}
+                      className="inline-flex items-center justify-center gap-2 bg-black text-white px-5 py-3 text-sm font-medium tracking-wide uppercase"
+                    >
+                      Start a project →
+                    </a>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </header>
+
+          {/* === SCROLLABLE PAGE CONTENT === */}
           <motion.div
-            id="service-modal-scroll"
+            id="service-page-scroll"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 30, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-[1400px] bg-white text-black overflow-y-auto max-h-screen"
-            onClick={(e) => e.stopPropagation()}
+            className="h-screen overflow-y-auto"
           >
-            {/* Close button — fixed within modal */}
-            <button
-              onClick={onClose}
-              className="sticky top-4 right-4 ml-auto flex z-50 h-11 w-11 rounded-full bg-black text-white items-center justify-center hover:bg-white hover:text-black border border-black transition-colors duration-300 float-right mr-4 mt-4"
-              aria-label="Close service detail"
-            >
-              <X size={20} />
-            </button>
-
             <ServiceContent
               key={service.slug}
               service={service}
@@ -526,7 +616,7 @@ function ServiceContent({
       </section>
 
       {/* ============ FINAL CTA ============ */}
-      <section id="contact" className="bg-white py-16 md:py-24 border-t border-black/10">
+      <section id="contact-page" className="bg-white py-16 md:py-24 border-t border-black/10">
         <div className="mx-auto max-w-[800px] px-6 md:px-10 text-center">
           <h2 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl">
             Ready to start?
@@ -556,6 +646,105 @@ function ServiceContent({
           </div>
         </div>
       </section>
+
+      {/* ============ FOOTER ============ */}
+      <footer className="bg-black text-white border-t border-white/10">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
+          <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
+            {/* Brand + tagline */}
+            <div className="col-span-2 md:col-span-5">
+              <a
+                href="#top"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onClose();
+                }}
+                className="flex items-center gap-2 group mb-5"
+              >
+                <span className="h-2.5 w-2.5 bg-white rounded-full transition-transform group-hover:scale-150" />
+                <span className="font-bold tracking-tight text-lg md:text-xl">
+                  CUTTING<span className="font-light">EDGER</span>
+                </span>
+              </a>
+              <p className="text-white/60 text-sm md:text-base max-w-sm leading-relaxed">
+                E-commerce catalogs, color protocols, virtual production & CGI,
+                and white-label agency extension. Four services, one studio,
+                relentless precision.
+              </p>
+            </div>
+
+            {/* Service links */}
+            <div className="md:col-span-3">
+              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
+                Services
+              </p>
+              <ul className="space-y-2 sm:space-y-3">
+                {serviceDetails.map((s) => (
+                  <li key={s.slug}>
+                    <button
+                      onClick={() => onSwitchService(s.slug)}
+                      className="text-sm md:text-base text-white/80 hover:text-white relative inline-block group text-left"
+                    >
+                      {s.name}
+                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div className="md:col-span-2">
+              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
+                Contact
+              </p>
+              <ul className="space-y-2 sm:space-y-3">
+                <li>
+                  <a href="mailto:hello@cuttingedger.co" className="text-sm md:text-base text-white/80 hover:text-white transition-colors">
+                    hello@cuttingedger.co
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-white transition-colors">
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-white transition-colors">
+                    LinkedIn
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-2">
+              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
+                Studio
+              </p>
+              <p className="text-sm md:text-base text-white/80">Berlin, Germany</p>
+              <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–18 CET</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Mega wordmark */}
+        <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
+          <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-white select-none">
+            CUTTINGEDGER
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/10">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
+            <span>© 2026 Cuttingedger — Berlin</span>
+            <button onClick={onClose} className="hover:text-white transition-colors">
+              ← Back to home
+            </button>
+            <span>Made in monochrome</span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
