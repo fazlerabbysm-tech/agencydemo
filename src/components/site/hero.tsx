@@ -6,14 +6,14 @@ import { ArrowUpRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/hero-ecommerce.png",
-    kicker: "01 — E-commerce",
-    title: "Catalogs that\nsell themselves.",
+    image: "/images/hero-bridal.jpg",
+    kicker: "01 — Studio Work",
+    title: "Crafted with\nprecision.",
   },
   {
-    image: "/images/hero-color.png",
-    kicker: "02 — Color Protocol",
-    title: "One color,\nevery surface.",
+    image: "/images/hero-fashion.jpg",
+    kicker: "02 — Creative Direction",
+    title: "Stories in\nevery frame.",
   },
   {
     image: "/images/hero-cgi.png",
