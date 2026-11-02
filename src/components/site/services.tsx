@@ -40,11 +40,11 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative bg-white text-black py-16 sm:py-24 md:py-36 overflow-hidden border-t border-black/10"
+      className="relative bg-white text-black py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden border-t border-black/10"
     >
       {/* Header */}
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-10 sm:mb-14 md:mb-20">
-        <div className="flex items-center justify-between mb-6 sm:mb-8">
+      <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-8 sm:mb-10 md:mb-12">
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
           <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
             ( 04 ) — Capabilities
           </span>
@@ -58,7 +58,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[9vw] lg:text-[6.5vw] break-words"
+          className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[9vw] lg:text-[4.5vw] break-words"
         >
           What can we
           <br />
@@ -91,8 +91,8 @@ function ServiceCard({
 }) {
   const padTotal = String(total).padStart(2, "0");
   return (
-    <article className="group relative shrink-0 w-[78vw] sm:w-[420px] md:w-[460px] mx-2 sm:mx-3 md:mx-4">
-      <div className="relative aspect-[4/5] overflow-hidden bg-neutral-900">
+    <article className="group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4">
+      <div className="relative aspect-[5/6] overflow-hidden bg-neutral-900">
         <img
           src={service.image}
           alt={service.title}
@@ -105,7 +105,7 @@ function ServiceCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
         {/* Number badge */}
-        <div className="absolute top-4 sm:top-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between">
+        <div className="absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between">
           <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/80">
             {service.no} / {padTotal}
           </span>
@@ -113,14 +113,14 @@ function ServiceCard({
         </div>
 
         {/* Title + desc */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white">
-          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-[1.05]">
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 text-white">
+          <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05]">
             {service.title}
           </h3>
-          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-[15px] text-white/70 max-w-[280px] leading-relaxed">
+          <p className="mt-2 sm:mt-2.5 text-[11px] sm:text-xs md:text-sm text-white/70 max-w-[280px] leading-relaxed">
             {service.desc}
           </p>
-          <div className="mt-3 sm:mt-5 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
+          <div className="mt-2.5 sm:mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
             <span>Explore</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
