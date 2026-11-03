@@ -2450,6 +2450,10 @@
     background-color: #111;
   }
 
+  .bg-\[\#161616\] {
+    background-color: #161616;
+  }
+
   .bg-accent {
     background-color: var(--accent);
   }
@@ -2697,6 +2701,22 @@
   .via-black\/60 {
     --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+
+  .to-\[\#0a0a0a\] {
+    --tw-gradient-to: #0a0a0a;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+
+  .to-\[\#0a0a0a\]\/60 {
+    --tw-gradient-to: #0a0a0a99;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+
+  @supports (color: lab(0% 0 0)) {
+    .to-\[\#0a0a0a\]\/60 {
+      --tw-gradient-to: lab(2.74175% -.00000745058 .00000298023 / .6);
+    }
   }
 
   .to-black {
@@ -3035,6 +3055,11 @@
     line-height: var(--tw-leading, var(--text-5xl--line-height));
   }
 
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
+
   .text-base {
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));
@@ -3220,6 +3245,11 @@
 
   .text-\[\#46E2E2\] {
     color: #46e2e2;
+  }
+
+  .text-\[\#46E2E2\]\/50 {
+    color: #46e2e280;
+    color: lab(82.106% -41.3396 -12.4607 / .5);
   }
 
   .text-\[\#46E2E2\]\/60 {
@@ -3440,6 +3470,11 @@
     text-decoration-line: underline;
   }
 
+  .decoration-\[\#46E2E2\]\/30 {
+    text-decoration-color: #46e2e24d;
+    text-decoration-color: lab(82.106% -41.3396 -12.4607 / .3);
+  }
+
   .decoration-black\/30 {
     text-decoration-color: #0000004d;
   }
@@ -3556,6 +3591,10 @@
   .ring-1 {
     --tw-ring-shadow: var(--tw-ring-inset, ) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
+  .ring-\[\#2a2a2a\] {
+    --tw-ring-color: #2a2a2a;
   }
 
   .ring-black\/10 {
@@ -3863,6 +3902,12 @@
   }
 
   @media (hover: hover) {
+    .group-hover\:border-\[\#46E2E2\]:is(:where(.group):hover *) {
+      border-color: #46e2e2;
+    }
+  }
+
+  @media (hover: hover) {
     .group-hover\:border-black:is(:where(.group):hover *) {
       border-color: var(--color-black);
     }
@@ -3937,6 +3982,12 @@
   @media (hover: hover) {
     .group-hover\:opacity-100:is(:where(.group):hover *) {
       opacity: 1;
+    }
+  }
+
+  @media (hover: hover) {
+    .group-hover\:ring-\[\#46E2E2\]:is(:where(.group):hover *) {
+      --tw-ring-color: #46e2e2;
     }
   }
 
@@ -4349,6 +4400,13 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-\[\#46E2E2\]\/5:hover {
+      background-color: #46e2e20d;
+      background-color: lab(82.106% -41.3396 -12.4607 / .05);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-accent:hover {
       background-color: var(--accent);
     }
@@ -4483,6 +4541,12 @@
   @media (hover: hover) {
     .hover\:underline:hover {
       text-decoration-line: underline;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:decoration-\[\#46E2E2\]:hover {
+      text-decoration-color: #46e2e2;
     }
   }
 
@@ -6307,6 +6371,30 @@
   @media (min-width: 48rem) {
     .md\:mb-20 {
       margin-bottom: calc(var(--spacing) * 20);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:ml-0 {
+      margin-left: calc(var(--spacing) * 0);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:ml-12 {
+      margin-left: calc(var(--spacing) * 12);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:ml-24 {
+      margin-left: calc(var(--spacing) * 24);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:ml-36 {
+      margin-left: calc(var(--spacing) * 36);
     }
   }
 

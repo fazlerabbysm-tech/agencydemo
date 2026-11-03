@@ -1,0 +1,620 @@
+     1→"use client";
+     2→
+     3→import { useEffect, useState } from "react";
+     4→import { motion, AnimatePresence } from "framer-motion";
+     5→import {
+     6→  ArrowUpRight,
+     7→  ArrowRight,
+     8→  Plus,
+     9→  Calendar,
+    10→} from "lucide-react";
+    11→import { serviceDetails, type ServiceDetail } from "@/data/services";
+    12→import Navbar from "@/components/site/navbar";
+    13→
+    14→interface Props {
+    15→  slug: string | null;
+    16→  onClose: () => void;
+    17→  onSwitchService: (slug: string) => void;
+    18→  onOpenPortfolio?: (slug: string) => void;
+    19→  onOpenCaseStudy?: (slug: string) => void;
+    20→}
+    21→
+    22→export default function ServiceDetailModal({
+    23→  slug,
+    24→  onClose,
+    25→  onSwitchService,
+    26→  onOpenPortfolio,
+    27→  onOpenCaseStudy,
+    28→}: Props) {
+    29→  const service = serviceDetails.find((s) => s.slug === slug);
+    30→
+    31→  // Lock body scroll when page is open
+    32→  useEffect(() => {
+    33→    if (service) {
+    34→      document.body.style.overflow = "hidden";
+    35→      const el = document.getElementById("service-page-scroll");
+    36→      if (el) el.scrollTop = 0;
+    37→    } else {
+    38→      document.body.style.overflow = "";
+    39→    }
+    40→    return () => {
+    41→      document.body.style.overflow = "";
+    42→    };
+    43→  }, [service]);
+    44→
+    45→  // ESC to close
+    46→  useEffect(() => {
+    47→    const onKey = (e: KeyboardEvent) => {
+    48→      if (e.key === "Escape") onClose();
+    49→    };
+    50→    window.addEventListener("keydown", onKey);
+    51→    return () => window.removeEventListener("keydown", onKey);
+    52→  }, [onClose]);
+    53→
+    54→  return (
+    55→    <AnimatePresence>
+    56→      {service && (
+    57→        <motion.div
+    58→          initial={{ opacity: 0 }}
+    59→          animate={{ opacity: 1 }}
+    60→          exit={{ opacity: 0 }}
+    61→          transition={{ duration: 0.3 }}
+    62→          className="fixed inset-0 z-[100] bg-white"
+    63→        >
+    64→          {/* === HOMEPAGE NAVBAR (same as homepage, with back button) === */}
+    65→          <Navbar
+    66→            variant="service"
+    67→            onBack={onClose}
+    68→            scrollContainerId="service-page-scroll"
+    69→            onOpenService={(s) => { onClose(); onSwitchService(s); }}
+    70→            onOpenPortfolio={(s) => { onClose(); onOpenPortfolio?.(s); }}
+    71→            onOpenCaseStudy={(s) => { onClose(); onOpenCaseStudy?.(s); }}
+    72→          />
+    73→
+    74→          {/* === SCROLLABLE PAGE CONTENT === */}
+    75→          <motion.div
+    76→            id="service-page-scroll"
+    77→            initial={{ y: 30, opacity: 0 }}
+    78→            animate={{ y: 0, opacity: 1 }}
+    79→            exit={{ y: 30, opacity: 0 }}
+    80→            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    81→            className="h-screen overflow-y-auto"
+    82→          >
+    83→            <ServiceContent
+    84→              key={service.slug}
+    85→              service={service}
+    86→              onSwitchService={onSwitchService}
+    87→              onClose={onClose}
+    88→            />
+    89→          </motion.div>
+    90→        </motion.div>
+    91→      )}
+    92→    </AnimatePresence>
+    93→  );
+    94→}
+    95→
+    96→function ServiceContent({
+    97→  service,
+    98→  onSwitchService,
+    99→  onClose,
+   100→}: {
+   101→  service: ServiceDetail;
+   102→  onSwitchService: (slug: string) => void;
+   103→  onClose: () => void;
+   104→}) {
+   105→  const [openFaq, setOpenFaq] = useState<number | null>(0);
+   106→  const otherServices = serviceDetails.filter((s) => s.slug !== service.slug);
+   107→
+   108→  return (
+   109→    <div className="clear-both">
+   110→      {/* ============ HERO ============ */}
+   111→      <section className="relative min-h-[70vh] flex items-end overflow-hidden bg-black text-white">
+   112→        <div
+   113→          className="absolute inset-0 bg-cover bg-center"
+   114→          style={{
+   115→            backgroundImage: `url(${service.problemImage})`,
+   116→            backgroundColor: "#0a0a0a",
+   117→          }}
+   118→        />
+   119→        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
+   120→
+   121→        <div className="relative z-10 mx-auto max-w-[1200px] w-full px-6 md:px-10 py-16 md:py-24">
+   122→          <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mb-6">
+   123→            {service.no} — {service.name}
+   124→          </p>
+   125→          <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-[10vw] md:text-[6vw] lg:text-[5vw] break-words max-w-4xl">
+   126→            {service.heroTitle}
+   127→          </h1>
+   128→          <p className="mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl">
+   129→            {service.heroOutcome}
+   130→          </p>
+   131→
+   132→          {/* Best for */}
+   133→          <div className="mt-8 flex flex-wrap items-center gap-3">
+   134→            <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+   135→              Best for:
+   136→            </span>
+   137→            {service.bestFor.map((b) => (
+   138→              <span
+   139→                key={b}
+   140→                className="text-xs md:text-sm px-3 py-1 rounded-full border border-white/30 text-white/80"
+   141→              >
+   142→                {b}
+   143→              </span>
+   144→            ))}
+   145→          </div>
+   146→
+   147→          {/* CTAs */}
+   148→          <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+   149→            <a
+   150→              href="#contact"
+   151→              onClick={onClose}
+   152→              className="group inline-flex items-center gap-3 bg-white text-black pl-6 pr-2 py-2 rounded-full hover:bg-black hover:text-white border border-white transition-colors duration-300"
+   153→            >
+   154→              <span className="text-sm font-medium tracking-wide uppercase">
+   155→                Get a quote
+   156→              </span>
+   157→              <span className="h-10 w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+   158→                <ArrowUpRight size={18} strokeWidth={2} />
+   159→              </span>
+   160→            </a>
+   161→            <a
+   162→              href="#work-modal"
+   163→              className="group inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase text-white/80 hover:text-white border-b border-white/30 hover:border-white pb-1 transition-all"
+   164→            >
+   165→              See examples
+   166→              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+   167→            </a>
+   168→          </div>
+   169→
+   170→          {/* Not sure it fits */}
+   171→          <p className="mt-8 text-sm text-white/60">
+   172→            {service.notSureText} —{" "}
+   173→            <a href="#contact" onClick={onClose} className="underline underline-offset-4 hover:text-white">
+   174→              talk to us
+   175→            </a>
+   176→          </p>
+   177→        </div>
+   178→      </section>
+   179→
+   180→      {/* ============ PROBLEM ============ */}
+   181→      <section className="bg-white py-16 md:py-24 border-b border-black/10">
+   182→        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+   183→          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+   184→            <div>
+   185→              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+   186→                The problem
+   187→              </span>
+   188→              <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl">
+   189→                {service.problemTitle}
+   190→              </h2>
+   191→              <ul className="mt-8 space-y-4">
+   192→                {service.problemPoints.map((p, i) => (
+   193→                  <li key={i} className="flex items-start gap-3">
+   194→                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-black" />
+   195→                    <span className="text-base md:text-lg text-black/70 leading-relaxed">{p}</span>
+   196→                  </li>
+   197→                ))}
+   198→              </ul>
+   199→            </div>
+   200→            <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
+   201→              <img
+   202→                src={service.problemImage}
+   203→                alt={service.problemTitle}
+   204→                className="h-full w-full object-cover"
+   205→                loading="eager"
+   206→              />
+   207→              <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+   208→            </div>
+   209→          </div>
+   210→        </div>
+   211→      </section>
+   212→
+   213→      {/* ============ WHAT'S INCLUDED ============ */}
+   214→      <section className="bg-black text-white py-16 md:py-24">
+   215→        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+   216→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+   217→            {service.includedTitle}
+   218→          </span>
+   219→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-12">
+   220→            What you get
+   221→          </h2>
+   222→          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+   223→            {service.subServices.map((s, i) => (
+   224→              <div key={i} className="group cursor-pointer">
+   225→                <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900 mb-5">
+   226→                  <img
+   227→                    src={s.image}
+   228→                    alt={s.title}
+   229→                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+   230→                    loading="eager"
+   231→                  />
+   232→                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+   233→                  <span className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] text-white/80">
+   234→                    0{i + 1}
+   235→                  </span>
+   236→                </div>
+   237→                <h3 className="font-display font-bold text-xl md:text-2xl tracking-tight">
+   238→                  {s.title}
+   239→                </h3>
+   240→                <p className="mt-2 text-sm md:text-base text-white/60 leading-relaxed">
+   241→                  {s.desc}
+   242→                </p>
+   243→                <a
+   244→                  href="#contact"
+   245→                  onClick={onClose}
+   246→                  className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-white transition-colors"
+   247→                >
+   248→                  Learn more
+   249→                  <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+   250→                </a>
+   251→              </div>
+   252→            ))}
+   253→          </div>
+   254→        </div>
+   255→      </section>
+   256→
+   257→      {/* ============ PROCESS ============ */}
+   258→      <section className="bg-white py-16 md:py-24 border-b border-black/10">
+   259→        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+   260→          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+   261→            <div>
+   262→              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+   263→                {service.processTitle}
+   264→              </span>
+   265→              <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10">
+   266→                Steps & timeline
+   267→              </h2>
+   268→              <div className="space-y-6">
+   269→                {service.processSteps.map((p, i) => (
+   270→                  <div key={i} className="flex gap-5 border-b border-black/10 pb-6 last:border-0">
+   271→                    <span className="font-display font-light text-4xl md:text-5xl leading-none tracking-tighter text-black/30 shrink-0">
+   272→                      {p.step}
+   273→                    </span>
+   274→                    <div className="flex-1">
+   275→                      <div className="flex items-baseline justify-between gap-4 mb-1">
+   276→                        <h3 className="font-display font-bold text-lg md:text-xl tracking-tight">
+   277→                          {p.title}
+   278→                        </h3>
+   279→                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-black/40 shrink-0">
+   280→                          {p.duration}
+   281→                        </span>
+   282→                      </div>
+   283→                      <p className="text-sm md:text-base text-black/60 leading-relaxed">
+   284→                        {p.desc}
+   285→                      </p>
+   286→                    </div>
+   287→                  </div>
+   288→                ))}
+   289→              </div>
+   290→              <a
+   291→                href="#contact"
+   292→                onClick={onClose}
+   293→                className="mt-8 inline-flex items-center gap-3 bg-black text-white px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-white hover:text-black border border-black transition-colors duration-300"
+   294→              >
+   295→                <Calendar size={16} />
+   296→                Book a discovery call
+   297→              </a>
+   298→            </div>
+   299→            <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
+   300→              <img
+   301→                src={service.processImage}
+   302→                alt="Process"
+   303→                className="h-full w-full object-cover"
+   304→                loading="eager"
+   305→              />
+   306→              <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+   307→            </div>
+   308→          </div>
+   309→        </div>
+   310→      </section>
+   311→
+   312→      {/* ============ RELATED WORK ============ */}
+   313→      <section id="work-modal" className="bg-white py-16 md:py-24 border-b border-black/10">
+   314→        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+   315→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+   316→            Related work
+   317→          </span>
+   318→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-12">
+   319→            Recent {service.name.toLowerCase()} projects
+   320→          </h2>
+   321→          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+   322→            {service.relatedWork.map((w, i) => (
+   323→              <div key={i} className="group cursor-pointer">
+   324→                <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100 mb-4">
+   325→                  <img
+   326→                    src={w.image}
+   327→                    alt={w.title}
+   328→                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+   329→                    loading="eager"
+   330→                  />
+   331→                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+   332→                </div>
+   333→                <h3 className="font-display font-bold text-lg md:text-xl tracking-tight">
+   334→                  {w.title}
+   335→                </h3>
+   336→                <p className="mt-1 font-mono text-[10px] tracking-[0.2em] uppercase text-black/50">
+   337→                  {w.cat}
+   338→                </p>
+   339→                <a
+   340→                  href="#contact"
+   341→                  onClick={onClose}
+   342→                  className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-black/60 hover:text-black border-b border-black/30 hover:border-black pb-0.5 transition-all"
+   343→                >
+   344→                  View project
+   345→                  <ArrowRight size={12} />
+   346→                </a>
+   347→              </div>
+   348→            ))}
+   349→          </div>
+   350→          <p className="mt-8 text-sm text-black/50">
+   351→            See all {service.name.toLowerCase()} work —{" "}
+   352→            <a href="#work" onClick={onClose} className="underline underline-offset-4 hover:text-black">
+   353→              view full archive
+   354→            </a>
+   355→          </p>
+   356→        </div>
+   357→      </section>
+   358→
+   359→      {/* ============ CASE STUDY + TESTIMONIAL ============ */}
+   360→      <section className="bg-black text-white py-16 md:py-24">
+   361→        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+   362→          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+   363→            <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900">
+   364→              <img
+   365→                src={service.caseStudyImage}
+   366→                alt="Case study"
+   367→                className="h-full w-full object-cover"
+   368→                loading="eager"
+   369→              />
+   370→            </div>
+   371→            <div>
+   372→              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+   373→                Case study
+   374→              </span>
+   375→              <div className="mt-4 font-display font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight leading-none">
+   376→                {service.caseStudyMetric}
+   377→              </div>
+   378→              <blockquote className="mt-8 text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed font-display font-light italic">
+   379→                &ldquo;{service.caseStudyQuote}&rdquo;
+   380→              </blockquote>
+   381→              <p className="mt-6 font-mono text-xs tracking-[0.2em] uppercase text-white/50">
+   382→                {service.caseStudyAuthor}
+   383→              </p>
+   384→              <a
+   385→                href="#contact"
+   386→                onClick={onClose}
+   387→                className="mt-8 inline-flex items-center gap-3 border border-white/30 hover:bg-white hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+   388→              >
+   389→                Read the full case study
+   390→                <ArrowRight size={16} />
+   391→              </a>
+   392→            </div>
+   393→          </div>
+   394→        </div>
+   395→      </section>
+   396→
+   397→      {/* ============ FAQ ============ */}
+   398→      <section className="bg-white py-16 md:py-24 border-b border-black/10">
+   399→        <div className="mx-auto max-w-[1000px] px-6 md:px-10">
+   400→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+   401→            {service.faqTitle}
+   402→          </span>
+   403→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10">
+   404→            Questions, answered
+   405→          </h2>
+   406→          <div className="border-t border-black/15">
+   407→            {service.faqs.map((f, i) => {
+   408→              const isOpen = openFaq === i;
+   409→              return (
+   410→                <div key={i} className="border-b border-black/15">
+   411→                  <button
+   412→                    onClick={() => setOpenFaq(isOpen ? null : i)}
+   413→                    className="w-full py-5 md:py-6 flex items-center gap-5 text-left group"
+   414→                    aria-expanded={isOpen}
+   415→                  >
+   416→                    <span className="font-mono text-xs tracking-[0.2em] text-black/40 shrink-0">
+   417→                      0{i + 1}
+   418→                    </span>
+   419→                    <span className="flex-1 font-display font-medium text-base md:text-xl tracking-tight">
+   420→                      {f.q}
+   421→                    </span>
+   422→                    <span
+   423→                      className={`shrink-0 h-8 w-8 md:h-9 md:w-9 rounded-full border border-black/30 flex items-center justify-center transition-all duration-300 ${
+   424→                        isOpen ? "bg-black text-white rotate-45" : ""
+   425→                      }`}
+   426→                    >
+   427→                      <Plus size={14} strokeWidth={2} />
+   428→                    </span>
+   429→                  </button>
+   430→                  <AnimatePresence initial={false}>
+   431→                    {isOpen && (
+   432→                      <motion.div
+   433→                        initial={{ height: 0, opacity: 0 }}
+   434→                        animate={{ height: "auto", opacity: 1 }}
+   435→                        exit={{ height: 0, opacity: 0 }}
+   436→                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+   437→                        className="overflow-hidden"
+   438→                      >
+   439→                        <p className="pb-6 md:pb-7 pl-8 md:pl-12 pr-10 md:pr-14 text-sm md:text-base text-black/70 leading-relaxed">
+   440→                          {f.a}
+   441→                        </p>
+   442→                      </motion.div>
+   443→                    )}
+   444→                  </AnimatePresence>
+   445→                </div>
+   446→              );
+   447→            })}
+   448→          </div>
+   449→          <p className="mt-8 text-sm text-black/60">
+   450→            Still have questions?{" "}
+   451→            <a href="#contact" onClick={onClose} className="underline underline-offset-4 hover:text-black font-medium">
+   452→              Ask us directly
+   453→            </a>
+   454→          </p>
+   455→        </div>
+   456→      </section>
+   457→
+   458→      {/* ============ RELATED SERVICES ============ */}
+   459→      <section className="bg-black text-white py-16 md:py-24">
+   460→        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+   461→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+   462→            Related services
+   463→          </span>
+   464→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10">
+   465→            Explore more
+   466→          </h2>
+   467→          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+   468→            {otherServices.map((s) => (
+   469→              <button
+   470→                key={s.slug}
+   471→                onClick={() => onSwitchService(s.slug)}
+   472→                className="group text-left p-6 md:p-8 border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+   473→              >
+   474→                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40 group-hover:text-black/50 transition-colors">
+   475→                  {s.no}
+   476→                </span>
+   477→                <h3 className="mt-3 font-display font-bold text-xl md:text-2xl tracking-tight">
+   478→                  {s.name}
+   479→                </h3>
+   480→                <p className="mt-2 text-sm text-white/60 group-hover:text-black/60 transition-colors">
+   481→                  Explore {s.name}
+   482→                </p>
+   483→                <ArrowRight size={20} className="mt-4 transition-transform group-hover:translate-x-2" />
+   484→              </button>
+   485→            ))}
+   486→          </div>
+   487→        </div>
+   488→      </section>
+   489→
+   490→      {/* ============ FINAL CTA ============ */}
+   491→      <section id="contact-page" className="bg-white py-16 md:py-24 border-t border-black/10">
+   492→        <div className="mx-auto max-w-[800px] px-6 md:px-10 text-center">
+   493→          <h2 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl">
+   494→            Ready to start?
+   495→          </h2>
+   496→          <p className="mt-4 text-base md:text-lg text-black/60">
+   497→            Book a 30-minute call or send us your brief — we&apos;ll respond within 24 hours.
+   498→          </p>
+   499→          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+   500→            <a
+   501→              href="mailto:hello@katelladigital.com"
+   502→              className="group inline-flex items-center gap-3 bg-black text-white pl-6 pr-2 py-2 rounded-full hover:bg-white hover:text-black border border-black transition-colors duration-300"
+   503→            >
+   504→              <span className="text-sm font-medium tracking-wide uppercase">
+   505→                Book a call
+   506→              </span>
+   507→              <span className="h-10 w-10 rounded-full bg-white text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+   508→                <Calendar size={16} />
+   509→              </span>
+   510→            </a>
+   511→            <a
+   512→              href="mailto:hello@katelladigital.com"
+   513→              className="group inline-flex items-center gap-3 border border-black px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-black hover:text-white transition-colors duration-300"
+   514→            >
+   515→              Send your brief
+   516→              <ArrowUpRight size={16} />
+   517→            </a>
+   518→          </div>
+   519→        </div>
+   520→      </section>
+   521→
+   522→      {/* ============ FOOTER ============ */}
+   523→      <footer className="bg-black text-white border-t border-white/10">
+   524→        <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
+   525→          <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
+   526→            {/* Brand + tagline */}
+   527→            <div className="col-span-2 md:col-span-5">
+   528→              <a
+   529→                href="#top"
+   530→                onClick={(e) => {
+   531→                  e.preventDefault();
+   532→                  onClose();
+   533→                }}
+   534→                className="flex items-center gap-2 group mb-5"
+   535→              >
+   536→                <span className="h-2.5 w-2.5 bg-white rounded-full transition-transform group-hover:scale-150" />
+   537→                <span className="font-bold tracking-tight text-lg md:text-xl">
+   538→                  KATELLA <span className="font-light">DIGITAL</span>
+   539→                </span>
+   540→              </a>
+   541→              <p className="text-white/60 text-sm md:text-base max-w-sm leading-relaxed">
+   542→                E-commerce catalogs, color protocols, virtual production & CGI,
+   543→                and white-label agency extension. Four services, one studio,
+   544→                relentless precision.
+   545→              </p>
+   546→            </div>
+   547→
+   548→            {/* Service links */}
+   549→            <div className="md:col-span-3">
+   550→              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
+   551→                Services
+   552→              </p>
+   553→              <ul className="space-y-2 sm:space-y-3">
+   554→                {serviceDetails.map((s) => (
+   555→                  <li key={s.slug}>
+   556→                    <button
+   557→                      onClick={() => onSwitchService(s.slug)}
+   558→                      className="text-sm md:text-base text-white/80 hover:text-white relative inline-block group text-left"
+   559→                    >
+   560→                      {s.name}
+   561→                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full" />
+   562→                    </button>
+   563→                  </li>
+   564→                ))}
+   565→              </ul>
+   566→            </div>
+   567→
+   568→            {/* Contact */}
+   569→            <div className="md:col-span-2">
+   570→              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
+   571→                Contact
+   572→              </p>
+   573→              <ul className="space-y-2 sm:space-y-3">
+   574→                <li>
+   575→                  <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-white transition-colors">
+   576→                    hello@katelladigital.com
+   577→                  </a>
+   578→                </li>
+   579→                <li>
+   580→                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-white transition-colors">
+   581→                    Instagram
+   582→                  </a>
+   583→                </li>
+   584→                <li>
+   585→                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-white transition-colors">
+   586→                    LinkedIn
+   587→                  </a>
+   588→                </li>
+   589→              </ul>
+   590→            </div>
+   591→
+   592→            <div className="md:col-span-2">
+   593→              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
+   594→                Studio
+   595→              </p>
+   596→              <p className="text-sm md:text-base text-white/80">Berlin, Germany</p>
+   597→              <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–18 CET</p>
+   598→            </div>
+   599→          </div>
+   600→        </div>
+   601→
+   602→        {/* Mega wordmark */}
+   603→        <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
+   604→          <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-white select-none">
+   605→            KATELLA DIGITAL
+   606→          </div>
+   607→        </div>
+   608→
+   609→        {/* Bottom bar */}
+   610→        <div className="border-t border-white/10">
+   611→          <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
+   612→            <span>© 2026 Katella Digital — Berlin</span>
+   613→            <span>Made in monochrome</span>
+   614→          </div>
+   615→        </div>
+   616→      </footer>
+   617→    </div>
+   618→  );
+   619→}
+   620→

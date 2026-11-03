@@ -1,0 +1,624 @@
+     1→"use client";
+     2→
+     3→import { useEffect, useState } from "react";
+     4→import { motion, AnimatePresence } from "framer-motion";
+     5→import { ArrowUpRight, ArrowRight, ArrowLeft } from "lucide-react";
+     6→import { caseStudyDetails, type CaseStudyDetail } from "@/data/caseStudies";
+     7→import Navbar from "@/components/site/navbar";
+     8→
+     9→interface Props {
+    10→  slug: string | null;
+    11→  onClose: () => void;
+    12→  onSwitchCaseStudy: (slug: string) => void;
+    13→  onOpenService: (slug: string) => void;
+    14→  onOpenPortfolio?: (slug: string) => void;
+    15→}
+    16→
+    17→export default function CaseStudyModal({
+    18→  slug,
+    19→  onClose,
+    20→  onSwitchCaseStudy,
+    21→  onOpenService,
+    22→  onOpenPortfolio,
+    23→}: Props) {
+    24→  const caseStudy = caseStudyDetails.find((c) => c.slug === slug);
+    25→
+    26→  useEffect(() => {
+    27→    if (caseStudy) {
+    28→      document.body.style.overflow = "hidden";
+    29→      const el = document.getElementById("casestudy-page-scroll");
+    30→      if (el) el.scrollTop = 0;
+    31→    } else {
+    32→      document.body.style.overflow = "";
+    33→    }
+    34→    return () => {
+    35→      document.body.style.overflow = "";
+    36→    };
+    37→  }, [caseStudy]);
+    38→
+    39→  useEffect(() => {
+    40→    const onKey = (e: KeyboardEvent) => {
+    41→      if (e.key === "Escape") onClose();
+    42→    };
+    43→    window.addEventListener("keydown", onKey);
+    44→    return () => window.removeEventListener("keydown", onKey);
+    45→  }, [onClose]);
+    46→
+    47→  return (
+    48→    <AnimatePresence>
+    49→      {caseStudy && (
+    50→        <motion.div
+    51→          initial={{ opacity: 0 }}
+    52→          animate={{ opacity: 1 }}
+    53→          exit={{ opacity: 0 }}
+    54→          transition={{ duration: 0.3 }}
+    55→          className="fixed inset-0 z-[100] bg-white"
+    56→        >
+    57→          <Navbar
+    58→            variant="service"
+    59→            onBack={onClose}
+    60→            scrollContainerId="casestudy-page-scroll"
+    61→            onOpenService={(s) => { onClose(); onOpenService(s); }}
+    62→            onOpenPortfolio={(s) => { onClose(); onOpenPortfolio?.(s); }}
+    63→            onOpenCaseStudy={(s) => { onClose(); onSwitchCaseStudy(s); }}
+    64→          />
+    65→
+    66→          <motion.div
+    67→            id="casestudy-page-scroll"
+    68→            initial={{ y: 30, opacity: 0 }}
+    69→            animate={{ y: 0, opacity: 1 }}
+    70→            exit={{ y: 30, opacity: 0 }}
+    71→            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    72→            className="h-screen overflow-y-auto"
+    73→          >
+    74→            <CaseStudyContent
+    75→              key={caseStudy.slug}
+    76→              caseStudy={caseStudy}
+    77→              onSwitchCaseStudy={onSwitchCaseStudy}
+    78→              onOpenService={onOpenService}
+    79→              onClose={onClose}
+    80→            />
+    81→          </motion.div>
+    82→        </motion.div>
+    83→      )}
+    84→    </AnimatePresence>
+    85→  );
+    86→}
+    87→
+    88→function CaseStudyContent({
+    89→  caseStudy,
+    90→  onSwitchCaseStudy,
+    91→  onOpenService,
+    92→  onClose,
+    93→}: {
+    94→  caseStudy: CaseStudyDetail;
+    95→  onSwitchCaseStudy: (slug: string) => void;
+    96→  onOpenService: (slug: string) => void;
+    97→  onClose: () => void;
+    98→}) {
+    99→  const otherCaseStudies = caseStudyDetails.filter((c) => c.slug !== caseStudy.slug);
+   100→  const currentIndex = caseStudyDetails.findIndex((c) => c.slug === caseStudy.slug);
+   101→  const prevCS = caseStudyDetails[(currentIndex - 1 + caseStudyDetails.length) % caseStudyDetails.length];
+   102→  const nextCS = caseStudyDetails[(currentIndex + 1) % caseStudyDetails.length];
+   103→
+   104→  return (
+   105→    <div>
+   106→      {/* ============ HERO ============ */}
+   107→      <section className="relative min-h-[80vh] flex items-end overflow-hidden bg-black text-white">
+   108→        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 to-black" />
+   109→        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+   110→
+   111→        <div className="relative z-10 mx-auto max-w-[1200px] w-full px-5 sm:px-6 md:px-10 py-16 md:py-24 pt-28 md:pt-36">
+   112→          {/* Client logo */}
+   113→          <div className="mb-6 flex items-center gap-4">
+   114→            <div className="h-14 w-14 rounded-full bg-white/10 border border-white/20 overflow-hidden flex items-center justify-center">
+   115→              <img
+   116→                src={caseStudy.clientLogo}
+   117→                alt={`${caseStudy.clientName} logo`}
+   118→                className="h-full w-full object-cover"
+   119→              />
+   120→            </div>
+   121→            <span className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-white/70">
+   122→              {caseStudy.clientName}
+   123→            </span>
+   124→          </div>
+   125→
+   126→          {/* Result-led H1 title */}
+   127→          <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-[9vw] md:text-[5vw] lg:text-[4.5vw] break-words max-w-4xl">
+   128→            {caseStudy.title}
+   129→          </h1>
+   130→
+   131→          {/* 3-4 metrics */}
+   132→          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+   133→            {caseStudy.metrics.map((m, i) => (
+   134→              <div key={i}>
+   135→                <div className="font-display font-bold text-2xl md:text-4xl tracking-tight">
+   136→                  {m.value}
+   137→                </div>
+   138→                <div className="mt-1 text-[10px] md:text-xs text-white/60 uppercase tracking-wide">
+   139→                  {m.label}
+   140→                </div>
+   141→              </div>
+   142→            ))}
+   143→          </div>
+   144→
+   145→          {/* Sticky CTA on mobile */}
+   146→          <div className="mt-8 sticky bottom-4 z-20 md:relative md:bottom-auto md:z-auto">
+   147→            <a
+   148→              href="#contact-casestudy"
+   149→              className="group inline-flex items-center gap-3 bg-white text-black pl-6 pr-2 py-2 rounded-full hover:bg-black hover:text-white border border-white transition-colors duration-300 shadow-lg md:shadow-none"
+   150→            >
+   151→              <span className="text-sm font-medium tracking-wide uppercase">
+   152→                {caseStudy.ctaSticky}
+   153→              </span>
+   154→              <span className="h-10 w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+   155→                <ArrowUpRight size={18} strokeWidth={2} />
+   156→              </span>
+   157→            </a>
+   158→          </div>
+   159→        </div>
+   160→      </section>
+   161→
+   162→      {/* ============ SNAPSHOT SIDEBAR ============ */}
+   163→      <section className="bg-white py-10 md:py-14 border-b border-black/10">
+   164→        <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
+   165→          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+   166→            <div>
+   167→              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-black/40 mb-2">Client</p>
+   168→              <p className="font-display font-bold text-base md:text-lg">{caseStudy.snapshot.client}</p>
+   169→            </div>
+   170→            <div>
+   171→              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-black/40 mb-2">Industry</p>
+   172→              <p className="font-display font-bold text-base md:text-lg">{caseStudy.snapshot.industry}</p>
+   173→            </div>
+   174→            <div>
+   175→              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-black/40 mb-2">Services</p>
+   176→              <div className="flex flex-col gap-1">
+   177→                {caseStudy.snapshot.services.map((s) => (
+   178→                  <button
+   179→                    key={s}
+   180→                    onClick={() => onOpenService(caseStudy.serviceSlug)}
+   181→                    className="text-left text-sm text-black/70 hover:text-black underline underline-offset-2 decoration-black/30 hover:decoration-black transition-colors"
+   182→                  >
+   183→                    {s}
+   184→                  </button>
+   185→                ))}
+   186→              </div>
+   187→            </div>
+   188→            <div>
+   189→              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-black/40 mb-2">Timeline</p>
+   190→              <p className="font-display font-bold text-base md:text-lg">{caseStudy.snapshot.timeline}</p>
+   191→            </div>
+   192→          </div>
+   193→          <p className="mt-6 text-sm text-black/60">
+   194→            {" "}
+   195→            <button
+   196→              onClick={() => onOpenService(caseStudy.serviceSlug)}
+   197→              className="underline underline-offset-4 hover:text-black font-medium"
+   198→            >
+   199→              Explore {caseStudy.snapshot.services[0]} →
+   200→            </button>
+   201→          </p>
+   202→        </div>
+   203→      </section>
+   204→
+   205→      {/* ============ CHALLENGE ============ */}
+   206→      <section className="bg-black text-white py-16 md:py-24">
+   207→        <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
+   208→          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+   209→            <div>
+   210→              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+   211→                Challenge
+   212→              </span>
+   213→              <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-8">
+   214→                {caseStudy.challengeTitle}
+   215→              </h2>
+   216→              {caseStudy.challengeText.map((p, i) => (
+   217→                <p key={i} className="text-base md:text-lg text-white/70 leading-relaxed mb-4 last:mb-0">
+   218→                  {p}
+   219→                </p>
+   220→              ))}
+   221→            </div>
+   222→            <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900">
+   223→              <img
+   224→                src={caseStudy.challengeImage}
+   225→                alt={caseStudy.challengeTitle}
+   226→                loading="eager"
+   227→                className="h-full w-full object-cover"
+   228→              />
+   229→            </div>
+   230→          </div>
+   231→        </div>
+   232→      </section>
+   233→
+   234→      {/* ============ APPROACH ============ */}
+   235→      <section className="bg-white py-16 md:py-24 border-b border-black/10">
+   236→        <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
+   237→          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+   238→            <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100 order-2 lg:order-1">
+   239→              <img
+   240→                src={caseStudy.approachImage}
+   241→                alt={caseStudy.approachTitle}
+   242→                loading="lazy"
+   243→                className="h-full w-full object-cover"
+   244→              />
+   245→            </div>
+   246→            <div className="order-1 lg:order-2">
+   247→              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+   248→                Approach
+   249→              </span>
+   250→              <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-8">
+   251→                {caseStudy.approachTitle}
+   252→              </h2>
+   253→              {caseStudy.approachText.map((p, i) => (
+   254→                <p key={i} className="text-base md:text-lg text-black/70 leading-relaxed mb-4 last:mb-0">
+   255→                  {p}
+   256→                </p>
+   257→              ))}
+   258→            </div>
+   259→          </div>
+   260→        </div>
+   261→      </section>
+   262→
+   263→      {/* ============ WHAT WE SHIPPED ============ */}
+   264→      <section className="bg-black text-white py-16 md:py-24">
+   265→        <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
+   266→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+   267→            {caseStudy.shippedTitle}
+   268→          </span>
+   269→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-6">
+   270→            Deliverables & visuals
+   271→          </h2>
+   272→          <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mb-12">
+   273→            {caseStudy.shippedIntro}
+   274→          </p>
+   275→          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+   276→            {caseStudy.shipItems.map((item, i) => (
+   277→              <div key={i}>
+   278→                <div className="relative aspect-[4/5] overflow-hidden bg-neutral-900 mb-4">
+   279→                  <img
+   280→                    src={item.image}
+   281→                    alt={item.title}
+   282→                    loading="lazy"
+   283→                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+   284→                  />
+   285→                </div>
+   286→                <h3 className="font-display font-bold text-lg md:text-xl tracking-tight">
+   287→                  {item.title}
+   288→                </h3>
+   289→                <p className="mt-2 text-sm text-white/60 leading-relaxed">
+   290→                  {item.desc}
+   291→                </p>
+   292→              </div>
+   293→            ))}
+   294→          </div>
+   295→          <a
+   296→            href={caseStudy.liveProjectUrl}
+   297→            target="_blank"
+   298→            rel="noopener noreferrer"
+   299→            className="mt-10 inline-flex items-center gap-3 border border-white/30 hover:bg-white hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+   300→          >
+   301→            See the live project
+   302→            <ArrowUpRight size={16} />
+   303→          </a>
+   304→        </div>
+   305→      </section>
+   306→
+   307→      {/* ============ RESULTS ============ */}
+   308→      <section className="bg-white py-16 md:py-24 border-b border-black/10">
+   309→        <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
+   310→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+   311→            {caseStudy.resultsTitle}
+   312→          </span>
+   313→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-10">
+   314→            Before & after
+   315→          </h2>
+   316→
+   317→          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-10">
+   318→            {caseStudy.resultsMetrics.map((m, i) => (
+   319→              <div key={i} className="border-t border-black/15 pt-4">
+   320→                <div className="font-display font-bold text-xl md:text-3xl tracking-tight">
+   321→                  {m.value}
+   322→                </div>
+   323→                <div className="mt-1 text-[10px] md:text-xs text-black/50 uppercase tracking-wide">
+   324→                  {m.label}
+   325→                </div>
+   326→              </div>
+   327→            ))}
+   328→          </div>
+   329→
+   330→          <div className="relative aspect-[16/9] overflow-hidden bg-neutral-100">
+   331→            <img
+   332→              src={caseStudy.resultsImage}
+   333→              alt={caseStudy.resultsTitle}
+   334→              loading="lazy"
+   335→              className="h-full w-full object-cover"
+   336→            />
+   337→          </div>
+   338→
+   339→          {/* Want these results? Book a call */}
+   340→          <div className="mt-10 bg-black text-white py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+   341→            <p className="font-display font-bold text-xl md:text-2xl tracking-tight">
+   342→              Want these results?
+   343→            </p>
+   344→            <a
+   345→              href="#contact-casestudy"
+   346→              className="group inline-flex items-center gap-3 bg-white text-black pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-white border border-white transition-colors duration-300"
+   347→            >
+   348→              <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
+   349→                Book a call
+   350→              </span>
+   351→              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+   352→                <ArrowUpRight size={14} />
+   353→              </span>
+   354→            </a>
+   355→          </div>
+   356→        </div>
+   357→      </section>
+   358→
+   359→      {/* ============ TESTIMONIAL ============ */}
+   360→      <section className="bg-black text-white py-16 md:py-24">
+   361→        <div className="mx-auto max-w-[900px] px-5 sm:px-6 md:px-10 text-center">
+   362→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+   363→            Testimonial
+   364→          </span>
+   365→          <blockquote className="mt-6 font-display font-light italic text-xl md:text-3xl lg:text-4xl leading-relaxed text-white/90">
+   366→            &ldquo;{caseStudy.testimonial.quote}&rdquo;
+   367→          </blockquote>
+   368→          <div className="mt-8">
+   369→            <p className="font-display font-bold text-lg md:text-xl">{caseStudy.testimonial.name}</p>
+   370→            <p className="mt-1 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/50">
+   371→              {caseStudy.testimonial.role}
+   372→            </p>
+   373→          </div>
+   374→          <a
+   375→            href="#contact-casestudy"
+   376→            className="mt-10 inline-flex items-center gap-3 border border-white/30 hover:bg-white hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+   377→          >
+   378→            Work with us
+   379→            <ArrowRight size={16} />
+   380→          </a>
+   381→        </div>
+   382→      </section>
+   383→
+   384→      {/* ============ LEARNINGS ============ */}
+   385→      <section className="bg-white py-16 md:py-24 border-b border-black/10">
+   386→        <div className="mx-auto max-w-[800px] px-5 sm:px-6 md:px-10">
+   387→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+   388→            Learnings
+   389→          </span>
+   390→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-8">
+   391→            {caseStudy.learningsTitle}
+   392→          </h2>
+   393→          {caseStudy.learningsText.map((p, i) => (
+   394→            <p key={i} className="text-base md:text-lg text-black/70 leading-relaxed mb-4 last:mb-0">
+   395→              {p}
+   396→            </p>
+   397→          ))}
+   398→        </div>
+   399→      </section>
+   400→
+   401→      {/* ============ SERVICES USED ============ */}
+   402→      <section className="bg-black text-white py-16 md:py-24">
+   403→        <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
+   404→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/50">
+   405→            Services used
+   406→          </span>
+   407→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-10">
+   408→            What we did
+   409→          </h2>
+   410→          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+   411→            {caseStudy.servicesUsed.map((s, i) => (
+   412→              <button
+   413→                key={i}
+   414→                onClick={() => onOpenService(caseStudy.serviceSlug)}
+   415→                className="group text-left p-6 md:p-8 border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+   416→              >
+   417→                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40 group-hover:text-black/50 transition-colors">
+   418→                  0{i + 1}
+   419→                </span>
+   420→                <h3 className="mt-3 font-display font-bold text-lg md:text-xl tracking-tight">
+   421→                  {s}
+   422→                </h3>
+   423→                <p className="mt-2 text-sm text-white/60 group-hover:text-black/60 transition-colors">
+   424→                  Explore {s}
+   425→                </p>
+   426→                <ArrowRight size={20} className="mt-4 transition-transform group-hover:translate-x-2" />
+   427→              </button>
+   428→            ))}
+   429→          </div>
+   430→        </div>
+   431→      </section>
+   432→
+   433→      {/* ============ RELATED CASE STUDIES ============ */}
+   434→      <section className="bg-white py-16 md:py-24 border-b border-black/10">
+   435→        <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
+   436→          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+   437→            {caseStudy.relatedTitle}
+   438→          </span>
+   439→          <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-10">
+   440→            More case studies
+   441→          </h2>
+   442→          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+   443→            {otherCaseStudies.slice(0, 3).map((c) => (
+   444→              <button
+   445→                key={c.slug}
+   446→                onClick={() => onSwitchCaseStudy(c.slug)}
+   447→                className="group text-left"
+   448→              >
+   449→                <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100 mb-4">
+   450→                  <img
+   451→                    src={c.clientLogo}
+   452→                    alt={c.title}
+   453→                    loading="lazy"
+   454→                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+   455→                  />
+   456→                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+   457→                </div>
+   458→                <h3 className="font-display font-bold text-base md:text-lg tracking-tight">
+   459→                  {c.clientName}
+   460→                </h3>
+   461→                <p className="mt-1 font-mono text-[10px] tracking-[0.2em] uppercase text-black/50">
+   462→                  {c.snapshot.industry}
+   463→                </p>
+   464→                <p className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-black/60 group-hover:text-black border-b border-black/30 group-hover:border-black pb-0.5 transition-all">
+   465→                  Read next case study
+   466→                  <ArrowRight size={12} />
+   467→                </p>
+   468→              </button>
+   469→            ))}
+   470→          </div>
+   471→
+   472→          {/* Next / Previous */}
+   473→          <div className="mt-12 flex items-center justify-between gap-4 border-t border-black/10 pt-8">
+   474→            <button
+   475→              onClick={() => onSwitchCaseStudy(prevCS.slug)}
+   476→              className="group flex items-center gap-3 text-left"
+   477→            >
+   478→              <span className="h-10 w-10 rounded-full border border-black/30 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+   479→                <ArrowLeft size={16} />
+   480→              </span>
+   481→              <div>
+   482→                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-black/40">Previous</p>
+   483→                <p className="font-display font-bold text-sm md:text-base">{prevCS.clientName}</p>
+   484→              </div>
+   485→            </button>
+   486→            <button
+   487→              onClick={() => onSwitchCaseStudy(nextCS.slug)}
+   488→              className="group flex items-center gap-3 text-right"
+   489→            >
+   490→              <div>
+   491→                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-black/40">Next</p>
+   492→                <p className="font-display font-bold text-sm md:text-base">{nextCS.clientName}</p>
+   493→              </div>
+   494→              <span className="h-10 w-10 rounded-full border border-black/30 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+   495→                <ArrowRight size={16} />
+   496→              </span>
+   497→            </button>
+   498→          </div>
+   499→        </div>
+   500→      </section>
+   501→
+   502→      {/* ============ CTA ============ */}
+   503→      <section id="contact-casestudy" className="bg-black text-white py-16 md:py-24">
+   504→        <div className="mx-auto max-w-[800px] px-5 sm:px-6 md:px-10 text-center">
+   505→          <h2 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl">
+   506→            {caseStudy.ctaTitle}
+   507→          </h2>
+   508→          <p className="mt-4 text-base md:text-lg text-white/60">
+   509→            Book a 30-minute call or view all our case studies.
+   510→          </p>
+   511→          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+   512→            <a
+   513→              href="mailto:hello@katelladigital.com"
+   514→              className="group inline-flex items-center gap-3 bg-white text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-white border border-white transition-colors duration-300"
+   515→            >
+   516→              <span className="text-sm font-medium tracking-wide uppercase">
+   517→                Book a call
+   518→              </span>
+   519→              <span className="h-10 w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+   520→                <ArrowUpRight size={16} />
+   521→              </span>
+   522→            </a>
+   523→            <button
+   524→              onClick={onClose}
+   525→              className="group inline-flex items-center gap-3 border border-white/30 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-white hover:text-black transition-colors duration-300"
+   526→            >
+   527→              View all case studies
+   528→            </button>
+   529→          </div>
+   530→        </div>
+   531→      </section>
+   532→
+   533→      {/* ============ FOOTER ============ */}
+   534→      <footer className="bg-white text-black border-t border-black/10">
+   535→        <div className="overflow-hidden">
+   536→          <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
+   537→            <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
+   538→              {/* Brand + tagline */}
+   539→              <div className="col-span-2 md:col-span-5">
+   540→                <a
+   541→                  href="#top"
+   542→                  onClick={(e) => {
+   543→                    e.preventDefault();
+   544→                    onClose();
+   545→                  }}
+   546→                  className="flex items-center gap-2 group mb-5"
+   547→                >
+   548→                  <span className="h-2.5 w-2.5 bg-black rounded-full transition-transform group-hover:scale-150" />
+   549→                  <span className="font-display font-bold tracking-tight text-lg md:text-xl">
+   550→                    KATELLA <span className="font-light">DIGITAL</span>
+   551→                  </span>
+   552→                </a>
+   553→                <p className="text-black/60 text-sm md:text-base max-w-sm leading-relaxed">
+   554→                  E-commerce catalogs, color protocols, virtual production & CGI,
+   555→                  and white-label agency extension. Four services, one studio,
+   556→                  relentless precision.
+   557→                </p>
+   558→              </div>
+   559→
+   560→              {/* Link columns */}
+   561→              <div className="md:col-span-3">
+   562→                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/40 mb-4 sm:mb-5">
+   563→                  Work
+   564→                </p>
+   565→                <ul className="space-y-2 sm:space-y-3">
+   566→                  {caseStudyDetails.map((c) => (
+   567→                    <li key={c.slug}>
+   568→                      <button
+   569→                        onClick={() => onSwitchCaseStudy(c.slug)}
+   570→                        className="text-sm md:text-base text-black/80 hover:text-black relative inline-block group text-left"
+   571→                      >
+   572→                        {c.clientName}
+   573→                        <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full" />
+   574→                      </button>
+   575→                    </li>
+   576→                  ))}
+   577→                </ul>
+   578→              </div>
+   579→
+   580→              <div className="md:col-span-2">
+   581→                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/40 mb-4 sm:mb-5">
+   582→                  Contact
+   583→                </p>
+   584→                <ul className="space-y-2 sm:space-y-3">
+   585→                  <li>
+   586→                    <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-black/80 hover:text-black transition-colors">
+   587→                      hello@katelladigital.com
+   588→                    </a>
+   589→                  </li>
+   590→                  <li><a href="#" className="text-sm md:text-base text-black/80 hover:text-black transition-colors">Instagram</a></li>
+   591→                  <li><a href="#" className="text-sm md:text-base text-black/80 hover:text-black transition-colors">LinkedIn</a></li>
+   592→                </ul>
+   593→              </div>
+   594→
+   595→              <div className="md:col-span-2">
+   596→                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/40 mb-4 sm:mb-5">
+   597→                  Studio
+   598→                </p>
+   599→                <p className="text-sm md:text-base text-black/80">Berlin, Germany</p>
+   600→                <p className="text-sm md:text-base text-black/80 mt-2">Mon — Fri, 9–18 CET</p>
+   601→              </div>
+   602→            </div>
+   603→          </div>
+   604→
+   605→          {/* Mega wordmark — centered */}
+   606→          <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
+   607→            <div className="font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[10vw] lg:text-[9vw] text-black select-none text-center">
+   608→              KATELLA DIGITAL
+   609→            </div>
+   610→          </div>
+   611→
+   612→          {/* Bottom bar */}
+   613→          <div className="border-t border-black/10">
+   614→            <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-black/40">
+   615→              <span>© 2026 Katella Digital — Berlin</span>
+   616→              <span>Made in monochrome</span>
+   617→            </div>
+   618→          </div>
+   619→        </div>
+   620→      </footer>
+   621→    </div>
+   622→  );
+   623→}
+   624→
