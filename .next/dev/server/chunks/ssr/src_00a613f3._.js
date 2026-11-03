@@ -2867,6 +2867,164 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 "use client";
 ;
 ;
+function shapeUpwardArrow(count) {
+    // Growth arrow — a thick upward arrow shape
+    const points = [];
+    for(let i = 0; i < count; i++){
+        const t = i / count;
+        if (t < 0.15) {
+            // Arrowhead — left diagonal
+            const s = t / 0.15;
+            points.push({
+                x: 0.3 + s * 0.2,
+                y: 0.25 + s * 0.15
+            });
+        } else if (t < 0.3) {
+            // Arrowhead — right diagonal
+            const s = (t - 0.15) / 0.15;
+            points.push({
+                x: 0.5 + s * 0.2,
+                y: 0.4 - s * 0.15
+            });
+        } else if (t < 0.4) {
+            // Arrowhead top
+            const s = (t - 0.3) / 0.1;
+            points.push({
+                x: 0.5,
+                y: 0.25 - s * 0.05
+            });
+        } else {
+            // Arrow shaft — thick rectangle going down
+            const s = (t - 0.4) / 0.6;
+            const w = 0.06;
+            const offset = (i % 5 - 2) * (w / 5);
+            points.push({
+                x: 0.5 + offset,
+                y: 0.4 + s * 0.35
+            });
+        }
+    }
+    return points;
+}
+function shapeBarChart(count) {
+    // Bar chart — ascending bars representing growth
+    const points = [];
+    const bars = 5;
+    const barWidth = 0.08;
+    const gap = 0.03;
+    const startX = 0.25;
+    for(let i = 0; i < count; i++){
+        const barIndex = Math.floor(i / count * bars);
+        const inBar = i / count * bars - barIndex;
+        const barHeight = 0.15 + barIndex / bars * 0.25;
+        const x = startX + barIndex * (barWidth + gap) + inBar * barWidth;
+        const y = 0.7 - inBar * barHeight;
+        points.push({
+            x,
+            y
+        });
+    }
+    return points;
+}
+function shapeTarget(count) {
+    // Concentric circles — target/bullseye
+    const points = [];
+    for(let i = 0; i < count; i++){
+        const t = i / count;
+        const ring = Math.floor(t * 4) / 4;
+        const angle = (t * 4 - Math.floor(t * 4)) * Math.PI * 2;
+        const radius = 0.05 + ring * 0.06;
+        points.push({
+            x: 0.5 + Math.cos(angle) * radius,
+            y: 0.45 + Math.sin(angle) * radius * 0.8
+        });
+    }
+    return points;
+}
+function shapeRocket(count) {
+    // Rocket shape — pointing up-right
+    const points = [];
+    for(let i = 0; i < count; i++){
+        const t = i / count;
+        if (t < 0.3) {
+            // Rocket body — diagonal line
+            const s = t / 0.3;
+            points.push({
+                x: 0.3 + s * 0.3,
+                y: 0.65 - s * 0.35
+            });
+        } else if (t < 0.45) {
+            // Nose cone
+            const s = (t - 0.3) / 0.15;
+            points.push({
+                x: 0.6 + s * 0.08,
+                y: 0.3 - s * 0.08
+            });
+        } else if (t < 0.6) {
+            // Fins
+            const s = (t - 0.45) / 0.15;
+            const fin = i % 2 === 0 ? 1 : -1;
+            points.push({
+                x: 0.35 + s * 0.05,
+                y: 0.6 + fin * s * 0.06
+            });
+        } else {
+            // Exhaust trail
+            const s = (t - 0.6) / 0.4;
+            const wobble = Math.sin(s * 10) * 0.01;
+            points.push({
+                x: 0.3 - s * 0.12 + wobble,
+                y: 0.65 + s * 0.12
+            });
+        }
+    }
+    return points;
+}
+function shapeWave(count) {
+    // Growth wave — sine wave going up
+    const points = [];
+    for(let i = 0; i < count; i++){
+        const t = i / count;
+        const x = 0.15 + t * 0.7;
+        const y = 0.5 - Math.sin(t * Math.PI * 2) * 0.12 - t * 0.15;
+        points.push({
+            x,
+            y
+        });
+    }
+    return points;
+}
+function shapeNetwork(count) {
+    // Network/connections — scattered nodes in a cluster
+    const points = [];
+    const seed = 42;
+    let rng = seed;
+    for(let i = 0; i < count; i++){
+        rng = (rng * 9301 + 49297) % 233280;
+        const r1 = rng / 233280;
+        rng = (rng * 9301 + 49297) % 233280;
+        const r2 = rng / 233280;
+        // Cluster around center with spread
+        const angle = r1 * Math.PI * 2;
+        const dist = 0.05 + r2 * 0.15;
+        points.push({
+            x: 0.5 + Math.cos(angle) * dist,
+            y: 0.45 + Math.sin(angle) * dist * 0.8
+        });
+    }
+    return points;
+}
+// Section → shape mapping
+const SHAPES = [
+    shapeUpwardArrow,
+    shapeBarChart,
+    shapeWave,
+    shapeBarChart,
+    shapeTarget,
+    shapeRocket,
+    shapeNetwork
+];
+const PARTICLE_COUNT = 180;
 function ParticleRain() {
     const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
@@ -2876,99 +3034,123 @@ function ParticleRain() {
         if (!ctx) return;
         let W = canvas.width = window.innerWidth;
         let H = canvas.height = window.innerHeight;
-        // Mouse position
-        let mouseX = -1000;
-        let mouseY = -1000;
-        const REPEL_RADIUS = 120;
-        const REPEL_STRENGTH = 0.6;
-        // Particle config
-        const PARTICLE_COUNT = Math.min(200, Math.floor(W * H / 8000));
+        // Mouse state
+        let mouseX = W / 2;
+        let mouseY = H / 2;
+        let targetMouseX = W / 2;
+        let targetMouseY = H / 2;
+        const MOUSE_ATTRACT = 0.02; // How strongly particles follow mouse
+        const REPEL_RADIUS = 80; // Distance at which particles repel
+        const REPEL_STRENGTH = 1.5;
+        // Current shape index (based on scroll)
+        let currentShape = 0;
+        let targetShape = 0;
+        // Initialize particles randomly
         const particles = [];
-        const initParticles = ()=>{
-            particles.length = 0;
-            for(let i = 0; i < PARTICLE_COUNT; i++){
-                const x = Math.random() * W;
-                const y = Math.random() * H;
-                const size = 1 + Math.random() * 3;
-                const opacity = 0.1 + Math.random() * 0.5;
-                particles.push({
-                    x,
-                    y,
-                    baseX: x,
-                    baseY: y,
-                    vx: 0,
-                    vy: 0,
-                    size,
-                    opacity,
-                    color: `rgba(70, 226, 226, ${opacity})`
-                });
+        for(let i = 0; i < PARTICLE_COUNT; i++){
+            particles.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                tx: W / 2,
+                ty: H / 2,
+                vx: 0,
+                vy: 0,
+                size: 1.5 + Math.random() * 2.5,
+                opacity: 0.2 + Math.random() * 0.5,
+                hue: 0.85 + Math.random() * 0.15
+            });
+        }
+        // Update target positions based on current shape
+        const updateShape = (shapeIndex)=>{
+            const shapeFn = SHAPES[shapeIndex % SHAPES.length];
+            const points = shapeFn(PARTICLE_COUNT);
+            // Scale shape to screen — center it, make it visible
+            const shapeW = W * 0.5;
+            const shapeH = H * 0.45;
+            const offsetX = (W - shapeW) / 2;
+            const offsetY = (H - shapeH) / 2;
+            for(let i = 0; i < particles.length && i < points.length; i++){
+                particles[i].tx = offsetX + points[i].x * shapeW;
+                particles[i].ty = offsetY + points[i].y * shapeH;
             }
         };
-        initParticles();
+        updateShape(0);
         const onResize = ()=>{
             W = canvas.width = window.innerWidth;
             H = canvas.height = window.innerHeight;
-            initParticles();
+            updateShape(currentShape);
         };
         const onMouseMove = (e)=>{
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+            targetMouseX = e.clientX;
+            targetMouseY = e.clientY;
         };
-        const onMouseLeave = ()=>{
-            mouseX = -1000;
-            mouseY = -1000;
-        };
-        // Scroll offset for parallax
-        let scrollY = 0;
+        // Detect which section is in view and update shape
         const onScroll = ()=>{
-            scrollY = window.scrollY;
+            const scrollY = window.scrollY;
+            const sectionHeight = H;
+            const sectionIndex = Math.floor(scrollY / sectionHeight);
+            targetShape = Math.min(sectionIndex, SHAPES.length - 1);
+            if (targetShape !== currentShape) {
+                currentShape = targetShape;
+                updateShape(currentShape);
+            }
         };
         let animationId;
         const animate = ()=>{
+            // Smooth mouse follow
+            mouseX += (targetMouseX - mouseX) * 0.08;
+            mouseY += (targetMouseY - mouseY) * 0.08;
             ctx.clearRect(0, 0, W, H);
-            // Parallax offset — particles move slower than scroll
-            const parallaxOffset = scrollY * 0.3;
             for(let i = 0; i < particles.length; i++){
                 const p = particles[i];
-                // Calculate distance to mouse
-                const dx = p.x - mouseX;
-                const dy = p.y - mouseY;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                // Repel from mouse
-                if (dist < REPEL_RADIUS && dist > 0) {
-                    const force = (REPEL_RADIUS - dist) / REPEL_RADIUS;
-                    const angle = Math.atan2(dy, dx);
+                // 1. Attract toward shape target position
+                const dxShape = p.tx - p.x;
+                const dyShape = p.ty - p.y;
+                p.vx += dxShape * 0.008;
+                p.vy += dyShape * 0.008;
+                // 2. Mouse interaction — attract to mouse but repel when close
+                const dxMouse = p.x - mouseX;
+                const dyMouse = p.y - mouseY;
+                const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                if (distMouse < REPEL_RADIUS && distMouse > 0) {
+                    // Repel — push away from cursor
+                    const force = (REPEL_RADIUS - distMouse) / REPEL_RADIUS;
+                    const angle = Math.atan2(dyMouse, dxMouse);
                     p.vx += Math.cos(angle) * force * REPEL_STRENGTH;
                     p.vy += Math.sin(angle) * force * REPEL_STRENGTH;
+                } else if (distMouse < 250) {
+                    // Gentle attract — follow cursor when in mid-range
+                    const force = (250 - distMouse) / 250 * MOUSE_ATTRACT;
+                    p.vx -= dxMouse * force;
+                    p.vy -= dyMouse * force;
                 }
-                // Return to base position (spring back)
-                const homeX = p.baseX;
-                const homeY = p.baseY - parallaxOffset;
-                p.vx += (homeX - p.x) * 0.01;
-                p.vy += (homeY - p.y) * 0.01;
-                // Apply friction
-                p.vx *= 0.92;
-                p.vy *= 0.92;
-                // Update position
+                // 3. Friction
+                p.vx *= 0.88;
+                p.vy *= 0.88;
+                // 4. Update position
                 p.x += p.vx;
                 p.y += p.vy;
-                // Draw particle
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                // Brighter when near mouse
+                // 5. Draw particle
                 let drawOpacity = p.opacity;
-                if (dist < REPEL_RADIUS) {
-                    drawOpacity = Math.min(1, p.opacity + (1 - dist / REPEL_RADIUS) * 0.4);
+                let drawSize = p.size;
+                // Brighter and bigger near mouse
+                if (distMouse < 150) {
+                    const boost = 1 - distMouse / 150;
+                    drawOpacity = Math.min(1, p.opacity + boost * 0.4);
+                    drawSize = p.size + boost * 1.5;
                 }
-                ctx.fillStyle = `rgba(70, 226, 226, ${drawOpacity})`;
-                ctx.fill();
-                // Glow effect for larger particles
-                if (p.size > 2) {
+                // Glow
+                if (drawSize > 2) {
                     ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size * 2.5, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(70, 226, 226, ${drawOpacity * 0.08})`;
+                    ctx.arc(p.x, p.y, drawSize * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(70, 226, 226, ${drawOpacity * 0.06})`;
                     ctx.fill();
                 }
+                // Core
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, drawSize, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(70, 226, 226, ${drawOpacity})`;
+                ctx.fill();
             }
             // Draw connections between nearby particles
             for(let i = 0; i < particles.length; i++){
@@ -2978,8 +3160,8 @@ function ParticleRain() {
                     const dx = p1.x - p2.x;
                     const dy = p1.y - p2.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 80) {
-                        const opacity = (1 - dist / 80) * 0.12;
+                    if (dist < 60) {
+                        const opacity = (1 - dist / 60) * 0.1;
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -2993,7 +3175,6 @@ function ParticleRain() {
         };
         window.addEventListener("resize", onResize);
         window.addEventListener("mousemove", onMouseMove);
-        window.addEventListener("mouseleave", onMouseLeave);
         window.addEventListener("scroll", onScroll, {
             passive: true
         });
@@ -3001,7 +3182,6 @@ function ParticleRain() {
         return ()=>{
             window.removeEventListener("resize", onResize);
             window.removeEventListener("mousemove", onMouseMove);
-            window.removeEventListener("mouseleave", onMouseLeave);
             window.removeEventListener("scroll", onScroll);
             cancelAnimationFrame(animationId);
         };
@@ -3015,7 +3195,7 @@ function ParticleRain() {
         "aria-hidden": "true"
     }, void 0, false, {
         fileName: "[project]/src/components/site/particle-rain.tsx",
-        lineNumber: 184,
+        lineNumber: 359,
         columnNumber: 5
     }, this);
 }
