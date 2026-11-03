@@ -11,23 +11,23 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "CUTTING EDGER — Creative Studio Agency",
+  title: "Katella Digital — Full-Service Marketing Agency",
   description:
-    "A black & white creative studio crafting brands, films, and digital experiences with relentless precision.",
+    "A full-service marketing agency built to drive business growth. Strategy, creative, digital, and media — all under one roof.",
   keywords: [
-    "creative studio",
-    "branding agency",
-    "design studio",
-    "monochrome",
-    "CUTTING EDGER",
+    "marketing agency",
+    "digital marketing",
+    "full-service agency",
+    "Katella Digital",
     "creative agency",
+    "advertising",
   ],
-  authors: [{ name: "CUTTING EDGER" }],
+  authors: [{ name: "Katella Digital" }],
   openGraph: {
-    title: "CUTTING EDGER — Creative Studio Agency",
+    title: "Katella Digital — Full-Service Marketing Agency",
     description:
-      "A black & white creative studio crafting brands, films, and digital experiences with relentless precision.",
-    siteName: "CUTTING EDGER",
+      "A full-service marketing agency built to drive business growth. Strategy, creative, digital, and media — all under one roof.",
+    siteName: "Katella Digital",
     type: "website",
   },
 };
@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${roboto.variable} antialiased bg-white text-black font-sans selection:bg-black selection:text-white`}
+        className={`${roboto.variable} antialiased bg-background text-foreground font-sans selection:bg-[#46E2E2] selection:text-black`}
         style={{ "--font-mono": "'Courier New', monospace" } as React.CSSProperties}
       >
         {children}

@@ -498,7 +498,7 @@ function ServiceContent({
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@cuttingedger.co"
+              href="mailto:hello@katelladigital.com"
               className="group inline-flex items-center gap-3 bg-black text-white pl-6 pr-2 py-2 rounded-full hover:bg-white hover:text-black border border-black transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
@@ -509,7 +509,7 @@ function ServiceContent({
               </span>
             </a>
             <a
-              href="mailto:hello@cuttingedger.co"
+              href="mailto:hello@katelladigital.com"
               className="group inline-flex items-center gap-3 border border-black px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-black hover:text-white transition-colors duration-300"
             >
               Send your brief
@@ -535,7 +535,7 @@ function ServiceContent({
               >
                 <span className="h-2.5 w-2.5 bg-white rounded-full transition-transform group-hover:scale-150" />
                 <span className="font-bold tracking-tight text-lg md:text-xl">
-                  CUTTING <span className="font-light">EDGER</span>
+                  KATELLA <span className="font-light">DIGITAL</span>
                 </span>
               </a>
               <p className="text-white/60 text-sm md:text-base max-w-sm leading-relaxed">
@@ -572,8 +572,8 @@ function ServiceContent({
               </p>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <a href="mailto:hello@cuttingedger.co" className="text-sm md:text-base text-white/80 hover:text-white transition-colors">
-                    hello@cuttingedger.co
+                  <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-white transition-colors">
+                    hello@katelladigital.com
                   </a>
                 </li>
                 <li>
@@ -602,14 +602,14 @@ function ServiceContent({
         {/* Mega wordmark */}
         <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
           <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-white select-none">
-            CUTTING EDGER
+            KATELLA DIGITAL
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-white/10">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
-            <span>© 2026 Cuttingedger — Berlin</span>
+            <span>© 2026 Katella Digital — Berlin</span>
             <span>Made in monochrome</span>
           </div>
         </div>

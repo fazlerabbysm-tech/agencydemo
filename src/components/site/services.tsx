@@ -45,7 +45,7 @@ export default function Services({ onServiceClick }: Props) {
   return (
     <section
       id="services"
-      className="relative bg-black text-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden border-t border-white/10"
+      className="relative bg-[#0a0a0a] text-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden border-t border-[#2a2a2a]"
     >
       {/* Header */}
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-8 sm:mb-10 md:mb-12">
@@ -114,11 +114,11 @@ function ServiceCard({
           }}
         />
         {/* Subtle bottom-only gradient for text legibility — image stays focused */}
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-transparent" />
 
         {/* Number badge */}
         <div className="absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/90 drop-shadow-lg">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] drop-shadow-lg">
             {service.no} / {padTotal}
           </span>
           <span className="h-2 w-2 rounded-full bg-white/90 group-hover:scale-150 transition-transform duration-300" />

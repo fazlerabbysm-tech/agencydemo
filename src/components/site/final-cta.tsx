@@ -7,14 +7,14 @@ export default function FinalCTA() {
   return (
     <section
       id="contact"
-      className="relative bg-black text-white py-20 sm:py-32 md:py-48 overflow-hidden border-t border-white/10"
+      className="relative bg-[#111111] text-white py-20 sm:py-32 md:py-48 overflow-hidden border-t border-[#2a2a2a]"
     >
       {/* Subtle light radial spotlight on black */}
       <div
         className="absolute inset-0 opacity-60"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 60%)",
+            "radial-gradient(circle at 50% 50%, rgba(70,226,226,0.10), transparent 60%)",
         }}
       />
 
@@ -36,7 +36,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="font-display font-bold tracking-[-0.03em] leading-[0.95] text-[10vw] sm:text-[8vw] lg:text-[7vw] max-w-[14ch] mx-auto text-balance break-words"
         >
-          Four services. One studio. Let&apos;s begin.
+          Let&apos;s launch campaigns that drive real growth.
         </motion.h2>
 
         <motion.div
@@ -47,23 +47,23 @@ export default function FinalCTA() {
           className="mt-10 sm:mt-14 md:mt-20 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
         >
           <a
-            href="mailto:hello@cuttingedger.co"
-            className="group inline-flex items-center gap-3 bg-white text-black pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-white border border-white transition-colors duration-300"
+            href="mailto:hello@katelladigital.com"
+            className="group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300"
           >
             <span className="text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
               Start a project
             </span>
-            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300">
               <ArrowUpRight size={16} strokeWidth={2} className="sm:hidden" />
               <ArrowUpRight size={20} strokeWidth={2} className="hidden sm:block" />
             </span>
           </a>
 
           <a
-            href="mailto:hello@cuttingedger.co"
+            href="mailto:hello@katelladigital.com"
             className="font-mono text-xs sm:text-sm tracking-wide text-white/60 hover:text-white transition-colors underline underline-offset-4 decoration-white/30"
           >
-            hello@cuttingedger.co
+            hello@katelladigital.com
           </a>
         </motion.div>
       </div>

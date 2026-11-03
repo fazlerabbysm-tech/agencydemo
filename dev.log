@@ -1,0 +1,42 @@
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://21.0.14.211:3000
+- Environments: .env
+
+✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+✓ Ready in 639ms
+○ Compiling / ...
+ GET / 200 in 63ms (compile: 5ms, render: 58ms)
+ GET / 200 in 53ms (compile: 4ms, render: 49ms)
+ GET / 200 in 51ms (compile: 4ms, render: 47ms)
+ GET / 200 in 47ms (compile: 4ms, render: 43ms)
+✓ Compiled in 239ms
+ GET / 200 in 51ms (compile: 20ms, render: 31ms)
+✓ Compiled in 191ms
+✓ Compiled in 244ms
+✓ Compiled in 848ms
+✓ Compiled in 335ms
+✓ Compiled in 188ms
+✓ Compiled in 118ms
+✓ Compiled in 233ms
+✓ Compiled in 114ms
+✓ Compiled in 128ms
+✓ Compiled in 186ms
+✓ Compiled in 137ms
+✓ Compiled in 137ms
+✓ Compiled in 147ms
+✓ Compiled in 50ms
+✓ Compiled in 195ms
+✓ Compiled in 113ms
+✓ Compiled in 145ms
+✓ Compiled in 136ms
+✓ Compiled in 136ms
+✓ Compiled in 132ms
+✓ Compiled in 157ms
+✓ Compiled in 159ms
+ GET / 200 in 542ms (compile: 22ms, render: 520ms)

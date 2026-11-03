@@ -45,15 +45,15 @@ export default function WorkShowcase({ onWorkClick }: Props) {
   return (
     <section
       id="work"
-      className="relative bg-white text-black py-8 sm:py-12 md:py-14 lg:py-16 overflow-hidden border-t border-black/10"
+      className="relative bg-[#111111] text-white py-8 sm:py-12 md:py-14 lg:py-16 overflow-hidden border-t border-[#2a2a2a]"
     >
       {/* Header */}
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-8 md:mb-10">
         <div className="flex items-center justify-between mb-4 sm:mb-6">
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
             ( 05 ) — Selected Work
           </span>
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50 hidden sm:block">
+          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
             Click a project to explore · Auto-rotating
           </span>
         </div>
@@ -82,13 +82,13 @@ export default function WorkShowcase({ onWorkClick }: Props) {
 
       {/* Bottom CTA */}
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mt-6 sm:mt-8 md:mt-10 flex flex-wrap items-end justify-between gap-4 sm:gap-6">
-        <p className="text-black/60 text-xs sm:text-sm md:text-base max-w-md">
+        <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-md">
           A complete archive lives in our studio. Below is what fit on a single
           strip of 35mm.
         </p>
         <a
           href="#contact"
-          className="group inline-flex items-center gap-3 border border-black/30 hover:bg-black hover:text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+          className="group inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
         >
           View full archive
           <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -124,14 +124,14 @@ function WorkCard({
         />
         <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
         {/* Subtle bottom-only gradient for text legibility — image stays focused */}
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#111111] via-black/30 to-transparent" />
 
         {/* Top row: index + play hint */}
         <div className="absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/90 drop-shadow-lg">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] drop-shadow-lg">
             {work.no} / 04
           </span>
-          <span className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 rounded-full border border-white/40 flex items-center justify-center text-white/80 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+          <span className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 rounded-full border border-[#46E2E2]/40 flex items-center justify-center text-white/80 group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300">
             <svg
               width="7"
               height="9"
