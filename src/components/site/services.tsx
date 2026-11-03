@@ -73,10 +73,6 @@ export default function Services({ onServiceClick }: Props) {
 
       {/* Auto-rotating service cards marquee */}
       <div className="marquee-pause relative">
-        {/* Edge fades */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-r from-black to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-l from-black to-transparent z-10" />
-
         <div className="flex w-max marquee-track-left-slow">
           {loop.map((s, i) => (
             <ServiceCard

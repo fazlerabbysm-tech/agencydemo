@@ -73,10 +73,6 @@ export default function WorkShowcase({ onWorkClick }: Props) {
 
       {/* Auto-rotating carousel — moves RIGHT (opposite direction to services) */}
       <div className="marquee-pause relative">
-        {/* Edge fades */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10" />
-
         <div className="flex w-max marquee-track-right-slow items-center gap-3 sm:gap-4 md:gap-6 px-2 sm:px-3 md:px-5">
           {loop.map((w, i) => (
             <WorkCard key={i} work={w} onClick={onWorkClick} />
