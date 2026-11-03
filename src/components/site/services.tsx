@@ -112,19 +112,20 @@ function ServiceCard({
           src={service.image}
           alt={service.title}
           loading="eager"
-          className="h-full w-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+          className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+        {/* Subtle bottom-only gradient for text legibility — image stays focused */}
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
         {/* Number badge */}
         <div className="absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/80">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/90 drop-shadow-lg">
             {service.no} / {padTotal}
           </span>
-          <span className="h-2 w-2 rounded-full bg-white/80 group-hover:scale-150 transition-transform duration-300" />
+          <span className="h-2 w-2 rounded-full bg-white/90 group-hover:scale-150 transition-transform duration-300" />
         </div>
 
         {/* Title + Explore (no description) */}

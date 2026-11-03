@@ -121,17 +121,18 @@ function WorkCard({
           src={work.image}
           alt={`${work.title} — ${work.cat}`}
           loading="eager"
-          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
           }}
         />
         <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+        {/* Subtle bottom-only gradient for text legibility — image stays focused */}
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
         {/* Top row: index + play hint */}
         <div className="absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/80">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/90 drop-shadow-lg">
             {work.no} / 04
           </span>
           <span className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 rounded-full border border-white/40 flex items-center justify-center text-white/80 group-hover:bg-white group-hover:text-black transition-colors duration-300">
