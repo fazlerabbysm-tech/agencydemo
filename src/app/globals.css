@@ -227,16 +227,30 @@ details > summary::-webkit-details-marker {
 .kd-teal { color: #46E2E2; }
 .kd-teal-bg { background-color: #46E2E2; }
 
-/* Glassy card */
+/* Glassy card — dark glassmorphism with teal hover glow */
 .kd-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 16px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+.kd-card::before {
+  content: "";
+  position: absolute;
+  inset-x: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(70,226,226,0.3), transparent);
+  z-index: 1;
 }
 .kd-card:hover {
-  border-color: rgba(70,226,226,0.4);
-  box-shadow: 0 0 30px rgba(70,226,226,0.08);
+  border-color: rgba(70,226,226,0.5);
+  box-shadow: 0 0 40px rgba(70,226,226,0.12);
+  transform: translateY(-4px);
 }
 
 /* Eyebrow label — • SECTION NAME */

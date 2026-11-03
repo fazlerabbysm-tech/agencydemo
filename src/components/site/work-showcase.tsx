@@ -112,73 +112,54 @@ function WorkCard({
       className="group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px] cursor-pointer"
       onClick={() => onClick?.(work.slug)}
     >
-      <div className="relative aspect-[5/6] md:aspect-[5/6] overflow-hidden bg-neutral-900">
+      {/* Glass card container with backdrop blur */}
+      <div className="relative aspect-[5/6] overflow-hidden bg-[#0a0a0a] rounded-2xl border border-[#2a2a2a] backdrop-blur-sm transition-all duration-500 group-hover:border-[#46E2E2]/50 group-hover:shadow-[0_0_40px_rgba(70,226,226,0.15)]">
+        {/* Top-edge glass highlight */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#46E2E2]/30 to-transparent z-20" />
+
+        {/* Image */}
         <img
           src={work.image}
           alt={`${work.title} — ${work.cat}`}
           loading="eager"
-          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110"
+          className="h-full w-full object-cover opacity-70 transition-all duration-[1.4s] ease-out group-hover:scale-110 group-hover:opacity-90"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
           }}
         />
-        <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
-        {/* Subtle bottom-only gradient for text legibility — image stays focused */}
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#111111] via-black/30 to-transparent" />
+
+        {/* Glass overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20 backdrop-blur-[2px]" />
+
+        {/* Teal glow on hover */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#46E2E2]/10 to-transparent" />
 
         {/* Top row: index + play hint */}
-        <div className="absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] drop-shadow-lg">
+        <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] bg-[#0a0a0a]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#2a2a2a]">
             {work.no} / 04
           </span>
-          <span className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 rounded-full border border-[#46E2E2]/40 flex items-center justify-center text-white/80 group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300">
-            <svg
-              width="7"
-              height="9"
-              viewBox="0 0 10 12"
-              fill="currentColor"
-              aria-hidden="true"
-              className="sm:hidden"
-            >
+          <span className="h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#46E2E2]/40 flex items-center justify-center text-white/80 group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300 backdrop-blur-md">
+            <svg width="8" height="10" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="sm:hidden">
               <path d="M0 0 L10 6 L0 12 Z" />
             </svg>
-            <svg
-              width="8"
-              height="10"
-              viewBox="0 0 10 12"
-              fill="currentColor"
-              aria-hidden="true"
-              className="hidden sm:block md:hidden"
-            >
-              <path d="M0 0 L10 6 L0 12 Z" />
-            </svg>
-            <svg
-              width="10"
-              height="12"
-              viewBox="0 0 10 12"
-              fill="currentColor"
-              aria-hidden="true"
-              className="hidden md:block"
-            >
+            <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="hidden sm:block">
               <path d="M0 0 L10 6 L0 12 Z" />
             </svg>
           </span>
         </div>
 
-        {/* Bottom: title only */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-7 text-white">
-          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none text-white">
+        {/* Bottom: title */}
+        <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10">
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none group-hover:text-[#46E2E2] transition-colors duration-300">
             {work.title}
           </h3>
-          <p className="mt-1.5 sm:mt-2 md:mt-3 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/60">
+          <p className="mt-2 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/50">
             {work.cat}
           </p>
-          <div className="mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
+          <div className="mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#46E2E2] transition-colors duration-300">
             <span>View project</span>
-            <ArrowRight
-              size={12}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
+            <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
           </div>
         </div>
       </div>

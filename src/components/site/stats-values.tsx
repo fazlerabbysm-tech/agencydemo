@@ -104,7 +104,7 @@ export default function StatsValues() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group p-6 md:p-8 border border-[#2a2a2a] rounded-lg hover:border-[#46E2E2] transition-all duration-300"
+                className="group p-6 md:p-8 rounded-2xl border border-[#2a2a2a] bg-[#111111] backdrop-blur-sm transition-all duration-500 hover:border-[#46E2E2]/50 hover:shadow-[0_0_40px_rgba(70,226,226,0.12)]"
               >
                 <span className="font-mono text-xs tracking-[0.2em] text-[#46E2E2]/60">
                   0{i + 1}

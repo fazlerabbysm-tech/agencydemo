@@ -1313,7 +1313,7 @@ function StatsValues() {
                                             1
                                         ]
                                     },
-                                    className: "group p-6 md:p-8 border border-[#2a2a2a] rounded-lg hover:border-[#46E2E2] transition-all duration-300",
+                                    className: "group p-6 md:p-8 rounded-2xl border border-[#2a2a2a] bg-[#111111] backdrop-blur-sm transition-all duration-500 hover:border-[#46E2E2]/50 hover:shadow-[0_0_40px_rgba(70,226,226,0.12)]",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "font-mono text-xs tracking-[0.2em] text-[#46E2E2]/60",
@@ -1536,33 +1536,47 @@ function ServiceCard({ service, total, onClick }) {
         className: "group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4 cursor-pointer",
         onClick: ()=>onClick?.(service.slug),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative aspect-[5/6] overflow-hidden bg-neutral-900",
+            className: "relative aspect-[5/6] overflow-hidden bg-[#0a0a0a] rounded-2xl border border-[#2a2a2a] backdrop-blur-sm transition-all duration-500 group-hover:border-[#46E2E2]/50 group-hover:shadow-[0_0_40px_rgba(70,226,226,0.15)]",
             children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#46E2E2]/30 to-transparent z-20"
+                }, void 0, false, {
+                    fileName: "[project]/src/components/site/services.tsx",
+                    lineNumber: 109,
+                    columnNumber: 9
+                }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                     src: service.image,
                     alt: service.title,
                     loading: "eager",
-                    className: "h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110",
+                    className: "h-full w-full object-cover opacity-70 transition-all duration-[1.2s] ease-out group-hover:scale-110 group-hover:opacity-90",
                     onError: (e)=>{
                         e.currentTarget.style.visibility = "hidden";
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/services.tsx",
-                    lineNumber: 107,
+                    lineNumber: 112,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-transparent"
+                    className: "absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20 backdrop-blur-[2px]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/services.tsx",
-                    lineNumber: 117,
+                    lineNumber: 123,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between",
+                    className: "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#46E2E2]/10 to-transparent"
+                }, void 0, false, {
+                    fileName: "[project]/src/components/site/services.tsx",
+                    lineNumber: 126,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute top-4 sm:top-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between z-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] drop-shadow-lg",
+                            className: "font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] bg-[#0a0a0a]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#2a2a2a]",
                             children: [
                                 service.no,
                                 " / ",
@@ -1570,41 +1584,41 @@ function ServiceCard({ service, total, onClick }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/site/services.tsx",
-                            lineNumber: 121,
+                            lineNumber: 130,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "h-2 w-2 rounded-full bg-white/90 group-hover:scale-150 transition-transform duration-300"
+                            className: "h-2 w-2 rounded-full bg-[#46E2E2] group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(70,226,226,0.6)]"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/services.tsx",
-                            lineNumber: 124,
+                            lineNumber: 133,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/site/services.tsx",
-                    lineNumber: 120,
+                    lineNumber: 129,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 text-white",
+                    className: "absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            className: "font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05]",
+                            className: "font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05] group-hover:text-[#46E2E2] transition-colors duration-300",
                             children: service.title
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/services.tsx",
-                            lineNumber: 129,
+                            lineNumber: 138,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-3 sm:mt-4 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors",
+                            className: "mt-3 sm:mt-4 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#46E2E2] transition-colors duration-300",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     children: "Explore"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/services.tsx",
-                                    lineNumber: 133,
+                                    lineNumber: 142,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -1612,25 +1626,25 @@ function ServiceCard({ service, total, onClick }) {
                                     className: "transition-transform duration-300 group-hover:translate-x-1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/services.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 143,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/site/services.tsx",
-                            lineNumber: 132,
+                            lineNumber: 141,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/site/services.tsx",
-                    lineNumber: 128,
+                    lineNumber: 137,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/site/services.tsx",
-            lineNumber: 106,
+            lineNumber: 107,
             columnNumber: 7
         }, this)
     }, void 0, false, {
@@ -1843,55 +1857,62 @@ function WorkCard({ work, onClick }) {
         className: "group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px] cursor-pointer",
         onClick: ()=>onClick?.(work.slug),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative aspect-[5/6] md:aspect-[5/6] overflow-hidden bg-neutral-900",
+            className: "relative aspect-[5/6] overflow-hidden bg-[#0a0a0a] rounded-2xl border border-[#2a2a2a] backdrop-blur-sm transition-all duration-500 group-hover:border-[#46E2E2]/50 group-hover:shadow-[0_0_40px_rgba(70,226,226,0.15)]",
             children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#46E2E2]/30 to-transparent z-20"
+                }, void 0, false, {
+                    fileName: "[project]/src/components/site/work-showcase.tsx",
+                    lineNumber: 118,
+                    columnNumber: 9
+                }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                     src: work.image,
                     alt: `${work.title} — ${work.cat}`,
                     loading: "eager",
-                    className: "h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110",
+                    className: "h-full w-full object-cover opacity-70 transition-all duration-[1.4s] ease-out group-hover:scale-110 group-hover:opacity-90",
                     onError: (e)=>{
                         e.currentTarget.style.visibility = "hidden";
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                    lineNumber: 116,
+                    lineNumber: 121,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-0 ring-1 ring-inset ring-white/10"
+                    className: "absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20 backdrop-blur-[2px]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                    lineNumber: 125,
+                    lineNumber: 132,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#111111] via-black/30 to-transparent"
+                    className: "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#46E2E2]/10 to-transparent"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                    lineNumber: 127,
+                    lineNumber: 135,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between",
+                    className: "absolute top-4 left-4 right-4 flex items-center justify-between z-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] drop-shadow-lg",
+                            className: "font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] bg-[#0a0a0a]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#2a2a2a]",
                             children: [
                                 work.no,
                                 " / 04"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/site/work-showcase.tsx",
-                            lineNumber: 131,
+                            lineNumber: 139,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 rounded-full border border-[#46E2E2]/40 flex items-center justify-center text-white/80 group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300",
+                            className: "h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#46E2E2]/40 flex items-center justify-center text-white/80 group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300 backdrop-blur-md",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                    width: "7",
-                                    height: "9",
+                                    width: "8",
+                                    height: "10",
                                     viewBox: "0 0 10 12",
                                     fill: "currentColor",
                                     "aria-hidden": "true",
@@ -1900,31 +1921,12 @@ function WorkCard({ work, onClick }) {
                                         d: "M0 0 L10 6 L0 12 Z"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/work-showcase.tsx",
-                                        lineNumber: 143,
+                                        lineNumber: 144,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                                    lineNumber: 135,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                    width: "8",
-                                    height: "10",
-                                    viewBox: "0 0 10 12",
-                                    fill: "currentColor",
-                                    "aria-hidden": "true",
-                                    className: "hidden sm:block md:hidden",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                        d: "M0 0 L10 6 L0 12 Z"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/site/work-showcase.tsx",
-                                        lineNumber: 153,
-                                        columnNumber: 15
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/site/work-showcase.tsx",
-                                    lineNumber: 145,
+                                    lineNumber: 143,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -1933,58 +1935,58 @@ function WorkCard({ work, onClick }) {
                                     viewBox: "0 0 10 12",
                                     fill: "currentColor",
                                     "aria-hidden": "true",
-                                    className: "hidden md:block",
+                                    className: "hidden sm:block",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                         d: "M0 0 L10 6 L0 12 Z"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/work-showcase.tsx",
-                                        lineNumber: 163,
+                                        lineNumber: 147,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                                    lineNumber: 155,
+                                    lineNumber: 146,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/site/work-showcase.tsx",
-                            lineNumber: 134,
+                            lineNumber: 142,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                    lineNumber: 130,
+                    lineNumber: 138,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-7 text-white",
+                    className: "absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            className: "font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none text-white",
+                            className: "font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none group-hover:text-[#46E2E2] transition-colors duration-300",
                             children: work.title
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/work-showcase.tsx",
-                            lineNumber: 170,
+                            lineNumber: 154,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "mt-1.5 sm:mt-2 md:mt-3 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/60",
+                            className: "mt-2 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/50",
                             children: work.cat
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/work-showcase.tsx",
-                            lineNumber: 173,
+                            lineNumber: 157,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors",
+                            className: "mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#46E2E2] transition-colors duration-300",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     children: "View project"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                                    lineNumber: 177,
+                                    lineNumber: 161,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -1992,25 +1994,25 @@ function WorkCard({ work, onClick }) {
                                     className: "transition-transform duration-300 group-hover:translate-x-1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                                    lineNumber: 178,
+                                    lineNumber: 162,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/site/work-showcase.tsx",
-                            lineNumber: 176,
+                            lineNumber: 160,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/site/work-showcase.tsx",
-                    lineNumber: 169,
+                    lineNumber: 153,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/site/work-showcase.tsx",
-            lineNumber: 115,
+            lineNumber: 116,
             columnNumber: 7
         }, this)
     }, void 0, false, {
