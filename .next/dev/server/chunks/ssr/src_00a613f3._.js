@@ -2868,42 +2868,152 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 function ParticleRain() {
-    const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        const container = containerRef.current;
-        if (!container) return;
-        // Generate 40 falling particle streaks
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        let W = canvas.width = window.innerWidth;
+        let H = canvas.height = window.innerHeight;
+        // Mouse position
+        let mouseX = -1000;
+        let mouseY = -1000;
+        const REPEL_RADIUS = 120;
+        const REPEL_STRENGTH = 0.6;
+        // Particle config
+        const PARTICLE_COUNT = Math.min(200, Math.floor(W * H / 8000));
         const particles = [];
-        const count = 40;
-        for(let i = 0; i < count; i++){
-            const p = document.createElement("div");
-            p.className = "kd-particle";
-            // Random properties
-            const left = Math.random() * 100; // % horizontal position
-            const duration = 3 + Math.random() * 5; // 3-8s fall time
-            const delay = Math.random() * 8; // 0-8s delay
-            const height = 20 + Math.random() * 60; // 20-80px streak length
-            const opacity = 0.1 + Math.random() * 0.3; // 0.1-0.4 opacity
-            p.style.left = left + "%";
-            p.style.height = height + "px";
-            p.style.animationDuration = duration + "s";
-            p.style.animationDelay = delay + "s";
-            p.style.opacity = opacity.toString();
-            container.appendChild(p);
-            particles.push(p);
-        }
+        const initParticles = ()=>{
+            particles.length = 0;
+            for(let i = 0; i < PARTICLE_COUNT; i++){
+                const x = Math.random() * W;
+                const y = Math.random() * H;
+                const size = 1 + Math.random() * 3;
+                const opacity = 0.1 + Math.random() * 0.5;
+                particles.push({
+                    x,
+                    y,
+                    baseX: x,
+                    baseY: y,
+                    vx: 0,
+                    vy: 0,
+                    size,
+                    opacity,
+                    color: `rgba(70, 226, 226, ${opacity})`
+                });
+            }
+        };
+        initParticles();
+        const onResize = ()=>{
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+            initParticles();
+        };
+        const onMouseMove = (e)=>{
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        };
+        const onMouseLeave = ()=>{
+            mouseX = -1000;
+            mouseY = -1000;
+        };
+        // Scroll offset for parallax
+        let scrollY = 0;
+        const onScroll = ()=>{
+            scrollY = window.scrollY;
+        };
+        let animationId;
+        const animate = ()=>{
+            ctx.clearRect(0, 0, W, H);
+            // Parallax offset — particles move slower than scroll
+            const parallaxOffset = scrollY * 0.3;
+            for(let i = 0; i < particles.length; i++){
+                const p = particles[i];
+                // Calculate distance to mouse
+                const dx = p.x - mouseX;
+                const dy = p.y - mouseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                // Repel from mouse
+                if (dist < REPEL_RADIUS && dist > 0) {
+                    const force = (REPEL_RADIUS - dist) / REPEL_RADIUS;
+                    const angle = Math.atan2(dy, dx);
+                    p.vx += Math.cos(angle) * force * REPEL_STRENGTH;
+                    p.vy += Math.sin(angle) * force * REPEL_STRENGTH;
+                }
+                // Return to base position (spring back)
+                const homeX = p.baseX;
+                const homeY = p.baseY - parallaxOffset;
+                p.vx += (homeX - p.x) * 0.01;
+                p.vy += (homeY - p.y) * 0.01;
+                // Apply friction
+                p.vx *= 0.92;
+                p.vy *= 0.92;
+                // Update position
+                p.x += p.vx;
+                p.y += p.vy;
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                // Brighter when near mouse
+                let drawOpacity = p.opacity;
+                if (dist < REPEL_RADIUS) {
+                    drawOpacity = Math.min(1, p.opacity + (1 - dist / REPEL_RADIUS) * 0.4);
+                }
+                ctx.fillStyle = `rgba(70, 226, 226, ${drawOpacity})`;
+                ctx.fill();
+                // Glow effect for larger particles
+                if (p.size > 2) {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size * 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(70, 226, 226, ${drawOpacity * 0.08})`;
+                    ctx.fill();
+                }
+            }
+            // Draw connections between nearby particles
+            for(let i = 0; i < particles.length; i++){
+                for(let j = i + 1; j < particles.length; j++){
+                    const p1 = particles[i];
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 80) {
+                        const opacity = (1 - dist / 80) * 0.12;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(70, 226, 226, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            animationId = requestAnimationFrame(animate);
+        };
+        window.addEventListener("resize", onResize);
+        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mouseleave", onMouseLeave);
+        window.addEventListener("scroll", onScroll, {
+            passive: true
+        });
+        animate();
         return ()=>{
-            particles.forEach((p)=>p.remove());
+            window.removeEventListener("resize", onResize);
+            window.removeEventListener("mousemove", onMouseMove);
+            window.removeEventListener("mouseleave", onMouseLeave);
+            window.removeEventListener("scroll", onScroll);
+            cancelAnimationFrame(animationId);
         };
     }, []);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: containerRef,
-        className: "kd-particles",
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+        ref: canvasRef,
+        className: "fixed inset-0 pointer-events-none z-[1]",
         "aria-hidden": "true"
     }, void 0, false, {
         fileName: "[project]/src/components/site/particle-rain.tsx",
-        lineNumber: 42,
-        columnNumber: 10
+        lineNumber: 184,
+        columnNumber: 5
     }, this);
 }
 }),

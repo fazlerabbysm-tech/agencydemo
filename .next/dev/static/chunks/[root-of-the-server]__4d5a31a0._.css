@@ -2003,6 +2003,10 @@
     touch-action: none;
   }
 
+  .resize {
+    resize: both;
+  }
+
   .scroll-my-1 {
     scroll-margin-block: calc(var(--spacing) * 1);
   }
