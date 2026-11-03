@@ -57,7 +57,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.03 }}
           transition={{
-            opacity: { duration: 2, ease: [0.22, 1, 0.36, 1] },
+            opacity: { duration: 1.4, ease: [0.22, 1, 0.36, 1] },
             scale: { duration: 7, ease: "linear" },
           }}
           className="absolute inset-0"
