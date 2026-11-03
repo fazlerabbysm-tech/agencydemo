@@ -37,15 +37,15 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative bg-white text-black py-20 sm:py-24 md:py-36 border-t border-black/10"
+      className="relative bg-black text-white py-20 sm:py-24 md:py-36 border-t border-white/10"
     >
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10">
         {/* Header */}
         <div className="flex items-center justify-between mb-10 sm:mb-12 md:mb-20">
-          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50">
+          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
             ( 06 ) — Questions
           </span>
-          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-black/50 hidden sm:block">
+          <span className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
             Still curious? Write to us.
           </span>
         </div>
@@ -68,25 +68,25 @@ export default function FAQ() {
 
           {/* Right: accordion */}
           <div className="lg:col-span-7">
-            <div className="border-t border-black/15">
+            <div className="border-t border-white/15">
               {faqs.map((f, i) => {
                 const isOpen = open === i;
                 return (
-                  <div key={i} className="border-b border-black/15">
+                  <div key={i} className="border-b border-white/15">
                     <button
                       onClick={() => setOpen(isOpen ? null : i)}
                       className="w-full py-5 sm:py-6 md:py-7 flex items-center gap-3 sm:gap-5 md:gap-6 text-left group"
                       aria-expanded={isOpen}
                     >
-                      <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-black/40 tabular-nums shrink-0">
+                      <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-white/40 tabular-nums shrink-0">
                         0{i + 1}
                       </span>
                       <span className="flex-1 font-display font-medium text-base sm:text-lg md:text-2xl tracking-tight group-hover:translate-x-1 transition-transform duration-300">
                         {f.q}
                       </span>
                       <span
-                        className={`shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-black/30 flex items-center justify-center transition-all duration-300 ${
-                          isOpen ? "bg-black text-white rotate-45" : ""
+                        className={`shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${
+                          isOpen ? "bg-white text-black rotate-45" : ""
                         }`}
                       >
                         <Plus size={14} strokeWidth={2} className="sm:hidden" />
@@ -103,7 +103,7 @@ export default function FAQ() {
                           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                           className="overflow-hidden"
                         >
-                          <p className="pb-6 sm:pb-7 md:pb-8 pl-8 sm:pl-10 md:pl-12 pr-9 sm:pr-12 md:pr-14 text-sm sm:text-base md:text-lg text-black/70 leading-relaxed max-w-2xl">
+                          <p className="pb-6 sm:pb-7 md:pb-8 pl-8 sm:pl-10 md:pl-12 pr-9 sm:pr-12 md:pr-14 text-sm sm:text-base md:text-lg text-white/70 leading-relaxed max-w-2xl">
                             {f.a}
                           </p>
                         </motion.div>
@@ -114,10 +114,10 @@ export default function FAQ() {
               })}
             </div>
 
-            {/* Contact nudge — inverted (black on white section) */}
-            <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 md:p-8 bg-black text-white">
+            {/* Contact nudge — inverted (white on black section) */}
+            <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 md:p-8 bg-white text-black">
               <div>
-                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/50">
+                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/50">
                   Didn&apos;t find it?
                 </p>
                 <p className="mt-2 font-display text-lg sm:text-xl md:text-2xl tracking-tight">
@@ -126,7 +126,7 @@ export default function FAQ() {
               </div>
               <a
                 href="mailto:hello@cuttingedger.co"
-                className="inline-flex items-center gap-2 border border-white/40 hover:bg-white hover:text-black px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+                className="inline-flex items-center gap-2 border border-black/40 hover:bg-black hover:text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
               >
                 hello@cuttingedger.co →
               </a>
