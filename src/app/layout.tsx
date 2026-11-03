@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Roboto_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -7,12 +7,7 @@ const roboto = Roboto({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
-});
-
-const robotoMono = Roboto_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -45,7 +40,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${roboto.variable} ${robotoMono.variable} antialiased bg-white text-black font-sans selection:bg-black selection:text-white`}
+        className={`${roboto.variable} antialiased bg-white text-black font-sans selection:bg-black selection:text-white`}
+        style={{ "--font-mono": "'Courier New', monospace" } as React.CSSProperties}
       >
         {children}
         <Toaster />
