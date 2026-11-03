@@ -10,6 +10,7 @@ import WorkShowcase from "@/components/site/work-showcase";
 import FinalCTA from "@/components/site/final-cta";
 import FAQ from "@/components/site/faq";
 import Footer from "@/components/site/footer";
+import ParticleRain from "@/components/site/particle-rain";
 import ServiceDetailModal from "@/components/site/service-detail-modal";
 import PortfolioDetailModal from "@/components/site/portfolio-detail-modal";
 import CaseStudyModal from "@/components/site/casestudy-detail-modal";
@@ -20,13 +21,14 @@ export default function Home() {
   const [activeCaseStudy, setActiveCaseStudy] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-white">
+    <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-white relative">
+      <ParticleRain />
       <Navbar
         onOpenService={(slug) => setActiveService(slug)}
         onOpenPortfolio={(slug) => setActivePortfolio(slug)}
         onOpenCaseStudy={(slug) => setActiveCaseStudy(slug)}
       />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {/* 01 — Hero */}
         <Hero />
 
@@ -48,7 +50,7 @@ export default function Home() {
         {/* 07 — FAQ */}
         <FAQ />
       </main>
-      <Footer />
+      <Footer className="relative z-10" />
 
       {/* Service detail page — opens when a service card is clicked */}
       <ServiceDetailModal

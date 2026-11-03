@@ -211,3 +211,193 @@ details > summary {
 details > summary::-webkit-details-marker {
   display: none;
 }
+
+/* ============== KATELLA DIGITAL — CENTRAL DESIGN SYSTEM ============== */
+
+/* Base backgrounds */
+.kd-bg { background-color: #0a0a0a; }
+.kd-bg-card { background-color: #111111; }
+.kd-bg-card2 { background-color: #161616; }
+
+/* Borders */
+.kd-border { border-color: #2a2a2a; }
+.kd-border-teal { border-color: #46E2E2; }
+
+/* Teal accent text */
+.kd-teal { color: #46E2E2; }
+.kd-teal-bg { background-color: #46E2E2; }
+
+/* Glassy card */
+.kd-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.kd-card:hover {
+  border-color: rgba(70,226,226,0.4);
+  box-shadow: 0 0 30px rgba(70,226,226,0.08);
+}
+
+/* Eyebrow label — • SECTION NAME */
+.kd-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #46E2E2;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.kd-eyebrow::before {
+  content: "•";
+  font-size: 14px;
+}
+
+/* Two-tone heading — white + teal accent word */
+.kd-heading {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #ffffff;
+}
+.kd-heading-accent {
+  color: #46E2E2;
+}
+.kd-heading-light {
+  font-weight: 300;
+  font-style: italic;
+  color: #46E2E2;
+}
+
+/* Primary CTA button — teal pill */
+.kd-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #46E2E2;
+  color: #0a0a0a;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 1px solid #46E2E2;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.kd-btn-primary:hover {
+  background: transparent;
+  color: #46E2E2;
+}
+
+/* Secondary CTA button — dark outlined */
+.kd-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 1px solid #2a2a2a;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.kd-btn-secondary:hover {
+  border-color: #46E2E2;
+  color: #46E2E2;
+}
+
+/* Section spacing */
+.kd-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+@media (min-width: 768px) {
+  .kd-section { padding-top: 120px; padding-bottom: 120px; }
+}
+
+/* Container */
+.kd-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 640px) { .kd-container { padding-left: 24px; padding-right: 24px; } }
+@media (min-width: 768px) { .kd-container { padding-left: 40px; padding-right: 40px; } }
+
+/* Body text */
+.kd-body {
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  font-size: 15px;
+}
+@media (min-width: 768px) { .kd-body { font-size: 16px; } }
+
+/* Muted text */
+.kd-muted { color: rgba(255,255,255,0.4); }
+.kd-muted2 { color: rgba(255,255,255,0.6); }
+
+/* Staircase offset for process steps */
+.kd-stair-1 { margin-left: 0; }
+.kd-stair-2 { margin-left: 0; }
+.kd-stair-3 { margin-left: 0; }
+.kd-stair-4 { margin-left: 0; }
+@media (min-width: 768px) {
+  .kd-stair-1 { margin-left: 0; }
+  .kd-stair-2 { margin-left: 48px; }
+  .kd-stair-3 { margin-left: 96px; }
+  .kd-stair-4 { margin-left: 144px; }
+}
+
+/* Particle rain background */
+@keyframes kd-particle-fall {
+  0% { transform: translateY(-100px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.kd-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.kd-particle {
+  position: absolute;
+  width: 2px;
+  background: #46E2E2;
+  border-radius: 999px;
+  animation: kd-particle-fall linear infinite;
+  box-shadow: 0 0 6px rgba(70,226,226,0.6);
+}
+
+/* Glow effect */
+.kd-glow {
+  box-shadow: 0 0 40px rgba(70,226,226,0.12);
+}
+
+/* Radial teal glow */
+.kd-radial-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(70,226,226,0.08), transparent 60%);
+  pointer-events: none;
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #46E2E2; }
