@@ -11,11 +11,7 @@ export default function WaterEffect() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // === Ripple simulation using height-map buffers ===
-    // Classic water ripple algorithm: two buffers store wave heights,
-    // each frame propagates waves to neighbors and applies damping.
-
-    const RES = 3; // Pixel resolution
+    const RES = 3;
     let W = 0;
     let H = 0;
     let current: Float32Array;
@@ -48,12 +44,11 @@ export default function WaterEffect() {
       imgData = offCtx!.createImageData(W, H);
     };
 
-    // Drop a "splash" into the ripple buffer at (x, y)
-    // Bigger radius + deeper strength = bigger, deeper drops
-    const dropRipple = (px: number, py: number, strength: number = 150) => {
+    // Gentle drop — subtle, not aggressive
+    const dropRipple = (px: number, py: number, strength: number = 50) => {
       const gx = Math.floor(px / RES);
       const gy = Math.floor(py / RES);
-      const radius = 7; // Bigger splash radius
+      const radius = 5;
 
       for (let dy = -radius; dy <= radius; dy++) {
         for (let dx = -radius; dx <= radius; dx++) {
@@ -64,10 +59,8 @@ export default function WaterEffect() {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist > radius) continue;
 
-          // Smooth falloff for natural deep splash
           const falloff = Math.cos((dist / radius) * (Math.PI / 2));
           const idx = y * W + x;
-          // Negative = depression (water pushed down = deep splash)
           previous[idx] = -strength * falloff;
         }
       }
@@ -78,7 +71,6 @@ export default function WaterEffect() {
     let lastDropTime = 0;
     let animationId: number;
 
-    // Check if mouse is within hero section
     const isInHero = (clientX: number, clientY: number) => {
       const hero = document.getElementById("top");
       if (!hero) return false;
@@ -94,9 +86,8 @@ export default function WaterEffect() {
       const dy = e.clientY - lastDropY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      // Drop ripples as mouse moves — bigger, deeper
-      if (dist > 20 && now - lastDropTime > 50) {
-        dropRipple(e.clientX, e.clientY, 120 + Math.random() * 80);
+      if (dist > 25 && now - lastDropTime > 60) {
+        dropRipple(e.clientX, e.clientY, 40 + Math.random() * 30);
         lastDropX = e.clientX;
         lastDropY = e.clientY;
         lastDropTime = now;
@@ -105,17 +96,13 @@ export default function WaterEffect() {
 
     const onClick = (e: MouseEvent) => {
       if (!isInHero(e.clientX, e.clientY)) return;
-      // Big deep splash on click
-      dropRipple(e.clientX, e.clientY, 400);
-      // Secondary ripples for natural splash
-      setTimeout(() => dropRipple(e.clientX + 8, e.clientY + 5, 120), 100);
-      setTimeout(() => dropRipple(e.clientX - 5, e.clientY - 3, 80), 200);
-      setTimeout(() => dropRipple(e.clientX + 3, e.clientY - 4, 50), 320);
+      dropRipple(e.clientX, e.clientY, 150);
+      setTimeout(() => dropRipple(e.clientX + 6, e.clientY + 4, 40), 120);
+      setTimeout(() => dropRipple(e.clientX - 4, e.clientY - 3, 25), 240);
     };
 
-    // === Main simulation + render loop ===
-    // Lower damping = waves last longer = deeper water feel
-    const DAMPING = 0.992;
+    // Moderate damping — waves last but don't linger too long
+    const DAMPING = 0.988;
 
     const update = () => {
       for (let y = 1; y < H - 1; y++) {
@@ -143,7 +130,6 @@ export default function WaterEffect() {
         for (let x = 0; x < W; x++) {
           const idx = y * W + x;
 
-          // Gradient (slope) of wave surface — creates refraction/shimmer
           const xGrad =
             x > 0 && x < W - 1
               ? (previous[idx + 1] - previous[idx - 1]) / 2
@@ -155,35 +141,29 @@ export default function WaterEffect() {
 
           const height = previous[idx];
 
-          // Deeper visual: stronger contrast for more depth
-          const baseAlpha = Math.min(1, Math.abs(height) / 40);
-          const gradMag = Math.min(1, Math.sqrt(xGrad * xGrad + yGrad * yGrad) / 10);
+          // Subtle — only show where there's actual wave activity
+          const waveMag = Math.abs(height);
+          const gradMag = Math.sqrt(xGrad * xGrad + yGrad * yGrad);
 
-          let r = 128;
-          let g = 128;
-          let b = 128;
           let a = 0;
 
-          if (baseAlpha > 0.01 || gradMag > 0.01) {
-            // Crests = bright white highlight (light on water surface)
-            const highlight = Math.max(0, height) / 40;
-            // Troughs = deep dark shadow (water depth)
-            const shadow = Math.max(0, -height) / 40;
+          if (waveMag > 0.5 || gradMag > 0.5) {
+            // Only white light on crests — NO black shadows
+            // The gradient creates natural light/shimmer on water surface
+            const light = Math.max(0, height) / 50;
+            const shimmer = gradMag / 8;
 
-            // Stronger contrast = deeper water feel
-            r = 128 + highlight * 127 - shadow * 100;
-            g = 128 + highlight * 127 - shadow * 100;
-            b = 128 + highlight * 127 - shadow * 100;
-
-            // Higher max alpha = more visible/deeper
-            a = Math.min(220, (baseAlpha + gradMag) * 150);
+            // Pure white highlight — subtle, beautiful
+            // No dark/black — just light catching on water
+            const intensity = Math.min(1, light * 0.6 + shimmer * 0.4);
+            a = Math.min(100, intensity * 80);
           }
 
           const pixelIdx = (y * W + x) * 4;
-          data[pixelIdx] = r;
-          data[pixelIdx + 1] = g;
-          data[pixelIdx + 2] = b;
-          data[pixelIdx + 3] = a;
+          data[pixelIdx] = 255;     // R — white
+          data[pixelIdx + 1] = 255; // G — white
+          data[pixelIdx + 2] = 255; // B — white
+          data[pixelIdx + 3] = a;   // Alpha — subtle
         }
       }
 
@@ -217,7 +197,7 @@ export default function WaterEffect() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-[55]"
-      style={{ mixBlendMode: "overlay" }}
+      style={{ mixBlendMode: "screen" }}
     />
   );
 }
