@@ -8,7 +8,7 @@ const slides = [
   {
     image: "/images/hero-bridal.jpg",
     kicker: "01 — Studio Work",
-    title: "Crafted with\nprecision.",
+    title: "Moments in\nthe snow.",
   },
   {
     image: "/images/hero-fashion.jpg",
