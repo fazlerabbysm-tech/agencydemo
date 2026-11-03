@@ -12,6 +12,7 @@ import Footer from "@/components/site/footer";
 import ServiceDetailModal from "@/components/site/service-detail-modal";
 import PortfolioDetailModal from "@/components/site/portfolio-detail-modal";
 import CaseStudyModal from "@/components/site/casestudy-detail-modal";
+import WaterEffect from "@/components/site/water-effect";
 
 export default function Home() {
   const [activeService, setActiveService] = useState<string | null>(null);
@@ -20,6 +21,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-black">
+      <WaterEffect />
       <Navbar
         onOpenService={(slug) => setActiveService(slug)}
         onOpenPortfolio={(slug) => setActivePortfolio(slug)}
