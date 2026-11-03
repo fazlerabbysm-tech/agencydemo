@@ -61,6 +61,9 @@ export default function PortfolioDetailModal({
             variant="service"
             onBack={onClose}
             scrollContainerId="portfolio-page-scroll"
+            onOpenService={(s) => { onClose(); onOpenService(s); }}
+            onOpenPortfolio={(s) => { onClose(); onSwitchProject(s); }}
+            onOpenCaseStudy={(s) => { onClose(); onOpenCaseStudy(s); }}
           />
 
           {/* === SCROLLABLE PAGE CONTENT === */}

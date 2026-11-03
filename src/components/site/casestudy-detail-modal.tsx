@@ -11,6 +11,7 @@ interface Props {
   onClose: () => void;
   onSwitchCaseStudy: (slug: string) => void;
   onOpenService: (slug: string) => void;
+  onOpenPortfolio?: (slug: string) => void;
 }
 
 export default function CaseStudyModal({
@@ -18,6 +19,7 @@ export default function CaseStudyModal({
   onClose,
   onSwitchCaseStudy,
   onOpenService,
+  onOpenPortfolio,
 }: Props) {
   const caseStudy = caseStudyDetails.find((c) => c.slug === slug);
 
@@ -56,6 +58,9 @@ export default function CaseStudyModal({
             variant="service"
             onBack={onClose}
             scrollContainerId="casestudy-page-scroll"
+            onOpenService={(s) => { onClose(); onOpenService(s); }}
+            onOpenPortfolio={(s) => { onClose(); onOpenPortfolio?.(s); }}
+            onOpenCaseStudy={(s) => { onClose(); onSwitchCaseStudy(s); }}
           />
 
           <motion.div

@@ -15,12 +15,16 @@ interface Props {
   slug: string | null;
   onClose: () => void;
   onSwitchService: (slug: string) => void;
+  onOpenPortfolio?: (slug: string) => void;
+  onOpenCaseStudy?: (slug: string) => void;
 }
 
 export default function ServiceDetailModal({
   slug,
   onClose,
   onSwitchService,
+  onOpenPortfolio,
+  onOpenCaseStudy,
 }: Props) {
   const service = serviceDetails.find((s) => s.slug === slug);
 
@@ -62,6 +66,9 @@ export default function ServiceDetailModal({
             variant="service"
             onBack={onClose}
             scrollContainerId="service-page-scroll"
+            onOpenService={(s) => { onClose(); onSwitchService(s); }}
+            onOpenPortfolio={(s) => { onClose(); onOpenPortfolio?.(s); }}
+            onOpenCaseStudy={(s) => { onClose(); onOpenCaseStudy?.(s); }}
           />
 
           {/* === SCROLLABLE PAGE CONTENT === */}

@@ -20,7 +20,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-black">
-      <Navbar />
+      <Navbar
+        onOpenService={(slug) => setActiveService(slug)}
+        onOpenPortfolio={(slug) => setActivePortfolio(slug)}
+        onOpenCaseStudy={(slug) => setActiveCaseStudy(slug)}
+      />
       <main className="flex-1">
         {/* 01 — Hero with 3-image slider */}
         <Hero />
@@ -47,6 +51,14 @@ export default function Home() {
         slug={activeService}
         onClose={() => setActiveService(null)}
         onSwitchService={(slug) => setActiveService(slug)}
+        onOpenPortfolio={(slug) => {
+          setActiveService(null);
+          setActivePortfolio(slug);
+        }}
+        onOpenCaseStudy={(slug) => {
+          setActiveService(null);
+          setActiveCaseStudy(slug);
+        }}
       />
 
       {/* Portfolio detail page — opens when a work card is clicked */}
@@ -72,6 +84,10 @@ export default function Home() {
         onOpenService={(slug) => {
           setActiveCaseStudy(null);
           setActiveService(slug);
+        }}
+        onOpenPortfolio={(slug) => {
+          setActiveCaseStudy(null);
+          setActivePortfolio(slug);
         }}
       />
     </div>
