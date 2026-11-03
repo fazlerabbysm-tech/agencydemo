@@ -96,9 +96,8 @@ export default function WaterEffect() {
 
     const onClick = (e: MouseEvent) => {
       if (!isInHero(e.clientX, e.clientY)) return;
+      // Single clean splash — no secondary ripples spreading around
       dropRipple(e.clientX, e.clientY, 150);
-      setTimeout(() => dropRipple(e.clientX + 6, e.clientY + 4, 40), 120);
-      setTimeout(() => dropRipple(e.clientX - 4, e.clientY - 3, 25), 240);
     };
 
     // Moderate damping — waves last but don't linger too long
@@ -126,7 +125,16 @@ export default function WaterEffect() {
     const render = () => {
       const data = imgData.data;
 
+      // Get hero bounds to clip rendering to hero only
+      const hero = document.getElementById("top");
+      const heroRect = hero ? hero.getBoundingClientRect() : null;
+      const heroTopY = heroRect ? Math.floor(heroRect.top / RES) : 0;
+      const heroBottomY = heroRect ? Math.ceil(heroRect.bottom / RES) : H;
+
       for (let y = 0; y < H; y++) {
+        // Skip pixels outside hero section
+        if (y < heroTopY || y > heroBottomY) continue;
+
         for (let x = 0; x < W; x++) {
           const idx = y * W + x;
 
