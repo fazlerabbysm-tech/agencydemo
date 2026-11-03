@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 
 export default function WaterEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const heroRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -14,23 +15,35 @@ export default function WaterEffect() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Ripple storage
-    const ripples: Ripple[] = [];
-    const maxRipples = 30;
+    // Get hero section to constrain effect
+    const getHeroBounds = () => {
+      const hero = document.getElementById("top");
+      if (!hero) return null;
+      const rect = hero.getBoundingClientRect();
+      return {
+        top: rect.top + window.scrollY,
+        bottom: rect.bottom + window.scrollY,
+        left: 0,
+        right: width,
+      };
+    };
 
-    interface Ripple {
+    interface Drop {
       x: number;
       y: number;
       radius: number;
       maxRadius: number;
       opacity: number;
-      lineWidth: number;
+      speed: number;
+      rings: number;
     }
 
-    let mouseX = width / 2;
-    let mouseY = height / 2;
-    let lastX = mouseX;
-    let lastY = mouseY;
+    const drops: Drop[] = [];
+    const maxDrops = 40;
+
+    let mouseX = -100;
+    let mouseY = -100;
+    let lastDropTime = 0;
     let animationId: number;
 
     const onResize = () => {
@@ -39,39 +52,65 @@ export default function WaterEffect() {
     };
 
     const onMouseMove = (e: MouseEvent) => {
+      const bounds = getHeroBounds();
+      if (!bounds) return;
+
+      // Check if mouse is within hero section (accounting for scroll)
+      const scrollY = window.scrollY;
+      const mouseInHero =
+        e.clientY + scrollY >= bounds.top &&
+        e.clientY + scrollY <= bounds.bottom &&
+        e.clientX >= bounds.left &&
+        e.clientX <= bounds.right;
+
+      if (!mouseInHero) {
+        mouseX = -100;
+        mouseY = -100;
+        return;
+      }
+
       mouseX = e.clientX;
-      mouseY = e.clientY;
+      mouseY = e.clientY - bounds.top + scrollY > bounds.top ? e.clientY : e.clientY;
 
-      // Calculate distance moved
-      const dx = mouseX - lastX;
-      const dy = mouseY - lastY;
-      const dist = Math.sqrt(dx * dx + dy * dy);
+      // Create drops at intervals — granular, not continuous
+      const now = Date.now();
+      if (now - lastDropTime > 60 && drops.length < maxDrops) {
+        // Random offset for organic feel
+        const offsetX = (Math.random() - 0.5) * 30;
+        const offsetY = (Math.random() - 0.5) * 30;
 
-      // Create ripple if moved enough
-      if (dist > 8 && ripples.length < maxRipples) {
-        ripples.push({
-          x: mouseX,
-          y: mouseY,
+        drops.push({
+          x: mouseX + offsetX,
+          y: mouseY + offsetY,
           radius: 0,
-          maxRadius: 40 + Math.random() * 30,
-          opacity: 0.15,
-          lineWidth: 1,
+          maxRadius: 60 + Math.random() * 80, // Big drops
+          opacity: 0.3 + Math.random() * 0.2,
+          speed: 1 + Math.random() * 1.5,
+          rings: 3 + Math.floor(Math.random() * 2), // Multiple rings per drop
         });
-        lastX = mouseX;
-        lastY = mouseY;
+        lastDropTime = now;
       }
     };
 
-    // Also create ripple on click
     const onClick = (e: MouseEvent) => {
-      if (ripples.length < maxRipples) {
-        ripples.push({
+      const bounds = getHeroBounds();
+      if (!bounds) return;
+
+      const scrollY = window.scrollY;
+      const mouseInHero =
+        e.clientY + scrollY >= bounds.top &&
+        e.clientY + scrollY <= bounds.bottom;
+
+      if (mouseInHero && drops.length < maxDrops) {
+        // Big splash on click
+        drops.push({
           x: e.clientX,
           y: e.clientY,
           radius: 0,
-          maxRadius: 80,
-          opacity: 0.25,
-          lineWidth: 1.5,
+          maxRadius: 150,
+          opacity: 0.4,
+          speed: 2,
+          rings: 5,
         });
       }
     };
@@ -79,31 +118,43 @@ export default function WaterEffect() {
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw and update ripples
-      for (let i = ripples.length - 1; i >= 0; i--) {
-        const r = ripples[i];
-        r.radius += 1.5;
-        r.opacity *= 0.96;
+      const bounds = getHeroBounds();
+      if (!bounds) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
 
-        if (r.opacity < 0.01 || r.radius > r.maxRadius) {
-          ripples.splice(i, 1);
+      // Draw and update drops
+      for (let i = drops.length - 1; i >= 0; i--) {
+        const d = drops[i];
+        d.radius += d.speed;
+        d.opacity *= 0.97;
+
+        if (d.opacity < 0.01 || d.radius > d.maxRadius) {
+          drops.splice(i, 1);
           continue;
         }
 
-        // Draw ripple as concentric circles (water wave effect)
-        ctx.beginPath();
-        ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(128, 128, 128, ${r.opacity})`;
-        ctx.lineWidth = r.lineWidth;
-        ctx.stroke();
+        // Draw multiple concentric rings — like water ripples spreading
+        for (let r = 0; r < d.rings; r++) {
+          const ringRadius = d.radius - r * 12;
+          if (ringRadius <= 0) continue;
 
-        // Inner ripple
-        if (r.radius > 8) {
+          const ringOpacity = d.opacity * (1 - r * 0.25);
+
           ctx.beginPath();
-          ctx.arc(r.x, r.y, r.radius - 8, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(128, 128, 128, ${r.opacity * 0.5})`;
-          ctx.lineWidth = 0.5;
+          ctx.arc(d.x, d.y, ringRadius, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(255, 255, 255, ${ringOpacity})`;
+          ctx.lineWidth = 1.5 - r * 0.3;
           ctx.stroke();
+        }
+
+        // Add a filled circle at center for impact
+        if (d.radius < 20) {
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, d.radius * 0.3, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${d.opacity * 0.3})`;
+          ctx.fill();
         }
       }
 
@@ -126,8 +177,8 @@ export default function WaterEffect() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[60]"
-      style={{ mixBlendMode: "difference" }}
+      className="fixed inset-0 pointer-events-none z-[55]"
+      style={{ mixBlendMode: "overlay" }}
     />
   );
 }

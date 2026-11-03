@@ -6,7 +6,6 @@ import Hero from "@/components/site/hero";
 import BrandMarquee from "@/components/site/marquee";
 import Services from "@/components/site/services";
 import WorkShowcase from "@/components/site/work-showcase";
-import Team from "@/components/site/team";
 import FinalCTA from "@/components/site/final-cta";
 import FAQ from "@/components/site/faq";
 import Footer from "@/components/site/footer";
@@ -41,13 +40,10 @@ export default function Home() {
         {/* 04 — Work showcase — click to open portfolio detail */}
         <WorkShowcase onWorkClick={(slug) => setActivePortfolio(slug)} />
 
-        {/* 05 — Team section */}
-        <Team />
-
-        {/* 06 — Final call to action, one-line text */}
+        {/* 05 — Final call to action, one-line text */}
         <FinalCTA />
 
-        {/* 07 — FAQ */}
+        {/* 06 — FAQ */}
         <FAQ />
       </main>
       <Footer />
