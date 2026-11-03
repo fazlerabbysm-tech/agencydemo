@@ -13,7 +13,7 @@ const slides = [
   {
     image: "/images/hero-fashion.jpg",
     kicker: "02 — Creative Direction",
-    title: "Stories in\nevery frame.",
+    title: "Bold by\ndesign.",
   },
 ];
 
