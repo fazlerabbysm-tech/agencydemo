@@ -15,7 +15,7 @@ export default function WaterEffect() {
     // Classic water ripple algorithm: two buffers store wave heights,
     // each frame propagates waves to neighbors and applies damping.
 
-    const RES = 3; // Pixel resolution — lower = more detail but slower
+    const RES = 3; // Pixel resolution
     let W = 0;
     let H = 0;
     let current: Float32Array;
@@ -49,10 +49,11 @@ export default function WaterEffect() {
     };
 
     // Drop a "splash" into the ripple buffer at (x, y)
-    const dropRipple = (px: number, py: number, strength: number = 80) => {
+    // Bigger radius + deeper strength = bigger, deeper drops
+    const dropRipple = (px: number, py: number, strength: number = 150) => {
       const gx = Math.floor(px / RES);
       const gy = Math.floor(py / RES);
-      const radius = 3; // Splash radius in grid cells
+      const radius = 7; // Bigger splash radius
 
       for (let dy = -radius; dy <= radius; dy++) {
         for (let dx = -radius; dx <= radius; dx++) {
@@ -63,9 +64,11 @@ export default function WaterEffect() {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist > radius) continue;
 
-          const falloff = 1 - dist / radius;
+          // Smooth falloff for natural deep splash
+          const falloff = Math.cos((dist / radius) * (Math.PI / 2));
           const idx = y * W + x;
-          previous[idx] = strength * falloff;
+          // Negative = depression (water pushed down = deep splash)
+          previous[idx] = -strength * falloff;
         }
       }
     };
@@ -80,7 +83,6 @@ export default function WaterEffect() {
       const hero = document.getElementById("top");
       if (!hero) return false;
       const rect = hero.getBoundingClientRect();
-      // Hero is fixed height, check if we're in the visible hero area
       return clientY >= rect.top && clientY <= rect.bottom;
     };
 
@@ -92,9 +94,9 @@ export default function WaterEffect() {
       const dy = e.clientY - lastDropY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      // Drop ripples as mouse moves — natural spacing
-      if (dist > 15 && now - lastDropTime > 40) {
-        dropRipple(e.clientX, e.clientY, 60 + Math.random() * 40);
+      // Drop ripples as mouse moves — bigger, deeper
+      if (dist > 20 && now - lastDropTime > 50) {
+        dropRipple(e.clientX, e.clientY, 120 + Math.random() * 80);
         lastDropX = e.clientX;
         lastDropY = e.clientY;
         lastDropTime = now;
@@ -103,18 +105,19 @@ export default function WaterEffect() {
 
     const onClick = (e: MouseEvent) => {
       if (!isInHero(e.clientX, e.clientY)) return;
-      // Big splash on click
-      dropRipple(e.clientX, e.clientY, 200);
-      // Secondary smaller ripples for natural feel
-      setTimeout(() => dropRipple(e.clientX + 5, e.clientY + 3, 50), 80);
-      setTimeout(() => dropRipple(e.clientX - 3, e.clientY - 2, 30), 160);
+      // Big deep splash on click
+      dropRipple(e.clientX, e.clientY, 400);
+      // Secondary ripples for natural splash
+      setTimeout(() => dropRipple(e.clientX + 8, e.clientY + 5, 120), 100);
+      setTimeout(() => dropRipple(e.clientX - 5, e.clientY - 3, 80), 200);
+      setTimeout(() => dropRipple(e.clientX + 3, e.clientY - 4, 50), 320);
     };
 
     // === Main simulation + render loop ===
-    const DAMPING = 0.985; // How fast ripples fade — lower = faster fade
+    // Lower damping = waves last longer = deeper water feel
+    const DAMPING = 0.992;
 
     const update = () => {
-      // Propagate waves: new height = average of neighbors - previous height
       for (let y = 1; y < H - 1; y++) {
         for (let x = 1; x < W - 1; x++) {
           const idx = y * W + x;
@@ -128,7 +131,6 @@ export default function WaterEffect() {
           current[idx] = val * DAMPING;
         }
       }
-      // Swap buffers
       const temp = previous;
       previous = current;
       current = temp;
@@ -141,45 +143,40 @@ export default function WaterEffect() {
         for (let x = 0; x < W; x++) {
           const idx = y * W + x;
 
-          // Calculate gradient (slope) of the wave surface for refraction effect
+          // Gradient (slope) of wave surface — creates refraction/shimmer
           const xGrad =
-            (x > 0 && x < W - 1)
+            x > 0 && x < W - 1
               ? (previous[idx + 1] - previous[idx - 1]) / 2
               : 0;
           const yGrad =
-            (y > 0 && y < H - 1)
+            y > 0 && y < H - 1
               ? (previous[idx + W] - previous[idx - W]) / 2
               : 0;
 
-          // Height at this point
           const height = previous[idx];
 
-          // Create a visual based on the wave surface:
-          // - Wave crests (positive height) = lighter (white-ish, like light catching on water)
-          // - Wave troughs (negative height) = darker
-          // - Gradient creates a "shimmer" effect like water surface
+          // Deeper visual: stronger contrast for more depth
+          const baseAlpha = Math.min(1, Math.abs(height) / 40);
+          const gradMag = Math.min(1, Math.sqrt(xGrad * xGrad + yGrad * yGrad) / 10);
 
-          const baseAlpha = Math.min(1, Math.abs(height) / 60);
-          const gradMag = Math.min(1, Math.sqrt(xGrad * xGrad + yGrad * yGrad) / 15);
-
-          // Blend: where waves are active, show light/dark variation
-          // Positive height = light highlight (water catching light)
-          // Negative height = dark shadow (water trough)
           let r = 128;
           let g = 128;
           let b = 128;
           let a = 0;
 
           if (baseAlpha > 0.01 || gradMag > 0.01) {
-            // Highlight on crests
-            const highlight = Math.max(0, height) / 60;
-            // Shadow in troughs
-            const shadow = Math.max(0, -height) / 60;
+            // Crests = bright white highlight (light on water surface)
+            const highlight = Math.max(0, height) / 40;
+            // Troughs = deep dark shadow (water depth)
+            const shadow = Math.max(0, -height) / 40;
 
-            r = 128 + highlight * 127 - shadow * 60;
-            g = 128 + highlight * 127 - shadow * 60;
-            b = 128 + highlight * 127 - shadow * 60;
-            a = Math.min(180, (baseAlpha + gradMag) * 120);
+            // Stronger contrast = deeper water feel
+            r = 128 + highlight * 127 - shadow * 100;
+            g = 128 + highlight * 127 - shadow * 100;
+            b = 128 + highlight * 127 - shadow * 100;
+
+            // Higher max alpha = more visible/deeper
+            a = Math.min(220, (baseAlpha + gradMag) * 150);
           }
 
           const pixelIdx = (y * W + x) * 4;
@@ -191,7 +188,6 @@ export default function WaterEffect() {
       }
 
       offCtx!.putImageData(imgData, 0, 0);
-      // Scale up to full canvas size with smoothing for a fluid look
       ctx.clearRect(0, 0, canvasW, canvasH);
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = "high";
