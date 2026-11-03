@@ -127,6 +127,7 @@ function WorkCard({
           }}
         />
         <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
         {/* Top row: index + play hint */}
         <div className="absolute top-3 sm:top-4 left-3 sm:left-5 right-3 sm:right-5 flex items-center justify-between">
@@ -168,8 +169,8 @@ function WorkCard({
         </div>
 
         {/* Bottom: title only */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-7">
-          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none">
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-7 text-white">
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none text-white">
             {work.title}
           </h3>
           <p className="mt-1.5 sm:mt-2 md:mt-3 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/60">

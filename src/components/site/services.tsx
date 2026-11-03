@@ -127,15 +127,12 @@ function ServiceCard({
           <span className="h-2 w-2 rounded-full bg-white/80 group-hover:scale-150 transition-transform duration-300" />
         </div>
 
-        {/* Title + desc */}
+        {/* Title + Explore (no description) */}
         <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 text-white">
           <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05]">
             {service.title}
           </h3>
-          <p className="mt-2 sm:mt-2.5 text-[11px] sm:text-xs md:text-sm text-white/70 max-w-[280px] leading-relaxed">
-            {service.desc}
-          </p>
-          <div className="mt-2.5 sm:mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
+          <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
             <span>Explore</span>
             <ArrowRight
               size={12}
