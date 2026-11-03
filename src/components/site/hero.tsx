@@ -15,11 +15,6 @@ const slides = [
     kicker: "02 — Creative Direction",
     title: "Stories in\nevery frame.",
   },
-  {
-    image: "/images/hero-cgi.png",
-    kicker: "03 — CGI & Virtual Production",
-    title: "Worlds built\nin pixels.",
-  },
 ];
 
 const SLIDE_DURATION = 4500;

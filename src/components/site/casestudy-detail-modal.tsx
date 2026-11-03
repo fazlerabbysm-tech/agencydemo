@@ -527,9 +527,89 @@ function CaseStudyContent({
 
       {/* ============ FOOTER ============ */}
       <footer className="bg-white text-black border-t border-black/10">
-        <div className="flex items-center justify-center py-16 sm:py-20 md:py-28 px-5 sm:px-6 md:px-10">
-          <div className="font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[10vw] lg:text-[9vw] text-black select-none text-center">
-            CUTTING EDGER
+        <div className="overflow-hidden">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
+            <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
+              {/* Brand + tagline */}
+              <div className="col-span-2 md:col-span-5">
+                <a
+                  href="#top"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onClose();
+                  }}
+                  className="flex items-center gap-2 group mb-5"
+                >
+                  <span className="h-2.5 w-2.5 bg-black rounded-full transition-transform group-hover:scale-150" />
+                  <span className="font-display font-bold tracking-tight text-lg md:text-xl">
+                    CUTTING <span className="font-light">EDGER</span>
+                  </span>
+                </a>
+                <p className="text-black/60 text-sm md:text-base max-w-sm leading-relaxed">
+                  E-commerce catalogs, color protocols, virtual production & CGI,
+                  and white-label agency extension. Four services, one studio,
+                  relentless precision.
+                </p>
+              </div>
+
+              {/* Link columns */}
+              <div className="md:col-span-3">
+                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/40 mb-4 sm:mb-5">
+                  Work
+                </p>
+                <ul className="space-y-2 sm:space-y-3">
+                  {caseStudyDetails.map((c) => (
+                    <li key={c.slug}>
+                      <button
+                        onClick={() => onSwitchCaseStudy(c.slug)}
+                        className="text-sm md:text-base text-black/80 hover:text-black relative inline-block group text-left"
+                      >
+                        {c.clientName}
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full" />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="md:col-span-2">
+                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/40 mb-4 sm:mb-5">
+                  Contact
+                </p>
+                <ul className="space-y-2 sm:space-y-3">
+                  <li>
+                    <a href="mailto:hello@cuttingedger.co" className="text-sm md:text-base text-black/80 hover:text-black transition-colors">
+                      hello@cuttingedger.co
+                    </a>
+                  </li>
+                  <li><a href="#" className="text-sm md:text-base text-black/80 hover:text-black transition-colors">Instagram</a></li>
+                  <li><a href="#" className="text-sm md:text-base text-black/80 hover:text-black transition-colors">LinkedIn</a></li>
+                </ul>
+              </div>
+
+              <div className="md:col-span-2">
+                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/40 mb-4 sm:mb-5">
+                  Studio
+                </p>
+                <p className="text-sm md:text-base text-black/80">Berlin, Germany</p>
+                <p className="text-sm md:text-base text-black/80 mt-2">Mon — Fri, 9–18 CET</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Mega wordmark — centered */}
+          <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
+            <div className="font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[10vw] lg:text-[9vw] text-black select-none text-center">
+              CUTTING EDGER
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="border-t border-black/10">
+            <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-black/40">
+              <span>© 2026 Cutting Edger — Berlin</span>
+              <span>Made in monochrome</span>
+            </div>
           </div>
         </div>
       </footer>
