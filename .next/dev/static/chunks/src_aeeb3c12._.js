@@ -2976,164 +2976,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var _s = __turbopack_context__.k.signature();
 "use client";
 ;
-function shapeUpwardArrow(count) {
-    // Growth arrow — a thick upward arrow shape
-    const points = [];
-    for(let i = 0; i < count; i++){
-        const t = i / count;
-        if (t < 0.15) {
-            // Arrowhead — left diagonal
-            const s = t / 0.15;
-            points.push({
-                x: 0.3 + s * 0.2,
-                y: 0.25 + s * 0.15
-            });
-        } else if (t < 0.3) {
-            // Arrowhead — right diagonal
-            const s = (t - 0.15) / 0.15;
-            points.push({
-                x: 0.5 + s * 0.2,
-                y: 0.4 - s * 0.15
-            });
-        } else if (t < 0.4) {
-            // Arrowhead top
-            const s = (t - 0.3) / 0.1;
-            points.push({
-                x: 0.5,
-                y: 0.25 - s * 0.05
-            });
-        } else {
-            // Arrow shaft — thick rectangle going down
-            const s = (t - 0.4) / 0.6;
-            const w = 0.06;
-            const offset = (i % 5 - 2) * (w / 5);
-            points.push({
-                x: 0.5 + offset,
-                y: 0.4 + s * 0.35
-            });
-        }
-    }
-    return points;
-}
-function shapeBarChart(count) {
-    // Bar chart — ascending bars representing growth
-    const points = [];
-    const bars = 5;
-    const barWidth = 0.08;
-    const gap = 0.03;
-    const startX = 0.25;
-    for(let i = 0; i < count; i++){
-        const barIndex = Math.floor(i / count * bars);
-        const inBar = i / count * bars - barIndex;
-        const barHeight = 0.15 + barIndex / bars * 0.25;
-        const x = startX + barIndex * (barWidth + gap) + inBar * barWidth;
-        const y = 0.7 - inBar * barHeight;
-        points.push({
-            x,
-            y
-        });
-    }
-    return points;
-}
-function shapeTarget(count) {
-    // Concentric circles — target/bullseye
-    const points = [];
-    for(let i = 0; i < count; i++){
-        const t = i / count;
-        const ring = Math.floor(t * 4) / 4;
-        const angle = (t * 4 - Math.floor(t * 4)) * Math.PI * 2;
-        const radius = 0.05 + ring * 0.06;
-        points.push({
-            x: 0.5 + Math.cos(angle) * radius,
-            y: 0.45 + Math.sin(angle) * radius * 0.8
-        });
-    }
-    return points;
-}
-function shapeRocket(count) {
-    // Rocket shape — pointing up-right
-    const points = [];
-    for(let i = 0; i < count; i++){
-        const t = i / count;
-        if (t < 0.3) {
-            // Rocket body — diagonal line
-            const s = t / 0.3;
-            points.push({
-                x: 0.3 + s * 0.3,
-                y: 0.65 - s * 0.35
-            });
-        } else if (t < 0.45) {
-            // Nose cone
-            const s = (t - 0.3) / 0.15;
-            points.push({
-                x: 0.6 + s * 0.08,
-                y: 0.3 - s * 0.08
-            });
-        } else if (t < 0.6) {
-            // Fins
-            const s = (t - 0.45) / 0.15;
-            const fin = i % 2 === 0 ? 1 : -1;
-            points.push({
-                x: 0.35 + s * 0.05,
-                y: 0.6 + fin * s * 0.06
-            });
-        } else {
-            // Exhaust trail
-            const s = (t - 0.6) / 0.4;
-            const wobble = Math.sin(s * 10) * 0.01;
-            points.push({
-                x: 0.3 - s * 0.12 + wobble,
-                y: 0.65 + s * 0.12
-            });
-        }
-    }
-    return points;
-}
-function shapeWave(count) {
-    // Growth wave — sine wave going up
-    const points = [];
-    for(let i = 0; i < count; i++){
-        const t = i / count;
-        const x = 0.15 + t * 0.7;
-        const y = 0.5 - Math.sin(t * Math.PI * 2) * 0.12 - t * 0.15;
-        points.push({
-            x,
-            y
-        });
-    }
-    return points;
-}
-function shapeNetwork(count) {
-    // Network/connections — scattered nodes in a cluster
-    const points = [];
-    const seed = 42;
-    let rng = seed;
-    for(let i = 0; i < count; i++){
-        rng = (rng * 9301 + 49297) % 233280;
-        const r1 = rng / 233280;
-        rng = (rng * 9301 + 49297) % 233280;
-        const r2 = rng / 233280;
-        // Cluster around center with spread
-        const angle = r1 * Math.PI * 2;
-        const dist = 0.05 + r2 * 0.15;
-        points.push({
-            x: 0.5 + Math.cos(angle) * dist,
-            y: 0.45 + Math.sin(angle) * dist * 0.8
-        });
-    }
-    return points;
-}
-// Section → shape mapping
-const SHAPES = [
-    shapeUpwardArrow,
-    shapeBarChart,
-    shapeWave,
-    shapeBarChart,
-    shapeTarget,
-    shapeRocket,
-    shapeNetwork
-];
-const PARTICLE_COUNT = 180;
 function ParticleRain() {
     _s();
     const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -3143,169 +2985,237 @@ function ParticleRain() {
             if (!canvas) return;
             const ctx = canvas.getContext("2d");
             if (!ctx) return;
-            let W = canvas.width = window.innerWidth;
-            let H = canvas.height = window.innerHeight;
-            // Mouse state
-            let mouseX = W / 2;
-            let mouseY = H / 2;
-            let targetMouseX = W / 2;
-            let targetMouseY = H / 2;
-            const MOUSE_ATTRACT = 0.02; // How strongly particles follow mouse
-            const REPEL_RADIUS = 80; // Distance at which particles repel
-            const REPEL_STRENGTH = 1.5;
-            // Current shape index (based on scroll)
-            let currentShape = 0;
-            let targetShape = 0;
-            // Initialize particles randomly
-            const particles = [];
-            for(let i = 0; i < PARTICLE_COUNT; i++){
-                particles.push({
-                    x: Math.random() * W,
-                    y: Math.random() * H,
-                    tx: W / 2,
-                    ty: H / 2,
-                    vx: 0,
-                    vy: 0,
-                    size: 1.5 + Math.random() * 2.5,
-                    opacity: 0.2 + Math.random() * 0.5,
-                    hue: 0.85 + Math.random() * 0.15
-                });
-            }
-            // Update target positions based on current shape
-            const updateShape = {
-                "ParticleRain.useEffect.updateShape": (shapeIndex)=>{
-                    const shapeFn = SHAPES[shapeIndex % SHAPES.length];
-                    const points = shapeFn(PARTICLE_COUNT);
-                    // Scale shape to screen — center it, make it visible
-                    const shapeW = W * 0.5;
-                    const shapeH = H * 0.45;
-                    const offsetX = (W - shapeW) / 2;
-                    const offsetY = (H - shapeH) / 2;
-                    for(let i = 0; i < particles.length && i < points.length; i++){
-                        particles[i].tx = offsetX + points[i].x * shapeW;
-                        particles[i].ty = offsetY + points[i].y * shapeH;
+            const CONFIG = {
+                count: window.matchMedia("(max-width:700px)").matches ? 2200 : 4500,
+                spring: 0.012,
+                damping: 0.9,
+                mouseRadius: 170,
+                gravity: 1.1,
+                swirl: 1.6,
+                morphEvery: 5000,
+                words: [
+                    "KATELLA",
+                    "GROW"
+                ]
+            };
+            let W = 0, H = 0, DPR = 1, current = 0;
+            let particles = [], shapes = [];
+            const mouse = {
+                x: 0,
+                y: 0,
+                active: false
+            };
+            const shuffle = {
+                "ParticleRain.useEffect.shuffle": (a)=>{
+                    for(let i = a.length - 1; i > 0; i--){
+                        const j = Math.random() * (i + 1) | 0;
+                        [a[i], a[j]] = [
+                            a[j],
+                            a[i]
+                        ];
+                    }
+                    return a;
+                }
+            }["ParticleRain.useEffect.shuffle"];
+            const fit = {
+                "ParticleRain.useEffect.fit": (pts, n)=>{
+                    shuffle(pts);
+                    const out = new Array(n);
+                    for(let i = 0; i < n; i++){
+                        const p = pts[i % pts.length];
+                        const j = i >= pts.length ? 3 : 0;
+                        out[i] = {
+                            x: p.x + (Math.random() - 0.5) * j,
+                            y: p.y + (Math.random() - 0.5) * j
+                        };
+                    }
+                    return out;
+                }
+            }["ParticleRain.useEffect.fit"];
+            // ---- Shape generators ----
+            const textShape = {
+                "ParticleRain.useEffect.textShape": (text)=>{
+                    const off = document.createElement("canvas");
+                    off.width = W;
+                    off.height = H;
+                    const o = off.getContext("2d");
+                    const size = Math.min(W / (text.length * 0.62), H * 0.38);
+                    o.fillStyle = "#fff";
+                    o.font = `800 ${size}px system-ui, Arial, sans-serif`;
+                    o.textAlign = "center";
+                    o.textBaseline = "middle";
+                    o.fillText(text, W / 2, H / 2);
+                    const data = o.getImageData(0, 0, W, H).data;
+                    const pts = [], step = 4;
+                    for(let y = 0; y < H; y += step)for(let x = 0; x < W; x += step)if (data[(y * W + x) * 4 + 3] > 128) pts.push({
+                        x,
+                        y
+                    });
+                    return fit(pts, CONFIG.count);
+                }
+            }["ParticleRain.useEffect.textShape"];
+            const ringShape = {
+                "ParticleRain.useEffect.ringShape": ()=>{
+                    const r = Math.min(W, H) * 0.28;
+                    const pts = [];
+                    for(let i = 0; i < CONFIG.count; i++){
+                        const a = Math.random() * Math.PI * 2;
+                        const rr = r + (Math.random() - 0.5) * 18;
+                        pts.push({
+                            x: W / 2 + Math.cos(a) * rr,
+                            y: H / 2 + Math.sin(a) * rr
+                        });
+                    }
+                    return pts;
+                }
+            }["ParticleRain.useEffect.ringShape"];
+            const galaxyShape = {
+                "ParticleRain.useEffect.galaxyShape": ()=>{
+                    const R = Math.min(W, H) * 0.4, arms = 3, pts = [];
+                    for(let i = 0; i < CONFIG.count; i++){
+                        const t = Math.pow(Math.random(), 0.65);
+                        const a = i % arms * (Math.PI * 2 / arms) + t * 4.5 + (Math.random() - 0.5) * 0.6;
+                        pts.push({
+                            x: W / 2 + Math.cos(a) * t * R,
+                            y: H / 2 + Math.sin(a) * t * R * 0.7
+                        });
+                    }
+                    return pts;
+                }
+            }["ParticleRain.useEffect.galaxyShape"];
+            const buildShapes = {
+                "ParticleRain.useEffect.buildShapes": ()=>[
+                        textShape(CONFIG.words[0]),
+                        ringShape(),
+                        textShape(CONFIG.words[1]),
+                        galaxyShape()
+                    ]
+            }["ParticleRain.useEffect.buildShapes"];
+            // ---- Setup ----
+            const assign = {
+                "ParticleRain.useEffect.assign": (idx)=>{
+                    const pts = shapes[idx];
+                    for(let i = 0; i < particles.length; i++){
+                        particles[i].tx = pts[i].x;
+                        particles[i].ty = pts[i].y;
                     }
                 }
-            }["ParticleRain.useEffect.updateShape"];
-            updateShape(0);
-            const onResize = {
-                "ParticleRain.useEffect.onResize": ()=>{
-                    W = canvas.width = window.innerWidth;
-                    H = canvas.height = window.innerHeight;
-                    updateShape(currentShape);
-                }
-            }["ParticleRain.useEffect.onResize"];
-            const onMouseMove = {
-                "ParticleRain.useEffect.onMouseMove": (e)=>{
-                    targetMouseX = e.clientX;
-                    targetMouseY = e.clientY;
-                }
-            }["ParticleRain.useEffect.onMouseMove"];
-            // Detect which section is in view and update shape
-            const onScroll = {
-                "ParticleRain.useEffect.onScroll": ()=>{
-                    const scrollY = window.scrollY;
-                    const sectionHeight = H;
-                    const sectionIndex = Math.floor(scrollY / sectionHeight);
-                    targetShape = Math.min(sectionIndex, SHAPES.length - 1);
-                    if (targetShape !== currentShape) {
-                        currentShape = targetShape;
-                        updateShape(currentShape);
+            }["ParticleRain.useEffect.assign"];
+            const resize = {
+                "ParticleRain.useEffect.resize": ()=>{
+                    DPR = Math.min(window.devicePixelRatio || 1, 2);
+                    W = window.innerWidth;
+                    H = window.innerHeight;
+                    canvas.width = W * DPR;
+                    canvas.height = H * DPR;
+                    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+                    if (!particles.length) {
+                        particles = Array.from({
+                            length: CONFIG.count
+                        }, {
+                            "ParticleRain.useEffect.resize": ()=>({
+                                    x: Math.random() * W,
+                                    y: Math.random() * H,
+                                    vx: 0,
+                                    vy: 0,
+                                    tx: 0,
+                                    ty: 0,
+                                    k: CONFIG.spring * (0.6 + Math.random() * 0.8),
+                                    s: 0.8 + Math.random() * 1.4
+                                })
+                        }["ParticleRain.useEffect.resize"]);
                     }
+                    shapes = buildShapes();
+                    assign(current);
                 }
-            }["ParticleRain.useEffect.onScroll"];
-            let animationId;
-            const animate = {
-                "ParticleRain.useEffect.animate": ()=>{
-                    // Smooth mouse follow
-                    mouseX += (targetMouseX - mouseX) * 0.08;
-                    mouseY += (targetMouseY - mouseY) * 0.08;
-                    ctx.clearRect(0, 0, W, H);
+            }["ParticleRain.useEffect.resize"];
+            const next = {
+                "ParticleRain.useEffect.next": ()=>{
+                    current = (current + 1) % shapes.length;
+                    assign(current);
+                }
+            }["ParticleRain.useEffect.next"];
+            // Color palette — teal/cyan range (Katella Digital theme)
+            // slow = deep teal, fast = bright cyan/white
+            const palette = Array.from({
+                length: 12
+            }, {
+                "ParticleRain.useEffect.palette": (_, i)=>`hsla(${175 + i * 4}, ${85 - i * 2}%, ${50 + i * 4}%, ${0.45 + i * 0.045})`
+            }["ParticleRain.useEffect.palette"]);
+            // ---- Main loop ----
+            const frame = {
+                "ParticleRain.useEffect.frame": ()=>{
+                    ctx.globalCompositeOperation = "source-over";
+                    ctx.fillStyle = "rgba(7,10,18,0.28)";
+                    ctx.fillRect(0, 0, W, H);
+                    ctx.globalCompositeOperation = "lighter";
+                    const R = CONFIG.mouseRadius, R2 = R * R;
                     for(let i = 0; i < particles.length; i++){
                         const p = particles[i];
-                        // 1. Attract toward shape target position
-                        const dxShape = p.tx - p.x;
-                        const dyShape = p.ty - p.y;
-                        p.vx += dxShape * 0.008;
-                        p.vy += dyShape * 0.008;
-                        // 2. Mouse interaction — attract to mouse but repel when close
-                        const dxMouse = p.x - mouseX;
-                        const dyMouse = p.y - mouseY;
-                        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-                        if (distMouse < REPEL_RADIUS && distMouse > 0) {
-                            // Repel — push away from cursor
-                            const force = (REPEL_RADIUS - distMouse) / REPEL_RADIUS;
-                            const angle = Math.atan2(dyMouse, dxMouse);
-                            p.vx += Math.cos(angle) * force * REPEL_STRENGTH;
-                            p.vy += Math.sin(angle) * force * REPEL_STRENGTH;
-                        } else if (distMouse < 250) {
-                            // Gentle attract — follow cursor when in mid-range
-                            const force = (250 - distMouse) / 250 * MOUSE_ATTRACT;
-                            p.vx -= dxMouse * force;
-                            p.vy -= dyMouse * force;
-                        }
-                        // 3. Friction
-                        p.vx *= 0.88;
-                        p.vy *= 0.88;
-                        // 4. Update position
-                        p.x += p.vx;
-                        p.y += p.vy;
-                        // 5. Draw particle
-                        let drawOpacity = p.opacity;
-                        let drawSize = p.size;
-                        // Brighter and bigger near mouse
-                        if (distMouse < 150) {
-                            const boost = 1 - distMouse / 150;
-                            drawOpacity = Math.min(1, p.opacity + boost * 0.4);
-                            drawSize = p.size + boost * 1.5;
-                        }
-                        // Glow
-                        if (drawSize > 2) {
-                            ctx.beginPath();
-                            ctx.arc(p.x, p.y, drawSize * 3, 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(70, 226, 226, ${drawOpacity * 0.06})`;
-                            ctx.fill();
-                        }
-                        // Core
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, drawSize, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(70, 226, 226, ${drawOpacity})`;
-                        ctx.fill();
-                    }
-                    // Draw connections between nearby particles
-                    for(let i = 0; i < particles.length; i++){
-                        for(let j = i + 1; j < particles.length; j++){
-                            const p1 = particles[i];
-                            const p2 = particles[j];
-                            const dx = p1.x - p2.x;
-                            const dy = p1.y - p2.y;
-                            const dist = Math.sqrt(dx * dx + dy * dy);
-                            if (dist < 60) {
-                                const opacity = (1 - dist / 60) * 0.1;
-                                ctx.beginPath();
-                                ctx.moveTo(p1.x, p1.y);
-                                ctx.lineTo(p2.x, p2.y);
-                                ctx.strokeStyle = `rgba(70, 226, 226, ${opacity})`;
-                                ctx.lineWidth = 0.5;
-                                ctx.stroke();
+                        // 1) spring toward current target shape
+                        p.vx += (p.tx - p.x) * p.k;
+                        p.vy += (p.ty - p.y) * p.k;
+                        // 2) cursor: radial pull + perpendicular swirl => orbit
+                        if (mouse.active) {
+                            const dx = mouse.x - p.x, dy = mouse.y - p.y, d2 = dx * dx + dy * dy;
+                            if (d2 < R2 && d2 > 1) {
+                                const d = Math.sqrt(d2), f = 1 - d / R;
+                                const nx = dx / d, ny = dy / d;
+                                p.vx += (nx * CONFIG.gravity - ny * CONFIG.swirl) * f;
+                                p.vy += (ny * CONFIG.gravity + nx * CONFIG.swirl) * f;
                             }
                         }
+                        // 3) integrate
+                        p.vx *= CONFIG.damping;
+                        p.vy *= CONFIG.damping;
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        // 4) draw, colored by speed
+                        const c = Math.min(11, Math.hypot(p.vx, p.vy) * 2 | 0);
+                        ctx.fillStyle = palette[c];
+                        ctx.fillRect(p.x, p.y, p.s, p.s);
                     }
-                    animationId = requestAnimationFrame(animate);
+                    requestAnimationFrame(frame);
                 }
-            }["ParticleRain.useEffect.animate"];
-            window.addEventListener("resize", onResize);
-            window.addEventListener("mousemove", onMouseMove);
-            window.addEventListener("scroll", onScroll, {
-                passive: true
-            });
-            animate();
+            }["ParticleRain.useEffect.frame"];
+            // ---- Events ----
+            const setMouse = {
+                "ParticleRain.useEffect.setMouse": (e)=>{
+                    mouse.x = e.clientX;
+                    mouse.y = e.clientY;
+                    mouse.active = true;
+                }
+            }["ParticleRain.useEffect.setMouse"];
+            window.addEventListener("pointermove", setMouse);
+            window.addEventListener("pointerdown", setMouse);
+            window.addEventListener("pointerup", {
+                "ParticleRain.useEffect": (e)=>{
+                    if (e.pointerType === "touch") mouse.active = false;
+                }
+            }["ParticleRain.useEffect"]);
+            document.documentElement.addEventListener("pointerleave", {
+                "ParticleRain.useEffect": ()=>{
+                    mouse.active = false;
+                }
+            }["ParticleRain.useEffect"]);
+            window.addEventListener("click", next);
+            let rt;
+            window.addEventListener("resize", {
+                "ParticleRain.useEffect": ()=>{
+                    clearTimeout(rt);
+                    rt = setTimeout(resize, 150);
+                }
+            }["ParticleRain.useEffect"]);
+            resize();
+            const morphInterval = setInterval(next, CONFIG.morphEvery);
+            const rafId = requestAnimationFrame(frame);
             return ({
                 "ParticleRain.useEffect": ()=>{
-                    window.removeEventListener("resize", onResize);
-                    window.removeEventListener("mousemove", onMouseMove);
-                    window.removeEventListener("scroll", onScroll);
-                    cancelAnimationFrame(animationId);
+                    window.removeEventListener("pointermove", setMouse);
+                    window.removeEventListener("pointerdown", setMouse);
+                    clearInterval(morphInterval);
+                    cancelAnimationFrame(rafId);
+                    clearTimeout(rt);
                 }
             })["ParticleRain.useEffect"];
         }
@@ -3319,7 +3229,7 @@ function ParticleRain() {
         "aria-hidden": "true"
     }, void 0, false, {
         fileName: "[project]/src/components/site/particle-rain.tsx",
-        lineNumber: 359,
+        lineNumber: 251,
         columnNumber: 5
     }, this);
 }
