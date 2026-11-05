@@ -635,10 +635,6 @@
     z-index: 1;
   }
 
-  .z-\[2\] {
-    z-index: 2;
-  }
-
   .z-\[60\] {
     z-index: 60;
   }
@@ -7422,15 +7418,29 @@ details > summary::-webkit-details-marker {
 }
 
 .kd-card {
+  -webkit-backdrop-filter: blur(8px);
   background: #ffffff08;
   border: 1px solid #ffffff0f;
   border-radius: 16px;
-  transition: border-color .3s, box-shadow .3s;
+  transition: border-color .5s, box-shadow .5s, transform .5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.kd-card:before {
+  content: "";
+  inset-x: 0;
+  z-index: 1;
+  background: linear-gradient(to right, #0000, #46e2e24d, #0000);
+  height: 1px;
+  position: absolute;
+  top: 0;
 }
 
 .kd-card:hover {
-  border-color: #46e2e266;
-  box-shadow: 0 0 30px #46e2e214;
+  border-color: #46e2e280;
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px #46e2e21f;
 }
 
 .kd-eyebrow {
