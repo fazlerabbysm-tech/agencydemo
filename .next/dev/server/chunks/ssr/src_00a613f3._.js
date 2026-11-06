@@ -2874,14 +2874,14 @@ function ParticleRain() {
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
-        // Mobile = fewer particles for performance
-        const COUNT = window.matchMedia("(max-width:700px)").matches ? 800 : 1800;
-        const SPRING = 0.008; // How hard particles return to rest position
-        const DAMPING = 0.92; // Friction
-        const MOUSE_RADIUS = 200; // Mouse influence radius
-        const GRAVITY = 0.8; // Pull toward cursor
-        const SWIRL = 1.2; // Perpendicular push = orbit effect
+        const COUNT = window.matchMedia("(max-width:700px)").matches ? 600 : 1200;
+        const DAMPING = 0.92;
+        const MOUSE_RADIUS = 180;
+        const MOUSE_GRAVITY = 0.6;
+        const MOUSE_SWIRL = 1.0;
+        const RING_SPRING = 0.015;
         let W = 0, H = 0, DPR = 1;
+        let time = 0;
         const mouse = {
             x: -9999,
             y: -9999,
@@ -2889,18 +2889,27 @@ function ParticleRain() {
         };
         let particles = [];
         const initParticles = ()=>{
-            particles = Array.from({
-                length: COUNT
-            }, ()=>({
+            particles = [];
+            for(let i = 0; i < COUNT; i++){
+                const angle = i / COUNT * Math.PI * 2;
+                // Vary radius slightly for organic feel — some inside, some outside the ring
+                const radiusVar = 0.85 + Math.random() * 0.3;
+                particles.push({
                     x: Math.random() * W,
                     y: Math.random() * H,
-                    hx: Math.random() * W,
-                    hy: Math.random() * H,
                     vx: 0,
                     vy: 0,
-                    k: SPRING * (0.5 + Math.random() * 1.0),
-                    s: 0.6 + Math.random() * 1.8
-                }));
+                    baseAngle: angle,
+                    baseRadius: radiusVar,
+                    ringCx: 0,
+                    ringCy: 0,
+                    tx: 0,
+                    ty: 0,
+                    k: RING_SPRING * (0.6 + Math.random() * 0.8),
+                    s: 0.6 + Math.random() * 1.6,
+                    brightness: 0.2 + Math.random() * 0.5
+                });
+            }
         };
         const resize = ()=>{
             DPR = Math.min(window.devicePixelRatio || 1, 2);
@@ -2910,57 +2919,79 @@ function ParticleRain() {
             canvas.height = H * DPR;
             ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
             if (!particles.length) initParticles();
-            else {
-                // Re-spread home positions on resize
-                for (const p of particles){
-                    p.hx = Math.random() * W;
-                    p.hy = Math.random() * H;
-                }
-            }
         };
-        // Color palette — teal/cyan, brighter = faster
+        // Color palette — teal/cyan
         const palette = Array.from({
             length: 12
-        }, (_, i)=>`hsla(${175 + i * 4}, ${85 - i * 2}%, ${50 + i * 4}%, ${0.35 + i * 0.055})`);
+        }, (_, i)=>`hsla(${175 + i * 4}, ${85 - i * 2}%, ${50 + i * 4}%, ${0.3 + i * 0.058})`);
         const frame = ()=>{
-            // Motion trail — translucent fill instead of clear
+            time += 0.003; // slow rotation speed
+            // Motion trail
             ctx.globalCompositeOperation = "source-over";
-            ctx.fillStyle = "rgba(7,10,18,0.22)";
+            ctx.fillStyle = "rgba(7,10,18,0.18)";
             ctx.fillRect(0, 0, W, H);
-            ctx.globalCompositeOperation = "lighter"; // additive = glow
+            ctx.globalCompositeOperation = "lighter";
+            // Ring center — positioned on right side of screen (like ltsthink.com)
+            // But shifts based on scroll so it's always visible
+            const ringCx = W * 0.68;
+            const ringCy = H * 0.5;
+            const ringR = Math.min(W, H) * 0.22;
             const R = MOUSE_RADIUS, R2 = R * R;
             for(let i = 0; i < particles.length; i++){
                 const p = particles[i];
-                // 1) Spring back toward home position (so they don't drift away forever)
-                p.vx += (p.hx - p.x) * p.k;
-                p.vy += (p.hy - p.y) * p.k;
-                // 2) Mouse interaction — gravity pull + swirl orbit
-                // This is the KEY: particles ALWAYS react to mouse in real-time
+                // 1) Compute target position on the rotating ring
+                // Each particle has a base angle + slow rotation
+                const angle = p.baseAngle + time;
+                const r = ringR * p.baseRadius;
+                p.tx = ringCx + Math.cos(angle) * r;
+                p.ty = ringCy + Math.sin(angle) * r * 0.85; // slightly elliptical
+                // Spring toward ring target
+                p.vx += (p.tx - p.x) * p.k;
+                p.vy += (p.ty - p.y) * p.k;
+                // 2) Mouse interaction — swirl + gravity orbit
                 if (mouse.active) {
                     const dx = mouse.x - p.x;
                     const dy = mouse.y - p.y;
                     const d2 = dx * dx + dy * dy;
                     if (d2 < R2 && d2 > 1) {
                         const d = Math.sqrt(d2);
-                        const f = 1 - d / R; // 1 at cursor → 0 at edge
-                        const nx = dx / d; // normalized direction
+                        const f = 1 - d / R;
+                        const nx = dx / d;
                         const ny = dy / d;
-                        // Gravity: pull toward cursor
-                        // Swirl: perpendicular push → particles orbit the cursor
-                        p.vx += (nx * GRAVITY - ny * SWIRL) * f;
-                        p.vy += (ny * GRAVITY + nx * SWIRL) * f;
+                        // Gravity pulls toward cursor, swirl pushes perpendicular = orbit
+                        p.vx += (nx * MOUSE_GRAVITY - ny * MOUSE_SWIRL) * f;
+                        p.vy += (ny * MOUSE_GRAVITY + nx * MOUSE_SWIRL) * f;
                     }
                 }
-                // 3) Integrate with friction
+                // 3) Integrate
                 p.vx *= DAMPING;
                 p.vy *= DAMPING;
                 p.x += p.vx;
                 p.y += p.vy;
-                // 4) Draw — color based on speed (fast = bright cyan, slow = deep teal)
+                // 4) Draw — color by speed
                 const speed = Math.hypot(p.vx, p.vy);
                 const c = Math.min(11, speed * 2.5 | 0);
                 ctx.fillStyle = palette[c];
                 ctx.fillRect(p.x, p.y, p.s, p.s);
+            }
+            // Draw faint connection lines between nearby particles on the ring
+            for(let i = 0; i < particles.length; i += 2){
+                for(let j = i + 1; j < Math.min(i + 8, particles.length); j++){
+                    const p1 = particles[i];
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const d2 = dx * dx + dy * dy;
+                    if (d2 < 2500) {
+                        const opacity = (1 - Math.sqrt(d2) / 50) * 0.06;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(70, 226, 226, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
             }
             requestAnimationFrame(frame);
         };
@@ -2976,10 +3007,6 @@ function ParticleRain() {
             mouse.y = -9999;
         };
         let rt;
-        const onResize = ()=>{
-            clearTimeout(rt);
-            rt = setTimeout(resize, 150);
-        };
         window.addEventListener("pointermove", onPointerMove, {
             passive: true
         });
@@ -2990,12 +3017,14 @@ function ParticleRain() {
             if (e.pointerType === "touch") onPointerLeave();
         });
         document.documentElement.addEventListener("pointerleave", onPointerLeave);
-        window.addEventListener("resize", onResize);
+        window.addEventListener("resize", ()=>{
+            clearTimeout(rt);
+            rt = setTimeout(resize, 150);
+        });
         resize();
         const rafId = requestAnimationFrame(frame);
         return ()=>{
             window.removeEventListener("pointermove", onPointerMove);
-            window.removeEventListener("resize", onResize);
             cancelAnimationFrame(rafId);
             clearTimeout(rt);
         };
@@ -3009,7 +3038,7 @@ function ParticleRain() {
         "aria-hidden": "true"
     }, void 0, false, {
         fileName: "[project]/src/components/site/particle-rain.tsx",
-        lineNumber: 172,
+        lineNumber: 207,
         columnNumber: 5
     }, this);
 }
