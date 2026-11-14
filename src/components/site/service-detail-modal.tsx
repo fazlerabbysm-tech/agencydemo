@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { serviceDetails, type ServiceDetail } from "@/data/services";
 import Navbar from "@/components/site/navbar";
+import Footer from "@/components/site/footer";
 
 interface Props {
   slug: string | null;
@@ -519,101 +520,8 @@ function ServiceContent({
         </div>
       </section>
 
-      {/* ============ FOOTER ============ */}
-      <footer className="bg-[#060000] text-white border-t border-[#3a1518]">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
-          <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
-            {/* Brand + tagline */}
-            <div className="col-span-2 md:col-span-5">
-              <a
-                href="#top"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onClose();
-                }}
-                className="flex items-center gap-2 group mb-5"
-              >
-                <span className="h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150" />
-                <span className="font-bold tracking-tight text-lg md:text-xl">
-                  KATELLA <span className="font-light">DIGITAL</span>
-                </span>
-              </a>
-              <p className="text-white/60 text-sm md:text-base max-w-sm leading-relaxed">
-                E-commerce catalogs, color protocols, virtual production & CGI,
-                and white-label agency extension. Four services, one studio,
-                relentless precision.
-              </p>
-            </div>
-
-            {/* Service links */}
-            <div className="md:col-span-3">
-              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
-                Services
-              </p>
-              <ul className="space-y-2 sm:space-y-3">
-                {serviceDetails.map((s) => (
-                  <li key={s.slug}>
-                    <button
-                      onClick={() => onSwitchService(s.slug)}
-                      className="text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group text-left"
-                    >
-                      {s.name}
-                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div className="md:col-span-2">
-              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
-                Contact
-              </p>
-              <ul className="space-y-2 sm:space-y-3">
-                <li>
-                  <a href="mailto:info@katella.digital" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
-                    info@katella.digital
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
-                    LinkedIn
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="md:col-span-2">
-              <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
-                Studio
-              </p>
-              <p className="text-sm md:text-base text-white/80">Anaheim, CA</p>
-              <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–5 PST</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Mega wordmark */}
-        <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
-          <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#C71F42] select-none">
-            KATELLA DIGITAL
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="border-t border-[#3a1518]">
-          <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
-            <span>© 2026 Katella Digital — Anaheim, CA</span>
-            <span>Made in monochrome</span>
-          </div>
-        </div>
-      </footer>
+      {/* ============ FOOTER (universal) ============ */}
+      <Footer />
     </div>
   );
 }
