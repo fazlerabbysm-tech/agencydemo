@@ -81,7 +81,7 @@ From: katelladigital.com
         body: JSON.stringify({
           sender: {
             name: "Katella Digital",
-            email: "noreply@katella.digital",
+            email: "info@katella.digital",
           },
           to: [
             {
@@ -90,7 +90,7 @@ From: katelladigital.com
             },
           ],
           replyTo: {
-            email: "noreply@katella.digital",
+            email: "info@katella.digital",
             name: "Katella Digital",
           },
           subject: `New Lead: ${name} — ${service}`,
@@ -102,8 +102,10 @@ From: katelladigital.com
       if (!brevoRes.ok) {
         const errorText = await brevoRes.text();
         console.error("Brevo error:", errorText);
-        // Still return success to user — we don't expose backend errors
-        // But the form was submitted successfully
+        return NextResponse.json(
+          { success: false, error: "Failed to send email. Please try again or contact us directly." },
+          { status: 500 }
+        );
       }
     } else {
       console.log("=== CONTACT FORM SUBMISSION ===");

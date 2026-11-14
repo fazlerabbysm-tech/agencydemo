@@ -74,15 +74,18 @@ export default function ContactModal({
       if (window.turnstile) {
         setTimeout(() => {
           const container = document.getElementById("cf-turnstile-container");
-          if (container && container.children.length === 0) {
+          if (container) {
+            container.innerHTML = ""; // Clear previous widget
             // @ts-ignore
             window.turnstile.render(container, {
-              sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA",
+              sitekey: "0x4AAAAAAGA9ybOPDfkQVn6e",
               callback: (token: string) => setTurnstileToken(token),
+              "expired-callback": () => setTurnstileToken(null),
+              "error-callback": () => setTurnstileToken(null),
               theme: "dark",
             });
           }
-        }, 200);
+        }, 300);
       }
     }
   }, [open, turnstileLoaded]);
