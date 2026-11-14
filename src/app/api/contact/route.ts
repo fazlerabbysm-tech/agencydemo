@@ -97,7 +97,7 @@ export async function POST(req: NextRequest) {
     `;
 
     if (brevoApiKey) {
-      // Send Email 1: Lead notification to us
+      // Send Email 1: Lead notification to us (info@katella.digital + katelladigital@gmail.com as BCC)
       const leadRes = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
@@ -107,6 +107,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           sender: { name: "Katella Digital", email: "info@katella.digital" },
           to: [{ email: contactEmail, name: "Katella Digital" }],
+          bcc: [{ email: "katelladigital@gmail.com", name: "Katella Digital" }],
           replyTo: { email: "info@katella.digital", name: "Katella Digital" },
           subject: `New Lead: ${name} — ${service}`,
           htmlContent: leadHtml,
