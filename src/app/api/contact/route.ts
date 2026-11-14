@@ -32,41 +32,82 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: "All fields are required." }, { status: 400 });
     }
 
-    // 4. Send email via Resend
-    const resendApiKey = process.env.RESEND_API_KEY;
-    const emailContent = `
+    // 4. Send email via Brevo (SendinBlue) API
+    const brevoApiKey = process.env.BREVO_API_KEY;
+    const contactEmail = process.env.CONTACT_EMAIL || "info@katella.digital";
+
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2 style="color: #C71F42; border-bottom: 2px solid #C71F42; padding-bottom: 10px;">
+          New Contact Form Submission — Katella Digital
+        </h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr><td style="padding: 8px 0; font-weight: bold; width: 120px;">Name:</td><td style="padding: 8px 0;">${name}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Phone:</td><td style="padding: 8px 0;">${phone}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Service:</td><td style="padding: 8px 0;">${service}</td></tr>
+        </table>
+        <h3 style="color: #333; margin-top: 20px;">Project Details:</h3>
+        <p style="background: #f5f5f5; padding: 15px; border-radius: 8px; white-space: pre-wrap;">${details}</p>
+        <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+        <p style="color: #888; font-size: 12px;">
+          Submitted: ${new Date().toISOString()}<br>
+          From: katelladigital.com contact form
+        </p>
+      </div>
+    `;
+
+    const emailText = `
 New Contact Form Submission — Katella Digital
 
 Name: ${name}
 Phone: ${phone}
 Service: ${service}
-Details: ${details}
+
+Project Details:
+${details}
 
 ---
 Submitted: ${new Date().toISOString()}
+From: katelladigital.com
     `.trim();
 
-    if (resendApiKey) {
-      const resendRes = await fetch("https://api.resend.com/emails", {
+    if (brevoApiKey) {
+      const brevoRes = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${resendApiKey}`,
+          "api-key": brevoApiKey,
         },
         body: JSON.stringify({
-          from: "Katella Digital <noreply@katella.digital>",
-          to: ["info@katella.digital"],
+          sender: {
+            name: "Katella Digital",
+            email: "noreply@katella.digital",
+          },
+          to: [
+            {
+              email: contactEmail,
+              name: "Katella Digital",
+            },
+          ],
+          replyTo: {
+            email: "noreply@katella.digital",
+            name: "Katella Digital",
+          },
           subject: `New Lead: ${name} — ${service}`,
-          text: emailContent,
+          htmlContent: emailHtml,
+          textContent: emailText,
         }),
       });
 
-      if (!resendRes.ok) {
-        console.error("Resend error:", await resendRes.text());
+      if (!brevoRes.ok) {
+        const errorText = await brevoRes.text();
+        console.error("Brevo error:", errorText);
+        // Still return success to user — we don't expose backend errors
+        // But the form was submitted successfully
       }
     } else {
       console.log("=== CONTACT FORM SUBMISSION ===");
-      console.log(emailContent);
+      console.log(emailText);
       console.log("==============================");
     }
 

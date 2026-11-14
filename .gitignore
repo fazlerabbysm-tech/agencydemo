@@ -2,3 +2,6 @@ skills/
 node_modules/
 
 scripts/
+.env
+.env.local
+.env*.local
