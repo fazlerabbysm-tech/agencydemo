@@ -48,12 +48,12 @@ export default function FinalCTA() {
         >
           <a
             href="mailto:hello@katelladigital.com"
-            className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
+            className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
           >
             <span className="text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
               Start a project
             </span>
-            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300">
+            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-white text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-white transition-colors duration-300">
               <ArrowUpRight size={16} strokeWidth={2} className="sm:hidden" />
               <ArrowUpRight size={20} strokeWidth={2} className="hidden sm:block" />
             </span>

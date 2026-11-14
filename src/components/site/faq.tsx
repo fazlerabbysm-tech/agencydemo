@@ -86,7 +86,7 @@ export default function FAQ() {
                       </span>
                       <span
                         className={`shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-[#3a1518] flex items-center justify-center transition-all duration-300 ${
-                          isOpen ? "bg-[#C71F42] text-black rotate-45" : ""
+                          isOpen ? "bg-[#C71F42] text-white rotate-45" : ""
                         }`}
                       >
                         <Plus size={14} strokeWidth={2} className="sm:hidden" />
@@ -115,9 +115,9 @@ export default function FAQ() {
             </div>
 
             {/* Contact nudge — inverted (teal accent on dark section) */}
-            <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 md:p-8 bg-[#C71F42] text-black">
+            <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 md:p-8 bg-[#C71F42] text-white">
               <div>
-                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/60">
+                <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/70">
                   Didn&apos;t find it?
                 </p>
                 <p className="mt-2 font-display text-lg sm:text-xl md:text-2xl tracking-tight">

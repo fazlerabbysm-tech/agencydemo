@@ -146,12 +146,12 @@ function CaseStudyContent({
           <div className="mt-8 sticky bottom-4 z-20 md:relative md:bottom-auto md:z-auto">
             <a
               href="#contact-casestudy"
-              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 shadow-lg md:shadow-none"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 shadow-lg md:shadow-none"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 {caseStudy.ctaSticky}
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300">
+              <span className="h-10 w-10 rounded-full bg-white text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-white transition-colors duration-300">
                 <ArrowUpRight size={18} strokeWidth={2} />
               </span>
             </a>
@@ -296,7 +296,7 @@ function CaseStudyContent({
             href={caseStudy.liveProjectUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+            className="mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-white px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
           >
             See the live project
             <ArrowUpRight size={16} />
@@ -337,18 +337,18 @@ function CaseStudyContent({
           </div>
 
           {/* Want these results? Book a call */}
-          <div className="mt-10 bg-[#C71F42] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-10 bg-[#C71F42] text-white py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="font-display font-bold text-xl md:text-2xl tracking-tight">
               Want these results?
             </p>
             <a
               href="#contact-casestudy"
-              className="group inline-flex items-center gap-3 bg-black text-[#C71F42] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-white text-[#C71F42] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-white border border-white transition-colors duration-300"
             >
               <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
                 Book a call
               </span>
-              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#C71F42] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#C71F42] transition-colors">
+              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#C71F42] text-white flex items-center justify-center group-hover:bg-white group-hover:text-[#C71F42] transition-colors">
                 <ArrowUpRight size={14} />
               </span>
             </a>
@@ -376,7 +376,7 @@ function CaseStudyContent({
           </div>
           <a
             href="#contact-casestudy"
-            className="mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+            className="mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-white px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
           >
             Work with us
             <ArrowRight size={16} />
@@ -477,7 +477,7 @@ function CaseStudyContent({
               onClick={() => onSwitchCaseStudy(prevCS.slug)}
               className="group flex items-center gap-3 text-left"
             >
-              <span className="h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-white transition-colors">
                 <ArrowLeft size={16} />
               </span>
               <div>
@@ -493,7 +493,7 @@ function CaseStudyContent({
                 <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40">Next</p>
                 <p className="font-display font-bold text-sm md:text-base text-white">{nextCS.clientName}</p>
               </div>
-              <span className="h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-white transition-colors">
                 <ArrowRight size={16} />
               </span>
             </button>
@@ -513,18 +513,18 @@ function CaseStudyContent({
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:hello@katelladigital.com"
-              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 Book a call
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full bg-white text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-white transition-colors">
                 <ArrowUpRight size={16} />
               </span>
             </a>
             <button
               onClick={onClose}
-              className="group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-black transition-colors duration-300"
+              className="group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-white transition-colors duration-300"
             >
               View all case studies
             </button>

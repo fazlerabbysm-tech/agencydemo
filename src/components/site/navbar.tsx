@@ -187,8 +187,8 @@ export default function Navbar({
                           onClick={() => handleDropdownItem(d.action, d.slug)}
                           className={`w-full text-left px-4 py-2.5 text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
                             onDark
-                              ? "text-white/80 hover:bg-[#C71F42] hover:text-black"
-                              : "text-white/80 hover:bg-[#C71F42] hover:text-black"
+                              ? "text-white/80 hover:bg-[#C71F42] hover:text-white"
+                              : "text-white/80 hover:bg-[#C71F42] hover:text-white"
                           }`}
                         >
                           {d.label}
@@ -221,8 +221,8 @@ export default function Navbar({
             }}
             className={`group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${
               onDark
-                ? "bg-[#C71F42] text-black border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
-                : "bg-[#C71F42] text-black border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
+                ? "bg-[#C71F42] text-white border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
+                : "bg-[#C71F42] text-white border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
             }`}
           >
             Start a project
@@ -309,7 +309,7 @@ export default function Navbar({
                     }
                   }
                 }}
-                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-black px-5 py-3 text-sm font-medium tracking-wide uppercase"
+                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-white px-5 py-3 text-sm font-medium tracking-wide uppercase"
               >
                 Start a project →
               </a>

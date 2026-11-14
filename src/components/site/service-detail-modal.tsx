@@ -149,12 +149,12 @@ function ServiceContent({
             <a
               href="#contact"
               onClick={onClose}
-              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 Get a quote
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300">
+              <span className="h-10 w-10 rounded-full bg-white text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-white transition-colors duration-300">
                 <ArrowUpRight size={18} strokeWidth={2} />
               </span>
             </a>
@@ -290,7 +290,7 @@ function ServiceContent({
               <a
                 href="#contact"
                 onClick={onClose}
-                className="mt-8 inline-flex items-center gap-3 bg-[#C71F42] text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
+                className="mt-8 inline-flex items-center gap-3 bg-[#C71F42] text-white px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
               >
                 <Calendar size={16} />
                 Book a discovery call
@@ -384,7 +384,7 @@ function ServiceContent({
               <a
                 href="#contact"
                 onClick={onClose}
-                className="mt-8 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+                className="mt-8 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-white px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
               >
                 Read the full case study
                 <ArrowRight size={16} />
@@ -421,7 +421,7 @@ function ServiceContent({
                     </span>
                     <span
                       className={`shrink-0 h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center transition-all duration-300 ${
-                        isOpen ? "bg-[#C71F42] text-black rotate-45" : ""
+                        isOpen ? "bg-[#C71F42] text-white rotate-45" : ""
                       }`}
                     >
                       <Plus size={14} strokeWidth={2} />
@@ -499,18 +499,18 @@ function ServiceContent({
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:hello@katelladigital.com"
-              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 Book a call
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full bg-white text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-white transition-colors">
                 <Calendar size={16} />
               </span>
             </a>
             <a
               href="mailto:hello@katelladigital.com"
-              className="group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-black transition-colors duration-300"
+              className="group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-white transition-colors duration-300"
             >
               Send your brief
               <ArrowUpRight size={16} />

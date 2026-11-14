@@ -88,7 +88,7 @@ export default function WorkShowcase({ onWorkClick }: Props) {
         </p>
         <a
           href="#contact"
-          className="group inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+          className="group inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
         >
           View full archive
           <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -139,7 +139,7 @@ function WorkCard({
           <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]">
             {work.no} / 04
           </span>
-          <span className="h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center text-white/80 group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300 backdrop-blur-md">
+          <span className="h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center text-white/80 group-hover:bg-[#C71F42] group-hover:text-white transition-colors duration-300 backdrop-blur-md">
             <svg width="8" height="10" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="sm:hidden">
               <path d="M0 0 L10 6 L0 12 Z" />
             </svg>
