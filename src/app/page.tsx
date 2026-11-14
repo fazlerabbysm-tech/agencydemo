@@ -10,8 +10,8 @@ import WorkShowcase from "@/components/site/work-showcase";
 import FinalCTA from "@/components/site/final-cta";
 import FAQ from "@/components/site/faq";
 import Footer from "@/components/site/footer";
-import ParticleRain from "@/components/site/particle-rain";
 import ContactModal from "@/components/site/contact-modal";
+import CursorGlow from "@/components/site/cursor-glow";
 import ServiceDetailModal from "@/components/site/service-detail-modal";
 import PortfolioDetailModal from "@/components/site/portfolio-detail-modal";
 import CaseStudyModal from "@/components/site/casestudy-detail-modal";
@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col text-white relative" style={{ background: "linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%)" }}>
-      <ParticleRain />
+      <CursorGlow />
       <Navbar
         onOpenService={(slug) => setActiveService(slug)}
         onOpenPortfolio={(slug) => setActivePortfolio(slug)}

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, ShieldCheck } from "lucide-react";
+import { X, Send, ShieldCheck, Loader2 } from "lucide-react";
 
 const services = [
   "UI/UX Design",
@@ -39,7 +39,6 @@ export default function ContactModal({
 
   useEffect(() => {
     if (open) {
-      // Generate math question
       const a = Math.floor(Math.random() * 9) + 1;
       const b = Math.floor(Math.random() * 9) + 1;
       // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -47,7 +46,6 @@ export default function ContactModal({
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setMathVerified(false);
 
-      // Load Turnstile script
       if (!document.getElementById("cf-turnstile-script")) {
         const script = document.createElement("script");
         script.id = "cf-turnstile-script";
@@ -68,7 +66,6 @@ export default function ContactModal({
     }
   }, [open]);
 
-  // Render Turnstile widget
   useEffect(() => {
     if (open && turnstileLoaded && typeof window !== "undefined") {
       // @ts-ignore
@@ -76,7 +73,7 @@ export default function ContactModal({
         setTimeout(() => {
           const container = document.getElementById("cf-turnstile-container");
           if (container) {
-            container.innerHTML = ""; // Clear previous widget
+            container.innerHTML = "";
             // @ts-ignore
             window.turnstile.render(container, {
               sitekey: "0x4AAAAAAGA9ybOPDfkQVn6e",
@@ -91,7 +88,6 @@ export default function ContactModal({
     }
   }, [open, turnstileLoaded]);
 
-  // Verify math answer
   const checkMath = (val: string) => {
     const num = parseInt(val, 10);
     setMathQ((prev) => ({ ...prev, answer: val }));
@@ -151,202 +147,179 @@ export default function ContactModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          transition={{ duration: 0.25 }}
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+          style={{
+            background: "rgba(6,0,0,0.7)",
+            backdropFilter: "blur(8px)",
+          }}
           onClick={onClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            initial={{ scale: 0.92, opacity: 0, y: 10 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-lg bg-[#1a0a0e] border border-[#3a1518] rounded-2xl overflow-hidden"
+            exit={{ scale: 0.92, opacity: 0, y: 10 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full max-w-md rounded-2xl overflow-hidden"
+            style={{
+              background: "rgba(26,10,14,0.85)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(199,31,66,0.25)",
+              boxShadow: "0 8px 32px rgba(199,31,66,0.15), 0 0 60px rgba(199,31,66,0.08)",
+            }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-[#3a1518]">
-              <div>
-                <h2 className="font-display font-bold text-xl text-white">Get in touch</h2>
-                <p className="text-sm text-white/50 mt-1">We'll respond within 24 hours</p>
-              </div>
+            {/* Glass top edge highlight */}
+            <div className="absolute inset-x-0 top-0 h-px" style={{
+              background: "linear-gradient(to right, transparent, rgba(199,31,66,0.4), transparent)"
+            }} />
+
+            {/* Header — compact */}
+            <div className="flex items-center justify-between px-5 pt-4 pb-3">
+              <h2 className="font-display font-bold text-base text-white">Get in touch</h2>
               <button
                 onClick={onClose}
-                className="h-10 w-10 rounded-full border border-[#3a1518] flex items-center justify-center text-white/60 hover:bg-[#C71F42] hover:text-white hover:border-[#C71F42] transition-colors"
+                className="h-8 w-8 rounded-full flex items-center justify-center text-white/50 hover:bg-[#C71F42]/20 hover:text-[#C71F42] transition-colors"
               >
-                <X size={18} />
+                <X size={16} />
               </button>
             </div>
 
-            {/* Form */}
             {status === "success" ? (
-              <div className="p-8 text-center">
-                <div className="h-16 w-16 mx-auto rounded-full bg-[#C71F42]/20 flex items-center justify-center mb-4">
-                  <ShieldCheck size={32} className="text-[#C71F42]" />
+              <div className="px-5 py-10 text-center">
+                <div className="h-12 w-12 mx-auto rounded-full bg-[#C71F42]/20 flex items-center justify-center mb-3">
+                  <ShieldCheck size={24} className="text-[#C71F42]" />
                 </div>
-                <h3 className="font-display font-bold text-xl text-white mb-2">Message sent!</h3>
-                <p className="text-white/60 text-sm">We've sent a confirmation to {form.email}. We'll be in touch within 24 hours.</p>
+                <h3 className="font-display font-bold text-lg text-white mb-1">Message sent!</h3>
+                <p className="text-white/50 text-xs">We&apos;ll get back to you within 24 hours.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="p-6 space-y-4">
-                {/* Name */}
-                <div>
-                  <label className="text-xs font-mono tracking-[0.15em] uppercase text-white/50 mb-2 block">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-[#060000] border border-[#3a1518] rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:border-[#C71F42] focus:outline-none transition-colors"
-                    placeholder="John Doe"
-                  />
+              <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-3">
+                {/* Name + Email — 2 columns */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors"
+                      placeholder="john@email.com"
+                    />
+                  </div>
                 </div>
 
-                {/* Email */}
-                <div>
-                  <label className="text-xs font-mono tracking-[0.15em] uppercase text-white/50 mb-2 block">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-[#060000] border border-[#3a1518] rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:border-[#C71F42] focus:outline-none transition-colors"
-                    placeholder="john@company.com"
-                  />
+                {/* Phone + Service — 2 columns */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
+                      Phone *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors"
+                      placeholder="+1 714-555"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
+                      Service *
+                    </label>
+                    <select
+                      required
+                      value={form.service}
+                      onChange={(e) => setForm({ ...form, service: e.target.value })}
+                      className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm focus:border-[#C71F42] focus:outline-none transition-colors appearance-none cursor-pointer"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23C71F42' stroke-width='1.5'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "right 12px center",
+                      }}
+                    >
+                      <option value="" className="bg-[#1a0a0e]">Select...</option>
+                      {services.map((s) => (
+                        <option key={s} value={s} className="bg-[#1a0a0e]">{s}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
-                {/* Phone */}
+                {/* Details — compact */}
                 <div>
-                  <label className="text-xs font-mono tracking-[0.15em] uppercase text-white/50 mb-2 block">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full bg-[#060000] border border-[#3a1518] rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:border-[#C71F42] focus:outline-none transition-colors"
-                    placeholder="+1 (714) 555-0100"
-                  />
-                </div>
-
-                {/* Service dropdown */}
-                <div>
-                  <label className="text-xs font-mono tracking-[0.15em] uppercase text-white/50 mb-2 block">
-                    Service *
-                  </label>
-                  <select
-                    required
-                    value={form.service}
-                    onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className="w-full bg-[#060000] border border-[#3a1518] rounded-lg px-4 py-3 text-white text-sm focus:border-[#C71F42] focus:outline-none transition-colors appearance-none cursor-pointer"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23C71F42' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")`,
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "right 16px center",
-                    }}
-                  >
-                    <option value="">Select a service...</option>
-                    {services.map((s) => (
-                      <option key={s} value={s} className="bg-[#1a0a0e]">
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Details */}
-                <div>
-                  <label className="text-xs font-mono tracking-[0.15em] uppercase text-white/50 mb-2 block">
-                    Project Details *
+                  <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
+                    Details *
                   </label>
                   <textarea
                     required
-                    rows={3}
+                    rows={2}
                     value={form.details}
                     onChange={(e) => setForm({ ...form, details: e.target.value })}
-                    className="w-full bg-[#060000] border border-[#3a1518] rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:border-[#C71F42] focus:outline-none transition-colors resize-none"
-                    placeholder="Tell us about your project, timeline, and goals..."
+                    className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors resize-none"
+                    placeholder="Tell us about your project..."
                   />
                 </div>
 
-                {/* Math verification */}
-                <div className="pt-2">
-                  <label className="text-xs font-mono tracking-[0.15em] uppercase text-white/50 mb-2 block">
-                    Human Verification *
-                  </label>
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-2 bg-[#060000] border border-[#3a1518] rounded-lg px-4 py-3">
-                      <span className="text-white text-sm font-mono">
-                        {mathQ.a} + {mathQ.b} =
-                      </span>
-                      <input
-                        type="number"
-                        value={mathQ.answer}
-                        onChange={(e) => checkMath(e.target.value)}
-                        className="w-16 bg-transparent border-b border-[#3a1518] text-white text-sm text-center focus:border-[#C71F42] focus:outline-none"
-                        placeholder="?"
-                      />
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const a = Math.floor(Math.random() * 9) + 1;
-                        const b = Math.floor(Math.random() * 9) + 1;
-                        setMathQ({ a, b, answer: "" });
-                        setMathVerified(false);
-                      }}
-                      className="text-xs text-white/40 hover:text-[#C71F42] transition-colors uppercase tracking-wide"
-                    >
-                      Refresh
-                    </button>
-                    {mathVerified && (
-                      <ShieldCheck size={18} className="text-[#C71F42]" />
-                    )}
+                {/* Math + Turnstile — compact row */}
+                <div className="flex items-center gap-3 pt-1">
+                  <div className="flex items-center gap-2 bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-1.5">
+                    <span className="text-white text-xs font-mono">
+                      {mathQ.a} + {mathQ.b} =
+                    </span>
+                    <input
+                      type="number"
+                      value={mathQ.answer}
+                      onChange={(e) => checkMath(e.target.value)}
+                      className="w-10 bg-transparent border-b border-[#3a1518] text-white text-xs text-center focus:border-[#C71F42] focus:outline-none"
+                      placeholder="?"
+                    />
+                    {mathVerified && <ShieldCheck size={14} className="text-[#C71F42]" />}
                   </div>
-                  <p className="text-[10px] text-white/30 mt-1.5">
-                    Solve the math puzzle to verify you are human
-                  </p>
-                </div>
-
-                {/* Cloudflare Turnstile */}
-                <div className="pt-2">
-                  <label className="text-xs font-mono tracking-[0.15em] uppercase text-white/50 mb-2 block">
-                    Security Check
-                  </label>
-                  <div
-                    id="cf-turnstile-container"
-                    className="min-h-[65px]"
-                  />
+                  <div id="cf-turnstile-container" className="flex-1 min-h-[40px]" />
                 </div>
 
                 {/* Error */}
                 {status === "error" && (
-                  <p className="text-sm text-red-400">{errorMsg}</p>
+                  <p className="text-xs text-red-400">{errorMsg}</p>
                 )}
 
-                {/* Submit */}
+                {/* Submit — compact */}
                 <button
                   type="submit"
                   disabled={!canSubmit || status === "submitting"}
-                  className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-lg font-medium text-sm tracking-wide uppercase transition-all duration-300 ${
+                  className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-lg font-medium text-sm tracking-wide uppercase transition-all duration-300 ${
                     canSubmit && status !== "submitting"
                       ? "bg-[#C71F42] text-white hover:bg-[#9A0E28]"
-                      : "bg-[#3a1518] text-white/30 cursor-not-allowed"
+                      : "bg-[#3a1518] text-white/25 cursor-not-allowed"
                   }`}
                 >
                   {status === "submitting" ? (
                     <>
-                      <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <Loader2 size={14} className="animate-spin" />
                       Sending...
                     </>
                   ) : (
                     <>
                       Send
-                      <Send size={14} />
+                      <Send size={12} />
                     </>
                   )}
                 </button>
