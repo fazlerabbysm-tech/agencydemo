@@ -51,6 +51,7 @@ interface NavbarProps {
   onOpenService?: (slug: string) => void;
   onOpenPortfolio?: (slug: string) => void;
   onOpenCaseStudy?: (slug: string) => void;
+  onOpenContact?: () => void;
 }
 
 export default function Navbar({
@@ -60,6 +61,7 @@ export default function Navbar({
   onOpenService,
   onOpenPortfolio,
   onOpenCaseStudy,
+  onOpenContact,
 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -205,10 +207,10 @@ export default function Navbar({
         {/* CTA */}
         <div className="hidden md:block">
           <a
-            href={variant === "service" ? undefined : "#contact"}
+            href="#"
             onClick={(e) => {
+              e.preventDefault();
               if (variant === "service") {
-                e.preventDefault();
                 const contactEl = document.getElementById("contact-page");
                 const scrollEl = document.getElementById("service-page-scroll");
                 if (contactEl && scrollEl) {
@@ -217,6 +219,8 @@ export default function Navbar({
                     behavior: "smooth",
                   });
                 }
+              } else if (onOpenContact) {
+                onOpenContact();
               }
             }}
             className={`group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${
@@ -295,8 +299,9 @@ export default function Navbar({
                 </div>
               ))}
               <a
-                href="#contact"
-                onClick={() => {
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
                   setOpen(false);
                   if (variant === "service") {
                     const contactEl = document.getElementById("contact-page");
@@ -307,6 +312,8 @@ export default function Navbar({
                         behavior: "smooth",
                       });
                     }
+                  } else if (onOpenContact) {
+                    onOpenContact();
                   }
                 }}
                 className="mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-white px-5 py-3 text-sm font-medium tracking-wide uppercase"

@@ -498,7 +498,7 @@ function ServiceContent({
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@katelladigital.com"
+              href="mailto:info@katella.digital"
               className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
@@ -509,7 +509,7 @@ function ServiceContent({
               </span>
             </a>
             <a
-              href="mailto:hello@katelladigital.com"
+              href="mailto:info@katella.digital"
               className="group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-white transition-colors duration-300"
             >
               Send your brief
@@ -572,8 +572,8 @@ function ServiceContent({
               </p>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
-                    hello@katelladigital.com
+                  <a href="mailto:info@katella.digital" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
+                    info@katella.digital
                   </a>
                 </li>
                 <li>

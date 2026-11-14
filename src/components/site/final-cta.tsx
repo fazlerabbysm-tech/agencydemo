@@ -47,7 +47,7 @@ export default function FinalCTA() {
           className="mt-10 sm:mt-14 md:mt-20 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
         >
           <a
-            href="mailto:hello@katelladigital.com"
+            href="mailto:info@katella.digital"
             className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
           >
             <span className="text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
@@ -60,10 +60,10 @@ export default function FinalCTA() {
           </a>
 
           <a
-            href="mailto:hello@katelladigital.com"
+            href="mailto:info@katella.digital"
             className="font-mono text-xs sm:text-sm tracking-wide text-white/60 hover:text-white transition-colors underline underline-offset-4 decoration-white/30"
           >
-            hello@katelladigital.com
+            info@katella.digital
           </a>
         </motion.div>
       </div>

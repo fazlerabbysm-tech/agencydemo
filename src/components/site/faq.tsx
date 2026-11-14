@@ -125,10 +125,10 @@ export default function FAQ() {
                 </p>
               </div>
               <a
-                href="mailto:hello@katelladigital.com"
+                href="mailto:info@katella.digital"
                 className="inline-flex items-center gap-2 border border-black/40 hover:bg-black hover:text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
               >
-                hello@katelladigital.com →
+                info@katella.digital →
               </a>
             </div>
           </div>
