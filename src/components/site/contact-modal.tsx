@@ -29,11 +29,9 @@ export default function ContactModal({
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  // Math captcha
   const [mathQ, setMathQ] = useState({ a: 0, b: 0, answer: "" });
   const [mathVerified, setMathVerified] = useState(false);
 
-  // Turnstile
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [turnstileLoaded, setTurnstileLoaded] = useState(false);
 
@@ -94,10 +92,10 @@ export default function ContactModal({
     setMathVerified(num === mathQ.a + mathQ.b);
   };
 
+  // Phone is optional now
   const canSubmit =
     form.name.trim() &&
     form.email.trim() &&
-    form.phone.trim() &&
     form.service &&
     form.details.trim() &&
     mathVerified &&
@@ -116,6 +114,7 @@ export default function ContactModal({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
+          phone: form.phone || "Not provided",
           mathAnswer: mathQ.answer,
           mathExpected: mathQ.a + mathQ.b,
           turnstileToken,
@@ -140,6 +139,9 @@ export default function ContactModal({
     }
   };
 
+  const inputClass = "w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors";
+  const labelClass = "text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1.5 block";
+
   return (
     <AnimatePresence>
       {open && (
@@ -160,7 +162,7 @@ export default function ContactModal({
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.92, opacity: 0, y: 10 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-md rounded-2xl overflow-hidden"
+            className="relative w-full max-w-lg rounded-2xl overflow-hidden"
             style={{
               background: "rgba(26,10,14,0.85)",
               backdropFilter: "blur(20px)",
@@ -169,158 +171,113 @@ export default function ContactModal({
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Glass top edge highlight */}
+            {/* Glass top edge */}
             <div className="absolute inset-x-0 top-0 h-px" style={{
               background: "linear-gradient(to right, transparent, rgba(199,31,66,0.4), transparent)"
             }} />
 
-            {/* Header — compact */}
-            <div className="flex items-center justify-between px-5 pt-4 pb-3">
-              <h2 className="font-display font-bold text-base text-white">Get in touch</h2>
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 pt-5 pb-3">
+              <div>
+                <h2 className="font-display font-bold text-lg text-white">Get in touch</h2>
+                <p className="text-white/40 text-xs mt-0.5">We&apos;ll respond within 24 hours</p>
+              </div>
               <button
                 onClick={onClose}
-                className="h-8 w-8 rounded-full flex items-center justify-center text-white/50 hover:bg-[#C71F42]/20 hover:text-[#C71F42] transition-colors"
+                className="h-9 w-9 rounded-full flex items-center justify-center text-white/50 hover:bg-[#C71F42]/20 hover:text-[#C71F42] transition-colors"
               >
-                <X size={16} />
+                <X size={18} />
               </button>
             </div>
 
             {status === "success" ? (
-              <div className="px-5 py-10 text-center">
-                <div className="h-12 w-12 mx-auto rounded-full bg-[#C71F42]/20 flex items-center justify-center mb-3">
-                  <ShieldCheck size={24} className="text-[#C71F42]" />
+              <div className="px-6 py-12 text-center">
+                <div className="h-14 w-14 mx-auto rounded-full bg-[#C71F42]/20 flex items-center justify-center mb-4">
+                  <ShieldCheck size={28} className="text-[#C71F42]" />
                 </div>
                 <h3 className="font-display font-bold text-lg text-white mb-1">Message sent!</h3>
-                <p className="text-white/50 text-xs">We&apos;ll get back to you within 24 hours.</p>
+                <p className="text-white/50 text-sm">We&apos;ve sent a confirmation to your email. We&apos;ll be in touch within 24 hours.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-3">
-                {/* Name + Email — 2 columns */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors"
-                      placeholder="john@email.com"
-                    />
-                  </div>
-                </div>
-
-                {/* Phone + Service — 2 columns */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
-                      Phone *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors"
-                      placeholder="+1 714-555"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
-                      Service *
-                    </label>
-                    <select
-                      required
-                      value={form.service}
-                      onChange={(e) => setForm({ ...form, service: e.target.value })}
-                      className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm focus:border-[#C71F42] focus:outline-none transition-colors appearance-none cursor-pointer"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23C71F42' stroke-width='1.5'/%3E%3C/svg%3E")`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "right 12px center",
-                      }}
-                    >
-                      <option value="" className="bg-[#1a0a0e]">Select...</option>
-                      {services.map((s) => (
-                        <option key={s} value={s} className="bg-[#1a0a0e]">{s}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Details — compact */}
+              <form onSubmit={handleSubmit} className="px-6 pb-6 space-y-4">
+                {/* Name — full width */}
                 <div>
-                  <label className="text-[10px] font-mono tracking-[0.12em] uppercase text-white/40 mb-1 block">
-                    Details *
-                  </label>
+                  <label className={labelClass}>Full Name *</label>
+                  <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} placeholder="John Doe" />
+                </div>
+
+                {/* Email — full width */}
+                <div>
+                  <label className={labelClass}>Email Address *</label>
+                  <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass} placeholder="john@company.com" />
+                </div>
+
+                {/* Phone — optional, full width */}
+                <div>
+                  <label className={labelClass}>Phone Number <span className="text-white/25 normal-case">(optional)</span></label>
+                  <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass} placeholder="+1 (714) 555-0100" />
+                </div>
+
+                {/* Service — full width */}
+                <div>
+                  <label className={labelClass}>Service *</label>
+                  <select
+                    required
+                    value={form.service}
+                    onChange={(e) => setForm({ ...form, service: e.target.value })}
+                    className={inputClass + " appearance-none cursor-pointer"}
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23C71F42' stroke-width='1.5'/%3E%3C/svg%3E")`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 14px center",
+                    }}
+                  >
+                    <option value="" className="bg-[#1a0a0e]">Select a service...</option>
+                    {services.map((s) => (
+                      <option key={s} value={s} className="bg-[#1a0a0e]">{s}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Details — full width */}
+                <div>
+                  <label className={labelClass}>Project Details *</label>
                   <textarea
                     required
-                    rows={2}
+                    rows={3}
                     value={form.details}
                     onChange={(e) => setForm({ ...form, details: e.target.value })}
-                    className="w-full bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2 text-white text-sm placeholder:text-white/25 focus:border-[#C71F42] focus:outline-none transition-colors resize-none"
-                    placeholder="Tell us about your project..."
+                    className={inputClass + " resize-none"}
+                    placeholder="Tell us about your project, timeline, and goals..."
                   />
                 </div>
 
-                {/* Math + Turnstile — compact row */}
+                {/* Math + Turnstile */}
                 <div className="flex items-center gap-3 pt-1">
-                  <div className="flex items-center gap-2 bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-1.5">
-                    <span className="text-white text-xs font-mono">
-                      {mathQ.a} + {mathQ.b} =
-                    </span>
-                    <input
-                      type="number"
-                      value={mathQ.answer}
-                      onChange={(e) => checkMath(e.target.value)}
-                      className="w-10 bg-transparent border-b border-[#3a1518] text-white text-xs text-center focus:border-[#C71F42] focus:outline-none"
-                      placeholder="?"
-                    />
+                  <div className="flex items-center gap-2 bg-[#060000]/60 border border-[#3a1518] rounded-lg px-3 py-2">
+                    <span className="text-white text-xs font-mono">{mathQ.a} + {mathQ.b} =</span>
+                    <input type="number" value={mathQ.answer} onChange={(e) => checkMath(e.target.value)} className="w-12 bg-transparent border-b border-[#3a1518] text-white text-xs text-center focus:border-[#C71F42] focus:outline-none" placeholder="?" />
                     {mathVerified && <ShieldCheck size={14} className="text-[#C71F42]" />}
                   </div>
-                  <div id="cf-turnstile-container" className="flex-1 min-h-[40px]" />
+                  <div id="cf-turnstile-container" className="flex-1 min-h-[44px]" />
                 </div>
 
-                {/* Error */}
-                {status === "error" && (
-                  <p className="text-xs text-red-400">{errorMsg}</p>
-                )}
+                {status === "error" && <p className="text-xs text-red-400">{errorMsg}</p>}
 
-                {/* Submit — compact */}
+                {/* Submit */}
                 <button
                   type="submit"
                   disabled={!canSubmit || status === "submitting"}
-                  className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-lg font-medium text-sm tracking-wide uppercase transition-all duration-300 ${
+                  className={`w-full flex items-center justify-center gap-2 py-3 rounded-lg font-medium text-sm tracking-wide uppercase transition-all duration-300 ${
                     canSubmit && status !== "submitting"
                       ? "bg-[#C71F42] text-white hover:bg-[#9A0E28]"
                       : "bg-[#3a1518] text-white/25 cursor-not-allowed"
                   }`}
                 >
                   {status === "submitting" ? (
-                    <>
-                      <Loader2 size={14} className="animate-spin" />
-                      Sending...
-                    </>
+                    <><Loader2 size={16} className="animate-spin" /> Sending...</>
                   ) : (
-                    <>
-                      Send
-                      <Send size={12} />
-                    </>
+                    <>Send <Send size={14} /></>
                   )}
                 </button>
               </form>

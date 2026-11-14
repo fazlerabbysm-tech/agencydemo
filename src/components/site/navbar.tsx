@@ -64,7 +64,7 @@ export default function Navbar({
     if (item.action === "service" && item.slug) {
       if (variant === "service" && onBack) {
         onBack();
-        setTimeout(() => onOpenService?.(item.slug!), 100);
+        setTimeout(() => onOpenService?.(item.slug!), 200);
       } else {
         onOpenService?.(item.slug!);
       }
@@ -74,7 +74,7 @@ export default function Navbar({
         setTimeout(() => {
           const el = document.querySelector("#about") || document.querySelector("#top");
           el?.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        }, 300);
       } else {
         const el = document.querySelector("#about") || document.querySelector("#top");
         el?.scrollIntoView({ behavior: "smooth" });
@@ -141,7 +141,7 @@ export default function Navbar({
             onClick={() => {
               if (variant === "service" && onBack) {
                 onBack();
-                setTimeout(() => onOpenContact?.(), 100);
+                setTimeout(() => onOpenContact?.(), 300);
               } else {
                 onOpenContact?.();
               }
@@ -192,7 +192,7 @@ export default function Navbar({
                   setOpen(false);
                   if (variant === "service" && onBack) {
                     onBack();
-                    setTimeout(() => onOpenContact?.(), 100);
+                    setTimeout(() => onOpenContact?.(), 300);
                   } else {
                     onOpenContact?.();
                   }
