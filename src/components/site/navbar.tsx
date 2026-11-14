@@ -2,46 +2,21 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 interface NavItem {
   label: string;
+  action: "service" | "about" | "section";
+  slug?: string;
   href?: string;
-  dropdown?: { label: string; action: "service" | "portfolio" | "casestudy"; slug: string }[];
 }
 
 const navItems: NavItem[] = [
-  {
-    label: "Work",
-    href: "#work",
-    dropdown: [
-      { label: "Aurora Goods", action: "portfolio", slug: "aurora-goods" },
-      { label: "Maison Noir", action: "portfolio", slug: "maison-noir" },
-      { label: "ECHO Motors", action: "portfolio", slug: "echo-motors" },
-      { label: "Agency Collective", action: "portfolio", slug: "agency-collective" },
-    ],
-  },
-  {
-    label: "Services",
-    href: "#services",
-    dropdown: [
-      { label: "UI/UX Design", action: "service", slug: "ui-ux" },
-      { label: "Motion Graphics", action: "service", slug: "motion-graphics" },
-      { label: "Digital Marketing", action: "service", slug: "digital-marketing" },
-      { label: "Web & App Development", action: "service", slug: "web-app-dev" },
-    ],
-  },
-  {
-    label: "Portfolio",
-    href: "#work",
-    dropdown: [
-      { label: "Aurora Goods — Case Study", action: "casestudy", slug: "aurora-goods" },
-      { label: "Maison Noir — Case Study", action: "casestudy", slug: "maison-noir" },
-      { label: "ECHO Motors — Case Study", action: "casestudy", slug: "echo-motors" },
-      { label: "Agency Collective — Case Study", action: "casestudy", slug: "agency-collective" },
-    ],
-  },
-  { label: "FAQ", href: "#faq" },
+  { label: "UI/UX Design", action: "service", slug: "ui-ux" },
+  { label: "Motion Graphics", action: "service", slug: "motion-graphics" },
+  { label: "Digital Marketing", action: "service", slug: "digital-marketing" },
+  { label: "Web & App Dev", action: "service", slug: "web-app-dev" },
+  { label: "About", action: "about" },
 ];
 
 interface NavbarProps {
@@ -65,7 +40,6 @@ export default function Navbar({
 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     if (variant === "home") {
@@ -85,23 +59,26 @@ export default function Navbar({
 
   const onDark = !scrolled && !open;
 
-  const handleDropdownItem = (action: string, slug: string) => {
-    setOpenDropdown(null);
+  const handleNavClick = (item: NavItem) => {
     setOpen(false);
-    if (action === "service" && onOpenService) onOpenService(slug);
-    else if (action === "portfolio" && onOpenPortfolio) onOpenPortfolio(slug);
-    else if (action === "casestudy" && onOpenCaseStudy) onOpenCaseStudy(slug);
-  };
-
-  const handleSectionClick = (href: string) => {
-    setOpen(false);
-    setOpenDropdown(null);
-    if (variant === "service" && onBack) {
-      onBack();
-      setTimeout(() => {
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+    if (item.action === "service" && item.slug) {
+      if (variant === "service" && onBack) {
+        onBack();
+        setTimeout(() => onOpenService?.(item.slug!), 100);
+      } else {
+        onOpenService?.(item.slug!);
+      }
+    } else if (item.action === "about") {
+      if (variant === "service" && onBack) {
+        onBack();
+        setTimeout(() => {
+          const el = document.querySelector("#about") || document.querySelector("#top");
+          el?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else {
+        const el = document.querySelector("#about") || document.querySelector("#top");
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -115,7 +92,6 @@ export default function Navbar({
           ? "bg-transparent border-b border-transparent"
           : "bg-[#060000]/85 backdrop-blur-md border-b border-[#3a1518]"
       }`}
-      onMouseLeave={() => setOpenDropdown(null)}
     >
       <nav className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
         {/* Logo */}
@@ -127,7 +103,7 @@ export default function Navbar({
               onBack();
             }
           }}
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-2 group shrink-0"
         >
           <span
             className={`h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${
@@ -139,101 +115,44 @@ export default function Navbar({
               onDark ? "text-white" : "text-white"
             }`}
           >
-            KATELLA <span className="font-light">DIGITAL</span>
+            Katella <span className="font-light">Digital</span>
           </span>
         </a>
 
-        {/* Desktop nav with dropdowns */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        {/* Desktop nav — 5 items, no dropdowns */}
+        <div className="hidden md:flex items-center gap-5 lg:gap-7">
           {navItems.map((item) => (
-            <div
+            <button
               key={item.label}
-              className="relative"
-              onMouseEnter={() => setOpenDropdown(item.dropdown ? item.label : null)}
+              onClick={() => handleNavClick(item)}
+              className={`text-xs lg:text-sm font-medium tracking-wide uppercase relative group transition-colors duration-300 cursor-pointer ${
+                onDark ? "text-white/90 hover:text-white" : "text-white/80 hover:text-white"
+              }`}
             >
-              <button
-                onClick={() => item.href && handleSectionClick(item.href)}
-                className={`text-xs lg:text-sm font-medium tracking-wide uppercase flex items-center gap-1 transition-colors duration-300 cursor-pointer ${
-                  onDark ? "text-white/90 hover:text-white" : "text-white/80 hover:text-white"
-                }`}
-              >
-                {item.label}
-                {item.dropdown && (
-                  <ChevronDown
-                    size={12}
-                    className={`transition-transform duration-300 ${
-                      openDropdown === item.label ? "rotate-180" : ""
-                    }`}
-                  />
-                )}
-              </button>
-
-              {/* Dropdown */}
-              {item.dropdown && (
-                <AnimatePresence>
-                  {openDropdown === item.label && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[220px] rounded-lg border shadow-xl overflow-hidden ${
-                        onDark
-                          ? "bg-[#1a0a0e] border-[#3a1518]"
-                          : "bg-[#1a0a0e] border-[#3a1518]"
-                      }`}
-                    >
-                      {item.dropdown.map((d) => (
-                        <button
-                          key={d.slug}
-                          onClick={() => handleDropdownItem(d.action, d.slug)}
-                          className={`w-full text-left px-4 py-2.5 text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
-                            onDark
-                              ? "text-white/80 hover:bg-[#C71F42] hover:text-white"
-                              : "text-white/80 hover:bg-[#C71F42] hover:text-white"
-                          }`}
-                        >
-                          {d.label}
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              )}
-            </div>
+              {item.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-[#C71F42]" />
+            </button>
           ))}
         </div>
 
         {/* CTA */}
         <div className="hidden md:block">
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              if (variant === "service") {
-                const contactEl = document.getElementById("contact-page");
-                const scrollEl = document.getElementById("service-page-scroll");
-                if (contactEl && scrollEl) {
-                  scrollEl.scrollTo({
-                    top: contactEl.offsetTop - 80,
-                    behavior: "smooth",
-                  });
-                }
-              } else if (onOpenContact) {
-                onOpenContact();
+          <button
+            onClick={() => {
+              if (variant === "service" && onBack) {
+                onBack();
+                setTimeout(() => onOpenContact?.(), 100);
+              } else {
+                onOpenContact?.();
               }
             }}
             className={`group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${
-              onDark
-                ? "bg-[#C71F42] text-white border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
-                : "bg-[#C71F42] text-white border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
+              "bg-[#C71F42] text-white border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
             }`}
           >
-            Start a project
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
-          </a>
+            Get a Quote
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </button>
         </div>
 
         {/* Mobile toggle */}
@@ -260,66 +179,28 @@ export default function Navbar({
           >
             <div className="px-5 sm:px-6 py-6 flex flex-col gap-4">
               {navItems.map((item) => (
-                <div key={item.label}>
-                  {item.dropdown ? (
-                    <>
-                      <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/40 mb-2">
-                        {item.label}
-                      </p>
-                      <div className="flex flex-col gap-2 pl-3 mb-2">
-                        {item.dropdown.map((d) => (
-                          <button
-                            key={d.slug}
-                            onClick={() => handleDropdownItem(d.action, d.slug)}
-                            className="text-left text-base font-display font-medium tracking-tight text-white/80 hover:text-white"
-                          >
-                            {d.label}
-                          </button>
-                        ))}
-                      </div>
-                    </>
-                  ) : (
-                    <a
-                      href={item.href}
-                      onClick={() => {
-                        setOpen(false);
-                        if (variant === "service" && onBack) {
-                          onBack();
-                          setTimeout(() => {
-                            const el = document.querySelector(item.href!);
-                            if (el) el.scrollIntoView({ behavior: "smooth" });
-                          }, 100);
-                        }
-                      }}
-                      className="text-2xl font-display font-medium tracking-tight text-white"
-                    >
-                      {item.label}
-                    </a>
-                  )}
-                </div>
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item)}
+                  className="text-xl font-display font-medium tracking-tight text-white text-left"
+                >
+                  {item.label}
+                </button>
               ))}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
+              <button
+                onClick={() => {
                   setOpen(false);
-                  if (variant === "service") {
-                    const contactEl = document.getElementById("contact-page");
-                    const scrollEl = document.getElementById("service-page-scroll");
-                    if (contactEl && scrollEl) {
-                      scrollEl.scrollTo({
-                        top: contactEl.offsetTop - 80,
-                        behavior: "smooth",
-                      });
-                    }
-                  } else if (onOpenContact) {
-                    onOpenContact();
+                  if (variant === "service" && onBack) {
+                    onBack();
+                    setTimeout(() => onOpenContact?.(), 100);
+                  } else {
+                    onOpenContact?.();
                   }
                 }}
                 className="mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-white px-5 py-3 text-sm font-medium tracking-wide uppercase"
               >
-                Start a project →
-              </a>
+                Get a Quote →
+              </button>
             </div>
           </motion.div>
         )}

@@ -11,22 +11,23 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Katella Digital — Full-Service Marketing Agency",
+  title: "Katella Digital — Best Marketing Agency in Anaheim California",
   description:
-    "A full-service marketing agency built to drive business growth. Strategy, creative, digital, and media — all under one roof.",
+    "Katella Digital is a full-service marketing agency in Anaheim, Orange County, California. UI/UX design, motion graphics, digital marketing, and web & app development — all under one roof.",
   keywords: [
-    "marketing agency",
-    "digital marketing",
+    "marketing agency Anaheim",
+    "digital marketing California",
     "full-service agency",
     "Katella Digital",
-    "creative agency",
-    "advertising",
+    "UI/UX design Anaheim",
+    "web development Orange County",
+    "advertising agency",
   ],
   authors: [{ name: "Katella Digital" }],
   openGraph: {
-    title: "Katella Digital — Full-Service Marketing Agency",
+    title: "Katella Digital — Best Marketing Agency in Anaheim California",
     description:
-      "A full-service marketing agency built to drive business growth. Strategy, creative, digital, and media — all under one roof.",
+      "Katella Digital is a full-service marketing agency in Anaheim, Orange County, California. UI/UX design, motion graphics, digital marketing, and web & app development.",
     siteName: "Katella Digital",
     type: "website",
   },

@@ -4,14 +4,6 @@ import { useEffect, useState } from "react";
 
 const footerLinks = [
   {
-    title: "Studio",
-    items: [
-      { label: "Work", href: "#work" },
-      { label: "Services", href: "#services" },
-      { label: "FAQ", href: "#faq" },
-    ],
-  },
-  {
     title: "Services",
     items: [
       { label: "UI/UX Design", href: "#services" },
@@ -21,12 +13,19 @@ const footerLinks = [
     ],
   },
   {
+    title: "Studio",
+    items: [
+      { label: "About", href: "#about" },
+      { label: "Work", href: "#work" },
+      { label: "FAQ", href: "#faq" },
+    ],
+  },
+  {
     title: "Connect",
     items: [
       { label: "Instagram", href: "#" },
-      { label: "Behance", href: "#" },
       { label: "LinkedIn", href: "#" },
-      { label: "Vimeo", href: "#" },
+      { label: "Behance", href: "#" },
     ],
   },
 ];
@@ -40,7 +39,6 @@ export default function Footer() {
       const opts: Intl.DateTimeFormatOptions = {
         hour: "2-digit",
         minute: "2-digit",
-        second: "2-digit",
         hour12: false,
         timeZone: "America/Los_Angeles",
       };
@@ -53,8 +51,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#060000] text-white border-t border-[#3a1518]">
-      {/* Big footer wordmark */}
       <div className="overflow-hidden">
+        {/* Top section: links */}
         <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-10">
           <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
             {/* Brand + tagline */}
@@ -62,18 +60,16 @@ export default function Footer() {
               <a href="#top" className="flex items-center gap-2 group mb-5 md:mb-6">
                 <span className="h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150" />
                 <span className="font-display font-bold tracking-tight text-lg md:text-xl">
-                  KATELLA <span className="font-light">DIGITAL</span>
+                  Katella <span className="font-light">Digital</span>
                 </span>
               </a>
               <p className="text-white/60 text-sm md:text-base max-w-sm leading-relaxed">
                 A full-service marketing agency built to drive business growth.
                 Strategy, creative, digital, and media — all under one roof.
               </p>
-
-              {/* Anaheim clock */}
               <div className="mt-8 md:mt-10 flex items-center gap-3 text-white/70 font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#C71F42] animate-pulse" />
-                Anaheim · {time || "—"}
+                Anaheim, CA · {time || "—"}
               </div>
             </div>
 
@@ -99,15 +95,20 @@ export default function Footer() {
               </div>
             ))}
 
-            {/* Newsletter / contact */}
             <div className="md:col-span-1 hidden md:block" />
           </div>
         </div>
 
-        {/* Mega wordmark — centered */}
+        {/* Mega wordmark — responsive, centered, one line with space */}
         <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
-          <div className="font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#C71F42] select-none text-center">
-            KATELLA DIGITAL
+          <div
+            className="font-display font-bold tracking-[-0.04em] leading-none text-center select-none whitespace-nowrap"
+            style={{
+              fontSize: "clamp(2rem, 13vw, 12rem)",
+              color: "#C71F42",
+            }}
+          >
+            Katella Digital
           </div>
         </div>
 
@@ -116,17 +117,11 @@ export default function Footer() {
           <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
             <span>© 2026 Katella Digital — Anaheim, CA</span>
             <div className="flex flex-wrap gap-4 sm:gap-6">
-              <a href="#" className="hover:text-[#C71F42] transition-colors">
-                Privacy
-              </a>
-              <a href="#" className="hover:text-[#C71F42] transition-colors">
-                Imprint
-              </a>
-              <a href="#" className="hover:text-[#C71F42] transition-colors">
-                Cookies
-              </a>
+              <a href="#" className="hover:text-[#C71F42] transition-colors">Privacy</a>
+              <a href="#" className="hover:text-[#C71F42] transition-colors">Imprint</a>
+              <a href="#" className="hover:text-[#C71F42] transition-colors">Cookies</a>
             </div>
-            <span>Made in monochrome</span>
+            <span>Driving Growth, Engineered</span>
           </div>
         </div>
       </div>
