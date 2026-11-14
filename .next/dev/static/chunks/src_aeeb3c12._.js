@@ -51,24 +51,24 @@ const navItems = [
         href: "#services",
         dropdown: [
             {
-                label: "E-commerce Catalog",
+                label: "UI/UX Design",
                 action: "service",
-                slug: "ecommerce"
+                slug: "ui-ux"
             },
             {
-                label: "Color Protocol",
+                label: "Motion Graphics",
                 action: "service",
-                slug: "color"
+                slug: "motion-graphics"
             },
             {
-                label: "CGI & Virtual Production",
+                label: "Digital Marketing",
                 action: "service",
-                slug: "cgi"
+                slug: "digital-marketing"
             },
             {
-                label: "White-Label",
+                label: "Web & App Development",
                 action: "service",
-                slug: "whitelabel"
+                slug: "web-app-dev"
             }
         ]
     },
@@ -1447,30 +1447,30 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 const services = [
     {
         no: "01",
-        slug: "ecommerce",
-        title: "E-commerce Catalog Optimization",
-        desc: "Studio-grade product imagery, listing architecture, and conversion-driven catalog systems for digital storefronts.",
+        slug: "ui-ux",
+        title: "UI/UX Design",
+        desc: "User research, wireframing, interface design, and design systems for digital products users love.",
         image: "/images/svc-ecommerce.jpg"
     },
     {
         no: "02",
-        slug: "color",
-        title: "Color Standardization Protocol",
-        desc: "Precise color systems — Pantone, ICC profiles, and brand palettes calibrated across every screen, print, and surface.",
+        slug: "motion-graphics",
+        title: "Motion Graphics",
+        desc: "Brand films, social ads, explainer videos, and product animations that stop the scroll and drive action.",
         image: "/images/svc-color.jpg"
     },
     {
         no: "03",
-        slug: "cgi",
-        title: "Virtual Production & CGI Studio",
-        desc: "Real-time virtual sets, photoreal CGI, and unreal environments built for film, brand, and product worlds.",
+        slug: "digital-marketing",
+        title: "Digital Marketing",
+        desc: "SEO, paid media, social, content, and analytics — integrated campaigns that drive measurable growth.",
         image: "/images/svc-cgi.jpg"
     },
     {
         no: "04",
-        slug: "whitelabel",
-        title: "White-Label Agency Extension",
-        desc: "Embedded production for agencies — design, dev, and motion capacity that ships under your brand, not ours.",
+        slug: "web-app-dev",
+        title: "Web & App Development",
+        desc: "Next.js, React Native, and Flutter — fast, scalable web and mobile apps built to grow with you.",
         image: "/images/svc-whitelabel.jpg"
     }
 ];
@@ -2652,19 +2652,19 @@ const footerLinks = [
         title: "Services",
         items: [
             {
-                label: "E-commerce Catalog",
+                label: "UI/UX Design",
                 href: "#services"
             },
             {
-                label: "Color Protocol",
+                label: "Motion Graphics",
                 href: "#services"
             },
             {
-                label: "CGI & Virtual Production",
+                label: "Digital Marketing",
                 href: "#services"
             },
             {
-                label: "White-Label",
+                label: "Web & App Dev",
                 href: "#services"
             }
         ]
@@ -3189,46 +3189,46 @@ __turbopack_context__.s([
 ]);
 const serviceDetails = [
     {
-        slug: "ecommerce",
+        slug: "ui-ux",
         no: "01",
-        name: "E-commerce Catalog Optimization",
-        heroTitle: "Catalogs that sell themselves.",
-        heroOutcome: "Studio-grade product imagery, listing architecture, and conversion-driven catalog systems. You get a catalog that loads fast, reads clean, and sells on every screen — from Amazon to your own storefront.",
+        name: "UI/UX Design",
+        heroTitle: "Interfaces that feel inevitable.",
+        heroOutcome: "We design digital products that users love at first click. From research to wireframes to pixel-perfect interfaces — every screen is intentional, accessible, and conversion-optimized.",
         bestFor: [
-            "D2C brands",
-            "Marketplace sellers",
-            "Mid-size e-commerce teams"
+            "SaaS startups",
+            "Mobile apps",
+            "E-commerce platforms"
         ],
         notSureText: "Not sure it fits? Talk to us",
-        problemTitle: "Your catalog is leaking revenue",
+        problemTitle: "Your product is hard to use",
         problemPoints: [
-            "Product photos that look amateur next to your competitors",
-            "Inconsistent lighting, backgrounds, and angles across SKUs",
-            "Listings that take 5+ seconds to load on mobile",
-            "Copy that describes features instead of selling outcomes",
-            "No system — every new product shoot starts from scratch"
+            "Users drop off at the same point in your funnel",
+            "Your interface looks different on every screen",
+            "Onboarding takes too many steps and users abandon",
+            "Design and development are out of sync — devs build what's not designed",
+            "You have no design system, so every new feature starts from scratch"
         ],
         problemImage: "/images/detail-ecommerce-problem.jpg",
         includedTitle: "What's included",
         subServices: [
             {
-                title: "Product Photography",
-                desc: "Studio-grade imagery on white, lifestyle, and detail shots — shot to a consistent style guide.",
+                title: "User Research",
+                desc: "Interviews, surveys, and usability testing to understand your users before we design.",
                 image: "/images/detail-ecommerce-sub-photo.jpg"
             },
             {
-                title: "Listing Copywriting",
-                desc: "Conversion-driven titles, bullets, and descriptions optimized for search and scroll.",
+                title: "Wireframing & Prototyping",
+                desc: "Low-fi to high-fi prototypes in Figma — testable before a single line of code.",
                 image: "/images/detail-ecommerce-sub-copy.jpg"
             },
             {
-                title: "Catalog Architecture",
-                desc: "Category structure, navigation, and filtering that helps customers find and buy faster.",
+                title: "Interface Design",
+                desc: "Pixel-perfect UI with consistent spacing, typography, and interaction states.",
                 image: "/images/detail-ecommerce-sub-arch.jpg"
             },
             {
-                title: "PIM & Asset Management",
-                desc: "A single source of truth for every product image, spec, and description — synced everywhere.",
+                title: "Design System",
+                desc: "A reusable component library that keeps your product consistent as it scales.",
                 image: "/images/detail-ecommerce-sub-pim.jpg"
             }
         ],
@@ -3236,129 +3236,129 @@ const serviceDetails = [
         processSteps: [
             {
                 step: "01",
-                title: "Audit",
-                desc: "We review your top 50 SKUs — photography, copy, page speed, and conversion data.",
+                title: "Discover",
+                desc: "We interview users, audit your current product, and map the journey.",
                 duration: "Week 1"
             },
             {
                 step: "02",
-                title: "Shoot",
-                desc: "In-studio or on-location photography using a locked style guide for consistency.",
-                duration: "Week 2–3"
+                title: "Define",
+                desc: "We define the information architecture, user flows, and key screens.",
+                duration: "Week 1–2"
             },
             {
                 step: "03",
-                title: "Optimize",
-                desc: "Retouch, compress, and write copy. We build the listing system your team can reuse.",
-                duration: "Week 3–4"
+                title: "Design",
+                desc: "We design high-fidelity interfaces and build a clickable prototype in Figma.",
+                duration: "Week 2–4"
             },
             {
                 step: "04",
-                title: "Deploy",
-                desc: "Publish across your channels, train your team, and hand off the full asset library.",
+                title: "Deliver",
+                desc: "We hand off a complete design system, specs, and assets to your dev team.",
                 duration: "Week 5"
             }
         ],
         processImage: "/images/detail-ecommerce-process.jpg",
         deliverablesTitle: "Deliverables & scope",
-        deliverablesScope: "Full catalog optimization for up to 100 SKUs: photography, retouching, listing copy, and a reusable style guide your team can follow for every future product.",
-        deliverablesStarting: "Starting from $12,000",
+        deliverablesScope: "Full UI/UX design for one product: user research, wireframes, high-fidelity designs, interactive prototype, and a design system with 30+ components.",
+        deliverablesStarting: "Starting from $8,000",
         deliverablesImage: "/images/detail-ecommerce-deliverables.jpg",
         relatedWork: [
             {
-                title: "Aurora Goods",
-                cat: "500 SKUs · D2C skincare",
+                title: "Nexus Pay",
+                cat: "Fintech app · 40 screens",
                 image: "/images/detail-ecommerce-work-1.jpg"
             },
             {
-                title: "Harbor Goods",
-                cat: "320 SKUs · Home & living",
+                title: "Bloom Health",
+                cat: "Telehealth · Web + mobile",
                 image: "/images/detail-ecommerce-work-2.jpg"
             },
             {
-                title: "Vanta Studio",
-                cat: "180 SKUs · Fashion accessories",
+                title: "Orbit SaaS",
+                cat: "B2B dashboard · Design system",
                 image: "/images/detail-ecommerce-work-3.jpg"
             }
         ],
         caseStudyImage: "/images/detail-ecommerce-casestudy.jpg",
-        caseStudyMetric: "+34% conversion rate",
-        caseStudyQuote: "They rebuilt our entire catalog in 5 weeks. Within two months our conversion rate was up 34% and our ad spend was working harder than ever.",
-        caseStudyAuthor: "Maria Chen, Head of E-commerce at Aurora Goods",
+        caseStudyMetric: "+52% user retention",
+        caseStudyQuote: "They redesigned our entire app in 5 weeks. User retention jumped 52% in the first month after launch. The design system they built is still the backbone of our product.",
+        caseStudyAuthor: "Aisha Rahman, Product Lead at Nexus Pay",
         faqTitle: "Frequently asked questions",
         faqs: [
             {
-                q: "Do you handle the photography in-house or do we need a studio?",
-                a: "In-house. We have a 200sqm studio in Berlin with full lighting, white cyclorama, and macro setups. For lifestyle shots we come to your location or source a location for you."
+                q: "Do you work with our existing development team?",
+                a: "Absolutely. We design in Figma and hand off developer-ready specs, assets, and a component library. We also do dev handoff calls to walk your team through every detail."
             },
             {
-                q: "Can you work with our existing PIM system?",
-                a: "Yes. We've worked with Akeneo, Salsify, Plytix, and custom systems. If you don't have one, we'll recommend one and set it up as part of the engagement."
+                q: "Can you redesign an existing product or only new ones?",
+                a: "Both. For existing products, we start with a UX audit to identify what's working and what's not. We don't throw away what works — we evolve it."
             },
             {
-                q: "What if we have more than 100 SKUs?",
-                a: "We scope per 100 SKUs. For 500+ we run a dedicated production line with a fixed weekly cadence and a per-SKU rate that drops as volume increases."
+                q: "What tools do you use?",
+                a: "Figma for design and prototyping, FigJam for flows and workshops, and we can export to your preferred handoff format. We also work with Storybook if you need living documentation."
             },
             {
-                q: "Do you write the listing copy or just the photography?",
-                a: "Both. We have copywriters who specialize in e-commerce — they write titles, bullets, A+ content, and descriptions optimized for Amazon, Shopify, and your DTC store."
+                q: "Do you do user testing?",
+                a: "Yes. We run moderated and unmoderated usability tests with your target users. We use the findings to iterate before development — saving you from building the wrong thing."
             },
             {
-                q: "How fast can you turn around a new product launch?",
-                a: "Standard turnaround is 5 business days from shoot to published listing. For launches we offer a 48-hour rush option for up to 20 SKUs."
+                q: "How do you handle accessibility?",
+                a: "We design to WCAG 2.1 AA standards by default — color contrast, keyboard navigation, screen reader compatibility, and focus states. Accessibility is not an add-on; it's built in."
             },
             {
-                q: "Do you offer ongoing catalog maintenance?",
-                a: "Yes. After the initial engagement, most clients move to a monthly retainer where we handle new product shoots, seasonal refreshes, and listing updates."
+                q: "What if we need ongoing design support?",
+                a: "Many clients move to a monthly retainer after the initial project. We become your design team — handling new features, iterations, and design QA as your product evolves."
             }
         ],
         relatedServices: [
-            "Color Standardization Protocol",
-            "Virtual Production & CGI Studio",
-            "White-Label Agency Extension"
+            "Motion Graphics",
+            "Digital Marketing",
+            "Web & App Development"
         ]
     },
     {
-        slug: "color",
+        slug: "motion-graphics",
         no: "02",
-        name: "Color Standardization Protocol",
-        heroTitle: "One color, every surface.",
-        heroOutcome: "Pantone-precise color systems calibrated across every screen, print, and product. You get a single source of truth for your brand color — so what your designer sees is what your customer gets, every time.",
+        name: "Motion Graphics",
+        heroTitle: "Stories that move.",
+        heroOutcome: "We create motion graphics that capture attention in the first 3 seconds. Brand films, social ads, explainer videos, and product animations — every frame designed to stop the scroll and drive action.",
         bestFor: [
-            "Established brands",
-            "Multi-channel retailers",
-            "Print + digital teams"
+            " Brands launching campaigns",
+            "SaaS companies",
+            "Social media teams"
         ],
         notSureText: "Not sure it fits? Talk to us",
-        problemTitle: "Your color is breaking across channels",
+        problemTitle: "Your content doesn't stop the scroll",
         problemPoints: [
-            "Your brand red looks different on Instagram, in print, and on product",
-            "Every photographer and printer delivers a slightly different shade",
-            "You have 5 'official' color files and no one knows which is current",
-            "Product photos don't match the physical product — returns go up",
-            "Your team wastes hours color-correcting instead of creating"
+            "Your social posts get lost in the feed within seconds",
+            "Static images don't communicate your product's value",
+            "You need video but don't have a production team",
+            "Your explainer videos look dated and amateur",
+            "Ad fatigue is killing your campaign performance"
         ],
         problemImage: "/images/detail-color-problem.jpg",
         includedTitle: "What's included",
         subServices: [
             {
-                title: "Color Audit",
-                desc: "We map every place your color appears — digital, print, product, packaging — and identify every inconsistency.",
+                title: "Brand Films",
+                desc: "30–90 second cinematic brand stories that define who you are and why you matter.",
                 image: "/images/detail-color-sub-audit.jpg"
             },
             {
-                title: "Pantone & ICC System",
-                desc: "A locked palette with Pantone references, ICC profiles, and hex codes calibrated for every output.",
+                title: "Social Ads",
+                desc: "Scroll-stopping motion ads optimized for Instagram, TikTok, and YouTube.",
                 image: "/images/detail-color-sub-system.jpg"
             },
             {
-                title: "Calibration Setup",
-                desc: "We calibrate your monitors, printers, and photographer's workflow to the new standard.",
+                title: "Explainer Videos",
+                desc: "Complex products made simple — animated explainers that convert viewers into users.",
                 image: "/images/detail-color-sub-calibration.jpg"
             },
             {
-                title: "Brand Color Guide",
-                desc: "A living document your team, vendors, and partners follow — with usage rules and test files.",
+                title: "Product Animation",
+                desc: "3D and 2D product animations that show features no photo could capture.",
                 image: "/images/detail-color-sub-guide.jpg"
             }
         ],
@@ -3366,129 +3366,130 @@ const serviceDetails = [
         processSteps: [
             {
                 step: "01",
-                title: "Audit",
-                desc: "We collect every color file, photograph, and printed sample to map the current state.",
+                title: "Script",
+                desc: "We write a script that hooks in 3 seconds and delivers your message in 30–90 seconds.",
                 duration: "Week 1"
             },
             {
                 step: "02",
-                title: "Define",
-                desc: "We lock the master palette — Pantone, CMYK, RGB, and hex — for every surface and output.",
+                title: "Storyboard",
+                desc: "We create frame-by-frame storyboards and style frames for approval.",
                 duration: "Week 1–2"
             },
             {
                 step: "03",
-                title: "Calibrate",
-                desc: "We calibrate your monitors, set up ICC profiles, and train your photographer and printer.",
-                duration: "Week 2"
+                title: "Animate",
+                desc: "We design and animate every frame — typography, illustration, and 3D elements.",
+                duration: "Week 2–4"
             },
             {
                 step: "04",
-                title: "Document",
-                desc: "We deliver the brand color guide, test files, and a verification workflow for new assets.",
-                duration: "Week 3"
+                title: "Deliver",
+                desc: "We deliver in all formats — vertical, square, horizontal — ready for every platform.",
+                image: "",
+                duration: "Week 4–5"
             }
         ],
         processImage: "/images/detail-color-process.jpg",
         deliverablesTitle: "Deliverables & scope",
-        deliverablesScope: "Full color standardization protocol: audit, master palette, ICC profiles, monitor calibration for up to 10 workstations, and a brand color guide.",
-        deliverablesStarting: "Starting from $8,000",
+        deliverablesScope: "One motion graphics package: script, storyboard, animation, sound design, and delivery in 3 aspect ratios. Includes 2 rounds of revisions.",
+        deliverablesStarting: "Starting from $5,000",
         deliverablesImage: "/images/detail-color-deliverables.jpg",
         relatedWork: [
             {
-                title: "Maison Noir",
-                cat: "12 touchpoints · Luxury fashion",
+                title: "Pulse Fintech",
+                cat: "Brand film · 60s",
                 image: "/images/detail-color-work-1.jpg"
             },
             {
-                title: "Stellar Hotel",
-                cat: "8 properties · Hospitality",
+                title: "Lumen App",
+                cat: "Explainer · 90s",
                 image: "/images/detail-color-work-2.jpg"
             },
             {
-                title: "Zenith Press",
-                cat: "Publication · Print + digital",
+                title: "Vertex Labs",
+                cat: "Social ads · 6 formats",
                 image: "/images/detail-color-work-3.jpg"
             }
         ],
         caseStudyImage: "/images/detail-color-casestudy.jpg",
-        caseStudyMetric: "92% fewer color returns",
-        caseStudyQuote: "Before, every product photo looked slightly different and customers complained. After the protocol, color-related returns dropped 92% in the first quarter.",
-        caseStudyAuthor: "James Voss, Creative Director at Maison Noir",
+        caseStudyMetric: "3x engagement rate",
+        caseStudyQuote: "Our social engagement tripled after we switched to their motion content. The brand film alone drove 40% of our Q4 signups.",
+        caseStudyAuthor: "Omar Khalid, CMO at Pulse Fintech",
         faqTitle: "Frequently asked questions",
         faqs: [
             {
-                q: "We already have brand guidelines with our colors. Do we still need this?",
-                a: "Most brand guidelines list hex codes but don't cover how color behaves across print, product, and uncalibrated screens. We bridge that gap — your guidelines define the what, we define the how."
+                q: "What software do you use for motion graphics?",
+                a: "After Effects for 2D animation, Blender and Cinema 4D for 3D, and Premiere Pro for editing. We deliver in any format you need — MP4, WebM, GIF, or Lottie."
             },
             {
-                q: "Do you work with our existing printer and photographer?",
-                a: "Yes. We don't replace your vendors — we calibrate them. We work directly with your print partner and photographer to ensure everyone is outputting to the same standard."
+                q: "Can you create Lottie animations for our app?",
+                a: "Yes. We export lightweight Lottie files that play natively in iOS, Android, and web — perfect for onboarding flows, loading states, and micro-interactions."
             },
             {
-                q: "What hardware do we need?",
-                a: "A colorimeter for each monitor (we recommend X-Rite i1Display or Calibrite). We can supply these or use yours. For print, your printer needs to support ICC profiles — most commercial printers do."
+                q: "Do you write the script or do we?",
+                a: "We can do either. Most clients give us a brief and we write the script. We also work with your copywriter if you have one — we'll adapt their words into a visual storyboard."
             },
             {
-                q: "How often should we re-calibrate?",
-                a: "Monitors drift over time. We recommend monthly calibration for design workstations and quarterly for the full system. We include a calibration schedule in the guide."
+                q: "How many revisions are included?",
+                a: "Two rounds of revisions are standard. We present storyboards before animation, so you approve the direction before we invest in motion. Additional revisions are billed at an hourly rate."
             },
             {
-                q: "Can you handle packaging and product materials too?",
-                a: "Yes. We work with your packaging supplier to test Pantone references on the actual material — whether it's recycled board, glass, metal, or fabric."
+                q: "Can you match our brand guidelines?",
+                a: "Absolutely. We work from your brand kit — colors, typography, logo, tone — and extend it into motion. If you don't have motion guidelines, we'll create them as part of the project."
             },
             {
-                q: "What if we rebrand later?",
-                a: "The protocol is designed to be updated. If you rebrand, we re-run the define and calibrate phases with the new palette — typically a 1-week engagement at half the original cost."
+                q: "What's the turnaround time?",
+                a: "A 60-second explainer typically takes 3–4 weeks. Social ad packages (6–15 second spots) can be delivered in 1–2 weeks. Rush delivery is available for an additional fee."
             }
         ],
         relatedServices: [
-            "E-commerce Catalog Optimization",
-            "Virtual Production & CGI Studio",
-            "White-Label Agency Extension"
+            "UI/UX Design",
+            "Digital Marketing",
+            "Web & App Development"
         ]
     },
     {
-        slug: "cgi",
+        slug: "digital-marketing",
         no: "03",
-        name: "Virtual Production & CGI Studio",
-        heroTitle: "Worlds built in pixels.",
-        heroOutcome: "Real-time virtual sets, photoreal CGI, and unreal environments for film, brand, and product. You get cinematic production without the cost of a physical shoot — locations, sets, and products that exist only in pixels, but look completely real.",
+        name: "Digital Marketing",
+        heroTitle: "Growth, engineered.",
+        heroOutcome: "We build and run integrated digital marketing campaigns that drive measurable business growth. SEO, paid media, social, content, and analytics — all working together to acquire, engage, and retain customers.",
         bestFor: [
-            "Automotive & tech brands",
-            "Film & TV productions",
-            "Product launches"
+            "Growing startups",
+            "E-commerce brands",
+            "B2B companies"
         ],
         notSureText: "Not sure it fits? Talk to us",
-        problemTitle: "Physical shoots are slowing you down",
+        problemTitle: "Your marketing isn't driving growth",
         problemPoints: [
-            "Location scouting, permits, and travel eat your production budget",
-            "Weather and logistics delay shoots by weeks",
-            "Product prototypes don't exist yet — but you need to launch now",
-            "Reshoots cost as much as the original shoot",
-            "Your competitor's CGI looks better than your real footage"
+            "You're spending on ads but can't tell what's actually working",
+            "Your SEO traffic is flat or declining",
+            "Social media takes hours but produces no leads",
+            "Your email list isn't growing and open rates are dropping",
+            "You have data but no strategy — dashboards without decisions"
         ],
         problemImage: "/images/detail-cgi-problem.jpg",
         includedTitle: "What's included",
         subServices: [
             {
-                title: "Virtual Sets & Environments",
-                desc: "Real-time LED volume or green-screen environments built in Unreal Engine — any location, any time of day.",
+                title: "SEO & Content",
+                desc: "Technical SEO, keyword strategy, and content that ranks — organic growth that compounds.",
                 image: "/images/detail-cgi-sub-virtual.jpg"
             },
             {
-                title: "Product CGI",
-                desc: "Photoreal 3D product renders — perfect for launches where the physical prototype doesn't exist yet.",
+                title: "Paid Media",
+                desc: "Google, Meta, and TikTok ads managed and optimized for ROAS, not just clicks.",
                 image: "/images/detail-cgi-sub-product.jpg"
             },
             {
-                title: "Motion Capture",
-                desc: "On-set mocap for character animation, stunt previsualization, and virtual camera work.",
+                title: "Social Media",
+                desc: "Organic social strategy, content calendars, and community management that builds brand.",
                 image: "/images/detail-cgi-sub-mocap.jpg"
             },
             {
-                title: "Color & Finish",
-                desc: "Final color grade, compositing, and delivery in any format — from cinema to social cutdowns.",
+                title: "Analytics & CRO",
+                desc: "Conversion tracking, A/B testing, and funnel optimization — data-driven decisions.",
                 image: "/images/detail-cgi-sub-finish.jpg"
             }
         ],
@@ -3496,129 +3497,129 @@ const serviceDetails = [
         processSteps: [
             {
                 step: "01",
-                title: "Concept",
-                desc: "We design the virtual world — environments, lighting, and camera moves — before a single frame is shot.",
-                duration: "Week 1–2"
+                title: "Audit",
+                desc: "We audit your current marketing — channels, spend, conversion data, and competitor positioning.",
+                duration: "Week 1"
             },
             {
                 step: "02",
-                title: "Build",
-                desc: "We model, texture, and light the CGI assets in Unreal Engine or offline renderers.",
-                duration: "Week 2–4"
+                title: "Strategy",
+                desc: "We build a 90-day marketing plan with channel mix, budget allocation, and KPIs.",
+                duration: "Week 1–2"
             },
             {
                 step: "03",
-                title: "Shoot",
-                desc: "Virtual production day — real-time capture on LED volume or green screen with your talent.",
-                duration: "Week 5"
+                title: "Execute",
+                desc: "We launch campaigns, create content, and manage ads across all channels.",
+                duration: "Week 2+"
             },
             {
                 step: "04",
-                title: "Finish",
-                desc: "Compositing, color grade, and delivery. We hand off all 3D assets for future reuse.",
-                duration: "Week 6"
+                title: "Optimize",
+                desc: "Weekly reporting, A/B testing, and continuous optimization based on real data.",
+                duration: "Ongoing"
             }
         ],
         processImage: "/images/detail-cgi-process.jpg",
         deliverablesTitle: "Deliverables & scope",
-        deliverablesScope: "Full virtual production for one scene or product launch: environment design, CGI build, 1-day virtual shoot, and final color-graded delivery. All 3D assets included for future reuse.",
-        deliverablesStarting: "Starting from $35,000",
+        deliverablesScope: "Full digital marketing management: strategy, SEO, paid media (up to $50K/month spend), social media, content, and monthly reporting. Minimum 3-month engagement.",
+        deliverablesStarting: "Starting from $4,000/month",
         deliverablesImage: "/images/detail-cgi-deliverables.jpg",
         relatedWork: [
             {
-                title: "ECHO Motors",
-                cat: "Launch film · Zero physical shoot",
+                title: "Glow Skincare",
+                cat: "D2C · 3x ROAS",
                 image: "/images/detail-cgi-work-1.jpg"
             },
             {
-                title: "Meridian Co",
-                cat: "Product launch · 6 CGI films",
+                title: "TaskFlow",
+                cat: "B2B SaaS · 5x MQL growth",
                 image: "/images/detail-cgi-work-2.jpg"
             },
             {
-                title: "Cipher Labs",
-                cat: "Brand film · Virtual sets",
+                title: "Nomad Cafe",
+                cat: "Local · 200% foot traffic",
                 image: "/images/detail-cgi-work-3.jpg"
             }
         ],
         caseStudyImage: "/images/detail-cgi-casestudy.jpg",
-        caseStudyMetric: "$280K saved vs. physical shoot",
-        caseStudyQuote: "We launched the new EV with a full CGI film — no physical car, no location, no weather risk. It cost 60% less than the planned shoot and looked better than anything we could have filmed.",
-        caseStudyAuthor: "Daniel Park, Marketing Director at ECHO Motors",
+        caseStudyMetric: "5x return on ad spend",
+        caseStudyQuote: "Within 4 months, Katella took us from burning money on ads to a 5x ROAS. Their data-driven approach replaced guesswork with strategy.",
+        caseStudyAuthor: "Fatima Al-Sayed, Founder at Glow Skincare",
         faqTitle: "Frequently asked questions",
         faqs: [
             {
-                q: "Can CGI really look as good as a real photograph?",
-                a: "For most product and automotive work, yes — and often better. We use the same rendering technology as major film studios. For close-up fabric or food, real photography still wins. We'll tell you honestly which approach is right for each shot."
+                q: "Do you require a minimum ad spend budget?",
+                a: "We recommend a minimum of $5,000/month in ad spend for paid media management. Below that, organic channels (SEO, social, content) are more cost-effective. We'll tell you honestly which channels make sense for your budget."
             },
             {
-                q: "Do you have your own LED volume / virtual production stage?",
-                a: "Yes. We have a 6m x 3m LED volume in our Berlin studio for small to mid-size shoots. For larger productions we partner with a nearby 20m x 6m stage. Both run Unreal Engine in real-time."
+                q: "How soon will we see results?",
+                a: "Paid media can show results within 2–4 weeks. SEO typically takes 3–6 months for meaningful traffic gains. Social and content compound over 6–12 months. We set realistic expectations in our strategy document."
             },
             {
-                q: "What if we need to change the product after the shoot?",
-                a: "That's the advantage of CGI — changes are easy. Swapping a color, updating a detail, or changing the angle is a render, not a reshoot. Most changes take 24–48 hours."
+                q: "Do you work with our existing marketing team?",
+                a: "Yes. We can act as your entire marketing department or extend your in-house team. We've worked with solo founders, 10-person marketing teams, and everything in between."
             },
             {
-                q: "Can you match our existing brand color standard?",
-                a: "Yes — especially if we've also done your Color Standardization Protocol. CGI color is fully controlled in the render, so it's actually easier to match than real photography."
+                q: "What platforms do you manage ads on?",
+                a: "Google Ads (Search, Display, YouTube), Meta (Facebook, Instagram), TikTok, LinkedIn, and X. We also handle programmatic display through Google Display Network."
             },
             {
-                q: "How long does a typical CGI product film take?",
-                a: "A 30-second product launch film typically takes 4–6 weeks from concept to delivery. Complex environments or character work can take 8–12 weeks."
+                q: "How do you report on performance?",
+                a: "Monthly performance reports with channel-level breakdowns, ROAS, CPA, and trend analysis. We also provide a live dashboard (Google Looker or GA4) so you can check numbers anytime."
             },
             {
-                q: "Do we own the 3D assets after the project?",
-                a: "Yes. All 3D models, textures, and scene files are handed off to you at the end. You can reuse them for future campaigns, AR/VR, or your website — no licensing fees."
+                q: "Can you help with email marketing?",
+                a: "Yes. We design and write email campaigns, manage automation flows (Klaviyo, Mailchimp, HubSpot), and optimize deliverability and open rates. Email is one of the highest-ROI channels we manage."
             }
         ],
         relatedServices: [
-            "E-commerce Catalog Optimization",
-            "Color Standardization Protocol",
-            "White-Label Agency Extension"
+            "UI/UX Design",
+            "Motion Graphics",
+            "Web & App Development"
         ]
     },
     {
-        slug: "whitelabel",
+        slug: "web-app-dev",
         no: "04",
-        name: "White-Label Agency Extension",
-        heroTitle: "Your studio, our hands.",
-        heroOutcome: "Embedded production capacity for agencies — design, dev, and motion work that ships under your brand, not ours. You get a senior team that learns your clients, your standards, and your workflow — without the overhead of hiring.",
+        name: "Web & App Development",
+        heroTitle: "Built to scale.",
+        heroOutcome: "We design and build web applications, mobile apps, and websites that are fast, accessible, and maintainable. From MVP to enterprise — clean code, modern stack, and devOps that doesn't keep you up at night.",
         bestFor: [
-            "Creative agencies",
-            "Design studios",
-            "In-house brand teams"
+            "Startups building MVPs",
+            "SaaS companies",
+            "E-commerce brands"
         ],
         notSureText: "Not sure it fits? Talk to us",
-        problemTitle: "You're turning down work you can't staff",
+        problemTitle: "Your tech stack is holding you back",
         problemPoints: [
-            "Clients want services you don't have the team for — motion, CGI, dev",
-            "Hiring full-time senior staff for fluctuating project flow is risky",
-            "Freelancers are unreliable, inconsistent, and hard to manage",
-            "Your team is stretched thin and quality is slipping",
-            "You're losing pitches because you can't show production capacity"
+            "Your website is slow and loses visitors before it loads",
+            "Every new feature takes weeks because the codebase is a mess",
+            "Your app crashes on the devices your users actually use",
+            "You can't ship updates without breaking something else",
+            "Your developers left and no one understands the code"
         ],
         problemImage: "/images/detail-whitelabel-problem.jpg",
         includedTitle: "What's included",
         subServices: [
             {
-                title: "Design Production",
-                desc: "Brand systems, marketing collateral, social assets — produced to your agency's standards.",
+                title: "Web Development",
+                desc: "Next.js, React, and headless CMS — fast, SEO-friendly websites that scale.",
                 image: "/images/detail-whitelabel-sub-design.jpg"
             },
             {
-                title: "Development",
-                desc: "Webflow, Next.js, and Shopify builds — responsive, accessible, and ready to hand to your client.",
+                title: "Mobile Apps",
+                desc: "React Native and Flutter — one codebase, iOS + Android, native performance.",
                 image: "/images/detail-whitelabel-sub-dev.jpg"
             },
             {
-                title: "Motion & Video",
-                desc: "Brand films, social cutdowns, and motion graphics — edited and color-graded in your style.",
+                title: "API & Backend",
+                desc: "Node.js, PostgreSQL, and serverless — robust APIs that handle millions of requests.",
                 image: "/images/detail-whitelabel-sub-motion.jpg"
             },
             {
-                title: "Account Management",
-                desc: "A dedicated producer who learns your clients and acts as an extension of your team.",
+                title: "DevOps & Cloud",
+                desc: "AWS, Vercel, CI/CD pipelines — automated deployments that ship with confidence.",
                 image: "/images/detail-whitelabel-sub-am.jpg"
             }
         ],
@@ -3626,86 +3627,86 @@ const serviceDetails = [
         processSteps: [
             {
                 step: "01",
-                title: "Onboard",
-                desc: "We learn your brand standards, client base, and workflow. You introduce us to your team.",
+                title: "Architecture",
+                desc: "We define the tech stack, database schema, API design, and deployment strategy.",
                 duration: "Week 1"
             },
             {
                 step: "02",
-                title: "Pilot",
-                desc: "We run one project together — end to end — to calibrate quality and communication.",
-                duration: "Week 2–4"
+                title: "Build",
+                desc: "We develop in 2-week sprints with weekly demos — you see progress every week.",
+                duration: "Week 2+"
             },
             {
                 step: "03",
-                title: "Scale",
-                desc: "We take on more work as your pipeline grows — same team, same standards, more capacity.",
+                title: "Test",
+                desc: "Automated tests, QA across devices, and performance optimization before launch.",
                 duration: "Ongoing"
             },
             {
                 step: "04",
-                title: "Deliver",
-                desc: "Every project ships under your brand. Your client never sees us — we're your studio.",
-                duration: "Every project"
+                title: "Launch",
+                desc: "We deploy to production, monitor performance, and hand off full documentation.",
+                duration: "Go-live"
             }
         ],
         processImage: "/images/detail-whitelabel-process.jpg",
         deliverablesTitle: "Deliverables & scope",
-        deliverablesScope: "Monthly retainer for dedicated production capacity: 1 senior producer + up to 3 specialists (design, dev, motion) allocated to your projects. Minimum 3-month engagement.",
-        deliverablesStarting: "Starting from $8,000/month",
+        deliverablesScope: "Full development of one web or mobile application: architecture, frontend, backend, API, testing, deployment, and 30 days post-launch support.",
+        deliverablesStarting: "Starting from $15,000",
         deliverablesImage: "/images/detail-whitelabel-deliverables.jpg",
         relatedWork: [
             {
-                title: "Agency Collective",
-                cat: "200+ assets · Multi-client",
+                title: "SwiftPay",
+                cat: "Fintech app · React Native",
                 image: "/images/detail-whitelabel-work-1.jpg"
             },
             {
-                title: "Forma Studio",
-                cat: "12 months · Embedded team",
+                title: "ArtHub",
+                cat: "Marketplace · Next.js",
                 image: "/images/detail-whitelabel-work-2.jpg"
             },
             {
-                title: "Nord Atelier",
-                cat: "6 clients · Ongoing retainer",
+                title: "FitTrack",
+                cat: "Health app · Flutter",
                 image: "/images/detail-whitelabel-work-3.jpg"
             }
         ],
         caseStudyImage: "/images/detail-whitelabel-casestudy.jpg",
-        caseStudyMetric: "3x more projects shipped",
-        caseStudyQuote: "We doubled our client base in a year without hiring a single full-time person. Their team is our team — our clients don't even know they exist.",
-        caseStudyAuthor: "Sarah Lindgren, Partner at Agency Collective",
+        caseStudyMetric: "99.9% uptime",
+        caseStudyQuote: "They rebuilt our entire platform in 10 weeks. We went from weekly crashes to 99.9% uptime. The codebase is so clean our new devs onboard in days, not weeks.",
+        caseStudyAuthor: "Khalid Mansour, CTO at SwiftPay",
         faqTitle: "Frequently asked questions",
         faqs: [
             {
-                q: "Will our clients know we're working with you?",
-                a: "No. Every deliverable ships under your brand — your files, your naming, your presentation. We sign an NDA and act as an extension of your team. Your client never sees us."
+                q: "What tech stack do you use?",
+                a: "Frontend: Next.js, React, React Native, Flutter. Backend: Node.js, PostgreSQL, Prisma, serverless. Cloud: AWS, Vercel, Cloudflare. We choose the stack that fits your project — not the other way around."
             },
             {
-                q: "How do you match our quality standards?",
-                a: "We start with a pilot project where we calibrate to your standards. We use your templates, your brand guidelines, and your review process. By the end of the pilot, we work the way you work."
+                q: "Can you work with our existing codebase?",
+                a: "Yes. We do code audits, refactoring, and feature additions on existing codebases. We work in your repo, follow your conventions, and document everything we touch."
             },
             {
-                q: "What if we only need help for a few weeks?",
-                a: "We offer project-based engagements for short bursts — minimum 2 weeks. The monthly retainer is for agencies that need ongoing capacity, but we're flexible for the right fit."
+                q: "Do you provide ongoing maintenance?",
+                a: "Yes. After launch, we offer monthly maintenance retainers that include bug fixes, security updates, performance monitoring, and feature development. Most clients stay on maintenance long-term."
             },
             {
-                q: "Can you work in our project management tools?",
-                a: "Yes. We've worked in Asana, Monday, Notion, ClickUp, Basecamp, and custom tools. We adapt to your workflow — we don't force you to use ours."
+                q: "How do you handle project management?",
+                a: "We work in 2-week sprints with weekly demo calls. You get a dedicated project manager, a Slack/Discord channel, and access to our project tracker. No surprises — you always know what's happening."
             },
             {
-                q: "What happens if we're not happy with the work?",
-                a: "Every project includes two rounds of revisions. If something isn't right, we fix it — no extra charge. If we're consistently not a fit, you can cancel the retainer with 30 days' notice."
+                q: "Do you sign NDAs and handle IP transfer?",
+                a: "Yes. We sign an NDA before any work starts. All intellectual property — code, designs, assets — is transferred to you on final payment. You own everything."
             },
             {
-                q: "Do you sign NDAs?",
-                a: "Always. Before any work starts, we sign a mutual NDA and a white-label agreement that confirms all work is delivered under your brand with no attribution to us."
+                q: "What if we need to scale the team?",
+                a: "We can scale from 1 developer to a full team (frontend, backend, DevOps, QA) within 2 weeks. Our team is cross-trained, so adding capacity doesn't slow things down."
             }
         ],
         relatedServices: [
-            "E-commerce Catalog Optimization",
-            "Color Standardization Protocol",
-            "Virtual Production & CGI Studio"
+            "UI/UX Design",
+            "Motion Graphics",
+            "Digital Marketing"
         ]
     }
 ];

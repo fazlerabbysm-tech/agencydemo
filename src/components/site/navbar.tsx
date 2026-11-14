@@ -25,10 +25,10 @@ const navItems: NavItem[] = [
     label: "Services",
     href: "#services",
     dropdown: [
-      { label: "E-commerce Catalog", action: "service", slug: "ecommerce" },
-      { label: "Color Protocol", action: "service", slug: "color" },
-      { label: "CGI & Virtual Production", action: "service", slug: "cgi" },
-      { label: "White-Label", action: "service", slug: "whitelabel" },
+      { label: "UI/UX Design", action: "service", slug: "ui-ux" },
+      { label: "Motion Graphics", action: "service", slug: "motion-graphics" },
+      { label: "Digital Marketing", action: "service", slug: "digital-marketing" },
+      { label: "Web & App Development", action: "service", slug: "web-app-dev" },
     ],
   },
   {
