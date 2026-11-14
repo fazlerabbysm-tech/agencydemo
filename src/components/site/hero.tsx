@@ -66,7 +66,7 @@ export default function Hero() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: `url(${slides[index].image})`,
-              backgroundColor: "#0a0a0a",
+              backgroundColor: "#060000",
             }}
           />
         </motion.div>
@@ -78,7 +78,7 @@ export default function Hero() {
       )}
 
       {/* Subtle dark gradient — keeps text readable without overpowering the image */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/40 to-transparent" />
 
       {/* ===== Slide indicators (right side, vertical) ===== */}
       <div className="absolute right-4 sm:right-6 md:right-10 top-1/2 -translate-y-1/2 z-20 hidden sm:flex flex-col gap-4">
@@ -103,7 +103,7 @@ export default function Hero() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
-                  className="absolute inset-0 bg-[#46E2E2] origin-left"
+                  className="absolute inset-0 bg-[#C71F42] origin-left"
                 />
               )}
             </span>
@@ -123,7 +123,7 @@ export default function Hero() {
             className="max-w-3xl"
           >
             {/* Minimal kicker */}
-            <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.25em] uppercase text-[#46E2E2] mb-3 sm:mb-4">
+            <p className="font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.25em] uppercase text-[#C71F42] mb-3 sm:mb-4">
               {slides[index].kicker}
             </p>
 
@@ -147,12 +147,12 @@ export default function Hero() {
         >
           <a
             href="#services"
-            className="group inline-flex items-center gap-2 sm:gap-3 bg-[#46E2E2] text-black pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300"
+            className="group inline-flex items-center gap-2 sm:gap-3 bg-[#C71F42] text-black pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
           >
             <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
               Get Started
             </span>
-            <span className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300">
+            <span className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300">
               <ArrowUpRight size={16} strokeWidth={2} className="sm:hidden" />
               <ArrowUpRight size={18} strokeWidth={2} className="hidden sm:block" />
             </span>

@@ -26,7 +26,7 @@ export default function BrandMarquee() {
   return (
     <section
       aria-label="Trusted by"
-      className="bg-[#111111] text-white py-10 sm:py-14 md:py-20 overflow-hidden border-y border-[#2a2a2a]"
+      className="bg-[#1a0a0e] text-white py-10 sm:py-14 md:py-20 overflow-hidden border-y border-[#3a1518]"
     >
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-10 md:mb-14">
         <p className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
@@ -75,7 +75,7 @@ function BrandItem({
       >
         {name}
       </span>
-      <span className="text-[#46E2E2] text-xl sm:text-2xl md:text-3xl">✦</span>
+      <span className="text-[#C71F42] text-xl sm:text-2xl md:text-3xl">✦</span>
     </span>
   );
 }

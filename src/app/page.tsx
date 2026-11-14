@@ -21,7 +21,7 @@ export default function Home() {
   const [activeCaseStudy, setActiveCaseStudy] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-white relative">
+    <div className="min-h-screen flex flex-col text-white relative" style={{ background: "linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%)" }}>
       <ParticleRain />
       <Navbar
         onOpenService={(slug) => setActiveService(slug)}

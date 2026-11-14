@@ -54,7 +54,7 @@ export default function PortfolioDetailModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100] bg-[#0a0a0a]"
+          className="fixed inset-0 z-[100] bg-[#060000]"
         >
           {/* === HOMEPAGE NAVBAR (same as homepage) === */}
           <Navbar
@@ -111,18 +111,18 @@ function PortfolioContent({
   return (
     <div>
       {/* ============ HERO ============ */}
-      <section className="relative min-h-[80vh] flex items-end overflow-hidden bg-[#0a0a0a] text-white">
+      <section className="relative min-h-[80vh] flex items-end overflow-hidden bg-[#060000] text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${project.heroImage})`,
-            backgroundColor: "#0a0a0a",
+            backgroundColor: "#060000",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-[#0a0a0a]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-black/30 to-[#060000]/60" />
 
         <div className="relative z-10 mx-auto max-w-[1200px] w-full px-5 sm:px-6 md:px-10 py-16 md:py-24 pt-28 md:pt-36">
-          <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#46E2E2] mb-6">
+          <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#C71F42] mb-6">
             {project.no} — Portfolio
           </p>
           <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-[10vw] md:text-[6vw] lg:text-[5vw] break-words">
@@ -136,12 +136,12 @@ function PortfolioContent({
           <div className="mt-8 sticky bottom-4 z-20 md:relative md:bottom-auto md:z-auto">
             <a
               href="#contact-portfolio"
-              className="group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300 shadow-lg md:shadow-none"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 shadow-lg md:shadow-none"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 Start a similar project
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300">
+              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300">
                 <ArrowUpRight size={18} strokeWidth={2} />
               </span>
             </a>
@@ -150,29 +150,29 @@ function PortfolioContent({
       </section>
 
       {/* ============ PROJECT SNAPSHOT ============ */}
-      <section className="bg-[#111111] py-12 md:py-16 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-12 md:py-16 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
             <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2">Client</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2">Client</p>
               <p className="font-display font-bold text-lg md:text-xl text-white">{project.client}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2">Industry</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2">Industry</p>
               <p className="font-display font-bold text-lg md:text-xl text-white">{project.industry}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2">Year</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2">Year</p>
               <p className="font-display font-bold text-lg md:text-xl text-white">{project.year}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2">Services</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2">Services</p>
               <div className="flex flex-col gap-1">
                 {project.services.map((s) => (
                   <button
                     key={s}
                     onClick={() => onOpenService(project.serviceSlug)}
-                    className="text-left text-sm md:text-base text-white/70 hover:text-[#46E2E2] underline underline-offset-2 decoration-[#46E2E2]/30 hover:decoration-[#46E2E2] transition-colors"
+                    className="text-left text-sm md:text-base text-white/70 hover:text-[#C71F42] underline underline-offset-2 decoration-[#C71F42]/30 hover:decoration-[#C71F42] transition-colors"
                   >
                     {s}
                   </button>
@@ -184,7 +184,7 @@ function PortfolioContent({
            {" "}
             <button
               onClick={() => onOpenService(project.serviceSlug)}
-              className="underline underline-offset-4 hover:text-[#46E2E2] font-medium"
+              className="underline underline-offset-4 hover:text-[#C71F42] font-medium"
             >
               Explore {project.services[0]} →
             </button>
@@ -193,9 +193,9 @@ function PortfolioContent({
       </section>
 
       {/* ============ OVERVIEW ============ */}
-      <section className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             Overview
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-8">
@@ -210,9 +210,9 @@ function PortfolioContent({
       </section>
 
       {/* ============ VISUAL GALLERY ============ */}
-      <section className="bg-[#111111] py-16 md:py-24">
+      <section className="bg-[#1a0a0e] py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             Visual gallery
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10 text-white">
@@ -223,7 +223,7 @@ function PortfolioContent({
             {/* Show only the first 3 images, then the "Like this? Let's talk" strip, then stop */}
             {project.gallery.slice(0, 3).map((img, i) => (
               <figure key={i}>
-                <div className="relative aspect-[16/9] overflow-hidden bg-[#161616] ring-1 ring-inset ring-[#2a2a2a]">
+                <div className="relative aspect-[16/9] overflow-hidden bg-[#2a0a10] ring-1 ring-inset ring-[#3a1518]">
                   <img
                     src={img.src}
                     alt={img.alt}
@@ -241,18 +241,18 @@ function PortfolioContent({
           </div>
 
           {/* Mid-gallery strip: "Like this? Let's talk" — gallery ends here, no more images after */}
-          <div className="my-10 md:my-12 bg-[#46E2E2] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="my-10 md:my-12 bg-[#C71F42] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="font-display font-bold text-xl md:text-2xl tracking-tight">
               Like this? Let&apos;s talk.
             </p>
             <a
               href="#contact-portfolio"
-              className="group inline-flex items-center gap-3 bg-black text-[#46E2E2] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-black text-[#C71F42] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300"
             >
               <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
                 Start a project
               </span>
-              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#46E2E2] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#46E2E2] transition-colors">
+              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#C71F42] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#C71F42] transition-colors">
                 <ArrowUpRight size={14} />
               </span>
             </a>
@@ -261,9 +261,9 @@ function PortfolioContent({
       </section>
 
       {/* ============ CREDITS ============ */}
-      <section className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             Credits
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10">
@@ -271,8 +271,8 @@ function PortfolioContent({
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {project.credits.map((c, i) => (
-              <div key={i} className="border-t border-[#2a2a2a] pt-4">
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#46E2E2] mb-1">
+              <div key={i} className="border-t border-[#3a1518] pt-4">
+                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#C71F42] mb-1">
                   {c.role}
                 </p>
                 <p className="font-display font-bold text-lg md:text-xl tracking-tight">
@@ -283,7 +283,7 @@ function PortfolioContent({
           </div>
           <button
             onClick={() => onOpenCaseStudy(project.slug)}
-            className="mt-10 inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+            className="mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
           >
             Read the full case study
             <ArrowRight size={16} />
@@ -292,9 +292,9 @@ function PortfolioContent({
       </section>
 
       {/* ============ RELATED PROJECTS ============ */}
-      <section className="bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             {project.relatedTitle}
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10 text-white">
@@ -307,7 +307,7 @@ function PortfolioContent({
                 onClick={() => onSwitchProject(p.slug)}
                 className="group text-left"
               >
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#161616] mb-4 ring-1 ring-inset ring-[#2a2a2a] group-hover:ring-[#46E2E2] transition-colors">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#2a0a10] mb-4 ring-1 ring-inset ring-[#3a1518] group-hover:ring-[#C71F42] transition-colors">
                   <img
                     src={p.heroImage}
                     alt={p.title}
@@ -321,7 +321,7 @@ function PortfolioContent({
                 <p className="mt-1 font-mono text-[10px] tracking-[0.2em] uppercase text-white/50">
                   {p.industry} · {p.year}
                 </p>
-                <p className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-[#46E2E2] border-b border-[#46E2E2]/40 group-hover:border-[#46E2E2] pb-0.5 transition-all">
+                <p className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-[#C71F42] border-b border-[#C71F42]/40 group-hover:border-[#C71F42] pb-0.5 transition-all">
                   View project
                   <ArrowRight size={12} />
                 </p>
@@ -330,12 +330,12 @@ function PortfolioContent({
           </div>
 
           {/* Next / Previous */}
-          <div className="mt-12 flex items-center justify-between gap-4 border-t border-[#2a2a2a] pt-8">
+          <div className="mt-12 flex items-center justify-between gap-4 border-t border-[#3a1518] pt-8">
             <button
               onClick={() => onSwitchProject(prevProject.slug)}
               className="group flex items-center gap-3 text-left"
             >
-              <span className="h-10 w-10 rounded-full border border-[#46E2E2]/40 flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
                 <ArrowLeft size={16} />
               </span>
               <div>
@@ -351,14 +351,14 @@ function PortfolioContent({
                 <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40">Next</p>
                 <p className="font-display font-bold text-sm md:text-base text-white">{nextProject.title}</p>
               </div>
-              <span className="h-10 w-10 rounded-full border border-[#46E2E2]/40 flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
                 <ArrowRight size={16} />
               </span>
             </button>
           </div>
 
           <p className="mt-8 text-sm text-white/50">
-            <button onClick={onClose} className="underline underline-offset-4 hover:text-[#46E2E2] font-medium">
+            <button onClick={onClose} className="underline underline-offset-4 hover:text-[#C71F42] font-medium">
               View all work
             </button>
           </p>
@@ -366,7 +366,7 @@ function PortfolioContent({
       </section>
 
       {/* ============ CTA ============ */}
-      <section id="contact-portfolio" className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section id="contact-portfolio" className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-5 sm:px-6 md:px-10 text-center">
           <h2 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl">
             {project.ctaTitle}
@@ -377,12 +377,12 @@ function PortfolioContent({
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:hello@katelladigital.com"
-              className="group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 Start a similar project
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
                 <ArrowUpRight size={16} />
               </span>
             </a>
@@ -391,12 +391,12 @@ function PortfolioContent({
       </section>
 
       {/* ============ FOOTER ============ */}
-      <footer className="bg-[#0a0a0a] text-white border-t border-[#2a2a2a]">
+      <footer className="bg-[#060000] text-white border-t border-[#3a1518]">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
           <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
             <div className="col-span-2 md:col-span-5">
               <a href="#top" onClick={(e) => { e.preventDefault(); onClose(); }} className="flex items-center gap-2 group mb-5">
-                <span className="h-2.5 w-2.5 bg-[#46E2E2] rounded-full transition-transform group-hover:scale-150" />
+                <span className="h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150" />
                 <span className="font-bold tracking-tight text-lg md:text-xl">
                   KATELLA <span className="font-light">DIGITAL</span>
                 </span>
@@ -417,10 +417,10 @@ function PortfolioContent({
                   <li key={p.slug}>
                     <button
                       onClick={() => onSwitchProject(p.slug)}
-                      className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] relative inline-block group text-left"
+                      className="text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group text-left"
                     >
                       {p.title}
-                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#46E2E2] transition-all duration-300 group-hover:w-full" />
+                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full" />
                     </button>
                   </li>
                 ))}
@@ -433,12 +433,12 @@ function PortfolioContent({
               </p>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">
+                  <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
                     hello@katelladigital.com
                   </a>
                 </li>
-                <li><a href="#" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">Instagram</a></li>
-                <li><a href="#" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">LinkedIn</a></li>
+                <li><a href="#" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">Instagram</a></li>
+                <li><a href="#" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">LinkedIn</a></li>
               </ul>
             </div>
 
@@ -446,21 +446,21 @@ function PortfolioContent({
               <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
                 Studio
               </p>
-              <p className="text-sm md:text-base text-white/80">Berlin, Germany</p>
-              <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–18 CET</p>
+              <p className="text-sm md:text-base text-white/80">Anaheim, CA</p>
+              <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–5 PST</p>
             </div>
           </div>
         </div>
 
         <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
-          <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#46E2E2] select-none">
+          <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#C71F42] select-none">
             KATELLA DIGITAL
           </div>
         </div>
 
-        <div className="border-t border-[#2a2a2a]">
+        <div className="border-t border-[#3a1518]">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
-            <span>© 2026 Katella Digital — Berlin</span>
+            <span>© 2026 Katella Digital — Anaheim, CA</span>
             <span>Made in monochrome</span>
           </div>
         </div>

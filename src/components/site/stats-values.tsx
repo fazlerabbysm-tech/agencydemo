@@ -22,7 +22,7 @@ export default function StatsValues() {
   return (
     <>
       {/* ============ STATS ============ */}
-      <section className="relative bg-[#0a0a0a] py-16 md:py-24 border-t border-[#2a2a2a]">
+      <section className="relative bg-[#060000] py-16 md:py-24 border-t border-[#3a1518]">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
             {stats.map((s, i) => (
@@ -32,9 +32,9 @@ export default function StatsValues() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-center md:text-left border-l-2 border-[#46E2E2] pl-4 md:pl-6"
+                className="text-center md:text-left border-l-2 border-[#C71F42] pl-4 md:pl-6"
               >
-                <div className="font-display font-bold text-5xl md:text-7xl tracking-tight text-[#46E2E2]">
+                <div className="font-display font-bold text-5xl md:text-7xl tracking-tight text-[#C71F42]">
                   {s.value}
                 </div>
                 <div className="mt-2 text-sm md:text-base text-white/60 leading-relaxed">
@@ -47,14 +47,14 @@ export default function StatsValues() {
       </section>
 
       {/* ============ WHAT WE BELIEVE ============ */}
-      <section className="relative bg-[#111111] py-20 md:py-32 border-t border-[#2a2a2a] overflow-hidden">
+      <section className="relative bg-[#1a0a0e] py-20 md:py-32 border-t border-[#3a1518] overflow-hidden">
         <div className="mx-auto max-w-[1000px] px-5 sm:px-6 md:px-10 text-center">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]"
+            className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]"
           >
             What we believe
           </motion.span>
@@ -67,20 +67,20 @@ export default function StatsValues() {
           >
             We don&apos;t just launch campaigns. We build the gravity that
             pulls customers toward your brand — and{" "}
-            <span className="text-[#46E2E2]">keeps them in orbit.</span>
+            <span className="text-[#C71F42]">keeps them in orbit.</span>
           </motion.h2>
         </div>
       </section>
 
       {/* ============ OUR VALUES ============ */}
-      <section className="relative bg-[#0a0a0a] py-16 md:py-24 border-t border-[#2a2a2a]">
+      <section className="relative bg-[#060000] py-16 md:py-24 border-t border-[#3a1518]">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]"
+            className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]"
           >
             Our Values
           </motion.span>
@@ -93,7 +93,7 @@ export default function StatsValues() {
           >
             What drives
             <br />
-            <span className="font-light italic text-[#46E2E2]">us forward.</span>
+            <span className="font-light italic text-[#C71F42]">us forward.</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -104,12 +104,12 @@ export default function StatsValues() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group p-6 md:p-8 rounded-2xl border border-[#2a2a2a] bg-[#111111] backdrop-blur-sm transition-all duration-500 hover:border-[#46E2E2]/50 hover:shadow-[0_0_40px_rgba(70,226,226,0.12)]"
+                className="group p-6 md:p-8 rounded-2xl border border-[#3a1518] bg-[#1a0a0e] backdrop-blur-sm transition-all duration-500 hover:border-[#C71F42]/50 hover:shadow-[0_0_40px_rgba(199,31,66,0.12)]"
               >
-                <span className="font-mono text-xs tracking-[0.2em] text-[#46E2E2]/60">
+                <span className="font-mono text-xs tracking-[0.2em] text-[#C71F42]/60">
                   0{i + 1}
                 </span>
-                <h3 className="mt-3 font-display font-bold text-xl md:text-2xl tracking-tight text-white group-hover:text-[#46E2E2] transition-colors duration-300">
+                <h3 className="mt-3 font-display font-bold text-xl md:text-2xl tracking-tight text-white group-hover:text-[#C71F42] transition-colors duration-300">
                   {v.title}
                 </h3>
                 <p className="mt-3 text-sm md:text-base text-white/60 leading-relaxed">

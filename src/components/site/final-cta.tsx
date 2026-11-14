@@ -7,14 +7,14 @@ export default function FinalCTA() {
   return (
     <section
       id="contact"
-      className="relative bg-[#111111] text-white py-20 sm:py-32 md:py-48 overflow-hidden border-t border-[#2a2a2a]"
+      className="relative bg-[#1a0a0e] text-white py-20 sm:py-32 md:py-48 overflow-hidden border-t border-[#3a1518]"
     >
       {/* Subtle light radial spotlight on black */}
       <div
         className="absolute inset-0 opacity-60"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(70,226,226,0.10), transparent 60%)",
+            "radial-gradient(circle at 50% 50%, rgba(199,31,66,0.10), transparent 60%)",
         }}
       />
 
@@ -48,12 +48,12 @@ export default function FinalCTA() {
         >
           <a
             href="mailto:hello@katelladigital.com"
-            className="group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300"
+            className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
           >
             <span className="text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
               Start a project
             </span>
-            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300">
+            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300">
               <ArrowUpRight size={16} strokeWidth={2} className="sm:hidden" />
               <ArrowUpRight size={20} strokeWidth={2} className="hidden sm:block" />
             </span>

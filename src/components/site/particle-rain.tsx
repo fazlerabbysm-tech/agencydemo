@@ -82,7 +82,7 @@ export default function ParticleRain() {
 
     // Color palette — teal/cyan
     const palette = Array.from({ length: 12 }, (_, i) =>
-      `hsla(${175 + i * 4}, ${85 - i * 2}%, ${50 + i * 4}%, ${0.3 + i * 0.058})`
+      `hsla(${345 + i * 3}, ${85 - i * 2}%, ${50 + i * 4}%, ${0.3 + i * 0.058})`
     );
 
     const frame = () => {
@@ -90,7 +90,7 @@ export default function ParticleRain() {
 
       // Motion trail
       ctx.globalCompositeOperation = "source-over";
-      ctx.fillStyle = "rgba(7,10,18,0.18)";
+      ctx.fillStyle = "rgba(6,0,0,0.18)";
       ctx.fillRect(0, 0, W, H);
       ctx.globalCompositeOperation = "lighter";
 
@@ -159,7 +159,7 @@ export default function ParticleRain() {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(70, 226, 226, ${opacity})`;
+            ctx.strokeStyle = `rgba(199, 31, 66, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

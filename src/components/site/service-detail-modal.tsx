@@ -59,7 +59,7 @@ export default function ServiceDetailModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100] bg-[#0a0a0a]"
+          className="fixed inset-0 z-[100] bg-[#060000]"
         >
           {/* === HOMEPAGE NAVBAR (same as homepage, with back button) === */}
           <Navbar
@@ -108,18 +108,18 @@ function ServiceContent({
   return (
     <div className="clear-both">
       {/* ============ HERO ============ */}
-      <section className="relative min-h-[70vh] flex items-end overflow-hidden bg-[#0a0a0a] text-white">
+      <section className="relative min-h-[70vh] flex items-end overflow-hidden bg-[#060000] text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${service.problemImage})`,
-            backgroundColor: "#0a0a0a",
+            backgroundColor: "#060000",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-[#0a0a0a]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-black/30 to-[#060000]/60" />
 
         <div className="relative z-10 mx-auto max-w-[1200px] w-full px-6 md:px-10 py-16 md:py-24">
-          <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#46E2E2] mb-6">
+          <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#C71F42] mb-6">
             {service.no} — {service.name}
           </p>
           <h1 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-[10vw] md:text-[6vw] lg:text-[5vw] break-words max-w-4xl">
@@ -137,7 +137,7 @@ function ServiceContent({
             {service.bestFor.map((b) => (
               <span
                 key={b}
-                className="text-xs md:text-sm px-3 py-1 rounded-full border border-[#46E2E2]/40 text-white/80"
+                className="text-xs md:text-sm px-3 py-1 rounded-full border border-[#C71F42]/40 text-white/80"
               >
                 {b}
               </span>
@@ -149,18 +149,18 @@ function ServiceContent({
             <a
               href="#contact"
               onClick={onClose}
-              className="group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 Get a quote
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300">
+              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300">
                 <ArrowUpRight size={18} strokeWidth={2} />
               </span>
             </a>
             <a
               href="#work-modal"
-              className="group inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase text-white/80 hover:text-[#46E2E2] border-b border-[#46E2E2]/40 hover:border-[#46E2E2] pb-1 transition-all"
+              className="group inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase text-white/80 hover:text-[#C71F42] border-b border-[#C71F42]/40 hover:border-[#C71F42] pb-1 transition-all"
             >
               See examples
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -170,7 +170,7 @@ function ServiceContent({
           {/* Not sure it fits */}
           <p className="mt-8 text-sm text-white/60">
             {service.notSureText} —{" "}
-            <a href="#contact" onClick={onClose} className="underline underline-offset-4 hover:text-[#46E2E2]">
+            <a href="#contact" onClick={onClose} className="underline underline-offset-4 hover:text-[#C71F42]">
               talk to us
             </a>
           </p>
@@ -178,11 +178,11 @@ function ServiceContent({
       </section>
 
       {/* ============ PROBLEM ============ */}
-      <section className="bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
-              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
                 The problem
               </span>
               <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl text-white">
@@ -191,29 +191,29 @@ function ServiceContent({
               <ul className="mt-8 space-y-4">
                 {service.problemPoints.map((p, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#46E2E2]" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C71F42]" />
                     <span className="text-base md:text-lg text-white/70 leading-relaxed">{p}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#161616]">
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#2a0a10]">
               <img
                 src={service.problemImage}
                 alt={service.problemTitle}
                 className="h-full w-full object-cover"
                 loading="eager"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-[#2a2a2a]" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-[#3a1518]" />
             </div>
           </div>
         </div>
       </section>
 
       {/* ============ WHAT'S INCLUDED ============ */}
-      <section className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             {service.includedTitle}
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-12">
@@ -222,7 +222,7 @@ function ServiceContent({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             {service.subServices.map((s, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#161616] mb-5">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#2a0a10] mb-5">
                   <img
                     src={s.image}
                     alt={s.title}
@@ -230,7 +230,7 @@ function ServiceContent({
                     loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <span className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] text-[#46E2E2]">
+                  <span className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] text-[#C71F42]">
                     0{i + 1}
                   </span>
                 </div>
@@ -243,7 +243,7 @@ function ServiceContent({
                 <a
                   href="#contact"
                   onClick={onClose}
-                  className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-[#46E2E2] transition-colors"
+                  className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-[#C71F42] transition-colors"
                 >
                   Learn more
                   <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
@@ -255,11 +255,11 @@ function ServiceContent({
       </section>
 
       {/* ============ PROCESS ============ */}
-      <section className="bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <div>
-              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
                 {service.processTitle}
               </span>
               <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10 text-white">
@@ -267,8 +267,8 @@ function ServiceContent({
               </h2>
               <div className="space-y-6">
                 {service.processSteps.map((p, i) => (
-                  <div key={i} className={`flex gap-5 p-5 md:p-6 border border-[#2a2a2a] rounded-lg bg-[#0a0a0a] hover:border-[#46E2E2] transition-colors ${i === 0 ? "md:ml-0" : i === 1 ? "md:ml-12" : i === 2 ? "md:ml-24" : "md:ml-36"}`}>
-                    <span className="font-display font-light text-4xl md:text-5xl leading-none tracking-tighter text-[#46E2E2]/50 shrink-0">
+                  <div key={i} className={`flex gap-5 p-5 md:p-6 border border-[#3a1518] rounded-lg bg-[#060000] hover:border-[#C71F42] transition-colors ${i === 0 ? "md:ml-0" : i === 1 ? "md:ml-12" : i === 2 ? "md:ml-24" : "md:ml-36"}`}>
+                    <span className="font-display font-light text-4xl md:text-5xl leading-none tracking-tighter text-[#C71F42]/50 shrink-0">
                       {p.step}
                     </span>
                     <div className="flex-1">
@@ -290,29 +290,29 @@ function ServiceContent({
               <a
                 href="#contact"
                 onClick={onClose}
-                className="mt-8 inline-flex items-center gap-3 bg-[#46E2E2] text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300"
+                className="mt-8 inline-flex items-center gap-3 bg-[#C71F42] text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
               >
                 <Calendar size={16} />
                 Book a discovery call
               </a>
             </div>
-            <div className="relative aspect-[4/5] overflow-hidden bg-[#161616]">
+            <div className="relative aspect-[4/5] overflow-hidden bg-[#2a0a10]">
               <img
                 src={service.processImage}
                 alt="Process"
                 className="h-full w-full object-cover"
                 loading="eager"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-[#2a2a2a]" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-[#3a1518]" />
             </div>
           </div>
         </div>
       </section>
 
       {/* ============ RELATED WORK ============ */}
-      <section id="work-modal" className="bg-[#0a0a0a] text-white py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section id="work-modal" className="bg-[#060000] text-white py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             Related work
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-12">
@@ -321,14 +321,14 @@ function ServiceContent({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {service.relatedWork.map((w, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#161616] mb-4">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#2a0a10] mb-4">
                   <img
                     src={w.image}
                     alt={w.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="eager"
                   />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-[#2a2a2a]" />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-[#3a1518]" />
                 </div>
                 <h3 className="font-display font-bold text-lg md:text-xl tracking-tight">
                   {w.title}
@@ -339,7 +339,7 @@ function ServiceContent({
                 <a
                   href="#contact"
                   onClick={onClose}
-                  className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-[#46E2E2] border-b border-[#46E2E2]/40 hover:border-[#46E2E2] pb-0.5 transition-all"
+                  className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-[#C71F42] border-b border-[#C71F42]/40 hover:border-[#C71F42] pb-0.5 transition-all"
                 >
                   View project
                   <ArrowRight size={12} />
@@ -349,7 +349,7 @@ function ServiceContent({
           </div>
           <p className="mt-8 text-sm text-white/50">
             See all {service.name.toLowerCase()} work —{" "}
-            <a href="#work" onClick={onClose} className="underline underline-offset-4 hover:text-[#46E2E2]">
+            <a href="#work" onClick={onClose} className="underline underline-offset-4 hover:text-[#C71F42]">
               view full archive
             </a>
           </p>
@@ -357,10 +357,10 @@ function ServiceContent({
       </section>
 
       {/* ============ CASE STUDY + TESTIMONIAL ============ */}
-      <section className="bg-[#111111] text-white py-16 md:py-24">
+      <section className="bg-[#1a0a0e] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#161616]">
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#2a0a10]">
               <img
                 src={service.caseStudyImage}
                 alt="Case study"
@@ -369,10 +369,10 @@ function ServiceContent({
               />
             </div>
             <div>
-              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
                 Case study
               </span>
-              <div className="mt-4 font-display font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight leading-none text-[#46E2E2]">
+              <div className="mt-4 font-display font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight leading-none text-[#C71F42]">
                 {service.caseStudyMetric}
               </div>
               <blockquote className="mt-8 text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed font-display font-light italic">
@@ -384,7 +384,7 @@ function ServiceContent({
               <a
                 href="#contact"
                 onClick={onClose}
-                className="mt-8 inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+                className="mt-8 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
               >
                 Read the full case study
                 <ArrowRight size={16} />
@@ -395,19 +395,19 @@ function ServiceContent({
       </section>
 
       {/* ============ FAQ ============ */}
-      <section className="bg-[#0a0a0a] py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section className="bg-[#060000] py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1000px] px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             {service.faqTitle}
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10 text-white">
             Questions, answered
           </h2>
-          <div className="border-t border-[#2a2a2a]">
+          <div className="border-t border-[#3a1518]">
             {service.faqs.map((f, i) => {
               const isOpen = openFaq === i;
               return (
-                <div key={i} className="border-b border-[#2a2a2a]">
+                <div key={i} className="border-b border-[#3a1518]">
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : i)}
                     className="w-full py-5 md:py-6 flex items-center gap-5 text-left group"
@@ -420,8 +420,8 @@ function ServiceContent({
                       {f.q}
                     </span>
                     <span
-                      className={`shrink-0 h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#46E2E2]/40 flex items-center justify-center transition-all duration-300 ${
-                        isOpen ? "bg-[#46E2E2] text-black rotate-45" : ""
+                      className={`shrink-0 h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center transition-all duration-300 ${
+                        isOpen ? "bg-[#C71F42] text-black rotate-45" : ""
                       }`}
                     >
                       <Plus size={14} strokeWidth={2} />
@@ -448,7 +448,7 @@ function ServiceContent({
           </div>
           <p className="mt-8 text-sm text-white/60">
             Still have questions?{" "}
-            <a href="#contact" onClick={onClose} className="underline underline-offset-4 hover:text-[#46E2E2] font-medium">
+            <a href="#contact" onClick={onClose} className="underline underline-offset-4 hover:text-[#C71F42] font-medium">
               Ask us directly
             </a>
           </p>
@@ -456,9 +456,9 @@ function ServiceContent({
       </section>
 
       {/* ============ RELATED SERVICES ============ */}
-      <section className="bg-[#111111] text-white py-16 md:py-24">
+      <section className="bg-[#1a0a0e] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             Related services
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl mb-10">
@@ -469,9 +469,9 @@ function ServiceContent({
               <button
                 key={s.slug}
                 onClick={() => onSwitchService(s.slug)}
-                className="group text-left p-6 md:p-8 border border-[#2a2a2a] hover:border-[#46E2E2] hover:bg-[#46E2E2]/5 transition-all duration-300 rounded-lg"
+                className="group text-left p-6 md:p-8 border border-[#3a1518] hover:border-[#C71F42] hover:bg-[#C71F42]/5 transition-all duration-300 rounded-lg"
               >
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#46E2E2]">
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#C71F42]">
                   {s.no}
                 </span>
                 <h3 className="mt-3 font-display font-bold text-xl md:text-2xl tracking-tight">
@@ -480,7 +480,7 @@ function ServiceContent({
                 <p className="mt-2 text-sm text-white/60">
                   Explore {s.name}
                 </p>
-                <ArrowRight size={20} className="mt-4 transition-transform group-hover:translate-x-2 text-[#46E2E2]" />
+                <ArrowRight size={20} className="mt-4 transition-transform group-hover:translate-x-2 text-[#C71F42]" />
               </button>
             ))}
           </div>
@@ -488,7 +488,7 @@ function ServiceContent({
       </section>
 
       {/* ============ FINAL CTA ============ */}
-      <section id="contact-page" className="bg-[#0a0a0a] py-16 md:py-24 border-t border-[#2a2a2a]">
+      <section id="contact-page" className="bg-[#060000] py-16 md:py-24 border-t border-[#3a1518]">
         <div className="mx-auto max-w-[800px] px-6 md:px-10 text-center">
           <h2 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl text-white">
             Ready to start?
@@ -499,18 +499,18 @@ function ServiceContent({
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:hello@katelladigital.com"
-              className="group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 Book a call
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
                 <Calendar size={16} />
               </span>
             </a>
             <a
               href="mailto:hello@katelladigital.com"
-              className="group inline-flex items-center gap-3 border border-[#46E2E2]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#46E2E2] hover:text-black transition-colors duration-300"
+              className="group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-black transition-colors duration-300"
             >
               Send your brief
               <ArrowUpRight size={16} />
@@ -520,7 +520,7 @@ function ServiceContent({
       </section>
 
       {/* ============ FOOTER ============ */}
-      <footer className="bg-[#0a0a0a] text-white border-t border-[#2a2a2a]">
+      <footer className="bg-[#060000] text-white border-t border-[#3a1518]">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
           <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
             {/* Brand + tagline */}
@@ -533,7 +533,7 @@ function ServiceContent({
                 }}
                 className="flex items-center gap-2 group mb-5"
               >
-                <span className="h-2.5 w-2.5 bg-[#46E2E2] rounded-full transition-transform group-hover:scale-150" />
+                <span className="h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150" />
                 <span className="font-bold tracking-tight text-lg md:text-xl">
                   KATELLA <span className="font-light">DIGITAL</span>
                 </span>
@@ -555,10 +555,10 @@ function ServiceContent({
                   <li key={s.slug}>
                     <button
                       onClick={() => onSwitchService(s.slug)}
-                      className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] relative inline-block group text-left"
+                      className="text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group text-left"
                     >
                       {s.name}
-                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#46E2E2] transition-all duration-300 group-hover:w-full" />
+                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full" />
                     </button>
                   </li>
                 ))}
@@ -572,17 +572,17 @@ function ServiceContent({
               </p>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">
+                  <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
                     hello@katelladigital.com
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">
+                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
                     Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">
+                  <a href="#" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
                     LinkedIn
                   </a>
                 </li>
@@ -593,23 +593,23 @@ function ServiceContent({
               <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
                 Studio
               </p>
-              <p className="text-sm md:text-base text-white/80">Berlin, Germany</p>
-              <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–18 CET</p>
+              <p className="text-sm md:text-base text-white/80">Anaheim, CA</p>
+              <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–5 PST</p>
             </div>
           </div>
         </div>
 
         {/* Mega wordmark */}
         <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
-          <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#46E2E2] select-none">
+          <div className="font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#C71F42] select-none">
             KATELLA DIGITAL
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#2a2a2a]">
+        <div className="border-t border-[#3a1518]">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
-            <span>© 2026 Katella Digital — Berlin</span>
+            <span>© 2026 Katella Digital — Anaheim, CA</span>
             <span>Made in monochrome</span>
           </div>
         </div>

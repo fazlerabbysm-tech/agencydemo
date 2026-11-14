@@ -167,7 +167,7 @@ function Navbar({ variant = "home", onBack, scrollContainerId, onOpenService, on
                 1
             ]
         },
-        className: `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${onDark ? "bg-transparent border-b border-transparent" : "bg-[#0a0a0a]/85 backdrop-blur-md border-b border-[#2a2a2a]"}`,
+        className: `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${onDark ? "bg-transparent border-b border-transparent" : "bg-[#060000]/85 backdrop-blur-md border-b border-[#3a1518]"}`,
         onMouseLeave: ()=>setOpenDropdown(null),
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -184,7 +184,7 @@ function Navbar({ variant = "home", onBack, scrollContainerId, onOpenService, on
                         className: "flex items-center gap-2 group",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${onDark ? "bg-[#46E2E2]" : "bg-[#46E2E2]"}`
+                                className: `h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${onDark ? "bg-[#C71F42]" : "bg-[#C71F42]"}`
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/navbar.tsx",
                                 lineNumber: 130,
@@ -262,10 +262,10 @@ function Navbar({ variant = "home", onBack, scrollContainerId, onOpenService, on
                                                     1
                                                 ]
                                             },
-                                            className: `absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[220px] rounded-lg border shadow-xl overflow-hidden ${onDark ? "bg-[#111111] border-[#2a2a2a]" : "bg-[#111111] border-[#2a2a2a]"}`,
+                                            className: `absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[220px] rounded-lg border shadow-xl overflow-hidden ${onDark ? "bg-[#1a0a0e] border-[#3a1518]" : "bg-[#1a0a0e] border-[#3a1518]"}`,
                                             children: item.dropdown.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>handleDropdownItem(d.action, d.slug),
-                                                    className: `w-full text-left px-4 py-2.5 text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${onDark ? "text-white/80 hover:bg-[#46E2E2] hover:text-black" : "text-white/80 hover:bg-[#46E2E2] hover:text-black"}`,
+                                                    className: `w-full text-left px-4 py-2.5 text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${onDark ? "text-white/80 hover:bg-[#C71F42] hover:text-black" : "text-white/80 hover:bg-[#C71F42] hover:text-black"}`,
                                                     children: d.label
                                                 }, d.slug, false, {
                                                     fileName: "[project]/src/components/site/navbar.tsx",
@@ -310,7 +310,7 @@ function Navbar({ variant = "home", onBack, scrollContainerId, onOpenService, on
                                     }
                                 }
                             },
-                            className: `group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${onDark ? "bg-[#46E2E2] text-black border-[#46E2E2] hover:bg-transparent hover:text-[#46E2E2]" : "bg-[#46E2E2] text-black border-[#46E2E2] hover:bg-transparent hover:text-[#46E2E2]"}`,
+                            className: `group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${onDark ? "bg-[#C71F42] text-black border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]" : "bg-[#C71F42] text-black border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"}`,
                             children: [
                                 "Start a project",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -377,7 +377,7 @@ function Navbar({ variant = "home", onBack, scrollContainerId, onOpenService, on
                     transition: {
                         duration: 0.3
                     },
-                    className: "md:hidden overflow-hidden bg-[#0a0a0a] border-t border-[#2a2a2a]",
+                    className: "md:hidden overflow-hidden bg-[#060000] border-t border-[#3a1518]",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "px-5 sm:px-6 py-6 flex flex-col gap-4",
                         children: [
@@ -450,7 +450,7 @@ function Navbar({ variant = "home", onBack, scrollContainerId, onOpenService, on
                                         }
                                     }
                                 },
-                                className: "mt-2 inline-flex items-center justify-center gap-2 bg-[#46E2E2] text-black px-5 py-3 text-sm font-medium tracking-wide uppercase",
+                                className: "mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-black px-5 py-3 text-sm font-medium tracking-wide uppercase",
                                 children: "Start a project →"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/navbar.tsx",
@@ -580,7 +580,7 @@ function Hero() {
                         className: "absolute inset-0 bg-cover bg-center bg-no-repeat",
                         style: {
                             backgroundImage: `url(${slides[index].image})`,
-                            backgroundColor: "#0a0a0a"
+                            backgroundColor: "#060000"
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/hero.tsx",
@@ -605,7 +605,7 @@ function Hero() {
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent"
+                className: "absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/40 to-transparent"
             }, void 0, false, {
                 fileName: "[project]/src/components/site/hero.tsx",
                 lineNumber: 81,
@@ -642,7 +642,7 @@ function Hero() {
                                         duration: SLIDE_DURATION / 1000,
                                         ease: "linear"
                                     },
-                                    className: "absolute inset-0 bg-[#46E2E2] origin-left"
+                                    className: "absolute inset-0 bg-[#C71F42] origin-left"
                                 }, index + "-bar", false, {
                                     fileName: "[project]/src/components/site/hero.tsx",
                                     lineNumber: 101,
@@ -694,7 +694,7 @@ function Hero() {
                             className: "max-w-3xl",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.25em] uppercase text-[#46E2E2] mb-3 sm:mb-4",
+                                    className: "font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.25em] uppercase text-[#C71F42] mb-3 sm:mb-4",
                                     children: slides[index].kicker
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/hero.tsx",
@@ -750,7 +750,7 @@ function Hero() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 href: "#services",
-                                className: "group inline-flex items-center gap-2 sm:gap-3 bg-[#46E2E2] text-black pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300",
+                                className: "group inline-flex items-center gap-2 sm:gap-3 bg-[#C71F42] text-black pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "text-xs sm:text-sm font-medium tracking-wide uppercase",
@@ -761,7 +761,7 @@ function Hero() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300",
+                                        className: "h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                                 size: 16,
@@ -913,7 +913,7 @@ const brandsBottom = [
 function BrandMarquee() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         "aria-label": "Trusted by",
-        className: "bg-[#111111] text-white py-10 sm:py-14 md:py-20 overflow-hidden border-y border-[#2a2a2a]",
+        className: "bg-[#1a0a0e] text-white py-10 sm:py-14 md:py-20 overflow-hidden border-y border-[#3a1518]",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-10 md:mb-14",
@@ -1001,7 +1001,7 @@ function BrandItem({ name, index, variant = "solid" }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                className: "text-[#46E2E2] text-xl sm:text-2xl md:text-3xl",
+                className: "text-[#C71F42] text-xl sm:text-2xl md:text-3xl",
                 children: "✦"
             }, void 0, false, {
                 fileName: "[project]/src/components/site/marquee.tsx",
@@ -1076,7 +1076,7 @@ function StatsValues() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "relative bg-[#0a0a0a] py-16 md:py-24 border-t border-[#2a2a2a]",
+                className: "relative bg-[#060000] py-16 md:py-24 border-t border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1104,10 +1104,10 @@ function StatsValues() {
                                         1
                                     ]
                                 },
-                                className: "text-center md:text-left border-l-2 border-[#46E2E2] pl-4 md:pl-6",
+                                className: "text-center md:text-left border-l-2 border-[#C71F42] pl-4 md:pl-6",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "font-display font-bold text-5xl md:text-7xl tracking-tight text-[#46E2E2]",
+                                        className: "font-display font-bold text-5xl md:text-7xl tracking-tight text-[#C71F42]",
                                         children: s.value
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/stats-values.tsx",
@@ -1144,7 +1144,7 @@ function StatsValues() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "relative bg-[#111111] py-20 md:py-32 border-t border-[#2a2a2a] overflow-hidden",
+                className: "relative bg-[#1a0a0e] py-20 md:py-32 border-t border-[#3a1518] overflow-hidden",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1000px] px-5 sm:px-6 md:px-10 text-center",
                     children: [
@@ -1161,7 +1161,7 @@ function StatsValues() {
                             transition: {
                                 duration: 0.6
                             },
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "What we believe"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/stats-values.tsx",
@@ -1195,7 +1195,7 @@ function StatsValues() {
                                 "We don't just launch campaigns. We build the gravity that pulls customers toward your brand — and",
                                 " ",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "text-[#46E2E2]",
+                                    className: "text-[#C71F42]",
                                     children: "keeps them in orbit."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/stats-values.tsx",
@@ -1220,7 +1220,7 @@ function StatsValues() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "relative bg-[#0a0a0a] py-16 md:py-24 border-t border-[#2a2a2a]",
+                className: "relative bg-[#060000] py-16 md:py-24 border-t border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10",
                     children: [
@@ -1237,7 +1237,7 @@ function StatsValues() {
                             transition: {
                                 duration: 0.6
                             },
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Our Values"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/stats-values.tsx",
@@ -1275,7 +1275,7 @@ function StatsValues() {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "font-light italic text-[#46E2E2]",
+                                    className: "font-light italic text-[#C71F42]",
                                     children: "us forward."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/stats-values.tsx",
@@ -1313,10 +1313,10 @@ function StatsValues() {
                                             1
                                         ]
                                     },
-                                    className: "group p-6 md:p-8 rounded-2xl border border-[#2a2a2a] bg-[#111111] backdrop-blur-sm transition-all duration-500 hover:border-[#46E2E2]/50 hover:shadow-[0_0_40px_rgba(70,226,226,0.12)]",
+                                    className: "group p-6 md:p-8 rounded-2xl border border-[#3a1518] bg-[#1a0a0e] backdrop-blur-sm transition-all duration-500 hover:border-[#C71F42]/50 hover:shadow-[0_0_40px_rgba(199,31,66,0.12)]",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "font-mono text-xs tracking-[0.2em] text-[#46E2E2]/60",
+                                            className: "font-mono text-xs tracking-[0.2em] text-[#C71F42]/60",
                                             children: [
                                                 "0",
                                                 i + 1
@@ -1327,7 +1327,7 @@ function StatsValues() {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                            className: "mt-3 font-display font-bold text-xl md:text-2xl tracking-tight text-white group-hover:text-[#46E2E2] transition-colors duration-300",
+                                            className: "mt-3 font-display font-bold text-xl md:text-2xl tracking-tight text-white group-hover:text-[#C71F42] transition-colors duration-300",
                                             children: v.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/stats-values.tsx",
@@ -1420,7 +1420,7 @@ function Services({ onServiceClick }) {
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "services",
-        className: "relative bg-[#0a0a0a] text-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden border-t border-[#2a2a2a]",
+        className: "relative bg-[#060000] text-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden border-t border-[#3a1518]",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-8 sm:mb-10 md:mb-12",
@@ -1536,10 +1536,10 @@ function ServiceCard({ service, total, onClick }) {
         className: "group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4 cursor-pointer",
         onClick: ()=>onClick?.(service.slug),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative aspect-[5/6] overflow-hidden bg-[#0a0a0a] rounded-2xl border border-[#2a2a2a] backdrop-blur-sm transition-all duration-500 group-hover:border-[#46E2E2]/50 group-hover:shadow-[0_0_40px_rgba(70,226,226,0.15)]",
+            className: "relative aspect-[5/6] overflow-hidden bg-[#060000] rounded-2xl border border-[#3a1518] backdrop-blur-sm transition-all duration-500 group-hover:border-[#C71F42]/50 group-hover:shadow-[0_0_40px_rgba(199,31,66,0.15)]",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#46E2E2]/30 to-transparent z-20"
+                    className: "absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C71F42]/30 to-transparent z-20"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/services.tsx",
                     lineNumber: 109,
@@ -1559,14 +1559,14 @@ function ServiceCard({ service, total, onClick }) {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20 backdrop-blur-[2px]"
+                    className: "absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/60 to-[#060000]/20 backdrop-blur-[2px]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/services.tsx",
                     lineNumber: 123,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#46E2E2]/10 to-transparent"
+                    className: "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#C71F42]/10 to-transparent"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/services.tsx",
                     lineNumber: 126,
@@ -1576,7 +1576,7 @@ function ServiceCard({ service, total, onClick }) {
                     className: "absolute top-4 sm:top-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between z-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] bg-[#0a0a0a]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#2a2a2a]",
+                            className: "font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]",
                             children: [
                                 service.no,
                                 " / ",
@@ -1588,7 +1588,7 @@ function ServiceCard({ service, total, onClick }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "h-2 w-2 rounded-full bg-[#46E2E2] group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(70,226,226,0.6)]"
+                            className: "h-2 w-2 rounded-full bg-[#C71F42] group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(199,31,66,0.6)]"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/services.tsx",
                             lineNumber: 133,
@@ -1604,7 +1604,7 @@ function ServiceCard({ service, total, onClick }) {
                     className: "absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            className: "font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05] group-hover:text-[#46E2E2] transition-colors duration-300",
+                            className: "font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05] group-hover:text-[#C71F42] transition-colors duration-300",
                             children: service.title
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/services.tsx",
@@ -1612,7 +1612,7 @@ function ServiceCard({ service, total, onClick }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-3 sm:mt-4 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#46E2E2] transition-colors duration-300",
+                            className: "mt-3 sm:mt-4 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#C71F42] transition-colors duration-300",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     children: "Explore"
@@ -1707,7 +1707,7 @@ function WorkShowcase({ onWorkClick }) {
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "work",
-        className: "relative bg-[#111111] text-white py-8 sm:py-12 md:py-14 lg:py-16 overflow-hidden border-t border-[#2a2a2a]",
+        className: "relative bg-[#1a0a0e] text-white py-8 sm:py-12 md:py-14 lg:py-16 overflow-hidden border-t border-[#3a1518]",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-8 md:mb-10",
@@ -1822,7 +1822,7 @@ function WorkShowcase({ onWorkClick }) {
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: "#contact",
-                        className: "group inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300",
+                        className: "group inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300",
                         children: [
                             "View full archive",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1857,10 +1857,10 @@ function WorkCard({ work, onClick }) {
         className: "group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px] cursor-pointer",
         onClick: ()=>onClick?.(work.slug),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative aspect-[5/6] overflow-hidden bg-[#0a0a0a] rounded-2xl border border-[#2a2a2a] backdrop-blur-sm transition-all duration-500 group-hover:border-[#46E2E2]/50 group-hover:shadow-[0_0_40px_rgba(70,226,226,0.15)]",
+            className: "relative aspect-[5/6] overflow-hidden bg-[#060000] rounded-2xl border border-[#3a1518] backdrop-blur-sm transition-all duration-500 group-hover:border-[#C71F42]/50 group-hover:shadow-[0_0_40px_rgba(199,31,66,0.15)]",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#46E2E2]/30 to-transparent z-20"
+                    className: "absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C71F42]/30 to-transparent z-20"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/work-showcase.tsx",
                     lineNumber: 118,
@@ -1880,14 +1880,14 @@ function WorkCard({ work, onClick }) {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20 backdrop-blur-[2px]"
+                    className: "absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/60 to-[#060000]/20 backdrop-blur-[2px]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/work-showcase.tsx",
                     lineNumber: 132,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#46E2E2]/10 to-transparent"
+                    className: "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#C71F42]/10 to-transparent"
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/work-showcase.tsx",
                     lineNumber: 135,
@@ -1897,7 +1897,7 @@ function WorkCard({ work, onClick }) {
                     className: "absolute top-4 left-4 right-4 flex items-center justify-between z-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#46E2E2] bg-[#0a0a0a]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#2a2a2a]",
+                            className: "font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]",
                             children: [
                                 work.no,
                                 " / 04"
@@ -1908,7 +1908,7 @@ function WorkCard({ work, onClick }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#46E2E2]/40 flex items-center justify-center text-white/80 group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300 backdrop-blur-md",
+                            className: "h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center text-white/80 group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300 backdrop-blur-md",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     width: "8",
@@ -1964,7 +1964,7 @@ function WorkCard({ work, onClick }) {
                     className: "absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            className: "font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none group-hover:text-[#46E2E2] transition-colors duration-300",
+                            className: "font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none group-hover:text-[#C71F42] transition-colors duration-300",
                             children: work.title
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/work-showcase.tsx",
@@ -1980,7 +1980,7 @@ function WorkCard({ work, onClick }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#46E2E2] transition-colors duration-300",
+                            className: "mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#C71F42] transition-colors duration-300",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     children: "View project"
@@ -2039,12 +2039,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 function FinalCTA() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "contact",
-        className: "relative bg-[#111111] text-white py-20 sm:py-32 md:py-48 overflow-hidden border-t border-[#2a2a2a]",
+        className: "relative bg-[#1a0a0e] text-white py-20 sm:py-32 md:py-48 overflow-hidden border-t border-[#3a1518]",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 opacity-60",
                 style: {
-                    background: "radial-gradient(circle at 50% 50%, rgba(70,226,226,0.10), transparent 60%)"
+                    background: "radial-gradient(circle at 50% 50%, rgba(199,31,66,0.10), transparent 60%)"
                 }
             }, void 0, false, {
                 fileName: "[project]/src/components/site/final-cta.tsx",
@@ -2133,7 +2133,7 @@ function FinalCTA() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 href: "mailto:hello@katelladigital.com",
-                                className: "group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300",
+                                className: "group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase",
@@ -2144,7 +2144,7 @@ function FinalCTA() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300",
+                                        className: "h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-black text-white flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                                 size: 16,
@@ -2252,7 +2252,7 @@ function FAQ() {
     const [open, setOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "faq",
-        className: "relative bg-[#0a0a0a] text-white py-20 sm:py-24 md:py-36 border-t border-[#2a2a2a]",
+        className: "relative bg-[#060000] text-white py-20 sm:py-24 md:py-36 border-t border-[#3a1518]",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10",
             children: [
@@ -2339,11 +2339,11 @@ function FAQ() {
                             className: "lg:col-span-7",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "border-t border-[#2a2a2a]",
+                                    className: "border-t border-[#3a1518]",
                                     children: faqs.map((f, i)=>{
                                         const isOpen = open === i;
                                         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "border-b border-[#2a2a2a]",
+                                            className: "border-b border-[#3a1518]",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setOpen(isOpen ? null : i),
@@ -2370,7 +2370,7 @@ function FAQ() {
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: `shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-[#2a2a2a] flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-[#46E2E2] text-black rotate-45" : ""}`,
+                                                            className: `shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-[#3a1518] flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-[#C71F42] text-black rotate-45" : ""}`,
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
                                                                     size: 14,
@@ -2458,7 +2458,7 @@ function FAQ() {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "mt-10 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 md:p-8 bg-[#46E2E2] text-black",
+                                    className: "mt-10 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 md:p-8 bg-[#C71F42] text-black",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
@@ -2607,7 +2607,7 @@ function Footer() {
                 minute: "2-digit",
                 second: "2-digit",
                 hour12: false,
-                timeZone: "Europe/Berlin"
+                timeZone: "America/Los_Angeles"
             };
             setTime(now.toLocaleTimeString("en-GB", opts));
         };
@@ -2616,7 +2616,7 @@ function Footer() {
         return ()=>clearInterval(t);
     }, []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-        className: "bg-[#0a0a0a] text-white border-t border-[#2a2a2a]",
+        className: "bg-[#060000] text-white border-t border-[#3a1518]",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "overflow-hidden",
             children: [
@@ -2633,7 +2633,7 @@ function Footer() {
                                         className: "flex items-center gap-2 group mb-5 md:mb-6",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "h-2.5 w-2.5 bg-[#46E2E2] rounded-full transition-transform group-hover:scale-150"
+                                                className: "h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/site/footer.tsx",
                                                 lineNumber: 63,
@@ -2675,13 +2675,13 @@ function Footer() {
                                         className: "mt-8 md:mt-10 flex items-center gap-3 text-white/70 font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "h-1.5 w-1.5 rounded-full bg-[#46E2E2] animate-pulse"
+                                                className: "h-1.5 w-1.5 rounded-full bg-[#C71F42] animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/site/footer.tsx",
                                                 lineNumber: 75,
                                                 columnNumber: 17
                                             }, this),
-                                            "Berlin · ",
+                                            "Anaheim · ",
                                             time || "—"
                                         ]
                                     }, void 0, true, {
@@ -2711,11 +2711,11 @@ function Footer() {
                                             children: col.items.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                         href: item.href,
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] relative inline-block group",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group",
                                                         children: [
                                                             item.label,
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#46E2E2] transition-all duration-300 group-hover:w-full"
+                                                                className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/site/footer.tsx",
                                                                 lineNumber: 94,
@@ -2764,7 +2764,7 @@ function Footer() {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "px-5 sm:px-6 md:px-10 pb-6 sm:pb-8",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#46E2E2] select-none text-center",
+                        className: "font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#C71F42] select-none text-center",
                         children: "KATELLA DIGITAL"
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/footer.tsx",
@@ -2777,12 +2777,12 @@ function Footer() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "border-t border-[#2a2a2a]",
+                    className: "border-t border-[#3a1518]",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: "© 2026 Katella Digital — Berlin"
+                                children: "© 2026 Katella Digital — Anaheim, CA"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/footer.tsx",
                                 lineNumber: 117,
@@ -2793,7 +2793,7 @@ function Footer() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#",
-                                        className: "hover:text-[#46E2E2] transition-colors",
+                                        className: "hover:text-[#C71F42] transition-colors",
                                         children: "Privacy"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/footer.tsx",
@@ -2802,7 +2802,7 @@ function Footer() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#",
-                                        className: "hover:text-[#46E2E2] transition-colors",
+                                        className: "hover:text-[#C71F42] transition-colors",
                                         children: "Imprint"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/footer.tsx",
@@ -2811,7 +2811,7 @@ function Footer() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#",
-                                        className: "hover:text-[#46E2E2] transition-colors",
+                                        className: "hover:text-[#C71F42] transition-colors",
                                         children: "Cookies"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/footer.tsx",
@@ -2923,12 +2923,12 @@ function ParticleRain() {
         // Color palette — teal/cyan
         const palette = Array.from({
             length: 12
-        }, (_, i)=>`hsla(${175 + i * 4}, ${85 - i * 2}%, ${50 + i * 4}%, ${0.3 + i * 0.058})`);
+        }, (_, i)=>`hsla(${345 + i * 3}, ${85 - i * 2}%, ${50 + i * 4}%, ${0.3 + i * 0.058})`);
         const frame = ()=>{
             time += 0.003; // slow rotation speed
             // Motion trail
             ctx.globalCompositeOperation = "source-over";
-            ctx.fillStyle = "rgba(7,10,18,0.18)";
+            ctx.fillStyle = "rgba(6,0,0,0.18)";
             ctx.fillRect(0, 0, W, H);
             ctx.globalCompositeOperation = "lighter";
             // Ring center — positioned on right side of screen (like ltsthink.com)
@@ -2987,7 +2987,7 @@ function ParticleRain() {
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(70, 226, 226, ${opacity})`;
+                        ctx.strokeStyle = `rgba(199, 31, 66, ${opacity})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
@@ -3639,7 +3639,7 @@ function ServiceDetailModal({ slug, onClose, onSwitchService, onOpenPortfolio, o
             transition: {
                 duration: 0.3
             },
-            className: "fixed inset-0 z-[100] bg-[#0a0a0a]",
+            className: "fixed inset-0 z-[100] bg-[#060000]",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$site$2f$navbar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     variant: "service",
@@ -3719,13 +3719,13 @@ function ServiceContent({ service, onSwitchService, onClose }) {
         className: "clear-both",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "relative min-h-[70vh] flex items-end overflow-hidden bg-[#0a0a0a] text-white",
+                className: "relative min-h-[70vh] flex items-end overflow-hidden bg-[#060000] text-white",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-cover bg-center",
                         style: {
                             backgroundImage: `url(${service.problemImage})`,
-                            backgroundColor: "#0a0a0a"
+                            backgroundColor: "#060000"
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -3733,7 +3733,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-[#0a0a0a]/60"
+                        className: "absolute inset-0 bg-gradient-to-t from-[#060000] via-black/30 to-[#060000]/60"
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
                         lineNumber: 119,
@@ -3743,7 +3743,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                         className: "relative z-10 mx-auto max-w-[1200px] w-full px-6 md:px-10 py-16 md:py-24",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#46E2E2] mb-6",
+                                className: "font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#C71F42] mb-6",
                                 children: [
                                     service.no,
                                     " — ",
@@ -3782,7 +3782,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         columnNumber: 13
                                     }, this),
                                     service.bestFor.map((b)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "text-xs md:text-sm px-3 py-1 rounded-full border border-[#46E2E2]/40 text-white/80",
+                                            className: "text-xs md:text-sm px-3 py-1 rounded-full border border-[#C71F42]/40 text-white/80",
                                             children: b
                                         }, b, false, {
                                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -3801,7 +3801,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#contact",
                                         onClick: onClose,
-                                        className: "group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300",
+                                        className: "group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "text-sm font-medium tracking-wide uppercase",
@@ -3812,7 +3812,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300",
+                                                className: "h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                                     size: 18,
                                                     strokeWidth: 2
@@ -3834,7 +3834,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#work-modal",
-                                        className: "group inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase text-white/80 hover:text-[#46E2E2] border-b border-[#46E2E2]/40 hover:border-[#46E2E2] pb-1 transition-all",
+                                        className: "group inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase text-white/80 hover:text-[#C71F42] border-b border-[#C71F42]/40 hover:border-[#C71F42] pb-1 transition-all",
                                         children: [
                                             "See examples",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -3866,7 +3866,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#contact",
                                         onClick: onClose,
-                                        className: "underline underline-offset-4 hover:text-[#46E2E2]",
+                                        className: "underline underline-offset-4 hover:text-[#C71F42]",
                                         children: "talk to us"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -3892,7 +3892,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-6 md:px-10",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3901,7 +3901,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                                         children: "The problem"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -3922,7 +3922,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                                 className: "flex items-start gap-3",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#46E2E2]"
+                                                        className: "mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C71F42]"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                                         lineNumber: 194,
@@ -3954,7 +3954,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative aspect-[4/3] overflow-hidden bg-[#161616]",
+                                className: "relative aspect-[4/3] overflow-hidden bg-[#2a0a10]",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                         src: service.problemImage,
@@ -3967,7 +3967,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "absolute inset-0 ring-1 ring-inset ring-[#2a2a2a]"
+                                        className: "absolute inset-0 ring-1 ring-inset ring-[#3a1518]"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                         lineNumber: 207,
@@ -3996,12 +3996,12 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: service.includedTitle
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4022,7 +4022,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                     className: "group cursor-pointer",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative aspect-[4/3] overflow-hidden bg-[#161616] mb-5",
+                                            className: "relative aspect-[4/3] overflow-hidden bg-[#2a0a10] mb-5",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                     src: s.image,
@@ -4042,7 +4042,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "absolute top-4 left-4 font-mono text-xs tracking-[0.2em] text-[#46E2E2]",
+                                                    className: "absolute top-4 left-4 font-mono text-xs tracking-[0.2em] text-[#C71F42]",
                                                     children: [
                                                         "0",
                                                         i + 1
@@ -4077,7 +4077,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                             href: "#contact",
                                             onClick: onClose,
-                                            className: "mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-[#46E2E2] transition-colors",
+                                            className: "mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-[#C71F42] transition-colors",
                                             children: [
                                                 "Learn more",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -4117,7 +4117,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-6 md:px-10",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4126,7 +4126,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                                         children: service.processTitle
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4144,10 +4144,10 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "space-y-6",
                                         children: service.processSteps.map((p, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: `flex gap-5 p-5 md:p-6 border border-[#2a2a2a] rounded-lg bg-[#0a0a0a] hover:border-[#46E2E2] transition-colors ${i === 0 ? "md:ml-0" : i === 1 ? "md:ml-12" : i === 2 ? "md:ml-24" : "md:ml-36"}`,
+                                                className: `flex gap-5 p-5 md:p-6 border border-[#3a1518] rounded-lg bg-[#060000] hover:border-[#C71F42] transition-colors ${i === 0 ? "md:ml-0" : i === 1 ? "md:ml-12" : i === 2 ? "md:ml-24" : "md:ml-36"}`,
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "font-display font-light text-4xl md:text-5xl leading-none tracking-tighter text-[#46E2E2]/50 shrink-0",
+                                                        className: "font-display font-light text-4xl md:text-5xl leading-none tracking-tighter text-[#C71F42]/50 shrink-0",
                                                         children: p.step
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4210,7 +4210,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#contact",
                                         onClick: onClose,
-                                        className: "mt-8 inline-flex items-center gap-3 bg-[#46E2E2] text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300",
+                                        className: "mt-8 inline-flex items-center gap-3 bg-[#C71F42] text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
                                                 size: 16
@@ -4233,7 +4233,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative aspect-[4/5] overflow-hidden bg-[#161616]",
+                                className: "relative aspect-[4/5] overflow-hidden bg-[#2a0a10]",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                         src: service.processImage,
@@ -4246,7 +4246,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "absolute inset-0 ring-1 ring-inset ring-[#2a2a2a]"
+                                        className: "absolute inset-0 ring-1 ring-inset ring-[#3a1518]"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                         lineNumber: 306,
@@ -4276,12 +4276,12 @@ function ServiceContent({ service, onSwitchService, onClose }) {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                 id: "work-modal",
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#060000] text-white py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Related work"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4306,7 +4306,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                     className: "group cursor-pointer",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative aspect-[4/5] overflow-hidden bg-[#161616] mb-4",
+                                            className: "relative aspect-[4/5] overflow-hidden bg-[#2a0a10] mb-4",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                     src: w.image,
@@ -4319,7 +4319,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "absolute inset-0 ring-1 ring-inset ring-[#2a2a2a]"
+                                                    className: "absolute inset-0 ring-1 ring-inset ring-[#3a1518]"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                                     lineNumber: 331,
@@ -4350,7 +4350,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                             href: "#contact",
                                             onClick: onClose,
-                                            className: "mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-[#46E2E2] border-b border-[#46E2E2]/40 hover:border-[#46E2E2] pb-0.5 transition-all",
+                                            className: "mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 hover:text-[#C71F42] border-b border-[#C71F42]/40 hover:border-[#C71F42] pb-0.5 transition-all",
                                             children: [
                                                 "View project",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -4387,7 +4387,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "#work",
                                     onClick: onClose,
-                                    className: "underline underline-offset-4 hover:text-[#46E2E2]",
+                                    className: "underline underline-offset-4 hover:text-[#C71F42]",
                                     children: "view full archive"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4412,14 +4412,14 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] text-white py-16 md:py-24",
+                className: "bg-[#1a0a0e] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-6 md:px-10",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative aspect-[4/3] overflow-hidden bg-[#161616]",
+                                className: "relative aspect-[4/3] overflow-hidden bg-[#2a0a10]",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: service.caseStudyImage,
                                     alt: "Case study",
@@ -4438,7 +4438,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                                         children: "Case study"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4446,7 +4446,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "mt-4 font-display font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight leading-none text-[#46E2E2]",
+                                        className: "mt-4 font-display font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight leading-none text-[#C71F42]",
                                         children: service.caseStudyMetric
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4476,7 +4476,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                         href: "#contact",
                                         onClick: onClose,
-                                        className: "mt-8 inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300",
+                                        className: "mt-8 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300",
                                         children: [
                                             "Read the full case study",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -4515,12 +4515,12 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#0a0a0a] py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#060000] py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1000px] px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: service.faqTitle
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4536,11 +4536,11 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "border-t border-[#2a2a2a]",
+                            className: "border-t border-[#3a1518]",
                             children: service.faqs.map((f, i)=>{
                                 const isOpen = openFaq === i;
                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "border-b border-[#2a2a2a]",
+                                    className: "border-b border-[#3a1518]",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: ()=>setOpenFaq(isOpen ? null : i),
@@ -4567,7 +4567,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: `shrink-0 h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#46E2E2]/40 flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-[#46E2E2] text-black rotate-45" : ""}`,
+                                                    className: `shrink-0 h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-[#C71F42] text-black rotate-45" : ""}`,
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
                                                         size: 14,
                                                         strokeWidth: 2
@@ -4650,7 +4650,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "#contact",
                                     onClick: onClose,
-                                    className: "underline underline-offset-4 hover:text-[#46E2E2] font-medium",
+                                    className: "underline underline-offset-4 hover:text-[#C71F42] font-medium",
                                     children: "Ask us directly"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4675,12 +4675,12 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] text-white py-16 md:py-24",
+                className: "bg-[#1a0a0e] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Related services"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4699,10 +4699,10 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                             className: "grid grid-cols-1 md:grid-cols-3 gap-6",
                             children: otherServices.map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>onSwitchService(s.slug),
-                                    className: "group text-left p-6 md:p-8 border border-[#2a2a2a] hover:border-[#46E2E2] hover:bg-[#46E2E2]/5 transition-all duration-300 rounded-lg",
+                                    className: "group text-left p-6 md:p-8 border border-[#3a1518] hover:border-[#C71F42] hover:bg-[#C71F42]/5 transition-all duration-300 rounded-lg",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "font-mono text-[10px] tracking-[0.2em] uppercase text-[#46E2E2]",
+                                            className: "font-mono text-[10px] tracking-[0.2em] uppercase text-[#C71F42]",
                                             children: s.no
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4730,7 +4730,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                             size: 20,
-                                            className: "mt-4 transition-transform group-hover:translate-x-2 text-[#46E2E2]"
+                                            className: "mt-4 transition-transform group-hover:translate-x-2 text-[#C71F42]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                             lineNumber: 483,
@@ -4760,7 +4760,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                 id: "contact-page",
-                className: "bg-[#0a0a0a] py-16 md:py-24 border-t border-[#2a2a2a]",
+                className: "bg-[#060000] py-16 md:py-24 border-t border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[800px] px-6 md:px-10 text-center",
                     children: [
@@ -4785,7 +4785,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "mailto:hello@katelladigital.com",
-                                    className: "group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300",
+                                    className: "group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-sm font-medium tracking-wide uppercase",
@@ -4796,7 +4796,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors",
+                                            className: "h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
                                                 size: 16
                                             }, void 0, false, {
@@ -4817,7 +4817,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "mailto:hello@katelladigital.com",
-                                    className: "group inline-flex items-center gap-3 border border-[#46E2E2]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#46E2E2] hover:text-black transition-colors duration-300",
+                                    className: "group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-black transition-colors duration-300",
                                     children: [
                                         "Send your brief",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
@@ -4851,7 +4851,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-                className: "bg-[#0a0a0a] text-white border-t border-[#2a2a2a]",
+                className: "bg-[#060000] text-white border-t border-[#3a1518]",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10",
@@ -4870,7 +4870,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                             className: "flex items-center gap-2 group mb-5",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "h-2.5 w-2.5 bg-[#46E2E2] rounded-full transition-transform group-hover:scale-150"
+                                                    className: "h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                                     lineNumber: 536,
@@ -4930,11 +4930,11 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                             children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$services$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["serviceDetails"].map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                         onClick: ()=>onSwitchService(s.slug),
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] relative inline-block group text-left",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group text-left",
                                                         children: [
                                                             s.name,
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#46E2E2] transition-all duration-300 group-hover:w-full"
+                                                                className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                                                 lineNumber: 561,
@@ -4979,7 +4979,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                         href: "mailto:hello@katelladigital.com",
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                         children: "hello@katelladigital.com"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -4994,7 +4994,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                         href: "#",
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                         children: "Instagram"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -5009,7 +5009,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                         href: "#",
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                         children: "LinkedIn"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -5046,7 +5046,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-sm md:text-base text-white/80",
-                                            children: "Berlin, Germany"
+                                            children: "Anaheim, CA"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                             lineNumber: 596,
@@ -5054,7 +5054,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-sm md:text-base text-white/80 mt-2",
-                                            children: "Mon — Fri, 9–18 CET"
+                                            children: "Mon — Fri, 9–5 PST"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                             lineNumber: 597,
@@ -5080,7 +5080,7 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "px-5 sm:px-6 md:px-10 pb-6 sm:pb-8",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#46E2E2] select-none",
+                            className: "font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#C71F42] select-none",
                             children: "KATELLA DIGITAL"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/service-detail-modal.tsx",
@@ -5093,12 +5093,12 @@ function ServiceContent({ service, onSwitchService, onClose }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "border-t border-[#2a2a2a]",
+                        className: "border-t border-[#3a1518]",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    children: "© 2026 Katella Digital — Berlin"
+                                    children: "© 2026 Katella Digital — Anaheim, CA"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/service-detail-modal.tsx",
                                     lineNumber: 612,
@@ -5526,7 +5526,7 @@ function PortfolioDetailModal({ slug, onClose, onSwitchProject, onOpenService, o
             transition: {
                 duration: 0.3
             },
-            className: "fixed inset-0 z-[100] bg-[#0a0a0a]",
+            className: "fixed inset-0 z-[100] bg-[#060000]",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$site$2f$navbar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     variant: "service",
@@ -5609,13 +5609,13 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "relative min-h-[80vh] flex items-end overflow-hidden bg-[#0a0a0a] text-white",
+                className: "relative min-h-[80vh] flex items-end overflow-hidden bg-[#060000] text-white",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-cover bg-center",
                         style: {
                             backgroundImage: `url(${project.heroImage})`,
-                            backgroundColor: "#0a0a0a"
+                            backgroundColor: "#060000"
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -5623,7 +5623,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-[#0a0a0a]/60"
+                        className: "absolute inset-0 bg-gradient-to-t from-[#060000] via-black/30 to-[#060000]/60"
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
                         lineNumber: 122,
@@ -5633,7 +5633,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                         className: "relative z-10 mx-auto max-w-[1200px] w-full px-5 sm:px-6 md:px-10 py-16 md:py-24 pt-28 md:pt-36",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#46E2E2] mb-6",
+                                className: "font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#C71F42] mb-6",
                                 children: [
                                     project.no,
                                     " — Portfolio"
@@ -5663,7 +5663,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                 className: "mt-8 sticky bottom-4 z-20 md:relative md:bottom-auto md:z-auto",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "#contact-portfolio",
-                                    className: "group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300 shadow-lg md:shadow-none",
+                                    className: "group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 shadow-lg md:shadow-none",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-sm font-medium tracking-wide uppercase",
@@ -5674,7 +5674,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300",
+                                            className: "h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                                 size: 18,
                                                 strokeWidth: 2
@@ -5712,7 +5712,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-12 md:py-16 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-12 md:py-16 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
@@ -5722,7 +5722,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2",
+                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2",
                                             children: "Client"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -5746,7 +5746,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2",
+                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2",
                                             children: "Industry"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -5770,7 +5770,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2",
+                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2",
                                             children: "Year"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -5794,7 +5794,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2",
+                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2",
                                             children: "Services"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -5805,7 +5805,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                             className: "flex flex-col gap-1",
                                             children: project.services.map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>onOpenService(project.serviceSlug),
-                                                    className: "text-left text-sm md:text-base text-white/70 hover:text-[#46E2E2] underline underline-offset-2 decoration-[#46E2E2]/30 hover:decoration-[#46E2E2] transition-colors",
+                                                    className: "text-left text-sm md:text-base text-white/70 hover:text-[#C71F42] underline underline-offset-2 decoration-[#C71F42]/30 hover:decoration-[#C71F42] transition-colors",
                                                     children: s
                                                 }, s, false, {
                                                     fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -5835,7 +5835,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                 " ",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>onOpenService(project.serviceSlug),
-                                    className: "underline underline-offset-4 hover:text-[#46E2E2] font-medium",
+                                    className: "underline underline-offset-4 hover:text-[#C71F42] font-medium",
                                     children: [
                                         "Explore ",
                                         project.services[0],
@@ -5864,12 +5864,12 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[800px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Overview"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -5904,12 +5904,12 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-16 md:py-24",
+                className: "bg-[#1a0a0e] py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Visual gallery"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -5929,7 +5929,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                             children: project.gallery.slice(0, 3).map((img, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("figure", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative aspect-[16/9] overflow-hidden bg-[#161616] ring-1 ring-inset ring-[#2a2a2a]",
+                                            className: "relative aspect-[16/9] overflow-hidden bg-[#2a0a10] ring-1 ring-inset ring-[#3a1518]",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                 src: img.src,
                                                 alt: img.alt,
@@ -5967,7 +5967,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "my-10 md:my-12 bg-[#46E2E2] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4",
+                            className: "my-10 md:my-12 bg-[#C71F42] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "font-display font-bold text-xl md:text-2xl tracking-tight",
@@ -5979,7 +5979,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "#contact-portfolio",
-                                    className: "group inline-flex items-center gap-3 bg-black text-[#46E2E2] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300",
+                                    className: "group inline-flex items-center gap-3 bg-black text-[#C71F42] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-xs sm:text-sm font-medium tracking-wide uppercase",
@@ -5990,7 +5990,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#46E2E2] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#46E2E2] transition-colors",
+                                            className: "h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#C71F42] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#C71F42] transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                                 size: 14
                                             }, void 0, false, {
@@ -6027,12 +6027,12 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Credits"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -6050,10 +6050,10 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8",
                             children: project.credits.map((c, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "border-t border-[#2a2a2a] pt-4",
+                                    className: "border-t border-[#3a1518] pt-4",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.2em] uppercase text-[#46E2E2] mb-1",
+                                            className: "font-mono text-[10px] tracking-[0.2em] uppercase text-[#C71F42] mb-1",
                                             children: c.role
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -6081,7 +6081,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>onOpenCaseStudy(project.slug),
-                            className: "mt-10 inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300",
+                            className: "mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300",
                             children: [
                                 "Read the full case study",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -6109,12 +6109,12 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: project.relatedTitle
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -6136,7 +6136,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                     className: "group text-left",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative aspect-[4/5] overflow-hidden bg-[#161616] mb-4 ring-1 ring-inset ring-[#2a2a2a] group-hover:ring-[#46E2E2] transition-colors",
+                                            className: "relative aspect-[4/5] overflow-hidden bg-[#2a0a10] mb-4 ring-1 ring-inset ring-[#3a1518] group-hover:ring-[#C71F42] transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                 src: p.heroImage,
                                                 alt: p.title,
@@ -6173,7 +6173,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-[#46E2E2] border-b border-[#46E2E2]/40 group-hover:border-[#46E2E2] pb-0.5 transition-all",
+                                            className: "mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-[#C71F42] border-b border-[#C71F42]/40 group-hover:border-[#C71F42] pb-0.5 transition-all",
                                             children: [
                                                 "View project",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -6201,14 +6201,14 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-12 flex items-center justify-between gap-4 border-t border-[#2a2a2a] pt-8",
+                            className: "mt-12 flex items-center justify-between gap-4 border-t border-[#3a1518] pt-8",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>onSwitchProject(prevProject.slug),
                                     className: "group flex items-center gap-3 text-left",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-10 w-10 rounded-full border border-[#46E2E2]/40 flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors",
+                                            className: "h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeft$3e$__["ArrowLeft"], {
                                                 size: 16
                                             }, void 0, false, {
@@ -6280,7 +6280,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-10 w-10 rounded-full border border-[#46E2E2]/40 flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors",
+                                            className: "h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                 size: 16
                                             }, void 0, false, {
@@ -6309,7 +6309,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                             className: "mt-8 text-sm text-white/50",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: onClose,
-                                className: "underline underline-offset-4 hover:text-[#46E2E2] font-medium",
+                                className: "underline underline-offset-4 hover:text-[#C71F42] font-medium",
                                 children: "View all work"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -6334,7 +6334,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                 id: "contact-portfolio",
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[800px] px-5 sm:px-6 md:px-10 text-center",
                     children: [
@@ -6358,7 +6358,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                             className: "mt-8 flex flex-col sm:flex-row items-center justify-center gap-4",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 href: "mailto:hello@katelladigital.com",
-                                className: "group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300",
+                                className: "group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "text-sm font-medium tracking-wide uppercase",
@@ -6369,7 +6369,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors",
+                                        className: "h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                             size: 16
                                         }, void 0, false, {
@@ -6405,7 +6405,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-                className: "bg-[#0a0a0a] text-white border-t border-[#2a2a2a]",
+                className: "bg-[#060000] text-white border-t border-[#3a1518]",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10",
@@ -6424,7 +6424,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                             className: "flex items-center gap-2 group mb-5",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "h-2.5 w-2.5 bg-[#46E2E2] rounded-full transition-transform group-hover:scale-150"
+                                                    className: "h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
                                                     lineNumber: 399,
@@ -6484,11 +6484,11 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                             children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$portfolio$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["portfolioDetails"].map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                         onClick: ()=>onSwitchProject(p.slug),
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] relative inline-block group text-left",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group text-left",
                                                         children: [
                                                             p.title,
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#46E2E2] transition-all duration-300 group-hover:w-full"
+                                                                className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
                                                                 lineNumber: 423,
@@ -6533,7 +6533,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                         href: "mailto:hello@katelladigital.com",
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                         children: "hello@katelladigital.com"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -6548,7 +6548,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                         href: "#",
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                         children: "Instagram"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -6563,7 +6563,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                         href: "#",
-                                                        className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                        className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                         children: "LinkedIn"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -6600,7 +6600,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-sm md:text-base text-white/80",
-                                            children: "Berlin, Germany"
+                                            children: "Anaheim, CA"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
                                             lineNumber: 449,
@@ -6608,7 +6608,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-sm md:text-base text-white/80 mt-2",
-                                            children: "Mon — Fri, 9–18 CET"
+                                            children: "Mon — Fri, 9–5 PST"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
                                             lineNumber: 450,
@@ -6634,7 +6634,7 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "px-5 sm:px-6 md:px-10 pb-6 sm:pb-8",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#46E2E2] select-none",
+                            className: "font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#C71F42] select-none",
                             children: "KATELLA DIGITAL"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
@@ -6647,12 +6647,12 @@ function PortfolioContent({ project, onSwitchProject, onOpenService, onOpenCaseS
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "border-t border-[#2a2a2a]",
+                        className: "border-t border-[#3a1518]",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    children: "© 2026 Katella Digital — Berlin"
+                                    children: "© 2026 Katella Digital — Anaheim, CA"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/portfolio-detail-modal.tsx",
                                     lineNumber: 463,
@@ -7182,7 +7182,7 @@ function CaseStudyModal({ slug, onClose, onSwitchCaseStudy, onOpenService, onOpe
             transition: {
                 duration: 0.3
             },
-            className: "fixed inset-0 z-[100] bg-[#0a0a0a]",
+            className: "fixed inset-0 z-[100] bg-[#060000]",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$site$2f$navbar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     variant: "service",
@@ -7264,17 +7264,17 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "relative min-h-[80vh] flex items-end overflow-hidden bg-[#0a0a0a] text-white",
+                className: "relative min-h-[80vh] flex items-end overflow-hidden bg-[#060000] text-white",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-gradient-to-br from-neutral-900 to-[#0a0a0a]"
+                        className: "absolute inset-0 bg-gradient-to-br from-neutral-900 to-[#060000]"
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
                         lineNumber: 108,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-transparent"
+                        className: "absolute inset-0 bg-gradient-to-t from-[#060000] via-black/30 to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
                         lineNumber: 109,
@@ -7287,7 +7287,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 className: "mb-6 flex items-center gap-4",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "h-14 w-14 rounded-full bg-[#161616] border border-[#2a2a2a] overflow-hidden flex items-center justify-center",
+                                        className: "h-14 w-14 rounded-full bg-[#2a0a10] border border-[#3a1518] overflow-hidden flex items-center justify-center",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                             src: caseStudy.clientLogo,
                                             alt: `${caseStudy.clientName} logo`,
@@ -7303,7 +7303,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#46E2E2]",
+                                        className: "font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#C71F42]",
                                         children: caseStudy.clientName
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7329,7 +7329,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 children: caseStudy.metrics.map((m, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "font-display font-bold text-2xl md:text-4xl tracking-tight text-[#46E2E2]",
+                                                className: "font-display font-bold text-2xl md:text-4xl tracking-tight text-[#C71F42]",
                                                 children: m.value
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7359,7 +7359,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 className: "mt-8 sticky bottom-4 z-20 md:relative md:bottom-auto md:z-auto",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "#contact-casestudy",
-                                    className: "group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300 shadow-lg md:shadow-none",
+                                    className: "group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 shadow-lg md:shadow-none",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-sm font-medium tracking-wide uppercase",
@@ -7370,7 +7370,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300",
+                                            className: "h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                                 size: 18,
                                                 strokeWidth: 2
@@ -7408,7 +7408,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-10 md:py-14 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-10 md:py-14 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
@@ -7418,7 +7418,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2",
+                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2",
                                             children: "Client"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7442,7 +7442,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2",
+                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2",
                                             children: "Industry"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7466,7 +7466,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2",
+                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2",
                                             children: "Services"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7477,7 +7477,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                             className: "flex flex-col gap-1",
                                             children: caseStudy.snapshot.services.map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>onOpenService(caseStudy.serviceSlug),
-                                                    className: "text-left text-sm text-white/70 hover:text-[#46E2E2] underline underline-offset-2 decoration-[#46E2E2]/30 hover:decoration-[#46E2E2] transition-colors",
+                                                    className: "text-left text-sm text-white/70 hover:text-[#C71F42] underline underline-offset-2 decoration-[#C71F42]/30 hover:decoration-[#C71F42] transition-colors",
                                                     children: s
                                                 }, s, false, {
                                                     fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7498,7 +7498,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2",
+                                            className: "font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2",
                                             children: "Timeline"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7531,7 +7531,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 " ",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>onOpenService(caseStudy.serviceSlug),
-                                    className: "underline underline-offset-4 hover:text-[#46E2E2] font-medium",
+                                    className: "underline underline-offset-4 hover:text-[#C71F42] font-medium",
                                     children: [
                                         "Explore ",
                                         caseStudy.snapshot.services[0],
@@ -7560,7 +7560,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7569,7 +7569,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                                         children: "Challenge"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7599,7 +7599,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative aspect-[4/3] overflow-hidden bg-[#161616]",
+                                className: "relative aspect-[4/3] overflow-hidden bg-[#2a0a10]",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: caseStudy.challengeImage,
                                     alt: caseStudy.challengeTitle,
@@ -7632,14 +7632,14 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative aspect-[4/3] overflow-hidden bg-[#161616] order-2 lg:order-1",
+                                className: "relative aspect-[4/3] overflow-hidden bg-[#2a0a10] order-2 lg:order-1",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: caseStudy.approachImage,
                                     alt: caseStudy.approachTitle,
@@ -7659,7 +7659,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 className: "order-1 lg:order-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                                        className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                                         children: "Approach"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7705,12 +7705,12 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: caseStudy.shippedTitle
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7738,7 +7738,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             children: caseStudy.shipItems.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative aspect-[4/5] overflow-hidden bg-[#161616] mb-4 ring-1 ring-inset ring-[#2a2a2a]",
+                                            className: "relative aspect-[4/5] overflow-hidden bg-[#2a0a10] mb-4 ring-1 ring-inset ring-[#3a1518]",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                 src: item.image,
                                                 alt: item.title,
@@ -7785,7 +7785,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             href: caseStudy.liveProjectUrl,
                             target: "_blank",
                             rel: "noopener noreferrer",
-                            className: "mt-10 inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300",
+                            className: "mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300",
                             children: [
                                 "See the live project",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
@@ -7813,12 +7813,12 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: caseStudy.resultsTitle
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7836,10 +7836,10 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-10",
                             children: caseStudy.resultsMetrics.map((m, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "border-t border-[#2a2a2a] pt-4",
+                                    className: "border-t border-[#3a1518] pt-4",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "font-display font-bold text-xl md:text-3xl tracking-tight text-[#46E2E2]",
+                                            className: "font-display font-bold text-xl md:text-3xl tracking-tight text-[#C71F42]",
                                             children: m.value
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7866,7 +7866,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative aspect-[16/9] overflow-hidden bg-[#161616] ring-1 ring-inset ring-[#2a2a2a]",
+                            className: "relative aspect-[16/9] overflow-hidden bg-[#2a0a10] ring-1 ring-inset ring-[#3a1518]",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                 src: caseStudy.resultsImage,
                                 alt: caseStudy.resultsTitle,
@@ -7883,7 +7883,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-10 bg-[#46E2E2] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4",
+                            className: "mt-10 bg-[#C71F42] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "font-display font-bold text-xl md:text-2xl tracking-tight",
@@ -7895,7 +7895,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "#contact-casestudy",
-                                    className: "group inline-flex items-center gap-3 bg-black text-[#46E2E2] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300",
+                                    className: "group inline-flex items-center gap-3 bg-black text-[#C71F42] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-xs sm:text-sm font-medium tracking-wide uppercase",
@@ -7906,7 +7906,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#46E2E2] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#46E2E2] transition-colors",
+                                            className: "h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#C71F42] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#C71F42] transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                                 size: 14
                                             }, void 0, false, {
@@ -7943,12 +7943,12 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[900px] px-5 sm:px-6 md:px-10 text-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Testimonial"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7956,7 +7956,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-6 font-display font-bold text-6xl md:text-7xl leading-none text-[#46E2E2] select-none",
+                            className: "mt-6 font-display font-bold text-6xl md:text-7xl leading-none text-[#C71F42] select-none",
                             children: "“"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7983,7 +7983,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "mt-1 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-[#46E2E2]",
+                                    className: "mt-1 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-[#C71F42]",
                                     children: caseStudy.testimonial.role
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -7998,7 +7998,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                             href: "#contact-casestudy",
-                            className: "mt-10 inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300",
+                            className: "mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300",
                             children: [
                                 "Work with us",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -8026,12 +8026,12 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[800px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Learnings"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -8066,12 +8066,12 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: "Services used"
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -8090,10 +8090,10 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             className: "grid grid-cols-1 md:grid-cols-2 gap-6",
                             children: caseStudy.servicesUsed.map((s, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>onOpenService(caseStudy.serviceSlug),
-                                    className: "group text-left p-6 md:p-8 border border-[#2a2a2a] hover:border-[#46E2E2] hover:bg-[#46E2E2]/5 transition-all duration-300 rounded-lg",
+                                    className: "group text-left p-6 md:p-8 border border-[#3a1518] hover:border-[#C71F42] hover:bg-[#C71F42]/5 transition-all duration-300 rounded-lg",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "font-mono text-[10px] tracking-[0.2em] uppercase text-[#46E2E2]",
+                                            className: "font-mono text-[10px] tracking-[0.2em] uppercase text-[#C71F42]",
                                             children: [
                                                 "0",
                                                 i + 1
@@ -8124,7 +8124,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                             size: 20,
-                                            className: "mt-4 transition-transform group-hover:translate-x-2 text-[#46E2E2]"
+                                            className: "mt-4 transition-transform group-hover:translate-x-2 text-[#C71F42]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
                                             lineNumber: 429,
@@ -8153,12 +8153,12 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]",
+                className: "bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]",
+                            className: "font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]",
                             children: caseStudy.relatedTitle
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -8180,7 +8180,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                     className: "group text-left",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative aspect-[4/5] overflow-hidden bg-[#161616] mb-4 ring-1 ring-inset ring-[#2a2a2a] group-hover:ring-[#46E2E2] transition-colors",
+                                            className: "relative aspect-[4/5] overflow-hidden bg-[#2a0a10] mb-4 ring-1 ring-inset ring-[#3a1518] group-hover:ring-[#C71F42] transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                 src: c.clientLogo,
                                                 alt: c.title,
@@ -8213,7 +8213,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-[#46E2E2] border-b border-[#46E2E2]/40 group-hover:border-[#46E2E2] pb-0.5 transition-all",
+                                            className: "mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-[#C71F42] border-b border-[#C71F42]/40 group-hover:border-[#C71F42] pb-0.5 transition-all",
                                             children: [
                                                 "Read next case study",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -8241,14 +8241,14 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-12 flex items-center justify-between gap-4 border-t border-[#2a2a2a] pt-8",
+                            className: "mt-12 flex items-center justify-between gap-4 border-t border-[#3a1518] pt-8",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>onSwitchCaseStudy(prevCS.slug),
                                     className: "group flex items-center gap-3 text-left",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-10 w-10 rounded-full border border-[#46E2E2]/40 flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors",
+                                            className: "h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeft$3e$__["ArrowLeft"], {
                                                 size: 16
                                             }, void 0, false, {
@@ -8320,7 +8320,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-10 w-10 rounded-full border border-[#46E2E2]/40 flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors",
+                                            className: "h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                 size: 16
                                             }, void 0, false, {
@@ -8358,7 +8358,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                 id: "contact-casestudy",
-                className: "bg-[#0a0a0a] text-white py-16 md:py-24",
+                className: "bg-[#060000] text-white py-16 md:py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto max-w-[800px] px-5 sm:px-6 md:px-10 text-center",
                     children: [
@@ -8383,7 +8383,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "mailto:hello@katelladigital.com",
-                                    className: "group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300",
+                                    className: "group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-sm font-medium tracking-wide uppercase",
@@ -8394,7 +8394,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors",
+                                            className: "h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpRight$3e$__["ArrowUpRight"], {
                                                 size: 16
                                             }, void 0, false, {
@@ -8415,7 +8415,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: onClose,
-                                    className: "group inline-flex items-center gap-3 border border-[#46E2E2]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#46E2E2] hover:text-black transition-colors duration-300",
+                                    className: "group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-black transition-colors duration-300",
                                     children: "View all case studies"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -8440,7 +8440,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-                className: "bg-[#0a0a0a] text-white border-t border-[#2a2a2a]",
+                className: "bg-[#060000] text-white border-t border-[#3a1518]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "overflow-hidden",
                     children: [
@@ -8461,7 +8461,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                                 className: "flex items-center gap-2 group mb-5",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "h-2.5 w-2.5 bg-[#46E2E2] rounded-full transition-transform group-hover:scale-150"
+                                                        className: "h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
                                                         lineNumber: 550,
@@ -8521,11 +8521,11 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                                 children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$caseStudies$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["caseStudyDetails"].map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                             onClick: ()=>onSwitchCaseStudy(c.slug),
-                                                            className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] relative inline-block group text-left",
+                                                            className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group text-left",
                                                             children: [
                                                                 c.clientName,
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                    className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#46E2E2] transition-all duration-300 group-hover:w-full"
+                                                                    className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
                                                                     lineNumber: 575,
@@ -8570,7 +8570,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                             href: "mailto:hello@katelladigital.com",
-                                                            className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                            className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                             children: "hello@katelladigital.com"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -8585,7 +8585,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                             href: "#",
-                                                            className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                            className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                             children: "Instagram"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -8600,7 +8600,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                             href: "#",
-                                                            className: "text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors",
+                                                            className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors",
                                                             children: "LinkedIn"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -8637,7 +8637,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-sm md:text-base text-white/80",
-                                                children: "Berlin, Germany"
+                                                children: "Anaheim, CA"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
                                                 lineNumber: 601,
@@ -8645,7 +8645,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-sm md:text-base text-white/80 mt-2",
-                                                children: "Mon — Fri, 9–18 CET"
+                                                children: "Mon — Fri, 9–5 PST"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
                                                 lineNumber: 602,
@@ -8671,7 +8671,7 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "px-5 sm:px-6 md:px-10 pb-6 sm:pb-8",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[10vw] lg:text-[9vw] text-[#46E2E2] select-none text-center",
+                                className: "font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[10vw] lg:text-[9vw] text-[#C71F42] select-none text-center",
                                 children: "KATELLA DIGITAL"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
@@ -8684,12 +8684,12 @@ function CaseStudyContent({ caseStudy, onSwitchCaseStudy, onOpenService, onClose
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "border-t border-[#2a2a2a]",
+                            className: "border-t border-[#3a1518]",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: "© 2026 Katella Digital — Berlin"
+                                        children: "© 2026 Katella Digital — Anaheim, CA"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/casestudy-detail-modal.tsx",
                                         lineNumber: 617,
@@ -8775,7 +8775,10 @@ function Home() {
     const [activePortfolio, setActivePortfolio] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [activeCaseStudy, setActiveCaseStudy] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen flex flex-col bg-[#0a0a0a] text-white relative",
+        className: "min-h-screen flex flex-col text-white relative",
+        style: {
+            background: "linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%)"
+        },
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$site$2f$particle$2d$rain$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",

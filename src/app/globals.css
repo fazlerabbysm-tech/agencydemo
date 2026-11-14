@@ -45,61 +45,69 @@
 }
 
 :root {
-  /* Katella Digital — primary teal #46E2E2 on dark/light */
+  /* Katella Digital — dark red gradient theme */
   --radius: 0.25rem;
-  --katella: #46E2E2;
-  --background: #0a0a0a;
+  /* Main gradient: #060000 → #2F000A → #9A0E28 → #C71F42 */
+  --kd-bg-start: #060000;
+  --kd-bg-mid1: #2F000A;
+  --kd-bg-mid2: #9A0E28;
+  --kd-bg-end: #C71F42;
+  --kd-gradient: linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%);
+  --kd-accent: #C71F42;
+  --kd-accent-light: #FF4477;
+  --kd-accent-dark: #9A0E28;
+  --background: #060000;
   --foreground: #ffffff;
-  --card: #111111;
+  --card: #1a0a0e;
   --card-foreground: #ffffff;
-  --popover: #0a0a0a;
+  --popover: #1a0a0e;
   --popover-foreground: #ffffff;
-  --primary: #46E2E2;
-  --primary-foreground: #0a0a0a;
-  --secondary: #1a1a1a;
+  --primary: #C71F42;
+  --primary-foreground: #ffffff;
+  --secondary: #2F000A;
   --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
-  --muted-foreground: #888888;
-  --accent: #46E2E2;
-  --accent-foreground: #0a0a0a;
+  --muted: #2F000A;
+  --muted-foreground: #a07075;
+  --accent: #C71F42;
+  --accent-foreground: #ffffff;
   --destructive: #ff4444;
-  --border: #2a2a2a;
-  --input: #2a2a2a;
-  --ring: #46E2E2;
-  --chart-1: #46E2E2;
-  --chart-2: #2a9d9d;
-  --chart-3: #1a5e5e;
-  --chart-4: #4a4a4a;
-  --chart-5: #888888;
-  --sidebar: #0a0a0a;
+  --border: #3a1518;
+  --input: #3a1518;
+  --ring: #C71F42;
+  --chart-1: #C71F42;
+  --chart-2: #9A0E28;
+  --chart-3: #FF4477;
+  --chart-4: #2F000A;
+  --chart-5: #5a0a18;
+  --sidebar: #060000;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #46E2E2;
-  --sidebar-primary-foreground: #0a0a0a;
-  --sidebar-accent: #1a1a1a;
+  --sidebar-primary: #C71F42;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2F000A;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #2a2a2a;
-  --sidebar-ring: #46E2E2;
+  --sidebar-border: #3a1518;
+  --sidebar-ring: #C71F42;
 }
 
 .dark {
-  --background: #0a0a0a;
+  --background: #060000;
   --foreground: #ffffff;
-  --card: #111111;
+  --card: #1a0a0e;
   --card-foreground: #ffffff;
-  --popover: #0a0a0a;
+  --popover: #1a0a0e;
   --popover-foreground: #ffffff;
-  --primary: #46E2E2;
-  --primary-foreground: #0a0a0a;
-  --secondary: #1a1a1a;
+  --primary: #C71F42;
+  --primary-foreground: #ffffff;
+  --secondary: #2F000A;
   --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
-  --muted-foreground: #888888;
-  --accent: #46E2E2;
-  --accent-foreground: #0a0a0a;
+  --muted: #2F000A;
+  --muted-foreground: #a07075;
+  --accent: #C71F42;
+  --accent-foreground: #ffffff;
   --destructive: #ff4444;
-  --border: #2a2a2a;
-  --input: #2a2a2a;
-  --ring: #46E2E2;
+  --border: #3a1518;
+  --input: #3a1518;
+  --ring: #C71F42;
 }
 
 @layer base {
@@ -221,11 +229,11 @@ details > summary::-webkit-details-marker {
 
 /* Borders */
 .kd-border { border-color: #2a2a2a; }
-.kd-border-teal { border-color: #46E2E2; }
+.kd-border-teal { border-color: #C71F42; }
 
 /* Teal accent text */
-.kd-teal { color: #46E2E2; }
-.kd-teal-bg { background-color: #46E2E2; }
+.kd-teal { color: #C71F42; }
+.kd-teal-bg { background-color: #C71F42; }
 
 /* Glassy card — dark glassmorphism with teal hover glow */
 .kd-card {
@@ -244,12 +252,12 @@ details > summary::-webkit-details-marker {
   inset-x: 0;
   top: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(70,226,226,0.3), transparent);
+  background: linear-gradient(to right, transparent, rgba(199,31,66,0.3), transparent);
   z-index: 1;
 }
 .kd-card:hover {
-  border-color: rgba(70,226,226,0.5);
-  box-shadow: 0 0 40px rgba(70,226,226,0.12);
+  border-color: rgba(199,31,66,0.5);
+  box-shadow: 0 0 40px rgba(199,31,66,0.12);
   transform: translateY(-4px);
 }
 
@@ -258,7 +266,7 @@ details > summary::-webkit-details-marker {
   font-size: 11px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #46E2E2;
+  color: #C71F42;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -277,12 +285,12 @@ details > summary::-webkit-details-marker {
   color: #ffffff;
 }
 .kd-heading-accent {
-  color: #46E2E2;
+  color: #C71F42;
 }
 .kd-heading-light {
   font-weight: 300;
   font-style: italic;
-  color: #46E2E2;
+  color: #C71F42;
 }
 
 /* Primary CTA button — teal pill */
@@ -290,7 +298,7 @@ details > summary::-webkit-details-marker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #46E2E2;
+  background: #C71F42;
   color: #0a0a0a;
   padding: 10px 24px;
   border-radius: 999px;
@@ -298,13 +306,13 @@ details > summary::-webkit-details-marker {
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  border: 1px solid #46E2E2;
+  border: 1px solid #C71F42;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 .kd-btn-primary:hover {
   background: transparent;
-  color: #46E2E2;
+  color: #C71F42;
 }
 
 /* Secondary CTA button — dark outlined */
@@ -325,8 +333,8 @@ details > summary::-webkit-details-marker {
   cursor: pointer;
 }
 .kd-btn-secondary:hover {
-  border-color: #46E2E2;
-  color: #46E2E2;
+  border-color: #C71F42;
+  color: #C71F42;
 }
 
 /* Section spacing */
@@ -391,22 +399,22 @@ details > summary::-webkit-details-marker {
 .kd-particle {
   position: absolute;
   width: 2px;
-  background: #46E2E2;
+  background: #C71F42;
   border-radius: 999px;
   animation: kd-particle-fall linear infinite;
-  box-shadow: 0 0 6px rgba(70,226,226,0.6);
+  box-shadow: 0 0 6px rgba(199,31,66,0.6);
 }
 
 /* Glow effect */
 .kd-glow {
-  box-shadow: 0 0 40px rgba(70,226,226,0.12);
+  box-shadow: 0 0 40px rgba(199,31,66,0.12);
 }
 
 /* Radial teal glow */
 .kd-radial-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(70,226,226,0.08), transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(199,31,66,0.08), transparent 60%);
   pointer-events: none;
 }
 
@@ -414,4 +422,4 @@ details > summary::-webkit-details-marker {
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #46E2E2; }
+::-webkit-scrollbar-thumb:hover { background: #C71F42; }

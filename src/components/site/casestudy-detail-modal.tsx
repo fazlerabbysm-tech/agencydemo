@@ -52,7 +52,7 @@ export default function CaseStudyModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100] bg-[#0a0a0a]"
+          className="fixed inset-0 z-[100] bg-[#060000]"
         >
           <Navbar
             variant="service"
@@ -104,21 +104,21 @@ function CaseStudyContent({
   return (
     <div>
       {/* ============ HERO ============ */}
-      <section className="relative min-h-[80vh] flex items-end overflow-hidden bg-[#0a0a0a] text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 to-[#0a0a0a]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-transparent" />
+      <section className="relative min-h-[80vh] flex items-end overflow-hidden bg-[#060000] text-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 to-[#060000]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-black/30 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-[1200px] w-full px-5 sm:px-6 md:px-10 py-16 md:py-24 pt-28 md:pt-36">
           {/* Client logo */}
           <div className="mb-6 flex items-center gap-4">
-            <div className="h-14 w-14 rounded-full bg-[#161616] border border-[#2a2a2a] overflow-hidden flex items-center justify-center">
+            <div className="h-14 w-14 rounded-full bg-[#2a0a10] border border-[#3a1518] overflow-hidden flex items-center justify-center">
               <img
                 src={caseStudy.clientLogo}
                 alt={`${caseStudy.clientName} logo`}
                 className="h-full w-full object-cover"
               />
             </div>
-            <span className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#46E2E2]">
+            <span className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-[#C71F42]">
               {caseStudy.clientName}
             </span>
           </div>
@@ -132,7 +132,7 @@ function CaseStudyContent({
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
             {caseStudy.metrics.map((m, i) => (
               <div key={i}>
-                <div className="font-display font-bold text-2xl md:text-4xl tracking-tight text-[#46E2E2]">
+                <div className="font-display font-bold text-2xl md:text-4xl tracking-tight text-[#C71F42]">
                   {m.value}
                 </div>
                 <div className="mt-1 text-[10px] md:text-xs text-white/60 uppercase tracking-wide">
@@ -146,12 +146,12 @@ function CaseStudyContent({
           <div className="mt-8 sticky bottom-4 z-20 md:relative md:bottom-auto md:z-auto">
             <a
               href="#contact-casestudy"
-              className="group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300 shadow-lg md:shadow-none"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 shadow-lg md:shadow-none"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 {caseStudy.ctaSticky}
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors duration-300">
+              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors duration-300">
                 <ArrowUpRight size={18} strokeWidth={2} />
               </span>
             </a>
@@ -160,25 +160,25 @@ function CaseStudyContent({
       </section>
 
       {/* ============ SNAPSHOT SIDEBAR ============ */}
-      <section className="bg-[#111111] py-10 md:py-14 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-10 md:py-14 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
             <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2">Client</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2">Client</p>
               <p className="font-display font-bold text-base md:text-lg text-white">{caseStudy.snapshot.client}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2">Industry</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2">Industry</p>
               <p className="font-display font-bold text-base md:text-lg text-white">{caseStudy.snapshot.industry}</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2">Services</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2">Services</p>
               <div className="flex flex-col gap-1">
                 {caseStudy.snapshot.services.map((s) => (
                   <button
                     key={s}
                     onClick={() => onOpenService(caseStudy.serviceSlug)}
-                    className="text-left text-sm text-white/70 hover:text-[#46E2E2] underline underline-offset-2 decoration-[#46E2E2]/30 hover:decoration-[#46E2E2] transition-colors"
+                    className="text-left text-sm text-white/70 hover:text-[#C71F42] underline underline-offset-2 decoration-[#C71F42]/30 hover:decoration-[#C71F42] transition-colors"
                   >
                     {s}
                   </button>
@@ -186,7 +186,7 @@ function CaseStudyContent({
               </div>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#46E2E2] mb-2">Timeline</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#C71F42] mb-2">Timeline</p>
               <p className="font-display font-bold text-base md:text-lg text-white">{caseStudy.snapshot.timeline}</p>
             </div>
           </div>
@@ -194,7 +194,7 @@ function CaseStudyContent({
             {" "}
             <button
               onClick={() => onOpenService(caseStudy.serviceSlug)}
-              className="underline underline-offset-4 hover:text-[#46E2E2] font-medium"
+              className="underline underline-offset-4 hover:text-[#C71F42] font-medium"
             >
               Explore {caseStudy.snapshot.services[0]} →
             </button>
@@ -203,11 +203,11 @@ function CaseStudyContent({
       </section>
 
       {/* ============ CHALLENGE ============ */}
-      <section className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
-              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
                 Challenge
               </span>
               <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-8">
@@ -219,7 +219,7 @@ function CaseStudyContent({
                 </p>
               ))}
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#161616]">
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#2a0a10]">
               <img
                 src={caseStudy.challengeImage}
                 alt={caseStudy.challengeTitle}
@@ -232,10 +232,10 @@ function CaseStudyContent({
       </section>
 
       {/* ============ APPROACH ============ */}
-      <section className="bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#161616] order-2 lg:order-1">
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#2a0a10] order-2 lg:order-1">
               <img
                 src={caseStudy.approachImage}
                 alt={caseStudy.approachTitle}
@@ -244,7 +244,7 @@ function CaseStudyContent({
               />
             </div>
             <div className="order-1 lg:order-2">
-              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+              <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
                 Approach
               </span>
               <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-8 text-white">
@@ -261,9 +261,9 @@ function CaseStudyContent({
       </section>
 
       {/* ============ WHAT WE SHIPPED ============ */}
-      <section className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             {caseStudy.shippedTitle}
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-6">
@@ -275,7 +275,7 @@ function CaseStudyContent({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {caseStudy.shipItems.map((item, i) => (
               <div key={i}>
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#161616] mb-4 ring-1 ring-inset ring-[#2a2a2a]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#2a0a10] mb-4 ring-1 ring-inset ring-[#3a1518]">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -296,7 +296,7 @@ function CaseStudyContent({
             href={caseStudy.liveProjectUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+            className="mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
           >
             See the live project
             <ArrowUpRight size={16} />
@@ -305,9 +305,9 @@ function CaseStudyContent({
       </section>
 
       {/* ============ RESULTS ============ */}
-      <section className="bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             {caseStudy.resultsTitle}
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-10 text-white">
@@ -316,8 +316,8 @@ function CaseStudyContent({
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-10">
             {caseStudy.resultsMetrics.map((m, i) => (
-              <div key={i} className="border-t border-[#2a2a2a] pt-4">
-                <div className="font-display font-bold text-xl md:text-3xl tracking-tight text-[#46E2E2]">
+              <div key={i} className="border-t border-[#3a1518] pt-4">
+                <div className="font-display font-bold text-xl md:text-3xl tracking-tight text-[#C71F42]">
                   {m.value}
                 </div>
                 <div className="mt-1 text-[10px] md:text-xs text-white/50 uppercase tracking-wide">
@@ -327,7 +327,7 @@ function CaseStudyContent({
             ))}
           </div>
 
-          <div className="relative aspect-[16/9] overflow-hidden bg-[#161616] ring-1 ring-inset ring-[#2a2a2a]">
+          <div className="relative aspect-[16/9] overflow-hidden bg-[#2a0a10] ring-1 ring-inset ring-[#3a1518]">
             <img
               src={caseStudy.resultsImage}
               alt={caseStudy.resultsTitle}
@@ -337,18 +337,18 @@ function CaseStudyContent({
           </div>
 
           {/* Want these results? Book a call */}
-          <div className="mt-10 bg-[#46E2E2] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-10 bg-[#C71F42] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="font-display font-bold text-xl md:text-2xl tracking-tight">
               Want these results?
             </p>
             <a
               href="#contact-casestudy"
-              className="group inline-flex items-center gap-3 bg-black text-[#46E2E2] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-black text-[#C71F42] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300"
             >
               <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">
                 Book a call
               </span>
-              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#46E2E2] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#46E2E2] transition-colors">
+              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#C71F42] text-black flex items-center justify-center group-hover:bg-black group-hover:text-[#C71F42] transition-colors">
                 <ArrowUpRight size={14} />
               </span>
             </a>
@@ -357,12 +357,12 @@ function CaseStudyContent({
       </section>
 
       {/* ============ TESTIMONIAL ============ */}
-      <section className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[900px] px-5 sm:px-6 md:px-10 text-center">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             Testimonial
           </span>
-          <div className="mt-6 font-display font-bold text-6xl md:text-7xl leading-none text-[#46E2E2] select-none">
+          <div className="mt-6 font-display font-bold text-6xl md:text-7xl leading-none text-[#C71F42] select-none">
             &ldquo;
           </div>
           <blockquote className="font-display font-light italic text-xl md:text-3xl lg:text-4xl leading-relaxed text-white/90 -mt-4">
@@ -370,13 +370,13 @@ function CaseStudyContent({
           </blockquote>
           <div className="mt-8">
             <p className="font-display font-bold text-lg md:text-xl">{caseStudy.testimonial.name}</p>
-            <p className="mt-1 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-[#46E2E2]">
+            <p className="mt-1 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-[#C71F42]">
               {caseStudy.testimonial.role}
             </p>
           </div>
           <a
             href="#contact-casestudy"
-            className="mt-10 inline-flex items-center gap-3 border border-[#46E2E2]/40 hover:bg-[#46E2E2] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+            className="mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
           >
             Work with us
             <ArrowRight size={16} />
@@ -385,9 +385,9 @@ function CaseStudyContent({
       </section>
 
       {/* ============ LEARNINGS ============ */}
-      <section className="bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[800px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             Learnings
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-8 text-white">
@@ -402,9 +402,9 @@ function CaseStudyContent({
       </section>
 
       {/* ============ SERVICES USED ============ */}
-      <section className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             Services used
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-10">
@@ -415,9 +415,9 @@ function CaseStudyContent({
               <button
                 key={i}
                 onClick={() => onOpenService(caseStudy.serviceSlug)}
-                className="group text-left p-6 md:p-8 border border-[#2a2a2a] hover:border-[#46E2E2] hover:bg-[#46E2E2]/5 transition-all duration-300 rounded-lg"
+                className="group text-left p-6 md:p-8 border border-[#3a1518] hover:border-[#C71F42] hover:bg-[#C71F42]/5 transition-all duration-300 rounded-lg"
               >
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#46E2E2]">
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#C71F42]">
                   0{i + 1}
                 </span>
                 <h3 className="mt-3 font-display font-bold text-lg md:text-xl tracking-tight">
@@ -426,7 +426,7 @@ function CaseStudyContent({
                 <p className="mt-2 text-sm text-white/60">
                   Explore {s}
                 </p>
-                <ArrowRight size={20} className="mt-4 transition-transform group-hover:translate-x-2 text-[#46E2E2]" />
+                <ArrowRight size={20} className="mt-4 transition-transform group-hover:translate-x-2 text-[#C71F42]" />
               </button>
             ))}
           </div>
@@ -434,9 +434,9 @@ function CaseStudyContent({
       </section>
 
       {/* ============ RELATED CASE STUDIES ============ */}
-      <section className="bg-[#111111] py-16 md:py-24 border-b border-[#2a2a2a]">
+      <section className="bg-[#1a0a0e] py-16 md:py-24 border-b border-[#3a1518]">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-10">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#46E2E2]">
+          <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]">
             {caseStudy.relatedTitle}
           </span>
           <h2 className="mt-4 font-display font-bold tracking-[-0.02em] leading-[1.05] text-3xl md:text-5xl lg:text-6xl mb-10 text-white">
@@ -449,7 +449,7 @@ function CaseStudyContent({
                 onClick={() => onSwitchCaseStudy(c.slug)}
                 className="group text-left"
               >
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#161616] mb-4 ring-1 ring-inset ring-[#2a2a2a] group-hover:ring-[#46E2E2] transition-colors">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#2a0a10] mb-4 ring-1 ring-inset ring-[#3a1518] group-hover:ring-[#C71F42] transition-colors">
                   <img
                     src={c.clientLogo}
                     alt={c.title}
@@ -463,7 +463,7 @@ function CaseStudyContent({
                 <p className="mt-1 font-mono text-[10px] tracking-[0.2em] uppercase text-white/50">
                   {c.snapshot.industry}
                 </p>
-                <p className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-[#46E2E2] border-b border-[#46E2E2]/40 group-hover:border-[#46E2E2] pb-0.5 transition-all">
+                <p className="mt-3 inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase text-white/60 group-hover:text-[#C71F42] border-b border-[#C71F42]/40 group-hover:border-[#C71F42] pb-0.5 transition-all">
                   Read next case study
                   <ArrowRight size={12} />
                 </p>
@@ -472,12 +472,12 @@ function CaseStudyContent({
           </div>
 
           {/* Next / Previous */}
-          <div className="mt-12 flex items-center justify-between gap-4 border-t border-[#2a2a2a] pt-8">
+          <div className="mt-12 flex items-center justify-between gap-4 border-t border-[#3a1518] pt-8">
             <button
               onClick={() => onSwitchCaseStudy(prevCS.slug)}
               className="group flex items-center gap-3 text-left"
             >
-              <span className="h-10 w-10 rounded-full border border-[#46E2E2]/40 flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
                 <ArrowLeft size={16} />
               </span>
               <div>
@@ -493,7 +493,7 @@ function CaseStudyContent({
                 <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40">Next</p>
                 <p className="font-display font-bold text-sm md:text-base text-white">{nextCS.clientName}</p>
               </div>
-              <span className="h-10 w-10 rounded-full border border-[#46E2E2]/40 flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full border border-[#C71F42]/40 flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
                 <ArrowRight size={16} />
               </span>
             </button>
@@ -502,7 +502,7 @@ function CaseStudyContent({
       </section>
 
       {/* ============ CTA ============ */}
-      <section id="contact-casestudy" className="bg-[#0a0a0a] text-white py-16 md:py-24">
+      <section id="contact-casestudy" className="bg-[#060000] text-white py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-5 sm:px-6 md:px-10 text-center">
           <h2 className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-3xl md:text-5xl lg:text-6xl">
             {caseStudy.ctaTitle}
@@ -513,18 +513,18 @@ function CaseStudyContent({
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:hello@katelladigital.com"
-              className="group inline-flex items-center gap-3 bg-[#46E2E2] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#46E2E2] border border-[#46E2E2] transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">
                 Book a call
               </span>
-              <span className="h-10 w-10 rounded-full bg-black text-[#46E2E2] flex items-center justify-center group-hover:bg-[#46E2E2] group-hover:text-black transition-colors">
+              <span className="h-10 w-10 rounded-full bg-black text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-black transition-colors">
                 <ArrowUpRight size={16} />
               </span>
             </a>
             <button
               onClick={onClose}
-              className="group inline-flex items-center gap-3 border border-[#46E2E2]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#46E2E2] hover:text-black transition-colors duration-300"
+              className="group inline-flex items-center gap-3 border border-[#C71F42]/40 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-[#C71F42] hover:text-black transition-colors duration-300"
             >
               View all case studies
             </button>
@@ -533,7 +533,7 @@ function CaseStudyContent({
       </section>
 
       {/* ============ FOOTER ============ */}
-      <footer className="bg-[#0a0a0a] text-white border-t border-[#2a2a2a]">
+      <footer className="bg-[#060000] text-white border-t border-[#3a1518]">
         <div className="overflow-hidden">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
             <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
@@ -547,7 +547,7 @@ function CaseStudyContent({
                   }}
                   className="flex items-center gap-2 group mb-5"
                 >
-                  <span className="h-2.5 w-2.5 bg-[#46E2E2] rounded-full transition-transform group-hover:scale-150" />
+                  <span className="h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150" />
                   <span className="font-display font-bold tracking-tight text-lg md:text-xl">
                     KATELLA <span className="font-light">DIGITAL</span>
                   </span>
@@ -569,10 +569,10 @@ function CaseStudyContent({
                     <li key={c.slug}>
                       <button
                         onClick={() => onSwitchCaseStudy(c.slug)}
-                        className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] relative inline-block group text-left"
+                        className="text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group text-left"
                       >
                         {c.clientName}
-                        <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#46E2E2] transition-all duration-300 group-hover:w-full" />
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full" />
                       </button>
                     </li>
                   ))}
@@ -585,12 +585,12 @@ function CaseStudyContent({
                 </p>
                 <ul className="space-y-2 sm:space-y-3">
                   <li>
-                    <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">
+                    <a href="mailto:hello@katelladigital.com" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">
                       hello@katelladigital.com
                     </a>
                   </li>
-                  <li><a href="#" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">Instagram</a></li>
-                  <li><a href="#" className="text-sm md:text-base text-white/80 hover:text-[#46E2E2] transition-colors">LinkedIn</a></li>
+                  <li><a href="#" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">Instagram</a></li>
+                  <li><a href="#" className="text-sm md:text-base text-white/80 hover:text-[#C71F42] transition-colors">LinkedIn</a></li>
                 </ul>
               </div>
 
@@ -598,23 +598,23 @@ function CaseStudyContent({
                 <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mb-4 sm:mb-5">
                   Studio
                 </p>
-                <p className="text-sm md:text-base text-white/80">Berlin, Germany</p>
-                <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–18 CET</p>
+                <p className="text-sm md:text-base text-white/80">Anaheim, CA</p>
+                <p className="text-sm md:text-base text-white/80 mt-2">Mon — Fri, 9–5 PST</p>
               </div>
             </div>
           </div>
 
           {/* Mega wordmark — centered */}
           <div className="px-5 sm:px-6 md:px-10 pb-6 sm:pb-8">
-            <div className="font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[10vw] lg:text-[9vw] text-[#46E2E2] select-none text-center">
+            <div className="font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[10vw] lg:text-[9vw] text-[#C71F42] select-none text-center">
               KATELLA DIGITAL
             </div>
           </div>
 
           {/* Bottom bar */}
-          <div className="border-t border-[#2a2a2a]">
+          <div className="border-t border-[#3a1518]">
             <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs font-mono tracking-[0.15em] uppercase text-white/40">
-              <span>© 2026 Katella Digital — Berlin</span>
+              <span>© 2026 Katella Digital — Anaheim, CA</span>
               <span>Made in monochrome</span>
             </div>
           </div>

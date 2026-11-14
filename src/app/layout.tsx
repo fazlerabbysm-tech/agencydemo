@@ -40,8 +40,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${roboto.variable} antialiased bg-background text-foreground font-sans selection:bg-[#46E2E2] selection:text-black`}
-        style={{ "--font-mono": "'Courier New', monospace" } as React.CSSProperties}
+        className={`${roboto.variable} antialiased text-foreground font-sans selection:bg-[#C71F42] selection:text-white`}
+        style={{
+          "--font-mono": "'Courier New', monospace",
+          background: "linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%)",
+          backgroundAttachment: "fixed",
+        } as React.CSSProperties}
       >
         {children}
         <Toaster />

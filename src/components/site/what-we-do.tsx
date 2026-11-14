@@ -36,7 +36,7 @@ export default function WhatWeDo() {
                 className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                 loading="lazy"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.backgroundColor = "#1a1a1a";
+                  (e.currentTarget as HTMLImageElement).style.backgroundColor = "#2F000A";
                 }}
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />

@@ -37,7 +37,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative bg-[#0a0a0a] text-white py-20 sm:py-24 md:py-36 border-t border-[#2a2a2a]"
+      className="relative bg-[#060000] text-white py-20 sm:py-24 md:py-36 border-t border-[#3a1518]"
     >
       <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10">
         {/* Header */}
@@ -68,11 +68,11 @@ export default function FAQ() {
 
           {/* Right: accordion */}
           <div className="lg:col-span-7">
-            <div className="border-t border-[#2a2a2a]">
+            <div className="border-t border-[#3a1518]">
               {faqs.map((f, i) => {
                 const isOpen = open === i;
                 return (
-                  <div key={i} className="border-b border-[#2a2a2a]">
+                  <div key={i} className="border-b border-[#3a1518]">
                     <button
                       onClick={() => setOpen(isOpen ? null : i)}
                       className="w-full py-5 sm:py-6 md:py-7 flex items-center gap-3 sm:gap-5 md:gap-6 text-left group"
@@ -85,8 +85,8 @@ export default function FAQ() {
                         {f.q}
                       </span>
                       <span
-                        className={`shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-[#2a2a2a] flex items-center justify-center transition-all duration-300 ${
-                          isOpen ? "bg-[#46E2E2] text-black rotate-45" : ""
+                        className={`shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-[#3a1518] flex items-center justify-center transition-all duration-300 ${
+                          isOpen ? "bg-[#C71F42] text-black rotate-45" : ""
                         }`}
                       >
                         <Plus size={14} strokeWidth={2} className="sm:hidden" />
@@ -115,7 +115,7 @@ export default function FAQ() {
             </div>
 
             {/* Contact nudge — inverted (teal accent on dark section) */}
-            <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 md:p-8 bg-[#46E2E2] text-black">
+            <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 md:p-8 bg-[#C71F42] text-black">
               <div>
                 <p className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-black/60">
                   Didn&apos;t find it?

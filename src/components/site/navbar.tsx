@@ -111,7 +111,7 @@ export default function Navbar({
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         onDark
           ? "bg-transparent border-b border-transparent"
-          : "bg-[#0a0a0a]/85 backdrop-blur-md border-b border-[#2a2a2a]"
+          : "bg-[#060000]/85 backdrop-blur-md border-b border-[#3a1518]"
       }`}
       onMouseLeave={() => setOpenDropdown(null)}
     >
@@ -129,7 +129,7 @@ export default function Navbar({
         >
           <span
             className={`h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${
-              onDark ? "bg-[#46E2E2]" : "bg-[#46E2E2]"
+              onDark ? "bg-[#C71F42]" : "bg-[#C71F42]"
             }`}
           />
           <span
@@ -177,8 +177,8 @@ export default function Navbar({
                       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                       className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[220px] rounded-lg border shadow-xl overflow-hidden ${
                         onDark
-                          ? "bg-[#111111] border-[#2a2a2a]"
-                          : "bg-[#111111] border-[#2a2a2a]"
+                          ? "bg-[#1a0a0e] border-[#3a1518]"
+                          : "bg-[#1a0a0e] border-[#3a1518]"
                       }`}
                     >
                       {item.dropdown.map((d) => (
@@ -187,8 +187,8 @@ export default function Navbar({
                           onClick={() => handleDropdownItem(d.action, d.slug)}
                           className={`w-full text-left px-4 py-2.5 text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
                             onDark
-                              ? "text-white/80 hover:bg-[#46E2E2] hover:text-black"
-                              : "text-white/80 hover:bg-[#46E2E2] hover:text-black"
+                              ? "text-white/80 hover:bg-[#C71F42] hover:text-black"
+                              : "text-white/80 hover:bg-[#C71F42] hover:text-black"
                           }`}
                         >
                           {d.label}
@@ -221,8 +221,8 @@ export default function Navbar({
             }}
             className={`group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${
               onDark
-                ? "bg-[#46E2E2] text-black border-[#46E2E2] hover:bg-transparent hover:text-[#46E2E2]"
-                : "bg-[#46E2E2] text-black border-[#46E2E2] hover:bg-transparent hover:text-[#46E2E2]"
+                ? "bg-[#C71F42] text-black border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
+                : "bg-[#C71F42] text-black border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"
             }`}
           >
             Start a project
@@ -252,7 +252,7 @@ export default function Navbar({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-[#0a0a0a] border-t border-[#2a2a2a]"
+            className="md:hidden overflow-hidden bg-[#060000] border-t border-[#3a1518]"
           >
             <div className="px-5 sm:px-6 py-6 flex flex-col gap-4">
               {navItems.map((item) => (
@@ -309,7 +309,7 @@ export default function Navbar({
                     }
                   }
                 }}
-                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#46E2E2] text-black px-5 py-3 text-sm font-medium tracking-wide uppercase"
+                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-black px-5 py-3 text-sm font-medium tracking-wide uppercase"
               >
                 Start a project →
               </a>
