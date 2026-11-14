@@ -21,6 +21,7 @@ export default function ContactModal({
 }) {
   const [form, setForm] = useState({
     name: "",
+    email: "",
     phone: "",
     service: "",
     details: "",
@@ -99,6 +100,7 @@ export default function ContactModal({
 
   const canSubmit =
     form.name.trim() &&
+    form.email.trim() &&
     form.phone.trim() &&
     form.service &&
     form.details.trim() &&
@@ -130,7 +132,7 @@ export default function ContactModal({
         setStatus("success");
         setTimeout(() => {
           onClose();
-          setForm({ name: "", phone: "", service: "", details: "" });
+          setForm({ name: "", email: "", phone: "", service: "", details: "" });
         }, 2500);
       } else {
         setStatus("error");
@@ -182,7 +184,7 @@ export default function ContactModal({
                   <ShieldCheck size={32} className="text-[#C71F42]" />
                 </div>
                 <h3 className="font-display font-bold text-xl text-white mb-2">Message sent!</h3>
-                <p className="text-white/60 text-sm">We'll get back to you at {form.phone} within 24 hours.</p>
+                <p className="text-white/60 text-sm">We've sent a confirmation to {form.email}. We'll be in touch within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -198,6 +200,21 @@ export default function ContactModal({
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="w-full bg-[#060000] border border-[#3a1518] rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:border-[#C71F42] focus:outline-none transition-colors"
                     placeholder="John Doe"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="text-xs font-mono tracking-[0.15em] uppercase text-white/50 mb-2 block">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className="w-full bg-[#060000] border border-[#3a1518] rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:border-[#C71F42] focus:outline-none transition-colors"
+                    placeholder="john@company.com"
                   />
                 </div>
 
