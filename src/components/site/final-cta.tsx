@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 export default function FinalCTA() {
+  const openContact = () =>
+    window.dispatchEvent(new CustomEvent("open-contact-modal"));
+
   return (
     <section
       id="contact"
@@ -46,9 +49,10 @@ export default function FinalCTA() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="mt-10 sm:mt-14 md:mt-20 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
         >
-          <a
-            href="mailto:info@katella.digital"
-            className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
+          <button
+            type="button"
+            onClick={openContact}
+            className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 cursor-pointer"
           >
             <span className="text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
               Start a project
@@ -57,7 +61,7 @@ export default function FinalCTA() {
               <ArrowUpRight size={16} strokeWidth={2} className="sm:hidden" />
               <ArrowUpRight size={20} strokeWidth={2} className="hidden sm:block" />
             </span>
-          </a>
+          </button>
 
           <a
             href="mailto:info@katella.digital"
