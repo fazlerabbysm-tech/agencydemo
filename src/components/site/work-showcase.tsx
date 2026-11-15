@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -35,6 +36,11 @@ const works = [
 ];
 
 interface Props {
+  /**
+   * If provided, clicking a card calls this with the slug
+   * (legacy modal flow). If omitted, cards link to /portfolio/<slug>
+   * (static URL flow).
+   */
   onWorkClick?: (slug: string) => void;
 }
 
@@ -86,15 +92,16 @@ export default function WorkShowcase({ onWorkClick }: Props) {
           A complete archive lives in our studio. Below is what fit on a single
           strip of 35mm.
         </p>
-        <a
-          href="#contact"
-          className="group inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new CustomEvent("open-contact-modal"))}
+          className="group inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300 cursor-pointer"
         >
           View full archive
           <span className="transition-transform duration-300 group-hover:translate-x-1">
             →
           </span>
-        </a>
+        </button>
       </div>
     </section>
   );
@@ -107,62 +114,80 @@ function WorkCard({
   work: (typeof works)[number];
   onClick?: (slug: string) => void;
 }) {
+  // If no callback, render as a Next.js Link to the static page
+  if (!onClick) {
+    return (
+      <Link
+        href={`/portfolio/${work.slug}`}
+        className="group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px] cursor-pointer block"
+      >
+        <WorkCardContent work={work} />
+      </Link>
+    );
+  }
+
+  // Legacy modal flow
   return (
     <article
       className="group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px] cursor-pointer"
       onClick={() => onClick?.(work.slug)}
     >
-      {/* Glass card container with backdrop blur */}
-      <div className="relative aspect-[5/6] overflow-hidden bg-[#060000] rounded-2xl border border-[#3a1518] backdrop-blur-sm transition-all duration-500 group-hover:border-[#C71F42]/50 group-hover:shadow-[0_0_40px_rgba(199,31,66,0.15)]">
-        {/* Top-edge glass highlight */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C71F42]/30 to-transparent z-20" />
+      <WorkCardContent work={work} />
+    </article>
+  );
+}
 
-        {/* Image */}
-        <img
-          src={work.image}
-          alt={`${work.title} — ${work.cat}`}
-          loading="eager"
-          className="h-full w-full object-cover opacity-70 transition-all duration-[1.4s] ease-out group-hover:scale-110 group-hover:opacity-90"
-          onError={(e) => {
-            (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-          }}
-        />
+function WorkCardContent({ work }: { work: (typeof works)[number] }) {
+  return (
+    <div className="relative aspect-[5/6] overflow-hidden bg-[#060000] rounded-2xl border border-[#3a1518] backdrop-blur-sm transition-all duration-500 group-hover:border-[#C71F42]/50 group-hover:shadow-[0_0_40px_rgba(199,31,66,0.15)]">
+      {/* Top-edge glass highlight */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C71F42]/30 to-transparent z-20" />
 
-        {/* Glass overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/60 to-[#060000]/20 backdrop-blur-[2px]" />
+      {/* Image */}
+      <img
+        src={work.image}
+        alt={`${work.title} — ${work.cat}`}
+        loading="eager"
+        className="h-full w-full object-cover opacity-70 transition-all duration-[1.4s] ease-out group-hover:scale-110 group-hover:opacity-90"
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
+        }}
+      />
 
-        {/* Teal glow on hover */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#C71F42]/10 to-transparent" />
+      {/* Glass overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/60 to-[#060000]/20 backdrop-blur-[2px]" />
 
-        {/* Top row: index + play hint */}
-        <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]">
-            {work.no} / 04
-          </span>
-          <span className="h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center text-white/80 group-hover:bg-[#C71F42] group-hover:text-white transition-colors duration-300 backdrop-blur-md">
-            <svg width="8" height="10" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="sm:hidden">
-              <path d="M0 0 L10 6 L0 12 Z" />
-            </svg>
-            <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="hidden sm:block">
-              <path d="M0 0 L10 6 L0 12 Z" />
-            </svg>
-          </span>
-        </div>
+      {/* Teal glow on hover */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#C71F42]/10 to-transparent" />
 
-        {/* Bottom: title */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10">
-          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none group-hover:text-[#C71F42] transition-colors duration-300">
-            {work.title}
-          </h3>
-          <p className="mt-2 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/50">
-            {work.cat}
-          </p>
-          <div className="mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#C71F42] transition-colors duration-300">
-            <span>View project</span>
-            <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
-          </div>
+      {/* Top row: index + play hint */}
+      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+        <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]">
+          {work.no} / 04
+        </span>
+        <span className="h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center text-white/80 group-hover:bg-[#C71F42] group-hover:text-white transition-colors duration-300 backdrop-blur-md">
+          <svg width="8" height="10" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="sm:hidden">
+            <path d="M0 0 L10 6 L0 12 Z" />
+          </svg>
+          <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="hidden sm:block">
+            <path d="M0 0 L10 6 L0 12 Z" />
+          </svg>
+        </span>
+      </div>
+
+      {/* Bottom: title */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10">
+        <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none group-hover:text-[#C71F42] transition-colors duration-300">
+          {work.title}
+        </h3>
+        <p className="mt-2 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/50">
+          {work.cat}
+        </p>
+        <div className="mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#C71F42] transition-colors duration-300">
+          <span>View project</span>
+          <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
         </div>
       </div>
-    </article>
+    </div>
   );
 }
