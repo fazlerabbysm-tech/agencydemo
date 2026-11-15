@@ -2,6 +2,15 @@ skills/
 node_modules/
 
 scripts/
+.next/
 .env
 .env.local
 .env*.local
+dev.log
+db/
+upload/
+tool-results/
+.zscripts/
+tests/
+examples/
+mini-services/
