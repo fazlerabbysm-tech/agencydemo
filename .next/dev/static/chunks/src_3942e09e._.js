@@ -35,12 +35,12 @@ const caseStudyDetails = [
             client: "Aurora Goods",
             industry: "D2C Skincare",
             services: [
-                "UI/UX Design",
-                "Digital Marketing"
+                "E-commerce Catalog Optimization",
+                "Color Standardization Protocol"
             ],
             timeline: "8 weeks · 2025"
         },
-        serviceSlug: "ui-ux",
+        serviceSlug: "ecommerce",
         challengeTitle: "A catalog that was actively losing revenue",
         challengeText: [
             "Aurora Goods had grown from 50 to 500 SKUs in two years, but their catalog hadn't grown with them. Every product had been photographed by a different freelancer, in different lighting, on different backgrounds. The result looked like a marketplace, not a brand.",
@@ -106,8 +106,8 @@ const caseStudyDetails = [
             "We'd change the copywriting timeline. We wrote listing copy in parallel with photography, but the copy team needed the final retouched images to reference. Next time, we'd sequence copy after retouching."
         ],
         servicesUsed: [
-            "UI/UX Design",
-            "Digital Marketing"
+            "E-commerce Catalog Optimization",
+            "Color Standardization Protocol"
         ],
         relatedTitle: "Related case studies",
         ctaTitle: "Want results like this?"
@@ -140,12 +140,12 @@ const caseStudyDetails = [
             client: "Maison Noir",
             industry: "Luxury Fashion",
             services: [
-                "Digital Marketing",
-                "UI/UX Design"
+                "Color Standardization Protocol",
+                "E-commerce Catalog Optimization"
             ],
             timeline: "3 weeks · 2025"
         },
-        serviceSlug: "digital-marketing",
+        serviceSlug: "color",
         challengeTitle: "A luxury brand built on one color — that looked different everywhere",
         challengeText: [
             "Maison Noir is a luxury fashion house where black isn't just a color — it's the entire brand identity. But their black looked different on Instagram, in their print lookbook, on their e-commerce store, and on the physical product.",
@@ -211,8 +211,8 @@ const caseStudyDetails = [
             "We'd add a quarterly re-calibration checkpoint sooner. Monitors drift faster than expected, and the first month had a few close calls before we set up the schedule."
         ],
         servicesUsed: [
-            "Digital Marketing",
-            "UI/UX Design"
+            "Color Standardization Protocol",
+            "E-commerce Catalog Optimization"
         ],
         relatedTitle: "Related case studies",
         ctaTitle: "Want results like this?"
@@ -245,12 +245,12 @@ const caseStudyDetails = [
             client: "ECHO Motors",
             industry: "Automotive / EV",
             services: [
-                "Motion Graphics",
-                "Digital Marketing"
+                "Virtual Production & CGI Studio",
+                "Color Standardization Protocol"
             ],
             timeline: "8 weeks · 2024"
         },
-        serviceSlug: "motion-graphics",
+        serviceSlug: "cgi",
         challengeTitle: "A car launch with no car to film",
         challengeText: [
             "ECHO Motors was launching their first electric vehicle, but the physical prototype wasn't ready. The marketing team had 8 weeks to produce a launch film, and there was no car to film.",
@@ -316,8 +316,8 @@ const caseStudyDetails = [
             "We'd involve the engineering team earlier. The CAD files were accurate but needed cleanup for CGI. A 2-day workshop with engineering before the build would have saved 4 days of rework."
         ],
         servicesUsed: [
-            "Motion Graphics",
-            "Digital Marketing"
+            "Virtual Production & CGI Studio",
+            "Color Standardization Protocol"
         ],
         relatedTitle: "Related case studies",
         ctaTitle: "Want results like this?"
@@ -350,12 +350,12 @@ const caseStudyDetails = [
             client: "Agency Collective",
             industry: "Creative Agency",
             services: [
-                "Web & App Development",
-                "UI/UX Design"
+                "White-Label Agency Extension",
+                "E-commerce Catalog Optimization"
             ],
             timeline: "12 months · 2024-2025"
         },
-        serviceSlug: "web-app-dev",
+        serviceSlug: "whitelabel",
         challengeTitle: "Winning more pitches than they could staff",
         challengeText: [
             "Agency Collective was winning more pitches than they could staff. They had a small core team of strategists and creatives, but couldn't handle the production volume — design, development, and motion work for 6 concurrent clients.",
@@ -421,8 +421,8 @@ const caseStudyDetails = [
             "We'd add a quarterly review process sooner. The first 6 months went well, but a formal check-in at month 3 would have caught a few workflow inefficiencies earlier."
         ],
         servicesUsed: [
-            "Web & App Development",
-            "UI/UX Design"
+            "White-Label Agency Extension",
+            "E-commerce Catalog Optimization"
         ],
         relatedTitle: "Related case studies",
         ctaTitle: "Want results like this?"
@@ -1662,7 +1662,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/menu.js [app-client] (ecmascript) <export default as Menu>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -1673,78 +1672,24 @@ var _s = __turbopack_context__.k.signature();
 ;
 const navItems = [
     {
-        label: "Work",
-        href: "/#work",
-        dropdown: [
-            {
-                label: "Aurora Goods",
-                href: "/portfolio/aurora-goods"
-            },
-            {
-                label: "Maison Noir",
-                href: "/portfolio/maison-noir"
-            },
-            {
-                label: "ECHO Motors",
-                href: "/portfolio/echo-motors"
-            },
-            {
-                label: "Agency Collective",
-                href: "/portfolio/agency-collective"
-            }
-        ]
+        label: "UI/UX Design",
+        href: "/services/ui-ux"
     },
     {
-        label: "Services",
-        href: "/#services",
-        dropdown: [
-            {
-                label: "UI/UX Design",
-                href: "/services/ui-ux"
-            },
-            {
-                label: "Motion Graphics",
-                href: "/services/motion-graphics"
-            },
-            {
-                label: "Digital Marketing",
-                href: "/services/digital-marketing"
-            },
-            {
-                label: "Web & App Development",
-                href: "/services/web-app-dev"
-            }
-        ]
+        label: "Motion Graphics",
+        href: "/services/motion-graphics"
     },
     {
-        label: "Case Studies",
-        href: "/#work",
-        dropdown: [
-            {
-                label: "Aurora Goods",
-                href: "/case-studies/aurora-goods"
-            },
-            {
-                label: "Maison Noir",
-                href: "/case-studies/maison-noir"
-            },
-            {
-                label: "ECHO Motors",
-                href: "/case-studies/echo-motors"
-            },
-            {
-                label: "Agency Collective",
-                href: "/case-studies/agency-collective"
-            }
-        ]
+        label: "Digital Marketing",
+        href: "/services/digital-marketing"
+    },
+    {
+        label: "Web & App Dev",
+        href: "/services/web-app-dev"
     },
     {
         label: "About",
-        href: "/#values"
-    },
-    {
-        label: "FAQ",
-        href: "/#faq"
+        href: "/#about"
     }
 ];
 function Navbar() {
@@ -1752,7 +1697,6 @@ function Navbar() {
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
     const [scrolled, setScrolled] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [open, setOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [openDropdown, setOpenDropdown] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const isHome = pathname === "/";
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Navbar.useEffect": ()=>{
@@ -1772,12 +1716,26 @@ function Navbar() {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Navbar.useEffect": ()=>{
             setOpen(false);
-            setOpenDropdown(null);
         }
     }["Navbar.useEffect"], [
         pathname
     ]);
     const onDark = !scrolled && !open && isHome;
+    const handleNavClick = (e, href)=>{
+        setOpen(false);
+        // For in-page anchors on home, scroll smoothly
+        if (href.startsWith("/#")) {
+            e.preventDefault();
+            if (isHome) {
+                const id = href.slice(2);
+                document.getElementById(id)?.scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                window.location.href = href;
+            }
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].header, {
         initial: {
             y: -40,
@@ -1797,123 +1755,69 @@ function Navbar() {
             ]
         },
         className: `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${onDark ? "bg-transparent border-b border-transparent" : "bg-[#060000]/85 backdrop-blur-md border-b border-[#3a1518]"}`,
-        onMouseLeave: ()=>setOpenDropdown(null),
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                 className: "mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         href: "/",
-                        className: "flex items-center gap-2 group",
+                        className: "flex items-center gap-2 group shrink-0",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 bg-[#C71F42]"
+                                className: `h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-150 ${onDark ? "bg-[#C71F42]" : "bg-[#C71F42]"}`
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/navbar.tsx",
-                                lineNumber: 88,
+                                lineNumber: 71,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "font-display font-bold tracking-tight text-base sm:text-lg md:text-xl text-white",
+                                className: `font-display font-bold tracking-tight text-base sm:text-lg md:text-xl transition-colors duration-300 ${onDark ? "text-white" : "text-white"}`,
                                 children: [
-                                    "KATELLA ",
+                                    "Katella ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "font-light",
-                                        children: "DIGITAL"
+                                        children: "Digital"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/navbar.tsx",
-                                        lineNumber: 90,
+                                        lineNumber: 81,
                                         columnNumber: 21
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/site/navbar.tsx",
-                                lineNumber: 89,
+                                lineNumber: 76,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/site/navbar.tsx",
-                        lineNumber: 87,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "hidden md:flex items-center gap-6 lg:gap-8",
-                        children: navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative",
-                                onMouseEnter: ()=>setOpenDropdown(item.dropdown ? item.label : null),
+                        className: "hidden md:flex items-center gap-5 lg:gap-7",
+                        children: navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                href: item.href,
+                                onClick: (e)=>handleNavClick(e, item.href),
+                                className: `text-xs lg:text-sm font-medium tracking-wide uppercase relative group transition-colors duration-300 cursor-pointer ${onDark ? "text-white/90 hover:text-white" : "text-white/80 hover:text-white"}`,
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: item.href,
-                                        className: `text-xs lg:text-sm font-medium tracking-wide uppercase flex items-center gap-1 transition-colors duration-300 cursor-pointer ${onDark ? "text-white/90 hover:text-white" : "text-white/80 hover:text-white"}`,
-                                        children: [
-                                            item.label,
-                                            item.dropdown && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
-                                                size: 12,
-                                                className: `transition-transform duration-300 ${openDropdown === item.label ? "rotate-180" : ""}`
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/site/navbar.tsx",
-                                                lineNumber: 110,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/components/site/navbar.tsx",
-                                        lineNumber: 102,
-                                        columnNumber: 15
-                                    }, this),
-                                    item.dropdown && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-                                        children: openDropdown === item.label && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                            initial: {
-                                                opacity: 0,
-                                                y: 10
-                                            },
-                                            animate: {
-                                                opacity: 1,
-                                                y: 0
-                                            },
-                                            exit: {
-                                                opacity: 0,
-                                                y: 10
-                                            },
-                                            transition: {
-                                                duration: 0.2,
-                                                ease: [
-                                                    0.22,
-                                                    1,
-                                                    0.36,
-                                                    1
-                                                ]
-                                            },
-                                            className: "absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[220px] rounded-lg border shadow-xl overflow-hidden bg-[#1a0a0e] border-[#3a1518]",
-                                            children: item.dropdown.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: d.href,
-                                                    className: "w-full text-left px-4 py-2.5 text-xs font-medium tracking-wide uppercase text-white/80 hover:bg-[#C71F42] hover:text-black transition-colors duration-200 block",
-                                                    children: d.label
-                                                }, d.href, false, {
-                                                    fileName: "[project]/src/components/site/navbar.tsx",
-                                                    lineNumber: 131,
-                                                    columnNumber: 25
-                                                }, this))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/site/navbar.tsx",
-                                            lineNumber: 123,
-                                            columnNumber: 21
-                                        }, this)
+                                    item.label,
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-[#C71F42]"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/navbar.tsx",
-                                        lineNumber: 121,
-                                        columnNumber: 17
+                                        lineNumber: 97,
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, item.label, true, {
                                 fileName: "[project]/src/components/site/navbar.tsx",
-                                lineNumber: 97,
+                                lineNumber: 88,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/navbar.tsx",
-                        lineNumber: 95,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1921,54 +1825,54 @@ function Navbar() {
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             type: "button",
                             onClick: ()=>window.dispatchEvent(new CustomEvent("open-contact-modal")),
-                            className: `group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${onDark ? "bg-[#C71F42] text-black border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]" : "bg-[#C71F42] text-black border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"}`,
+                            className: `group inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-medium tracking-wide uppercase border transition-colors duration-300 cursor-pointer ${"bg-[#C71F42] text-white border-[#C71F42] hover:bg-transparent hover:text-[#C71F42]"}`,
                             children: [
-                                "Start a project",
+                                "Get a Quote",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "transition-transform duration-300 group-hover:translate-x-1",
                                     children: "→"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/site/navbar.tsx",
-                                    lineNumber: 159,
+                                    lineNumber: 112,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/site/navbar.tsx",
-                            lineNumber: 149,
+                            lineNumber: 104,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/navbar.tsx",
-                        lineNumber: 148,
+                        lineNumber: 103,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: ()=>setOpen((v)=>!v),
-                        className: "md:hidden h-10 w-10 flex items-center justify-center transition-colors duration-300 text-white",
+                        className: `md:hidden h-10 w-10 flex items-center justify-center transition-colors duration-300 ${onDark ? "text-white" : "text-white"}`,
                         "aria-label": "Toggle menu",
                         children: open ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                             size: 20
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/navbar.tsx",
-                            lineNumber: 169,
+                            lineNumber: 124,
                             columnNumber: 19
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
                             size: 20
                         }, void 0, false, {
                             fileName: "[project]/src/components/site/navbar.tsx",
-                            lineNumber: 169,
+                            lineNumber: 124,
                             columnNumber: 37
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/navbar.tsx",
-                        lineNumber: 164,
+                        lineNumber: 117,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/site/navbar.tsx",
-                lineNumber: 85,
+                lineNumber: 68,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -1992,46 +1896,14 @@ function Navbar() {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "px-5 sm:px-6 py-6 flex flex-col gap-4",
                         children: [
-                            navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: item.dropdown ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "font-mono text-[10px] tracking-[0.25em] uppercase text-white/40 mb-2",
-                                                children: item.label
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/site/navbar.tsx",
-                                                lineNumber: 188,
-                                                columnNumber: 23
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex flex-col gap-2 pl-3 mb-2",
-                                                children: item.dropdown.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                        href: d.href,
-                                                        className: "text-left text-base font-display font-medium tracking-tight text-white/80 hover:text-white",
-                                                        children: d.label
-                                                    }, d.href, false, {
-                                                        fileName: "[project]/src/components/site/navbar.tsx",
-                                                        lineNumber: 193,
-                                                        columnNumber: 27
-                                                    }, this))
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/site/navbar.tsx",
-                                                lineNumber: 191,
-                                                columnNumber: 23
-                                            }, this)
-                                        ]
-                                    }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: item.href,
-                                        className: "text-2xl font-display font-medium tracking-tight text-white",
-                                        children: item.label
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/site/navbar.tsx",
-                                        lineNumber: 204,
-                                        columnNumber: 21
-                                    }, this)
+                            navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    href: item.href,
+                                    onClick: (e)=>handleNavClick(e, item.href),
+                                    className: "text-xl font-display font-medium tracking-tight text-white text-left",
+                                    children: item.label
                                 }, item.label, false, {
                                     fileName: "[project]/src/components/site/navbar.tsx",
-                                    lineNumber: 185,
+                                    lineNumber: 140,
                                     columnNumber: 17
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2040,37 +1912,37 @@ function Navbar() {
                                     setOpen(false);
                                     window.dispatchEvent(new CustomEvent("open-contact-modal"));
                                 },
-                                className: "mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-black px-5 py-3 text-sm font-medium tracking-wide uppercase",
-                                children: "Start a project →"
+                                className: "mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-white px-5 py-3 text-sm font-medium tracking-wide uppercase",
+                                children: "Get a Quote →"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/navbar.tsx",
-                                lineNumber: 213,
+                                lineNumber: 149,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/site/navbar.tsx",
-                        lineNumber: 183,
+                        lineNumber: 138,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/navbar.tsx",
-                    lineNumber: 176,
+                    lineNumber: 131,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/site/navbar.tsx",
-                lineNumber: 174,
+                lineNumber: 129,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/site/navbar.tsx",
-        lineNumber: 74,
+        lineNumber: 58,
         columnNumber: 5
     }, this);
 }
-_s(Navbar, "z2YxVtJOwWDel6/XV+j4KFzCqdk=", false, function() {
+_s(Navbar, "9ltzY/AyaXxsuXh+q9aQZgrN5Zs=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"]
     ];
@@ -2090,100 +1962,69 @@ __turbopack_context__.s([
     ()=>Footer
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
 ;
-;
 const footerLinks = [
-    {
-        title: "Studio",
-        items: [
-            {
-                label: "Work",
-                href: "/#work"
-            },
-            {
-                label: "Services",
-                href: "/#services"
-            },
-            {
-                label: "About",
-                href: "/#values"
-            },
-            {
-                label: "FAQ",
-                href: "/#faq"
-            }
-        ]
-    },
     {
         title: "Services",
         items: [
             {
                 label: "UI/UX Design",
-                href: "/services/ui-ux"
+                href: "#services"
             },
             {
                 label: "Motion Graphics",
-                href: "/services/motion-graphics"
+                href: "#services"
             },
             {
                 label: "Digital Marketing",
-                href: "/services/digital-marketing"
+                href: "#services"
             },
             {
                 label: "Web & App Dev",
-                href: "/services/web-app-dev"
+                href: "#services"
             }
         ]
     },
     {
-        title: "Work",
+        title: "Studio",
         items: [
             {
-                label: "Aurora Goods",
-                href: "/portfolio/aurora-goods"
+                label: "About",
+                href: "#about"
             },
             {
-                label: "Maison Noir",
-                href: "/portfolio/maison-noir"
+                label: "Work",
+                href: "#work"
             },
             {
-                label: "ECHO Motors",
-                href: "/portfolio/echo-motors"
-            },
-            {
-                label: "Agency Collective",
-                href: "/portfolio/agency-collective"
+                label: "FAQ",
+                href: "#faq"
             }
         ]
     },
     {
-        title: "Case Studies",
+        title: "Connect",
         items: [
             {
-                label: "Aurora Goods",
-                href: "/case-studies/aurora-goods"
+                label: "Instagram",
+                href: "#"
             },
             {
-                label: "Maison Noir",
-                href: "/case-studies/maison-noir"
+                label: "LinkedIn",
+                href: "#"
             },
             {
-                label: "ECHO Motors",
-                href: "/case-studies/echo-motors"
-            },
-            {
-                label: "Agency Collective",
-                href: "/case-studies/agency-collective"
+                label: "Behance",
+                href: "#"
             }
         ]
     }
 ];
-function Footer({ className = "" }) {
+function Footer() {
     _s();
     const [time, setTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
@@ -2194,7 +2035,6 @@ function Footer({ className = "" }) {
                     const opts = {
                         hour: "2-digit",
                         minute: "2-digit",
-                        second: "2-digit",
                         hour12: false,
                         timeZone: "America/Los_Angeles"
                     };
@@ -2209,7 +2049,7 @@ function Footer({ className = "" }) {
         }
     }["Footer.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-        className: `bg-[#060000] text-white border-t border-[#3a1518] ${className}`,
+        className: "bg-[#060000] text-white border-t border-[#3a1518]",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "overflow-hidden",
             children: [
@@ -2219,41 +2059,41 @@ function Footer({ className = "" }) {
                         className: "grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "col-span-2 md:col-span-4",
+                                className: "col-span-2 md:col-span-5",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: "/",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                        href: "#top",
                                         className: "flex items-center gap-2 group mb-5 md:mb-6",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/site/footer.tsx",
-                                                lineNumber: 78,
+                                                lineNumber: 61,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "font-display font-bold tracking-tight text-lg md:text-xl",
                                                 children: [
-                                                    "KATELLA ",
+                                                    "Katella ",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "font-light",
-                                                        children: "DIGITAL"
+                                                        children: "Digital"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/site/footer.tsx",
-                                                        lineNumber: 80,
+                                                        lineNumber: 63,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/site/footer.tsx",
-                                                lineNumber: 79,
+                                                lineNumber: 62,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/site/footer.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 60,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2261,7 +2101,7 @@ function Footer({ className = "" }) {
                                         children: "A full-service marketing agency built to drive business growth. Strategy, creative, digital, and media — all under one roof."
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/footer.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 66,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2271,21 +2111,21 @@ function Footer({ className = "" }) {
                                                 className: "h-1.5 w-1.5 rounded-full bg-[#C71F42] animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/site/footer.tsx",
-                                                lineNumber: 90,
+                                                lineNumber: 71,
                                                 columnNumber: 17
                                             }, this),
-                                            "Anaheim · ",
+                                            "Anaheim, CA · ",
                                             time || "—"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/site/footer.tsx",
-                                        lineNumber: 89,
+                                        lineNumber: 70,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/site/footer.tsx",
-                                lineNumber: 76,
+                                lineNumber: 59,
                                 columnNumber: 13
                             }, this),
                             footerLinks.map((col)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2296,13 +2136,13 @@ function Footer({ className = "" }) {
                                             children: col.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/footer.tsx",
-                                            lineNumber: 98,
+                                            lineNumber: 79,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                             className: "space-y-2 sm:space-y-3",
                                             children: col.items.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                         href: item.href,
                                                         className: "text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group",
                                                         children: [
@@ -2311,55 +2151,66 @@ function Footer({ className = "" }) {
                                                                 className: "absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/site/footer.tsx",
-                                                                lineNumber: 109,
+                                                                lineNumber: 90,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/site/footer.tsx",
-                                                        lineNumber: 104,
+                                                        lineNumber: 85,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, item.label, false, {
                                                     fileName: "[project]/src/components/site/footer.tsx",
-                                                    lineNumber: 103,
+                                                    lineNumber: 84,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/site/footer.tsx",
-                                            lineNumber: 101,
+                                            lineNumber: 82,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, col.title, true, {
                                     fileName: "[project]/src/components/site/footer.tsx",
-                                    lineNumber: 97,
+                                    lineNumber: 78,
                                     columnNumber: 15
-                                }, this))
+                                }, this)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "md:col-span-1 hidden md:block"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/site/footer.tsx",
+                                lineNumber: 98,
+                                columnNumber: 13
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/site/footer.tsx",
-                        lineNumber: 74,
+                        lineNumber: 57,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/footer.tsx",
-                    lineNumber: 73,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "px-5 sm:px-6 md:px-10 pb-6 sm:pb-8",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "font-display font-bold tracking-[-0.04em] leading-none text-[11vw] md:text-[14vw] lg:text-[13vw] text-[#C71F42] select-none text-center",
-                        children: "KATELLA DIGITAL"
+                        className: "font-display font-bold tracking-[-0.04em] leading-none text-center select-none whitespace-nowrap",
+                        style: {
+                            fontSize: "clamp(2rem, 13vw, 12rem)",
+                            color: "#C71F42"
+                        },
+                        children: "Katella Digital"
                     }, void 0, false, {
                         fileName: "[project]/src/components/site/footer.tsx",
-                        lineNumber: 121,
+                        lineNumber: 104,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/footer.tsx",
-                    lineNumber: 120,
+                    lineNumber: 103,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2371,7 +2222,7 @@ function Footer({ className = "" }) {
                                 children: "© 2026 Katella Digital — Anaheim, CA"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/footer.tsx",
-                                lineNumber: 129,
+                                lineNumber: 118,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2383,7 +2234,7 @@ function Footer({ className = "" }) {
                                         children: "Privacy"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/footer.tsx",
-                                        lineNumber: 131,
+                                        lineNumber: 120,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2392,7 +2243,7 @@ function Footer({ className = "" }) {
                                         children: "Imprint"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/footer.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 121,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2401,42 +2252,42 @@ function Footer({ className = "" }) {
                                         children: "Cookies"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/site/footer.tsx",
-                                        lineNumber: 133,
+                                        lineNumber: 122,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/site/footer.tsx",
-                                lineNumber: 130,
+                                lineNumber: 119,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: "Made in monochrome"
+                                children: "Driving Growth, Engineered"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/site/footer.tsx",
-                                lineNumber: 135,
+                                lineNumber: 124,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/site/footer.tsx",
-                        lineNumber: 128,
+                        lineNumber: 117,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/site/footer.tsx",
-                    lineNumber: 127,
+                    lineNumber: 116,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/site/footer.tsx",
-            lineNumber: 72,
+            lineNumber: 54,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/site/footer.tsx",
-        lineNumber: 70,
+        lineNumber: 53,
         columnNumber: 5
     }, this);
 }
@@ -2461,227 +2312,184 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var _s = __turbopack_context__.k.signature();
 "use client";
 ;
-const PARTICLE_LIFE = 700; // ms
-const PARTICLE_INTERVAL = 45; // ms between particles
-const MAX_PARTICLES = 25;
-const RIPPLE_LIFE = 800; // ms
 function CursorGlow() {
     _s();
-    const [enabled, setEnabled] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const dotRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const glowRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const particleLayerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    // Position refs (no re-render needed for movement)
-    const mouse = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])({
-        x: -100,
-        y: -100
-    });
-    const glow = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])({
-        x: -100,
-        y: -100
-    });
-    const lastParticleAt = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const particleId = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const rippleId = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
-    // Visible state for hover effects on interactive elements
-    const [hovering, setHovering] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const ringRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const trailRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "CursorGlow.useEffect": ()=>{
-            const isTouch = ("TURBOPACK compile-time value", "object") !== "undefined" && (window.matchMedia?.("(hover: none)")?.matches || "ontouchstart" in window);
-            const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-            if (!isTouch && !reduce) setEnabled(true);
-        }
-    }["CursorGlow.useEffect"], []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "CursorGlow.useEffect": ()=>{
-            if (!enabled) return;
+            const dot = dotRef.current;
+            const glow = glowRef.current;
+            const ring = ringRef.current;
+            const trail = trailRef.current;
+            if (!dot || !glow || !ring || !trail) return;
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let glowX = mouseX;
+            let glowY = mouseY;
+            let ringX = mouseX;
+            let ringY = mouseY;
+            let lastX = mouseX;
+            let lastY = mouseY;
+            let velocity = 0;
+            let rafId;
+            let clickPulse = 0;
+            const trailPoints = [];
+            const maxTrail = 12;
+            // Create trail elements
+            for(let i = 0; i < maxTrail; i++){
+                const el = document.createElement("span");
+                el.style.cssText = `
+        position: fixed; top: 0; left: 0;
+        width: 4px; height: 4px; border-radius: 50%;
+        background: #C71F42; pointer-events: none;
+        opacity: 0; will-change: transform, opacity;
+        z-index: 54;
+      `;
+                document.body.appendChild(el);
+                trailPoints.push({
+                    x: 0,
+                    y: 0,
+                    life: 0,
+                    el
+                });
+            }
+            let trailIdx = 0;
             const onMove = {
                 "CursorGlow.useEffect.onMove": (e)=>{
-                    mouse.current.x = e.clientX;
-                    mouse.current.y = e.clientY;
-                    // Hover state for interactive elements
-                    const el = e.target;
-                    if (el.closest("a, button, [role='button'], input, textarea, select, label")) {
-                        setHovering(true);
-                    } else {
-                        setHovering(false);
-                    }
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    dot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
                 }
             }["CursorGlow.useEffect.onMove"];
-            const onDown = {
-                "CursorGlow.useEffect.onDown": (e)=>{
-                    const layer = particleLayerRef.current;
-                    if (!layer) return;
-                    const id = rippleId.current++;
-                    const r = {
-                        id,
-                        x: e.clientX,
-                        y: e.clientY,
-                        born: performance.now()
-                    };
-                    const node = document.createElement("div");
-                    node.dataset.ripple = "1";
-                    node.style.position = "absolute";
-                    node.style.left = `${r.x}px`;
-                    node.style.top = `${r.y}px`;
-                    node.style.transform = "translate(-50%, -50%)";
-                    node.style.width = "10px";
-                    node.style.height = "10px";
-                    node.style.borderRadius = "9999px";
-                    node.style.border = "1.5px solid #C71F42";
-                    node.style.pointerEvents = "none";
-                    node.style.opacity = "0.9";
-                    node.style.transition = `transform ${RIPPLE_LIFE}ms cubic-bezier(0.22,1,0.36,1), opacity ${RIPPLE_LIFE}ms ease-out`;
-                    layer.appendChild(node);
-                    // Trigger animation on next frame
-                    requestAnimationFrame({
-                        "CursorGlow.useEffect.onDown": ()=>{
-                            node.style.transform = "translate(-50%, -50%) scale(20)";
-                            node.style.opacity = "0";
+            const onClick = {
+                "CursorGlow.useEffect.onClick": ()=>{
+                    clickPulse = 1;
+                }
+            }["CursorGlow.useEffect.onClick"];
+            const animate = {
+                "CursorGlow.useEffect.animate": ()=>{
+                    // Velocity
+                    const dx = mouseX - lastX;
+                    const dy = mouseY - lastY;
+                    const speed = Math.sqrt(dx * dx + dy * dy);
+                    velocity = velocity * 0.88 + Math.min(1, speed / 40) * 0.12;
+                    lastX = mouseX;
+                    lastY = mouseY;
+                    // Glow follows with lag
+                    glowX += (mouseX - glowX) * 0.15;
+                    glowY += (mouseY - glowY) * 0.15;
+                    // Ring follows slower
+                    ringX += (mouseX - ringX) * 0.08;
+                    ringY += (mouseY - ringY) * 0.08;
+                    // Click pulse decay
+                    clickPulse *= 0.92;
+                    // Glow: scale + blur based on velocity + click
+                    const glowScale = 1 + velocity * 0.5 + clickPulse * 0.8;
+                    const glowBlur = 15 + velocity * 20;
+                    const glowOpacity = 0.2 + velocity * 0.15 + clickPulse * 0.3;
+                    glow.style.transform = `translate(${glowX - 50}px, ${glowY - 50}px) scale(${glowScale})`;
+                    glow.style.filter = `blur(${glowBlur}px)`;
+                    glow.style.opacity = glowOpacity.toString();
+                    // Ring: rotates + scales with velocity
+                    const ringScale = 1 + velocity * 0.3 + clickPulse * 0.5;
+                    const ringOpacity = 0.3 + velocity * 0.2 + clickPulse * 0.3;
+                    ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px) scale(${ringScale}) rotate(${Date.now() / 20}deg)`;
+                    ring.style.opacity = ringOpacity.toString();
+                    // Trail: spawn point when moving fast
+                    if (speed > 5 && trailRef.current) {
+                        const tp = trailPoints[trailIdx];
+                        tp.x = mouseX;
+                        tp.y = mouseY;
+                        tp.life = 1;
+                        trailIdx = (trailIdx + 1) % maxTrail;
+                    }
+                    // Update trail points
+                    trailPoints.forEach({
+                        "CursorGlow.useEffect.animate": (tp)=>{
+                            if (tp.life > 0) {
+                                tp.life -= 0.04;
+                                const size = 4 * tp.life;
+                                tp.el.style.transform = `translate(${tp.x - size / 2}px, ${tp.y - size / 2}px) scale(${tp.life})`;
+                                tp.el.style.opacity = (tp.life * 0.4).toString();
+                            }
                         }
-                    }["CursorGlow.useEffect.onDown"]);
-                    setTimeout({
-                        "CursorGlow.useEffect.onDown": ()=>node.remove()
-                    }["CursorGlow.useEffect.onDown"], RIPPLE_LIFE + 50);
+                    }["CursorGlow.useEffect.animate"]);
+                    rafId = requestAnimationFrame(animate);
                 }
-            }["CursorGlow.useEffect.onDown"];
-            window.addEventListener("mousemove", onMove, {
-                passive: true
-            });
-            window.addEventListener("mousedown", onDown, {
-                passive: true
-            });
-            let raf = 0;
-            let prevX = mouse.current.x;
-            let prevY = mouse.current.y;
-            let prevT = performance.now();
-            const tick = {
-                "CursorGlow.useEffect.tick": ()=>{
-                    const now = performance.now();
-                    // Smooth glow trail (lerp)
-                    glow.current.x += (mouse.current.x - glow.current.x) * 0.18;
-                    glow.current.y += (mouse.current.y - glow.current.y) * 0.18;
-                    const dt = now - prevT;
-                    const dx = mouse.current.x - prevX;
-                    const dy = mouse.current.y - prevY;
-                    const velocity = Math.hypot(dx, dy) / Math.max(1, dt);
-                    prevX = mouse.current.x;
-                    prevY = mouse.current.y;
-                    prevT = now;
-                    if (dotRef.current) {
-                        dotRef.current.style.transform = `translate3d(${mouse.current.x}px, ${mouse.current.y}px, 0) translate(-50%, -50%) scale(${1 + Math.min(velocity * 0.18, 0.6)})`;
-                        dotRef.current.style.opacity = "1";
-                    }
-                    if (glowRef.current) {
-                        const scale = hovering ? 2.2 : 1.4 + Math.min(velocity * 0.12, 0.8);
-                        glowRef.current.style.transform = `translate3d(${glow.current.x}px, ${glow.current.y}px, 0) translate(-50%, -50%) scale(${scale})`;
-                        glowRef.current.style.opacity = hovering ? "0.85" : "0.55";
-                    }
-                    // Emit trailing particle when moving fast enough
-                    if (velocity > 0.05 && now - lastParticleAt.current > PARTICLE_INTERVAL) {
-                        lastParticleAt.current = now;
-                        emitParticle(now);
-                    }
-                    raf = requestAnimationFrame(tick);
-                }
-            }["CursorGlow.useEffect.tick"];
-            raf = requestAnimationFrame(tick);
+            }["CursorGlow.useEffect.animate"];
+            window.addEventListener("mousemove", onMove);
+            window.addEventListener("click", onClick);
+            rafId = requestAnimationFrame(animate);
             return ({
                 "CursorGlow.useEffect": ()=>{
-                    cancelAnimationFrame(raf);
                     window.removeEventListener("mousemove", onMove);
-                    window.removeEventListener("mousedown", onDown);
+                    window.removeEventListener("click", onClick);
+                    cancelAnimationFrame(rafId);
+                    trailPoints.forEach({
+                        "CursorGlow.useEffect": (tp)=>tp.el.remove()
+                    }["CursorGlow.useEffect"]);
                 }
             })["CursorGlow.useEffect"];
         }
-    }["CursorGlow.useEffect"], [
-        enabled,
-        hovering
-    ]);
-    // Spawn a single fading particle at the mouse position
-    const emitParticle = (now)=>{
-        const layer = particleLayerRef.current;
-        if (!layer) return;
-        // Cap total particles
-        const existing = layer.querySelectorAll("[data-particle]");
-        if (existing.length >= MAX_PARTICLES) existing[0].remove();
-        const id = particleId.current++;
-        const p = {
-            id,
-            x: mouse.current.x + (Math.random() - 0.5) * 6,
-            y: mouse.current.y + (Math.random() - 0.5) * 6,
-            size: 4 + Math.random() * 4,
-            born: now
-        };
-        const node = document.createElement("span");
-        node.dataset.particle = "1";
-        node.style.position = "absolute";
-        node.style.left = `${p.x}px`;
-        node.style.top = `${p.y}px`;
-        node.style.width = `${p.size}px`;
-        node.style.height = `${p.size}px`;
-        node.style.borderRadius = "9999px";
-        node.style.background = "rgba(199, 31, 66, 0.95)";
-        node.style.boxShadow = "0 0 12px rgba(199, 31, 66, 0.65)";
-        node.style.transform = "translate(-50%, -50%)";
-        node.style.pointerEvents = "none";
-        node.style.opacity = "0.95";
-        node.style.transition = `opacity ${PARTICLE_LIFE}ms ease-out, transform ${PARTICLE_LIFE}ms ease-out, background ${PARTICLE_LIFE}ms ease-out`;
-        layer.appendChild(node);
-        // Drift upward and fade
-        requestAnimationFrame(()=>{
-            node.style.transform = `translate(-50%, -50%) translateY(-22px) scale(0.2)`;
-            node.style.opacity = "0";
-            node.style.background = "rgba(199, 31, 66, 0.05)";
-        });
-        setTimeout(()=>node.remove(), PARTICLE_LIFE + 50);
-    };
-    if (!enabled) return null;
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "pointer-events-none fixed inset-0 z-[200]",
-        "aria-hidden": "true",
+    }["CursorGlow.useEffect"], []);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                ref: particleLayerRef,
-                className: "absolute inset-0"
+                ref: glowRef,
+                className: "fixed top-0 left-0 w-[100px] h-[100px] rounded-full pointer-events-none z-[55]",
+                style: {
+                    background: "radial-gradient(circle, rgba(199,31,66,0.5) 0%, rgba(199,31,66,0) 70%)",
+                    willChange: "transform, filter, opacity"
+                },
+                "aria-hidden": "true"
             }, void 0, false, {
                 fileName: "[project]/src/components/site/cursor-glow.tsx",
-                lineNumber: 197,
+                lineNumber: 143,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                ref: glowRef,
-                className: "absolute h-8 w-8 rounded-full opacity-0",
+                ref: ringRef,
+                className: "fixed top-0 left-0 w-9 h-9 rounded-full pointer-events-none z-[56]",
                 style: {
-                    background: "radial-gradient(circle, rgba(199,31,66,0.55) 0%, rgba(199,31,66,0.18) 45%, transparent 75%)",
+                    border: "1.5px solid #C71F42",
                     willChange: "transform, opacity"
-                }
+                },
+                "aria-hidden": "true"
             }, void 0, false, {
                 fileName: "[project]/src/components/site/cursor-glow.tsx",
-                lineNumber: 200,
+                lineNumber: 153,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 ref: dotRef,
-                className: "absolute h-2 w-2 rounded-full opacity-0",
+                className: "fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none z-[57]",
                 style: {
                     background: "#C71F42",
-                    boxShadow: "0 0 10px rgba(199,31,66,0.9), 0 0 24px rgba(199,31,66,0.45)",
-                    willChange: "transform, opacity"
-                }
+                    boxShadow: "0 0 6px rgba(199,31,66,0.8)",
+                    willChange: "transform"
+                },
+                "aria-hidden": "true"
             }, void 0, false, {
                 fileName: "[project]/src/components/site/cursor-glow.tsx",
-                lineNumber: 211,
+                lineNumber: 163,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                ref: trailRef,
+                className: "hidden",
+                "aria-hidden": "true"
+            }, void 0, false, {
+                fileName: "[project]/src/components/site/cursor-glow.tsx",
+                lineNumber: 174,
                 columnNumber: 7
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "[project]/src/components/site/cursor-glow.tsx",
-        lineNumber: 195,
-        columnNumber: 5
-    }, this);
+    }, void 0, true);
 }
-_s(CursorGlow, "6hSqL4dxsy3H4/VXxJYg1zFbHVw=");
+_s(CursorGlow, "WuL41JrnNyj0rd/KEUkWzt5q+SE=");
 _c = CursorGlow;
 var _c;
 __turbopack_context__.k.register(_c, "CursorGlow");

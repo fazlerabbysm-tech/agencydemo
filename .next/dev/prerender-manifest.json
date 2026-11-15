@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "d728f54e6eff402b4bc84e5316b69c87",
-    "previewModeSigningKey": "0271fc8f9e882c0dfced509a8c23fecca853fec9c421eb3f6d454b6b9521ca04",
-    "previewModeEncryptionKey": "1156b8c9832a06c13b3094b7207cb34d3cccc4d8ee4ba32bde859b7c62bf9bc9"
-  }
-}
+{"version":4,"routes":{"/services/ui-ux":{},"/services/motion-graphics":{},"/services/digital-marketing":{},"/services/web-app-dev":{},"/portfolio/aurora-goods":{},"/portfolio/maison-noir":{},"/portfolio/echo-motors":{},"/portfolio/agency-collective":{},"/case-studies/aurora-goods":{},"/case-studies/maison-noir":{},"/case-studies/echo-motors":{},"/case-studies/agency-collective":{}},"dynamicRoutes":{"/services/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/services/[slug]","routeRegex":"^\\/services\\/([^/]+?)(?:\\/)?$","allowHeader":[]},"/portfolio/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/portfolio/[slug]","routeRegex":"^\\/portfolio\\/([^/]+?)(?:\\/)?$","allowHeader":[]},"/case-studies/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/case-studies/[slug]","routeRegex":"^\\/case\\-studies\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"e50756e251fd54a385af7c5aa014d9e2","previewModeSigningKey":"c7374d05cc492645b654d110a5e906037db9e49e642282f9ee7730acad850eec","previewModeEncryptionKey":"0b1a99c6682a3dc60552f956d82772ddc2380023ac43241e40596a4f6066db2a"}}

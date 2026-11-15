@@ -45,12 +45,12 @@ const caseStudyDetails = [
             client: "Aurora Goods",
             industry: "D2C Skincare",
             services: [
-                "UI/UX Design",
-                "Digital Marketing"
+                "E-commerce Catalog Optimization",
+                "Color Standardization Protocol"
             ],
             timeline: "8 weeks · 2025"
         },
-        serviceSlug: "ui-ux",
+        serviceSlug: "ecommerce",
         challengeTitle: "A catalog that was actively losing revenue",
         challengeText: [
             "Aurora Goods had grown from 50 to 500 SKUs in two years, but their catalog hadn't grown with them. Every product had been photographed by a different freelancer, in different lighting, on different backgrounds. The result looked like a marketplace, not a brand.",
@@ -116,8 +116,8 @@ const caseStudyDetails = [
             "We'd change the copywriting timeline. We wrote listing copy in parallel with photography, but the copy team needed the final retouched images to reference. Next time, we'd sequence copy after retouching."
         ],
         servicesUsed: [
-            "UI/UX Design",
-            "Digital Marketing"
+            "E-commerce Catalog Optimization",
+            "Color Standardization Protocol"
         ],
         relatedTitle: "Related case studies",
         ctaTitle: "Want results like this?"
@@ -150,12 +150,12 @@ const caseStudyDetails = [
             client: "Maison Noir",
             industry: "Luxury Fashion",
             services: [
-                "Digital Marketing",
-                "UI/UX Design"
+                "Color Standardization Protocol",
+                "E-commerce Catalog Optimization"
             ],
             timeline: "3 weeks · 2025"
         },
-        serviceSlug: "digital-marketing",
+        serviceSlug: "color",
         challengeTitle: "A luxury brand built on one color — that looked different everywhere",
         challengeText: [
             "Maison Noir is a luxury fashion house where black isn't just a color — it's the entire brand identity. But their black looked different on Instagram, in their print lookbook, on their e-commerce store, and on the physical product.",
@@ -221,8 +221,8 @@ const caseStudyDetails = [
             "We'd add a quarterly re-calibration checkpoint sooner. Monitors drift faster than expected, and the first month had a few close calls before we set up the schedule."
         ],
         servicesUsed: [
-            "Digital Marketing",
-            "UI/UX Design"
+            "Color Standardization Protocol",
+            "E-commerce Catalog Optimization"
         ],
         relatedTitle: "Related case studies",
         ctaTitle: "Want results like this?"
@@ -255,12 +255,12 @@ const caseStudyDetails = [
             client: "ECHO Motors",
             industry: "Automotive / EV",
             services: [
-                "Motion Graphics",
-                "Digital Marketing"
+                "Virtual Production & CGI Studio",
+                "Color Standardization Protocol"
             ],
             timeline: "8 weeks · 2024"
         },
-        serviceSlug: "motion-graphics",
+        serviceSlug: "cgi",
         challengeTitle: "A car launch with no car to film",
         challengeText: [
             "ECHO Motors was launching their first electric vehicle, but the physical prototype wasn't ready. The marketing team had 8 weeks to produce a launch film, and there was no car to film.",
@@ -326,8 +326,8 @@ const caseStudyDetails = [
             "We'd involve the engineering team earlier. The CAD files were accurate but needed cleanup for CGI. A 2-day workshop with engineering before the build would have saved 4 days of rework."
         ],
         servicesUsed: [
-            "Motion Graphics",
-            "Digital Marketing"
+            "Virtual Production & CGI Studio",
+            "Color Standardization Protocol"
         ],
         relatedTitle: "Related case studies",
         ctaTitle: "Want results like this?"
@@ -360,12 +360,12 @@ const caseStudyDetails = [
             client: "Agency Collective",
             industry: "Creative Agency",
             services: [
-                "Web & App Development",
-                "UI/UX Design"
+                "White-Label Agency Extension",
+                "E-commerce Catalog Optimization"
             ],
             timeline: "12 months · 2024-2025"
         },
-        serviceSlug: "web-app-dev",
+        serviceSlug: "whitelabel",
         challengeTitle: "Winning more pitches than they could staff",
         challengeText: [
             "Agency Collective was winning more pitches than they could staff. They had a small core team of strategists and creatives, but couldn't handle the production volume — design, development, and motion work for 6 concurrent clients.",
@@ -431,8 +431,8 @@ const caseStudyDetails = [
             "We'd add a quarterly review process sooner. The first 6 months went well, but a formal check-in at month 3 would have caught a few workflow inefficiencies earlier."
         ],
         servicesUsed: [
-            "Web & App Development",
-            "UI/UX Design"
+            "White-Label Agency Extension",
+            "E-commerce Catalog Optimization"
         ],
         relatedTitle: "Related case studies",
         ctaTitle: "Want results like this?"

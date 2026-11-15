@@ -1,6 +1,15 @@
 {
   "app": {
+    "[project]/src/app/case-studies/[slug]/page": [
+      "static/media/ce62453a442c7f35-s.p.124b2306.woff2"
+    ],
     "[project]/src/app/page": [
+      "static/media/ce62453a442c7f35-s.p.124b2306.woff2"
+    ],
+    "[project]/src/app/portfolio/[slug]/page": [
+      "static/media/ce62453a442c7f35-s.p.124b2306.woff2"
+    ],
+    "[project]/src/app/services/[slug]/page": [
       "static/media/ce62453a442c7f35-s.p.124b2306.woff2"
     ]
   },

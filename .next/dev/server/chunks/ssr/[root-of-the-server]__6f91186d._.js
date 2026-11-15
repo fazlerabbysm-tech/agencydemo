@@ -27,10 +27,10 @@ const portfolioDetails = [
         industry: "D2C Skincare",
         year: "2025",
         services: [
-            "UI/UX Design",
-            "Digital Marketing"
+            "E-commerce Catalog Optimization",
+            "Color Standardization Protocol"
         ],
-        serviceSlug: "ui-ux",
+        serviceSlug: "ecommerce",
         overviewTitle: "A catalog that scaled with the brand",
         overviewText: [
             "Aurora Goods came to us with a catalog of 500 SKUs spread across three marketplaces and their own DTC store. Every product photo was shot by a different photographer, in different lighting, with different backgrounds. The result was a catalog that looked chaotic and converted poorly — customers couldn't tell if two products were from the same brand.",
@@ -106,10 +106,10 @@ const portfolioDetails = [
         industry: "Luxury Fashion",
         year: "2025",
         services: [
-            "Digital Marketing",
-            "UI/UX Design"
+            "Color Standardization Protocol",
+            "E-commerce Catalog Optimization"
         ],
-        serviceSlug: "digital-marketing",
+        serviceSlug: "color",
         overviewTitle: "One black, every surface",
         overviewText: [
             "Maison Noir is a luxury fashion house where black isn't just a color — it's the brand. But their black looked different on Instagram, in their print lookbook, on their e-commerce store, and on the physical product. Customers were returning items because 'the color doesn't match the photo.' For a brand built on a single color, this was an existential problem.",
@@ -185,10 +185,10 @@ const portfolioDetails = [
         industry: "Automotive / EV",
         year: "2024",
         services: [
-            "Motion Graphics",
-            "Digital Marketing"
+            "Virtual Production & CGI Studio",
+            "Color Standardization Protocol"
         ],
-        serviceSlug: "motion-graphics",
+        serviceSlug: "cgi",
         overviewTitle: "A car launch with no physical car",
         overviewText: [
             "ECHO Motors was launching their first electric vehicle, but the physical prototype wasn't ready. The marketing team had 8 weeks to produce a launch film, and there was no car to film. Traditional production would have meant waiting months for the prototype, then scheduling a shoot with a crew, location, and weather risk.",
@@ -264,10 +264,10 @@ const portfolioDetails = [
         industry: "Creative Agency",
         year: "2024",
         services: [
-            "Web & App Development",
-            "UI/UX Design"
+            "White-Label Agency Extension",
+            "E-commerce Catalog Optimization"
         ],
-        serviceSlug: "web-app-dev",
+        serviceSlug: "whitelabel",
         overviewTitle: "An invisible studio behind a growing agency",
         overviewText: [
             "Agency Collective was winning more pitches than they could staff. They had a small core team of strategists and creatives, but couldn't handle the production volume — design, development, and motion work for 6 concurrent clients. Hiring full-time senior staff was too risky with fluctuating project flow, and freelancers were inconsistent.",
