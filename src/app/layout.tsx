@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import GlobalContactModal from "@/components/site/global-contact-modal";
 
 const roboto = Roboto({
   variable: "--font-sans",
@@ -49,6 +50,7 @@ export default function RootLayout({
         } as React.CSSProperties}
       >
         {children}
+        <GlobalContactModal />
         <Toaster />
       </body>
     </html>
