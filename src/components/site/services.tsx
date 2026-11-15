@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -35,6 +36,11 @@ const services = [
 ];
 
 interface Props {
+  /**
+   * If provided, clicking a card calls this with the slug
+   * (legacy modal flow). If omitted, cards link to /services/<slug>
+   * (static URL flow).
+   */
   onServiceClick?: (slug: string) => void;
 }
 
@@ -98,55 +104,80 @@ function ServiceCard({
   onClick?: (slug: string) => void;
 }) {
   const padTotal = String(total).padStart(2, "0");
+
+  // If no callback, render as a Next.js Link to the static page
+  if (!onClick) {
+    return (
+      <Link
+        href={`/services/${service.slug}`}
+        className="group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4 cursor-pointer block"
+      >
+        <ServiceCardContent service={service} padTotal={padTotal} />
+      </Link>
+    );
+  }
+
+  // Legacy modal flow
   return (
     <article
       className="group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4 cursor-pointer"
       onClick={() => onClick?.(service.slug)}
     >
-      {/* Glass card container with backdrop blur */}
-      <div className="relative aspect-[5/6] overflow-hidden bg-[#060000] rounded-2xl border border-[#3a1518] backdrop-blur-sm transition-all duration-500 group-hover:border-[#C71F42]/50 group-hover:shadow-[0_0_40px_rgba(199,31,66,0.15)]">
-        {/* Top-edge glass highlight */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C71F42]/30 to-transparent z-20" />
+      <ServiceCardContent service={service} padTotal={padTotal} />
+    </article>
+  );
+}
 
-        {/* Image */}
-        <img
-          src={service.image}
-          alt={service.title}
-          loading="eager"
-          className="h-full w-full object-cover opacity-70 transition-all duration-[1.2s] ease-out group-hover:scale-110 group-hover:opacity-90"
-          onError={(e) => {
-            (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-          }}
-        />
+function ServiceCardContent({
+  service,
+  padTotal,
+}: {
+  service: (typeof services)[number];
+  padTotal: string;
+}) {
+  return (
+    <div className="relative aspect-[5/6] overflow-hidden bg-[#060000] rounded-2xl border border-[#3a1518] backdrop-blur-sm transition-all duration-500 group-hover:border-[#C71F42]/50 group-hover:shadow-[0_0_40px_rgba(199,31,66,0.15)]">
+      {/* Top-edge glass highlight */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C71F42]/30 to-transparent z-20" />
 
-        {/* Glass overlay — semi-transparent dark with blur */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/60 to-[#060000]/20 backdrop-blur-[2px]" />
+      {/* Image */}
+      <img
+        src={service.image}
+        alt={service.title}
+        loading="eager"
+        className="h-full w-full object-cover opacity-70 transition-all duration-[1.2s] ease-out group-hover:scale-110 group-hover:opacity-90"
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
+        }}
+      />
 
-        {/* Teal glow on hover (radial) */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#C71F42]/10 to-transparent" />
+      {/* Glass overlay — semi-transparent dark with blur */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/60 to-[#060000]/20 backdrop-blur-[2px]" />
 
-        {/* Number badge */}
-        <div className="absolute top-4 sm:top-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between z-10">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]">
-            {service.no} / {padTotal}
-          </span>
-          <span className="h-2 w-2 rounded-full bg-[#C71F42] group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(199,31,66,0.6)]" />
-        </div>
+      {/* Teal glow on hover (radial) */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#C71F42]/10 to-transparent" />
 
-        {/* Title + Explore */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10">
-          <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05] group-hover:text-[#C71F42] transition-colors duration-300">
-            {service.title}
-          </h3>
-          <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#C71F42] transition-colors duration-300">
-            <span>Explore</span>
-            <ArrowRight
-              size={12}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </div>
+      {/* Number badge */}
+      <div className="absolute top-4 sm:top-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between z-10">
+        <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]">
+          {service.no} / {padTotal}
+        </span>
+        <span className="h-2 w-2 rounded-full bg-[#C71F42] group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(199,31,66,0.6)]" />
+      </div>
+
+      {/* Title + Explore */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10">
+        <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05] group-hover:text-[#C71F42] transition-colors duration-300">
+          {service.title}
+        </h3>
+        <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#C71F42] transition-colors duration-300">
+          <span>Explore</span>
+          <ArrowRight
+            size={12}
+            className="transition-transform duration-300 group-hover:translate-x-1"
+          />
         </div>
       </div>
-    </article>
+    </div>
   );
 }
