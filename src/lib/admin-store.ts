@@ -57,15 +57,24 @@ export interface EmailTemplateStep {
   ctaUrl: string;
 }
 
+export type SendProviderMode = "auto" | "brevo" | "resend";
+
 export interface OutreachSettings {
   dailyLimit: number;
-  sendProvider: "smtp" | "brevo";
+  brevoDailyLimit: number;
+  resendDailyLimit: number;
+  sendProvider: SendProviderMode;
   senderName: string;
   senderEmail: string;
   replyToEmail: string;
   autoFollowUpEnabled: boolean;
   activeBrevoListId?: number;
   activeBrevoListName?: string;
+}
+
+export interface DailyProviderUsage {
+  brevo: number;
+  resend: number;
 }
 
 export interface OutreachSendLog {
@@ -75,7 +84,7 @@ export interface OutreachSendLog {
   businessName: string;
   step: 1 | 2 | 3 | 4;
   subject: string;
-  provider: "smtp" | "brevo" | "dry-run";
+  provider: "brevo" | "resend" | "dry-run";
   status: "sent" | "failed" | "dry-run";
   error?: string;
   sentAt: string;
@@ -87,13 +96,14 @@ export interface AdminDatabase {
   templates: EmailTemplateStep[];
   settings: OutreachSettings;
   dailyCounts: Record<string, number>;
+  dailyProviderCounts: Record<string, DailyProviderUsage>;
   logs: OutreachSendLog[];
 }
 
 export interface IntegrationStatus {
   storageMode: "upstash-redis" | "local-file";
   brevoConfigured: boolean;
-  smtpConfigured: boolean;
+  resendConfigured: boolean;
   cronSecretConfigured: boolean;
   customAdminPassword: boolean;
 }
@@ -176,10 +186,12 @@ Wishing you and the {{business_name}} team a strong quarter ahead!`,
 export function getDefaultSettings(): OutreachSettings {
   return {
     dailyLimit: 400,
-    sendProvider: process.env.SMTP_HOST ? "smtp" : "brevo",
-    senderName: process.env.SMTP_FROM_NAME || "Katella Digital",
+    brevoDailyLimit: 300,
+    resendDailyLimit: 100,
+    sendProvider: "auto",
+    senderName: process.env.SENDER_NAME || "Katella Digital",
     senderEmail:
-      process.env.SMTP_FROM_EMAIL ||
+      process.env.SENDER_EMAIL ||
       process.env.CONTACT_EMAIL ||
       "info@katelladigital.com",
     replyToEmail: process.env.CONTACT_EMAIL || "info@katelladigital.com",
@@ -194,6 +206,7 @@ export function createEmptyDb(): AdminDatabase {
     templates: getDefaultTemplates(),
     settings: getDefaultSettings(),
     dailyCounts: {},
+    dailyProviderCounts: {},
     logs: [],
   };
 }
@@ -211,16 +224,13 @@ export function getIntegrationStatus(): IntegrationStatus {
   return {
     storageMode: getRedisCredentials() ? "upstash-redis" : "local-file",
     brevoConfigured: Boolean(process.env.BREVO_API_KEY),
-    smtpConfigured: Boolean(
-      process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS
-    ),
+    resendConfigured: Boolean(process.env.RESEND_API_KEY),
     cronSecretConfigured: Boolean(process.env.CRON_SECRET),
     customAdminPassword: Boolean(process.env.ADMIN_PASSWORD),
   };
 }
 
 function getLocalDbPath(): string {
-  // On Vercel without Upstash, process.cwd() is read-only; fallback to /tmp
   if (process.env.VERCEL) {
     return "/tmp/katella-admin-db.json";
   }
@@ -230,6 +240,14 @@ function getLocalDbPath(): string {
 function hydrateDb(raw: Partial<AdminDatabase> | null): AdminDatabase {
   const base = createEmptyDb();
   if (!raw || typeof raw !== "object") return base;
+  const rawSettings = raw.settings as Partial<OutreachSettings> | undefined;
+  const validProvider: SendProviderMode =
+    rawSettings?.sendProvider === "brevo" ||
+    rawSettings?.sendProvider === "resend" ||
+    rawSettings?.sendProvider === "auto"
+      ? rawSettings.sendProvider
+      : "auto";
+
   return {
     leads: Array.isArray(raw.leads) ? raw.leads : base.leads,
     prospects: Array.isArray(raw.prospects) ? raw.prospects : base.prospects,
@@ -239,11 +257,16 @@ function hydrateDb(raw: Partial<AdminDatabase> | null): AdminDatabase {
         : base.templates,
     settings: {
       ...base.settings,
-      ...(raw.settings || {}),
+      ...(rawSettings || {}),
+      sendProvider: validProvider,
     },
     dailyCounts:
       raw.dailyCounts && typeof raw.dailyCounts === "object"
         ? raw.dailyCounts
+        : {},
+    dailyProviderCounts:
+      raw.dailyProviderCounts && typeof raw.dailyProviderCounts === "object"
+        ? raw.dailyProviderCounts
         : {},
     logs: Array.isArray(raw.logs) ? raw.logs : [],
   };
@@ -253,10 +276,13 @@ export async function readAdminDb(): Promise<AdminDatabase> {
   const redis = getRedisCredentials();
   if (redis) {
     try {
-      const res = await fetch(`${redis.url}/get/${encodeURIComponent(REDIS_DB_KEY)}`, {
-        headers: { Authorization: `Bearer ${redis.token}` },
-        cache: "no-store",
-      });
+      const res = await fetch(
+        `${redis.url}/get/${encodeURIComponent(REDIS_DB_KEY)}`,
+        {
+          headers: { Authorization: `Bearer ${redis.token}` },
+          cache: "no-store",
+        }
+      );
       if (res.ok) {
         const json = (await res.json()) as { result?: string | null };
         if (json.result) {
@@ -280,7 +306,6 @@ export async function readAdminDb(): Promise<AdminDatabase> {
 }
 
 export async function writeAdminDb(db: AdminDatabase): Promise<void> {
-  // Cap logs to latest 500 entries so storage stays ultra-fast & compact
   const compactDb: AdminDatabase = {
     ...db,
     logs: db.logs.slice(0, 500),
@@ -289,14 +314,17 @@ export async function writeAdminDb(db: AdminDatabase): Promise<void> {
 
   const redis = getRedisCredentials();
   if (redis) {
-    const res = await fetch(`${redis.url}/set/${encodeURIComponent(REDIS_DB_KEY)}`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${redis.token}`,
-        "Content-Type": "text/plain",
-      },
-      body: serialized,
-    });
+    const res = await fetch(
+      `${redis.url}/set/${encodeURIComponent(REDIS_DB_KEY)}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${redis.token}`,
+          "Content-Type": "text/plain",
+        },
+        body: serialized,
+      }
+    );
     if (!res.ok) {
       const text = await res.text();
       throw new Error(`Upstash Redis write failed: ${text}`);

@@ -46,6 +46,10 @@ import type {
 interface OutreachStats {
   todayKey: string;
   sentToday: number;
+  brevoSentToday: number;
+  resendSentToday: number;
+  brevoDailyLimit: number;
+  resendDailyLimit: number;
   dailyLimit: number;
   remainingToday: number;
   queuedNew: number;
@@ -690,7 +694,7 @@ export default function AdminDashboard() {
       } else if (totalDryRun > 0) {
         showToast(
           "ok",
-          `Simulated ${totalSent} emails (Dry-Run mode — connect SMTP or Brevo API key to send live).`
+          `Simulated ${totalSent} emails (Dry-Run mode — connect Brevo or Resend API key to send live).`
         );
       } else {
         showToast(
@@ -774,7 +778,7 @@ export default function AdminDashboard() {
         showToast(
           "ok",
           d.provider === "dry-run"
-            ? "Test simulated (Dry-Run — add SMTP/Brevo API key to send real email)."
+            ? "Test simulated (Dry-Run — add Brevo or Resend API key to send real email)."
             : `Test email sent via ${d.provider?.toUpperCase()} to ${testEmailTo}!`
         );
       } else {
@@ -1045,12 +1049,17 @@ export default function AdminDashboard() {
                 / {stats?.dailyLimit ?? 400}
               </span>
             </div>
-            <div className="mt-2.5 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
+            <div className="mt-2 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-[#FF3363] to-[#C71F42] transition-all"
                 style={{ width: `${dailyPct}%` }}
               />
             </div>
+            <p className="mt-1.5 font-mono text-[10px] text-white/50">
+              Brevo {stats?.brevoSentToday ?? 0}/{stats?.brevoDailyLimit ?? 300}{" "}
+              · Resend {stats?.resendSentToday ?? 0}/
+              {stats?.resendDailyLimit ?? 100}
+            </p>
           </div>
 
           <div className="kd-obsidian-card rounded-2xl p-5">
@@ -1518,15 +1527,17 @@ export default function AdminDashboard() {
                 <p className="text-[11px] text-white/55 leading-relaxed">
                   Sending via{" "}
                   <strong className="text-white">
-                    {integrations?.smtpConfigured
-                      ? "Domain Email SMTP"
+                    {integrations?.brevoConfigured &&
+                    integrations?.resendConfigured
+                      ? "Brevo API (300/day) + Resend API (100/day) Auto-Split"
                       : integrations?.brevoConfigured
-                        ? "Brevo API"
-                        : "Dry-Run Simulation (add SMTP/Brevo keys in Settings)"}
+                        ? "Brevo API (add RESEND_API_KEY for +100/day)"
+                        : integrations?.resendConfigured
+                          ? "Resend API (add BREVO_API_KEY for +300/day)"
+                          : "Dry-Run Simulation (add BREVO_API_KEY & RESEND_API_KEY in Vercel)"}
                   </strong>{" "}
-                  · Follow-ups #1, #2, and #3 automatically schedule after each
-                  email and stop immediately if a prospect replies or
-                  unsubscribes.
+                  · Verified domain sender · Follow-ups #1, #2, and #3 schedule
+                  automatically and stop immediately on reply or unsubscribe.
                 </p>
               </div>
             </div>
@@ -2114,42 +2125,71 @@ export default function AdminDashboard() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
+                <div className="sm:col-span-2">
                   <label className="block font-mono text-[10px] uppercase tracking-[0.16em] text-white/55 mb-1.5">
-                    Daily Sending Limit
-                  </label>
-                  <input
-                    type="number"
-                    min={1}
-                    max={2000}
-                    value={settings.dailyLimit}
-                    onChange={(e) =>
-                      setSettings({
-                        ...settings,
-                        dailyLimit: Number(e.target.value) || 400,
-                      })
-                    }
-                    className="w-full rounded-xl border border-white/15 bg-[#060000]/65 px-4 py-2.5 text-sm text-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-mono text-[10px] uppercase tracking-[0.16em] text-white/55 mb-1.5">
-                    Primary Delivery Provider
+                    Delivery Mode (Verified Domain APIs)
                   </label>
                   <select
                     value={settings.sendProvider}
                     onChange={(e) =>
                       setSettings({
                         ...settings,
-                        sendProvider: e.target.value as "smtp" | "brevo",
+                        sendProvider: e.target.value as
+                          | "auto"
+                          | "brevo"
+                          | "resend",
                       })
                     }
                     className="w-full rounded-xl border border-white/15 bg-[#0e0205] px-4 py-2.5 text-sm text-white"
                   >
-                    <option value="smtp">Domain Email SMTP (Recommended)</option>
-                    <option value="brevo">Brevo Transactional API</option>
+                    <option value="auto">
+                      Auto-Split: Brevo + Resend Combined (Recommended · 400/day)
+                    </option>
+                    <option value="brevo">Brevo API Only</option>
+                    <option value="resend">Resend API Only</option>
                   </select>
+                </div>
+
+                <div>
+                  <label className="block font-mono text-[10px] uppercase tracking-[0.16em] text-white/55 mb-1.5">
+                    Brevo Daily Limit
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    max={5000}
+                    value={settings.brevoDailyLimit}
+                    onChange={(e) => {
+                      const v = Math.max(0, Number(e.target.value) || 0);
+                      setSettings({
+                        ...settings,
+                        brevoDailyLimit: v,
+                        dailyLimit: v + settings.resendDailyLimit,
+                      });
+                    }}
+                    className="w-full rounded-xl border border-white/15 bg-[#060000]/65 px-4 py-2.5 text-sm text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-mono text-[10px] uppercase tracking-[0.16em] text-white/55 mb-1.5">
+                    Resend Daily Limit
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    max={5000}
+                    value={settings.resendDailyLimit}
+                    onChange={(e) => {
+                      const v = Math.max(0, Number(e.target.value) || 0);
+                      setSettings({
+                        ...settings,
+                        resendDailyLimit: v,
+                        dailyLimit: settings.brevoDailyLimit + v,
+                      });
+                    }}
+                    className="w-full rounded-xl border border-white/15 bg-[#060000]/65 px-4 py-2.5 text-sm text-white"
+                  />
                 </div>
 
                 <div>
@@ -2168,7 +2208,7 @@ export default function AdminDashboard() {
 
                 <div>
                   <label className="block font-mono text-[10px] uppercase tracking-[0.16em] text-white/55 mb-1.5">
-                    Domain Sender Email
+                    Verified Domain Sender Email
                   </label>
                   <input
                     type="email"
@@ -2176,14 +2216,14 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setSettings({ ...settings, senderEmail: e.target.value })
                     }
-                    placeholder="outreach@katelladigital.com"
+                    placeholder="info@katelladigital.com"
                     className="w-full rounded-xl border border-white/15 bg-[#060000]/65 px-4 py-2.5 text-sm text-white"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
                   <label className="block font-mono text-[10px] uppercase tracking-[0.16em] text-white/55 mb-1.5">
-                    Reply-To Email
+                    Company Reply-To Email
                   </label>
                   <input
                     type="email"
@@ -2246,19 +2286,19 @@ export default function AdminDashboard() {
               <div className="space-y-2.5 text-xs">
                 {[
                   {
-                    label: "Persistent Database (Upstash Redis)",
-                    ok: integrations?.storageMode === "upstash-redis",
-                    env: "UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN",
-                  },
-                  {
-                    label: "Brevo Contact List API",
+                    label: "Brevo API (Lists + 300/day Send)",
                     ok: Boolean(integrations?.brevoConfigured),
                     env: "BREVO_API_KEY",
                   },
                   {
-                    label: "Domain Email SMTP (400/day)",
-                    ok: Boolean(integrations?.smtpConfigured),
-                    env: "SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS",
+                    label: "Resend API (100/day + Lead Alerts)",
+                    ok: Boolean(integrations?.resendConfigured),
+                    env: "RESEND_API_KEY",
+                  },
+                  {
+                    label: "Persistent Database (Upstash Redis)",
+                    ok: integrations?.storageMode === "upstash-redis",
+                    env: "UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN",
                   },
                   {
                     label: "Daily Auto Follow-up Cron",

@@ -1,7 +1,7 @@
-import nodemailer from "nodemailer";
 import { siteConfig } from "@/lib/site-config";
 import { createUnsubscribeToken } from "@/lib/admin-auth";
 import type {
+  DailyProviderUsage,
   EmailTemplateStep,
   OutreachProspect,
   OutreachSettings,
@@ -178,115 +178,257 @@ export function renderPersonalizedEmail(
   return { subject, html, text };
 }
 
-export async function sendOutreachEmail(params: {
+export async function sendViaBrevoApi(params: {
   to: string;
-  toName: string;
+  toName?: string;
+  fromName: string;
+  fromEmail: string;
+  replyToEmail: string;
   subject: string;
   html: string;
-  text: string;
+  text?: string;
+}): Promise<{ ok: boolean; error?: string }> {
+  const apiKey = process.env.BREVO_API_KEY;
+  if (!apiKey) {
+    return { ok: false, error: "BREVO_API_KEY not configured." };
+  }
+  try {
+    const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": apiKey,
+      },
+      body: JSON.stringify({
+        sender: { name: params.fromName, email: params.fromEmail },
+        to: [{ email: params.to, name: params.toName || undefined }],
+        replyTo: { email: params.replyToEmail, name: params.fromName },
+        subject: params.subject,
+        htmlContent: params.html,
+        ...(params.text ? { textContent: params.text } : {}),
+      }),
+    });
+    if (!res.ok) {
+      const errText = await res.text();
+      return {
+        ok: false,
+        error: `Brevo API (${res.status}): ${errText.slice(0, 220)}`,
+      };
+    }
+    return { ok: true };
+  } catch (err) {
+    return {
+      ok: false,
+      error: err instanceof Error ? err.message : "Brevo API request failed",
+    };
+  }
+}
+
+export async function sendViaResendApi(params: {
+  to: string;
+  toName?: string;
+  fromName: string;
+  fromEmail: string;
+  replyToEmail: string;
+  subject: string;
+  html: string;
+  text?: string;
+}): Promise<{ ok: boolean; error?: string }> {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    return { ok: false, error: "RESEND_API_KEY not configured." };
+  }
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        from: `${params.fromName} <${params.fromEmail}>`,
+        to: [params.to],
+        reply_to: params.replyToEmail,
+        subject: params.subject,
+        html: params.html,
+        ...(params.text ? { text: params.text } : {}),
+      }),
+    });
+    if (!res.ok) {
+      const errText = await res.text();
+      return {
+        ok: false,
+        error: `Resend API (${res.status}): ${errText.slice(0, 220)}`,
+      };
+    }
+    return { ok: true };
+  } catch (err) {
+    return {
+      ok: false,
+      error: err instanceof Error ? err.message : "Resend API request failed",
+    };
+  }
+}
+
+/**
+ * Sends an email via Brevo API and/or Resend API with automatic daily quota split
+ * (default: Brevo 300/day + Resend 100/day = 400/day) and automatic failover.
+ */
+export async function sendOutreachEmail(params: {
+  to: string;
+  toName?: string;
+  subject: string;
+  html: string;
+  text?: string;
   settings: OutreachSettings;
+  todayUsage?: DailyProviderUsage;
 }): Promise<{
   ok: boolean;
-  provider: "smtp" | "brevo" | "dry-run";
+  provider: "brevo" | "resend" | "dry-run";
   error?: string;
 }> {
-  const { to, toName, subject, html, text, settings } = params;
+  const { to, toName, subject, html, text, settings, todayUsage } = params;
 
-  const hasSmtp = Boolean(
-    process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS
-  );
+  const hasBrevo = Boolean(process.env.BREVO_API_KEY);
+  const hasResend = Boolean(process.env.RESEND_API_KEY);
+
+  if (!hasBrevo && !hasResend) {
+    console.log(`[DRY-RUN OUTREACH] To: ${to} | Subject: ${subject}`);
+    return { ok: true, provider: "dry-run" };
+  }
+
+  const fromName = settings.senderName || process.env.SENDER_NAME || "Katella Digital";
+  const fromEmail =
+    settings.senderEmail ||
+    process.env.SENDER_EMAIL ||
+    process.env.CONTACT_EMAIL ||
+    "info@katelladigital.com";
+  const replyToEmail =
+    settings.replyToEmail || process.env.CONTACT_EMAIL || fromEmail;
+
+  const brevoUsed = todayUsage?.brevo ?? 0;
+  const resendUsed = todayUsage?.resend ?? 0;
+  const brevoCap = Math.max(0, settings.brevoDailyLimit ?? 300);
+  const resendCap = Math.max(0, settings.resendDailyLimit ?? 100);
+
+  // Determine ordered provider candidates based on mode & remaining provider quota
+  const order: Array<"brevo" | "resend"> = [];
+  if (settings.sendProvider === "brevo") {
+    if (hasBrevo) order.push("brevo");
+    else if (hasResend) order.push("resend");
+  } else if (settings.sendProvider === "resend") {
+    if (hasResend) order.push("resend");
+    else if (hasBrevo) order.push("brevo");
+  } else {
+    // Auto-Split mode: Brevo (up to 300/day) + Resend (up to 100/day) = 400/day
+    const brevoHasRoom = hasBrevo && brevoUsed < brevoCap;
+    const resendHasRoom = hasResend && resendUsed < resendCap;
+
+    if (brevoHasRoom) order.push("brevo");
+    if (resendHasRoom) order.push("resend");
+
+    // If neither has quota left under split caps, still respect overall caller cap only if explicit
+    if (order.length === 0) {
+      return {
+        ok: false,
+        provider: hasBrevo ? "brevo" : "resend",
+        error: "Both Brevo and Resend daily quotas are reached for today.",
+      };
+    }
+  }
+
+  let lastError = "Email delivery failed.";
+  let lastProvider: "brevo" | "resend" = order[0];
+
+  for (const provider of order) {
+    lastProvider = provider;
+    const res =
+      provider === "brevo"
+        ? await sendViaBrevoApi({
+            to,
+            toName,
+            fromName,
+            fromEmail,
+            replyToEmail,
+            subject,
+            html,
+            text,
+          })
+        : await sendViaResendApi({
+            to,
+            toName,
+            fromName,
+            fromEmail,
+            replyToEmail,
+            subject,
+            html,
+            text,
+          });
+
+    if (res.ok) {
+      return { ok: true, provider };
+    }
+    lastError = res.error || lastError;
+  }
+
+  return { ok: false, provider: lastProvider, error: lastError };
+}
+
+/**
+ * Shared transactional helper for website Contact Form notifications & visitor auto-replies.
+ * Prefers Resend API (fast transactional delivery) and falls back automatically to Brevo API.
+ */
+export async function sendTransactionalEmail(params: {
+  to: string;
+  toName?: string;
+  subject: string;
+  html: string;
+  replyToEmail?: string;
+}): Promise<{
+  ok: boolean;
+  provider: "resend" | "brevo" | "dry-run";
+  error?: string;
+}> {
+  const hasResend = Boolean(process.env.RESEND_API_KEY);
   const hasBrevo = Boolean(process.env.BREVO_API_KEY);
 
-  // Use Domain SMTP when selected (or available as primary)
-  if ((settings.sendProvider === "smtp" && hasSmtp) || (!hasBrevo && hasSmtp)) {
-    try {
-      const port = Number(process.env.SMTP_PORT || 465);
-      const secure =
-        process.env.SMTP_SECURE !== undefined
-          ? process.env.SMTP_SECURE === "true"
-          : port === 465;
+  const fromName = process.env.SENDER_NAME || "Katella Digital";
+  const fromEmail =
+    process.env.SENDER_EMAIL ||
+    process.env.CONTACT_EMAIL ||
+    "info@katelladigital.com";
+  const replyToEmail =
+    params.replyToEmail || process.env.CONTACT_EMAIL || fromEmail;
 
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port,
-        secure,
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
-        },
-      });
-
-      const fromEmail =
-        settings.senderEmail ||
-        process.env.SMTP_FROM_EMAIL ||
-        process.env.SMTP_USER ||
-        "info@katelladigital.com";
-
-      await transporter.sendMail({
-        from: `"${settings.senderName || "Katella Digital"}" <${fromEmail}>`,
-        to: toName ? `"${toName}" <${to}>` : to,
-        replyTo: settings.replyToEmail || fromEmail,
-        subject,
-        html,
-        text,
-      });
-
-      return { ok: true, provider: "smtp" };
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "SMTP send failed";
-      return { ok: false, provider: "smtp", error: msg };
-    }
+  if (!hasResend && !hasBrevo) {
+    return { ok: true, provider: "dry-run" };
   }
 
-  // Fallback or explicit Brevo Transactional API
-  if (hasBrevo) {
-    try {
-      const res = await fetch("https://api.brevo.com/v3/smtp/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": process.env.BREVO_API_KEY!,
-        },
-        body: JSON.stringify({
-          sender: {
-            name: settings.senderName || "Katella Digital",
-            email:
-              settings.senderEmail ||
-              process.env.SMTP_FROM_EMAIL ||
-              "info@katelladigital.com",
-          },
-          to: [{ email: to, name: toName || undefined }],
-          replyTo: {
-            email: settings.replyToEmail || settings.senderEmail || "info@katelladigital.com",
-            name: settings.senderName || "Katella Digital",
-          },
-          subject,
-          htmlContent: html,
-          textContent: text,
-        }),
-      });
-
-      if (!res.ok) {
-        const errText = await res.text();
-        return {
-          ok: false,
-          provider: "brevo",
-          error: `Brevo API (${res.status}): ${errText.slice(0, 220)}`,
-        };
-      }
-
-      return { ok: true, provider: "brevo" };
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "Brevo send failed";
-      return { ok: false, provider: "brevo", error: msg };
-    }
+  // Try Resend first, fail over to Brevo if needed
+  if (hasResend) {
+    const r = await sendViaResendApi({
+      to: params.to,
+      toName: params.toName,
+      fromName,
+      fromEmail,
+      replyToEmail,
+      subject: params.subject,
+      html: params.html,
+    });
+    if (r.ok) return { ok: true, provider: "resend" };
+    if (!hasBrevo) return { ok: false, provider: "resend", error: r.error };
   }
 
-  // No SMTP or Brevo API key configured yet — safe simulation mode
-  console.log(
-    `[DRY-RUN OUTREACH] To: ${to} | Subject: ${subject}`
-  );
-  return { ok: true, provider: "dry-run" };
+  const b = await sendViaBrevoApi({
+    to: params.to,
+    toName: params.toName,
+    fromName,
+    fromEmail,
+    replyToEmail,
+    subject: params.subject,
+    html: params.html,
+  });
+  return { ok: b.ok, provider: "brevo", error: b.error };
 }
 
 export async function fetchBrevoLists(): Promise<{

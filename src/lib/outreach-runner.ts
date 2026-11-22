@@ -4,6 +4,7 @@ import {
   readAdminDb,
   writeAdminDb,
   type AdminDatabase,
+  type DailyProviderUsage,
   type OutreachProspect,
   type OutreachSendLog,
 } from "@/lib/admin-store";
@@ -16,6 +17,8 @@ export interface BatchRunResult {
   failed: number;
   dryRun: number;
   sentToday: number;
+  brevoSentToday: number;
+  resendSentToday: number;
   dailyLimit: number;
   remainingToday: number;
   hasMoreDue: boolean;
@@ -32,7 +35,19 @@ export function isFollowUpDue(prospect: OutreachProspect, nowMs: number): boolea
 export function countOutreachStats(db: AdminDatabase, nowMs = Date.now()) {
   const todayKey = getTodayKey();
   const sentToday = db.dailyCounts[todayKey] || 0;
-  const dailyLimit = Math.max(1, db.settings.dailyLimit || 400);
+  const providerUsage: DailyProviderUsage = db.dailyProviderCounts[todayKey] || {
+    brevo: 0,
+    resend: 0,
+  };
+  const brevoDailyLimit = Math.max(0, db.settings.brevoDailyLimit ?? 300);
+  const resendDailyLimit = Math.max(0, db.settings.resendDailyLimit ?? 100);
+  const dailyLimit = Math.max(
+    1,
+    db.settings.sendProvider === "auto"
+      ? brevoDailyLimit + resendDailyLimit
+      : db.settings.dailyLimit || 400
+  );
+
   let queuedNew = 0;
   let dueFollowUps = 0;
   let activeInSequence = 0;
@@ -62,6 +77,10 @@ export function countOutreachStats(db: AdminDatabase, nowMs = Date.now()) {
   return {
     todayKey,
     sentToday,
+    brevoSentToday: providerUsage.brevo,
+    resendSentToday: providerUsage.resend,
+    brevoDailyLimit,
+    resendDailyLimit,
     dailyLimit,
     remainingToday: Math.max(0, dailyLimit - sentToday),
     queuedNew,
@@ -83,8 +102,22 @@ export async function runOutreachBatch(options?: {
 
   const db = await readAdminDb();
   const todayKey = getTodayKey();
-  const dailyLimit = Math.max(1, db.settings.dailyLimit || 400);
+  const brevoCap = Math.max(0, db.settings.brevoDailyLimit ?? 300);
+  const resendCap = Math.max(0, db.settings.resendDailyLimit ?? 100);
+  const dailyLimit = Math.max(
+    1,
+    db.settings.sendProvider === "auto"
+      ? brevoCap + resendCap
+      : db.settings.dailyLimit || 400
+  );
+
   let sentToday = db.dailyCounts[todayKey] || 0;
+  const todayUsage: DailyProviderUsage = db.dailyProviderCounts[todayKey] || {
+    brevo: 0,
+    resend: 0,
+  };
+  db.dailyProviderCounts[todayKey] = todayUsage;
+
   const remainingQuota = Math.max(0, dailyLimit - sentToday);
 
   if (remainingQuota === 0) {
@@ -93,6 +126,8 @@ export async function runOutreachBatch(options?: {
       failed: 0,
       dryRun: 0,
       sentToday,
+      brevoSentToday: todayUsage.brevo,
+      resendSentToday: todayUsage.resend,
       dailyLimit,
       remainingToday: 0,
       hasMoreDue: false,
@@ -106,7 +141,6 @@ export async function runOutreachBatch(options?: {
     (p) => p.status === "active" && p.stage === 0
   );
 
-  // Prioritize due follow-ups first so active conversations never stall
   let eligible: OutreachProspect[] = [];
   if (mode === "followups") {
     eligible = dueFollowUps;
@@ -140,6 +174,7 @@ export async function runOutreachBatch(options?: {
       html: rendered.html,
       text: rendered.text,
       settings: db.settings,
+      todayUsage,
     });
 
     const sentAt = new Date().toISOString();
@@ -165,7 +200,13 @@ export async function runOutreachBatch(options?: {
 
     if (result.ok) {
       sent++;
-      if (result.provider === "dry-run") dryRun++;
+      if (result.provider === "dry-run") {
+        dryRun++;
+      } else if (result.provider === "brevo") {
+        todayUsage.brevo++;
+      } else if (result.provider === "resend") {
+        todayUsage.resend++;
+      }
       sentToday++;
       db.dailyCounts[todayKey] = sentToday;
 
@@ -201,6 +242,8 @@ export async function runOutreachBatch(options?: {
     failed,
     dryRun,
     sentToday,
+    brevoSentToday: todayUsage.brevo,
+    resendSentToday: todayUsage.resend,
     dailyLimit,
     remainingToday,
     hasMoreDue: remainingToday > 0 && stillEligible > 0,

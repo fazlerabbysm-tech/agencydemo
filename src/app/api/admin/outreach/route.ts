@@ -263,16 +263,32 @@ export async function POST(req: NextRequest) {
 
     if (payload.action === "save_settings") {
       const s = payload.settings || {};
+      const brevoLimit =
+        typeof s.brevoDailyLimit === "number"
+          ? Math.min(Math.max(0, Math.round(s.brevoDailyLimit)), 5000)
+          : db.settings.brevoDailyLimit;
+      const resendLimit =
+        typeof s.resendDailyLimit === "number"
+          ? Math.min(Math.max(0, Math.round(s.resendDailyLimit)), 5000)
+          : db.settings.resendDailyLimit;
+      const nextProvider =
+        s.sendProvider === "auto" ||
+        s.sendProvider === "brevo" ||
+        s.sendProvider === "resend"
+          ? s.sendProvider
+          : db.settings.sendProvider;
+
       db.settings = {
         ...db.settings,
+        brevoDailyLimit: brevoLimit,
+        resendDailyLimit: resendLimit,
         dailyLimit:
-          typeof s.dailyLimit === "number"
-            ? Math.min(Math.max(1, Math.round(s.dailyLimit)), 2000)
-            : db.settings.dailyLimit,
-        sendProvider:
-          s.sendProvider === "smtp" || s.sendProvider === "brevo"
-            ? s.sendProvider
-            : db.settings.sendProvider,
+          nextProvider === "auto"
+            ? Math.max(1, brevoLimit + resendLimit)
+            : typeof s.dailyLimit === "number"
+              ? Math.min(Math.max(1, Math.round(s.dailyLimit)), 5000)
+              : db.settings.dailyLimit,
+        sendProvider: nextProvider,
         senderName:
           typeof s.senderName === "string" && s.senderName.trim()
             ? s.senderName.trim()
