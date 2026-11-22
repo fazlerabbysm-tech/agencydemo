@@ -19,14 +19,7 @@ interface PageShellProps {
  */
 export default function PageShell({ children }: PageShellProps) {
   return (
-    <div
-      className="min-h-screen flex flex-col text-white relative"
-      style={{
-        background:
-          "linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%)",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <div className="min-h-screen flex flex-col text-white relative kd-canvas-bg">
       <CursorGlow />
       <Navbar />
       <main className="flex-1 relative z-10">{children}</main>

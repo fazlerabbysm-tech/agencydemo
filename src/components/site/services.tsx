@@ -1,183 +1,250 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowRight,
+  BarChart3,
+  Palette,
+  Share2,
+  Code2,
+  Workflow,
+  Megaphone,
+  Film,
+} from "lucide-react";
 
-const services = [
+const homeServices = [
   {
     no: "01",
-    slug: "ui-ux",
-    title: "UI/UX Design",
-    desc: "User research, wireframing, interface design, and design systems for digital products users love.",
-    image: "/images/svc-ecommerce.webp",
+    title: "Digital Marketing & SEO",
+    href: "/services/digital-marketing",
+    icon: BarChart3,
+    summary:
+      "Targeted paid search, technical SEO, AI Search (GEO), and conversion content engineered to attract qualified buyers and drive measurable revenue growth.",
+    tags: ["Google & Meta Ads", "SEO & Local SEO", "AI Search (GEO)", "Analytics & CRO"],
   },
   {
     no: "02",
-    slug: "motion-graphics",
-    title: "Motion Graphics",
-    desc: "Brand films, social ads, explainer videos, and product animations that stop the scroll and drive action.",
-    image: "/images/svc-color.webp",
+    title: "Brand Strategy & Identity",
+    href: "/services/brand-strategy-identity",
+    icon: Palette,
+    summary:
+      "Distinctive brand positioning, visual identity systems, and design languages that command authority and elevate every touchpoint across web, print, and ads.",
+    tags: ["Brand Strategy", "Visual Identity", "Logo Systems", "Brand Guidelines"],
   },
   {
     no: "03",
-    slug: "digital-marketing",
-    title: "Digital Marketing",
-    desc: "SEO, paid media, social, content, and analytics — integrated campaigns that drive measurable growth.",
-    image: "/images/svc-cgi.webp",
+    title: "Social Media Management",
+    href: "/services/social-media-management",
+    icon: Share2,
+    summary:
+      "Consistent editorial calendars, short-form reels, community management, and paid social amplification built to grow engaged audiences that convert.",
+    tags: ["Content Creation", "Channel Management", "Paid Social", "Monthly Reporting"],
   },
   {
     no: "04",
-    slug: "web-app-dev",
     title: "Web & App Development",
-    desc: "Next.js, React Native, and Flutter — fast, scalable web and mobile apps built to grow with you.",
-    image: "/images/svc-whitelabel.webp",
+    href: "/services/web-app-dev",
+    icon: Code2,
+    summary:
+      "Sub-second marketing websites, conversion-focused e-commerce stores, and scalable web & mobile applications designed to turn traffic into paying customers.",
+    tags: ["Next.js Websites", "UI/UX Design", "E-commerce", "Web & Mobile Apps"],
+  },
+  {
+    no: "05",
+    title: "CRM & Marketing Automation",
+    href: "/services/crm-automation",
+    icon: Workflow,
+    summary:
+      "Smart CRM pipelines, lead attribution, lifecycle email/SMS sequences, and automated reporting that connect marketing spend directly to closed revenue.",
+    tags: ["HubSpot & CRM Setup", "Lead Attribution", "Email & SMS Flows", "Sales Automation"],
+  },
+  {
+    no: "06",
+    title: "Advertising Campaigns",
+    href: "/services/advertising-campaigns",
+    icon: Megaphone,
+    summary:
+      "Integrated multi-channel launch campaigns — from concept and art direction to paid search, social, YouTube, and regional media buying for maximum impact.",
+    tags: ["Campaign Strategy", "Creative Direction", "Media Buying", "ROAS Optimization"],
+  },
+  {
+    no: "07",
+    title: "Video & Motion Production",
+    href: "/services/motion-graphics",
+    icon: Film,
+    summary:
+      "Scroll-stopping brand films, product animations, motion ads, and commercial video production crafted for modern vertical and widescreen feeds.",
+    tags: ["Brand Films", "Motion Graphics", "Social Video Ads", "3D Product Visuals"],
   },
 ];
 
-interface Props {
-  /**
-   * If provided, clicking a card calls this with the slug
-   * (legacy modal flow). If omitted, cards link to /services/<slug>
-   * (static URL flow).
-   */
-  onServiceClick?: (slug: string) => void;
-}
-
-export default function Services({ onServiceClick }: Props) {
-  // Duplicate the list so the marquee loops seamlessly
-  const loop = [...services, ...services];
+export default function Services() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const active = homeServices[activeIndex];
+  const ActiveIcon = active.icon;
 
   return (
-    <section
-      id="services"
-      className="relative bg-[#060000] text-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden border-t border-[#3a1518]"
-    >
-      {/* Header */}
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-8 sm:mb-10 md:mb-12">
-        <div className="flex items-center justify-between mb-4 sm:mb-6">
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
-            ( 04 ) — Capabilities
-          </span>
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
-            Click a service to explore · Auto-rotating
-          </span>
+    <section id="services" className="py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73] mb-3">
+              What we do
+            </p>
+            <h2 className="font-display font-bold tracking-[-0.03em] leading-[1.06] text-3xl sm:text-4xl lg:text-[46px] text-white">
+              Marketing services built to grow your business.
+            </h2>
+          </div>
+
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-white/80 hover:text-white transition-colors shrink-0"
+          >
+            Explore all services
+            <ArrowRight className="h-4 w-4 text-[#FF4D73]" />
+          </Link>
         </div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[9vw] lg:text-[4.5vw] break-words"
-        >
-          What can we
-          <br />
-          <span className="font-light italic">help you with?</span>
-        </motion.h2>
-      </div>
+        {/* Interactive 01-07 list + sticky preview panel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          {/* Left 7 interactive service rows */}
+          <div className="lg:col-span-7 space-y-2.5">
+            {homeServices.map((svc, idx) => {
+              const isSelected = idx === activeIndex;
+              return (
+                <button
+                  key={svc.no}
+                  type="button"
+                  onMouseEnter={() => setActiveIndex(idx)}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`w-full text-left rounded-2xl p-5 sm:p-6 transition-all duration-200 cursor-pointer border ${
+                    isSelected
+                      ? "bg-[#060000]/95 border-white/30 shadow-[0_14px_40px_rgba(0,0,0,0.55)]"
+                      : "bg-[#060000]/65 border-white/10 hover:border-white/20 hover:bg-[#060000]/80"
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <span
+                        className={`font-mono text-xs tabular-nums ${
+                          isSelected ? "text-[#FF4D73]" : "text-white/40"
+                        }`}
+                      >
+                        {svc.no}
+                      </span>
+                      <h3 className="font-display font-bold text-lg sm:text-xl text-white tracking-tight">
+                        {svc.title}
+                      </h3>
+                    </div>
+                    <ArrowRight
+                      className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                        isSelected
+                          ? "text-white translate-x-0.5"
+                          : "text-white/35"
+                      }`}
+                    />
+                  </div>
 
-      {/* Auto-rotating service cards marquee */}
-      <div className="marquee-pause relative">
-        <div className="flex w-max marquee-track-left-slow">
-          {loop.map((s, i) => (
-            <ServiceCard
-              key={i}
-              service={s}
-              total={services.length}
-              onClick={onServiceClick}
-            />
-          ))}
+                  {isSelected && (
+                    <div className="mt-3.5 pl-8 space-y-3">
+                      <p className="text-sm text-white/65 leading-relaxed">
+                        {svc.summary}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {svc.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full border border-white/12 bg-white/[0.04] px-3 py-1 text-[11px] font-medium text-white/75"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right sticky featured detail panel (SERVICE 0X / 07) */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div className="kd-obsidian-card rounded-3xl p-7 sm:p-9 min-h-[380px] flex flex-col justify-between relative overflow-hidden">
+              {/* Subtle top-right crimson satin sheen matching reference */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-[#C71F42]/25 blur-3xl"
+              />
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active.no}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative z-10 flex flex-col justify-between h-full space-y-8"
+                >
+                  <div className="space-y-5">
+                    <div className="flex items-center justify-between">
+                      <span className="h-12 w-12 rounded-2xl bg-[#E81C49] text-white flex items-center justify-center shadow-[0_8px_24px_rgba(232,28,73,0.35)]">
+                        <ActiveIcon className="h-6 w-6" />
+                      </span>
+                      <span className="font-mono text-xs tracking-[0.2em] uppercase text-white/50">
+                        SERVICE {active.no} / 07
+                      </span>
+                    </div>
+
+                    <h3 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">
+                      {active.title}
+                    </h3>
+
+                    <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+                      {active.summary}
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-2.5 pt-1">
+                      {active.tags.map((tag) => (
+                        <div
+                          key={tag}
+                          className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-xs font-medium text-white/80"
+                        >
+                          {tag}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-4">
+                    <Link
+                      href={active.href}
+                      className="group inline-flex items-center gap-2.5 rounded-full bg-white hover:bg-white/90 text-[#060000] px-5 py-2.5 text-sm font-semibold transition-colors"
+                    >
+                      Learn more
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        window.dispatchEvent(
+                          new CustomEvent("open-contact-modal")
+                        )
+                      }
+                      className="text-xs font-mono uppercase tracking-[0.16em] text-white/65 hover:text-white transition-colors cursor-pointer"
+                    >
+                      Get quote
+                    </button>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function ServiceCard({
-  service,
-  total,
-  onClick,
-}: {
-  service: (typeof services)[number];
-  total: number;
-  onClick?: (slug: string) => void;
-}) {
-  const padTotal = String(total).padStart(2, "0");
-
-  // If no callback, render as a Next.js Link to the static page
-  if (!onClick) {
-    return (
-      <Link
-        href={`/services/${service.slug}`}
-        className="group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4 cursor-pointer block"
-      >
-        <ServiceCardContent service={service} padTotal={padTotal} />
-      </Link>
-    );
-  }
-
-  // Legacy modal flow
-  return (
-    <article
-      className="group relative shrink-0 w-[78vw] sm:w-[360px] md:w-[400px] mx-2 sm:mx-3 md:mx-4 cursor-pointer"
-      onClick={() => onClick?.(service.slug)}
-    >
-      <ServiceCardContent service={service} padTotal={padTotal} />
-    </article>
-  );
-}
-
-function ServiceCardContent({
-  service,
-  padTotal,
-}: {
-  service: (typeof services)[number];
-  padTotal: string;
-}) {
-  return (
-    <div className="relative aspect-[5/6] overflow-hidden bg-[#060000] rounded-2xl border border-[#3a1518] backdrop-blur-sm transition-all duration-500 group-hover:border-[#C71F42]/50 group-hover:shadow-[0_0_40px_rgba(199,31,66,0.15)]">
-      {/* Top-edge glass highlight */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C71F42]/30 to-transparent z-20" />
-
-      {/* Image */}
-      <img
-        src={service.image}
-        alt={service.title}
-        loading="eager"
-        className="h-full w-full object-cover opacity-70 transition-all duration-[1.2s] ease-out group-hover:scale-110 group-hover:opacity-90"
-        onError={(e) => {
-          (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-        }}
-      />
-
-      {/* Glass overlay — semi-transparent dark with blur */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/60 to-[#060000]/20 backdrop-blur-[2px]" />
-
-      {/* Teal glow on hover (radial) */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#C71F42]/10 to-transparent" />
-
-      {/* Number badge */}
-      <div className="absolute top-4 sm:top-5 left-4 sm:left-5 right-4 sm:right-5 flex items-center justify-between z-10">
-        <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]">
-          {service.no} / {padTotal}
-        </span>
-        <span className="h-2 w-2 rounded-full bg-[#C71F42] group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(199,31,66,0.6)]" />
-      </div>
-
-      {/* Title + Explore */}
-      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10">
-        <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-[1.05] group-hover:text-[#C71F42] transition-colors duration-300">
-          {service.title}
-        </h3>
-        <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#C71F42] transition-colors duration-300">
-          <span>Explore</span>
-          <ArrowRight
-            size={12}
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </div>
-      </div>
-    </div>
   );
 }

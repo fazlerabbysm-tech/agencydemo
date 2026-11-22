@@ -92,12 +92,7 @@ export default function RootLayout({
         <JsonLd data={getWebsiteSchema()} />
       </head>
       <body
-        className={`${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased text-white font-sans selection:bg-[#C71F42] selection:text-white`}
-        style={{
-          background:
-            "linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%)",
-          backgroundAttachment: "fixed",
-        }}
+        className={`${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} kd-canvas-bg antialiased text-white font-sans selection:bg-[#C71F42] selection:text-white`}
       >
         {children}
         <GlobalContactModal />

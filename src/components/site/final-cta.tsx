@@ -1,74 +1,66 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function FinalCTA() {
-  const openContact = () =>
+  const openContact = () => {
     window.dispatchEvent(new CustomEvent("open-contact-modal"));
+  };
 
   return (
-    <section
-      id="contact"
-      className="relative bg-[#1a0a0e] text-white py-20 sm:py-32 md:py-48 overflow-hidden border-t border-[#3a1518]"
-    >
-      {/* Subtle light radial spotlight on black */}
-      <div
-        className="absolute inset-0 opacity-60"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(199,31,66,0.10), transparent 60%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-white/50 mb-8 sm:mb-10 md:mb-14"
-        >
-          ✦ Ready when you are
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-bold tracking-[-0.03em] leading-[0.95] text-[10vw] sm:text-[8vw] lg:text-[7vw] max-w-[14ch] mx-auto text-balance break-words"
-        >
-          Let&apos;s launch campaigns that drive real growth.
-        </motion.h2>
-
+    <section id="contact" className="py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 sm:mt-14 md:mt-20 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55 }}
+          className="relative rounded-3xl overflow-hidden border border-white/15 bg-[#060000] shadow-[0_24px_80px_rgba(0,0,0,0.65)]"
         >
-          <button
-            type="button"
-            onClick={openContact}
-            className="group inline-flex items-center gap-3 bg-[#C71F42] text-white pl-5 sm:pl-7 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 cursor-pointer"
-          >
-            <span className="text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
-              Start a project
-            </span>
-            <span className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-white text-[#C71F42] flex items-center justify-center group-hover:bg-[#C71F42] group-hover:text-white transition-colors duration-300">
-              <ArrowUpRight size={16} strokeWidth={2} className="sm:hidden" />
-              <ArrowUpRight size={20} strokeWidth={2} className="hidden sm:block" />
-            </span>
-          </button>
+          {/* Bespoke crimson light-ribbon backdrop */}
+          <img
+            src="/images/home-cta-backdrop.webp"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060000]/92 via-[#060000]/75 to-[#060000]/55" />
 
-          <a
-            href="mailto:info@katella.digital"
-            className="font-mono text-xs sm:text-sm tracking-wide text-white/60 hover:text-white transition-colors underline underline-offset-4 decoration-white/30"
-          >
-            info@katella.digital
-          </a>
+          <div className="relative z-10 px-7 sm:px-12 lg:px-16 py-14 sm:py-20 lg:py-24 max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73] mb-4">
+              Let&apos;s think
+            </p>
+            <h2 className="font-display font-extrabold tracking-[-0.03em] leading-[1.05] text-3xl sm:text-5xl lg:text-[54px] text-white">
+              Ready to grow your business? Let&apos;s talk.
+            </h2>
+            <p className="mt-5 text-base sm:text-lg text-white/75 leading-relaxed max-w-xl">
+              Tell us your business goals — we&apos;ll bring the marketing
+              strategy, creative campaigns, SEO &amp; AI search systems, and
+              engineering to achieve them.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <button
+                type="button"
+                onClick={openContact}
+                className="group inline-flex items-center gap-2.5 rounded-full bg-white hover:bg-white/90 text-[#060000] px-6 py-3.5 text-sm font-semibold transition-all duration-200 cursor-pointer"
+              >
+                Start a project
+                <span className="h-6 w-6 rounded-full bg-[#060000] text-white flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </button>
+
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-[#060000]/55 hover:bg-[#060000]/80 hover:border-white/45 text-white px-6 py-3.5 text-sm font-medium transition-all duration-200 backdrop-blur-md"
+              >
+                View our work
+              </Link>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

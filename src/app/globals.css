@@ -125,6 +125,35 @@
   }
 }
 
+/* Signature Katella Digital diagonal satin crimson backdrop */
+.kd-canvas-bg {
+  background-color: #060000;
+  background-image:
+    radial-gradient(ellipse 64% 40% at 88% 10%, rgba(232, 28, 73, 0.52) 0%, rgba(199, 31, 66, 0.22) 38%, transparent 72%),
+    radial-gradient(ellipse 52% 46% at 86% 94%, rgba(199, 31, 66, 0.44) 0%, rgba(154, 14, 40, 0.2) 42%, transparent 76%),
+    radial-gradient(ellipse 50% 38% at 8% 82%, rgba(154, 14, 40, 0.28) 0%, rgba(47, 0, 10, 0.18) 46%, transparent 76%),
+    linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%);
+  background-attachment: fixed;
+}
+
+/* Pure obsidian matte card framed by crisp hairline border (matches brand reference) */
+.kd-obsidian-card {
+  background: rgba(6, 0, 0, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.kd-obsidian-card-hover {
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kd-obsidian-card-hover:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+  transform: translateY(-3px);
+}
+
 /* ============== MARQUEE ANIMATIONS ============== */
 @keyframes marquee-left {
   0% {

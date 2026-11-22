@@ -1,81 +1,48 @@
 "use client";
 
-const brandsTop = [
+const trustedBrands = [
   "AURORA GOODS",
+  "MAISON NOIR",
   "ECHO MOTORS",
-  "MERIDIAN CO",
-  "HARBOR GOODS",
-  "STELLAR HOTEL",
-  "ZENITH PRESS",
-  "NOMAD JNL",
-  "VANTA STUDIO",
-];
-
-const brandsBottom = [
-  "AGENCY COLLECTIVE",
-  "VECTOR FORM",
-  "CIPHER LABS",
-  "PRISM TYPE",
-  "OAKLEY & CO",
-  "ORBIT KIT",
-  "FORMA STUDIO",
-  "NORD ATELIER",
+  "APEX SOLAR",
+  "VELA HOSPITALITY",
+  "PULSE FINTECH",
+  "PACIFIC HEALTH",
+  "SOLIS ENERGY",
+  "KINETIC LABS",
+  "WESTCOAST RETAIL",
 ];
 
 export default function BrandMarquee() {
   return (
     <section
-      aria-label="Trusted by"
-      className="bg-[#1a0a0e] text-white py-10 sm:py-14 md:py-20 overflow-hidden border-y border-[#3a1518]"
+      aria-label="Trusted clients"
+      className="py-8 sm:py-10 border-y border-white/10 bg-[#060000]/55 backdrop-blur-md overflow-hidden"
     >
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-10 md:mb-14">
-        <p className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
-          ✦ Trusted by 250+ brands — 2017 / 2026
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 mb-5">
+        <p className="text-center font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.26em] text-white/50">
+          Trusted by ambitious brands across California &amp; nationwide
         </p>
       </div>
 
-      {/* Top line — moves LEFT (right to left) */}
-      <div className="marquee-pause relative">
-        <div className="flex w-max marquee-track-left">
-          {[...brandsTop, ...brandsTop].map((b, i) => (
-            <BrandItem key={`top-${i}`} name={b} index={i} />
-          ))}
-        </div>
-      </div>
+      <div className="relative overflow-hidden marquee-pause">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#060000] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#060000] to-transparent z-10" />
 
-      {/* Bottom line — moves RIGHT (left to right) → together forms anti-clockwise rotation */}
-      <div className="marquee-pause relative mt-2 sm:mt-3 md:mt-4">
-        <div className="flex w-max marquee-track-right">
-          {[...brandsBottom, ...brandsBottom].map((b, i) => (
-            <BrandItem key={`bot-${i}`} name={b} index={i} variant="outline" />
+        <div className="flex w-max marquee-track-left-slow">
+          {[...trustedBrands, ...trustedBrands].map((brand, idx) => (
+            <div
+              key={`${brand}-${idx}`}
+              className="flex items-center px-7 sm:px-10"
+            >
+              <span className="font-display font-semibold text-sm sm:text-base tracking-[0.18em] text-white/45 hover:text-white/90 transition-colors whitespace-nowrap">
+                {brand}
+              </span>
+              <span className="ml-7 sm:ml-10 h-1 w-1 rounded-full bg-[#C71F42]/70" />
+            </div>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function BrandItem({
-  name,
-  index,
-  variant = "solid",
-}: {
-  name: string;
-  index: number;
-  variant?: "solid" | "outline";
-}) {
-  return (
-    <span className="flex items-center shrink-0">
-      <span
-        className={`font-display font-semibold tracking-tight text-[8vw] sm:text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-none px-5 sm:px-8 md:px-12 ${
-          variant === "outline"
-            ? "text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.55)]"
-            : "text-white"
-        }`}
-      >
-        {name}
-      </span>
-      <span className="text-[#C71F42] text-xl sm:text-2xl md:text-3xl">✦</span>
-    </span>
   );
 }

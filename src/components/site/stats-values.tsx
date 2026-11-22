@@ -1,125 +1,93 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
-const stats = [
-  { value: "9+", label: "Years of marketing experience" },
-  { value: "100+", label: "Successful campaigns delivered" },
-  { value: "250", label: "Trusting clients & partners" },
-  { value: "3", label: "Major regions covered" },
+const highlights = [
+  {
+    title: "Full-funnel alignment",
+    desc: "SEO, AI Search (GEO), paid media, creative, and conversion engineering working inside one revenue roadmap.",
+  },
+  {
+    title: "Strategy-led campaigns",
+    desc: "Every creative move is measured against qualified leads, pipeline velocity, and real return on ad spend.",
+  },
+  {
+    title: "Senior in-house execution",
+    desc: "Seamless collaboration across strategists, designers, media buyers, and engineers — no handoff friction.",
+  },
 ];
 
-const values = [
-  { title: "Think First", desc: "Strategy before tactics. We dig into your data, market, and audience before we touch a single creative asset." },
-  { title: "Digital by Nature", desc: "Born digital, built for the modern consumer journey. From search to social to immersive experiences." },
-  { title: "Local Insight", desc: "Deep understanding of regional markets, culture, and consumer behavior — with global standards of execution." },
-  { title: "True Partnership", desc: "We don't just deliver campaigns. We embed with your team, learn your business, and grow with you." },
-  { title: "Results That Matter", desc: "Every campaign is tied to business outcomes — revenue, leads, market share — not vanity metrics." },
-  { title: "Full-Service", desc: "Strategy, creative, media, digital, content, and analytics — all under one roof, all working together." },
+const stats = [
+  { value: "9+ yrs", label: "Marketing & creative experience" },
+  { value: "250+", label: "Clients & growth partners" },
+  { value: "500+", label: "Campaigns & launches shipped" },
+  { value: "50M+", label: "In measurable campaign reach" },
 ];
 
 export default function StatsValues() {
   return (
-    <>
-      {/* ============ STATS ============ */}
-      <section className="relative bg-[#060000] py-16 md:py-24 border-t border-[#3a1518]">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
-            {stats.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-center md:text-left border-l-2 border-[#C71F42] pl-4 md:pl-6"
-              >
-                <div className="font-display font-bold text-5xl md:text-7xl tracking-tight text-[#C71F42]">
-                  {s.value}
-                </div>
-                <div className="mt-2 text-sm md:text-base text-white/60 leading-relaxed">
-                  {s.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ WHAT WE BELIEVE ============ */}
-      <section className="relative bg-[#1a0a0e] py-20 md:py-32 border-t border-[#3a1518] overflow-hidden">
-        <div className="mx-auto max-w-[1000px] px-5 sm:px-6 md:px-10 text-center">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]"
-          >
-            What we believe
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 font-display font-bold tracking-[-0.02em] leading-[1.1] text-2xl md:text-4xl lg:text-5xl text-white/90"
-          >
-            We don&apos;t just launch campaigns. We build the gravity that
-            pulls customers toward your brand — and{" "}
-            <span className="text-[#C71F42]">keeps them in orbit.</span>
-          </motion.h2>
-        </div>
-      </section>
-
-      {/* ============ OUR VALUES ============ */}
-      <section className="relative bg-[#060000] py-16 md:py-24 border-t border-[#3a1518]">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C71F42]"
-          >
-            Our Values
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 font-display font-bold tracking-[-0.02em] leading-[0.95] text-4xl md:text-6xl lg:text-7xl text-white mb-12 md:mb-16"
-          >
-            What drives
-            <br />
-            <span className="font-light italic text-[#C71F42]">us forward.</span>
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {values.map((v, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group p-6 md:p-8 rounded-2xl border border-[#3a1518] bg-[#1a0a0e] backdrop-blur-sm transition-all duration-500 hover:border-[#C71F42]/50 hover:shadow-[0_0_40px_rgba(199,31,66,0.12)]"
-              >
-                <span className="font-mono text-xs tracking-[0.2em] text-[#C71F42]/60">
-                  0{i + 1}
-                </span>
-                <h3 className="mt-3 font-display font-bold text-xl md:text-2xl tracking-tight text-white group-hover:text-[#C71F42] transition-colors duration-300">
-                  {v.title}
-                </h3>
-                <p className="mt-3 text-sm md:text-base text-white/60 leading-relaxed">
-                  {v.desc}
+    <section id="about" className="py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+        <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 lg:p-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left narrative + 3 differentiators */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73] mb-3">
+                  By the numbers
                 </p>
-              </motion.div>
-            ))}
+                <h2 className="font-display font-bold tracking-[-0.03em] leading-[1.06] text-3xl sm:text-4xl lg:text-[46px] text-white">
+                  Proof, not promises<span className="text-[#E81C49]">.</span>
+                </h2>
+              </div>
+
+              <p className="text-base text-white/70 leading-relaxed">
+                Over 9 years of driving business growth with marketing campaigns
+                that perform — strategy, content, media buying, and web
+                technology under one roof in Anaheim, Orange County.
+              </p>
+
+              <ul className="space-y-4 pt-2">
+                {highlights.map((item) => (
+                  <li key={item.title} className="flex items-start gap-3.5">
+                    <span className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-[#C71F42]/20 border border-[#C71F42]/45 flex items-center justify-center text-[#FF4D73]">
+                      <Check className="h-3 w-3" />
+                    </span>
+                    <p className="text-sm text-white/70 leading-relaxed">
+                      <strong className="text-white font-semibold">
+                        {item.title}
+                      </strong>{" "}
+                      — {item.desc}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right 2x2 KPI stat grid */}
+            <div className="lg:col-span-6 grid grid-cols-2 gap-4 sm:gap-5">
+              {stats.map((stat, idx) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.45, delay: idx * 0.08 }}
+                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 flex flex-col justify-between min-h-[152px] sm:min-h-[176px]"
+                >
+                  <p className="font-display font-extrabold text-3xl sm:text-4xl lg:text-[44px] tracking-tight tabular-nums text-white">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs sm:text-sm text-white/60 leading-snug mt-4">
+                    {stat.label}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

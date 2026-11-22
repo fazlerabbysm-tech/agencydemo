@@ -2,192 +2,85 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { portfolioDetails } from "@/data/portfolio";
 
-const works = [
-  {
-    no: "01",
-    slug: "aurora-goods",
-    title: "Aurora Goods",
-    cat: "Catalog System · 500 SKUs · 2025",
-    image: "/images/work-ecommerce.webp",
-  },
-  {
-    no: "02",
-    slug: "maison-noir",
-    title: "Maison Noir",
-    cat: "Color Protocol · 12 Touchpoints · 2025",
-    image: "/images/work-color.webp",
-  },
-  {
-    no: "03",
-    slug: "echo-motors",
-    title: "ECHO Motors",
-    cat: "CGI Launch Film · Zero Shoot · 2024",
-    image: "/images/work-cgi.webp",
-  },
-  {
-    no: "04",
-    slug: "agency-collective",
-    title: "Agency Collective",
-    cat: "White-Label · 200+ Assets · 2024",
-    image: "/images/work-whitelabel.webp",
-  },
-];
-
-interface Props {
-  /**
-   * If provided, clicking a card calls this with the slug
-   * (legacy modal flow). If omitted, cards link to /portfolio/<slug>
-   * (static URL flow).
-   */
-  onWorkClick?: (slug: string) => void;
-}
-
-export default function WorkShowcase({ onWorkClick }: Props) {
-  // Triple for a longer seamless loop
-  const loop = [...works, ...works, ...works];
+export default function WorkShowcase() {
+  const featuredWork = portfolioDetails.slice(0, 6);
 
   return (
-    <section
-      id="work"
-      className="relative bg-[#1a0a0e] text-white py-8 sm:py-12 md:py-14 lg:py-16 overflow-hidden border-t border-[#3a1518]"
-    >
-      {/* Header */}
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mb-6 sm:mb-8 md:mb-10">
-        <div className="flex items-center justify-between mb-4 sm:mb-6">
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50">
-            ( 05 ) — Selected Work
-          </span>
-          <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/50 hidden sm:block">
-            Click a project to explore · Auto-rotating
-          </span>
+    <section id="work" className="py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73] mb-3">
+              Selected work
+            </p>
+            <h2 className="font-display font-bold tracking-[-0.03em] leading-[1.06] text-3xl sm:text-4xl lg:text-[46px] text-white">
+              Campaigns &amp; projects that drive real results.
+            </h2>
+          </div>
+
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-white/80 hover:text-white transition-colors shrink-0"
+          >
+            All projects
+            <ArrowRight className="h-4 w-4 text-[#FF4D73]" />
+          </Link>
         </div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-bold tracking-[-0.02em] leading-[0.92] text-[11vw] sm:text-[9vw] lg:text-[4.5vw] break-words"
-        >
-          Recent
-          <br />
-          <span className="font-light italic">work.</span>
-        </motion.h2>
-      </div>
+        {/* 6-card portfolio showcase grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredWork.map((project, idx) => (
+            <motion.div
+              key={project.slug}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.45, delay: idx * 0.06 }}
+            >
+              <Link
+                href={`/portfolio/${project.slug}`}
+                className="group kd-obsidian-card kd-obsidian-card-hover rounded-2xl overflow-hidden flex flex-col h-full"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#0a0204]">
+                  <img
+                    src={project.heroImage}
+                    alt={`${project.title} — ${project.subtitle}`}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060000]/85 via-[#060000]/15 to-transparent" />
+                  <span className="absolute top-4 left-4 rounded-full bg-[#060000]/80 backdrop-blur-md border border-white/15 px-3 py-1 text-[11px] font-medium text-white/85">
+                    {project.services[0]}
+                  </span>
+                </div>
 
-      {/* Auto-rotating carousel — moves RIGHT (opposite direction to services) */}
-      <div className="marquee-pause relative">
-        <div className="flex w-max marquee-track-right-slow items-center gap-3 sm:gap-4 md:gap-6 px-2 sm:px-3 md:px-5">
-          {loop.map((w, i) => (
-            <WorkCard key={i} work={w} onClick={onWorkClick} />
+                <div className="p-6 flex-1 flex flex-col justify-between gap-5 bg-[#060000]">
+                  <div>
+                    <h3 className="font-display font-bold text-xl text-white tracking-tight group-hover:text-[#FF4D73] transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                      {project.subtitle}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
+                      {project.industry} · {project.year}
+                    </span>
+                    <span className="h-9 w-9 rounded-full bg-white text-[#060000] group-hover:bg-[#E81C49] group-hover:text-white flex items-center justify-center transition-colors">
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>
-
-      {/* Bottom CTA */}
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 mt-6 sm:mt-8 md:mt-10 flex flex-wrap items-end justify-between gap-4 sm:gap-6">
-        <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-md">
-          A complete archive lives in our studio. Below is what fit on a single
-          strip of 35mm.
-        </p>
-        <button
-          type="button"
-          onClick={() => window.dispatchEvent(new CustomEvent("open-contact-modal"))}
-          className="group inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-[11px] sm:text-xs md:text-sm font-medium tracking-wide uppercase transition-colors duration-300 cursor-pointer"
-        >
-          View full archive
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </button>
-      </div>
     </section>
-  );
-}
-
-function WorkCard({
-  work,
-  onClick,
-}: {
-  work: (typeof works)[number];
-  onClick?: (slug: string) => void;
-}) {
-  // If no callback, render as a Next.js Link to the static page
-  if (!onClick) {
-    return (
-      <Link
-        href={`/portfolio/${work.slug}`}
-        className="group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px] cursor-pointer block"
-      >
-        <WorkCardContent work={work} />
-      </Link>
-    );
-  }
-
-  // Legacy modal flow
-  return (
-    <article
-      className="group relative shrink-0 w-[78vw] sm:w-[330px] md:w-[380px] cursor-pointer"
-      onClick={() => onClick?.(work.slug)}
-    >
-      <WorkCardContent work={work} />
-    </article>
-  );
-}
-
-function WorkCardContent({ work }: { work: (typeof works)[number] }) {
-  return (
-    <div className="relative aspect-[5/6] overflow-hidden bg-[#060000] rounded-2xl border border-[#3a1518] backdrop-blur-sm transition-all duration-500 group-hover:border-[#C71F42]/50 group-hover:shadow-[0_0_40px_rgba(199,31,66,0.15)]">
-      {/* Top-edge glass highlight */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C71F42]/30 to-transparent z-20" />
-
-      {/* Image */}
-      <img
-        src={work.image}
-        alt={`${work.title} — ${work.cat}`}
-        loading="eager"
-        className="h-full w-full object-cover opacity-70 transition-all duration-[1.4s] ease-out group-hover:scale-110 group-hover:opacity-90"
-        onError={(e) => {
-          (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-        }}
-      />
-
-      {/* Glass overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-[#060000]/60 to-[#060000]/20 backdrop-blur-[2px]" />
-
-      {/* Teal glow on hover */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-[#C71F42]/10 to-transparent" />
-
-      {/* Top row: index + play hint */}
-      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-        <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#C71F42] bg-[#060000]/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#3a1518]">
-          {work.no} / 04
-        </span>
-        <span className="h-8 w-8 md:h-9 md:w-9 rounded-full border border-[#C71F42]/40 flex items-center justify-center text-white/80 group-hover:bg-[#C71F42] group-hover:text-white transition-colors duration-300 backdrop-blur-md">
-          <svg width="8" height="10" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="sm:hidden">
-            <path d="M0 0 L10 6 L0 12 Z" />
-          </svg>
-          <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true" className="hidden sm:block">
-            <path d="M0 0 L10 6 L0 12 Z" />
-          </svg>
-        </span>
-      </div>
-
-      {/* Bottom: title */}
-      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-white z-10">
-        <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none group-hover:text-[#C71F42] transition-colors duration-300">
-          {work.title}
-        </h3>
-        <p className="mt-2 font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] uppercase text-white/50">
-          {work.cat}
-        </p>
-        <div className="mt-3 inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase text-white/50 group-hover:text-[#C71F42] transition-colors duration-300">
-          <span>View project</span>
-          <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
-        </div>
-      </div>
-    </div>
   );
 }
