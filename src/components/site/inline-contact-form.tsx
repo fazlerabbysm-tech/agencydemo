@@ -1,21 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Send, ShieldCheck, Loader2 } from "lucide-react";
-
-const serviceOptions = [
-  "Digital Marketing & SEO",
-  "AI Search (GEO)",
-  "Google Ads & Performance Marketing",
-  "Brand Strategy & Identity",
-  "Social Media Management",
-  "Web & App Development",
-  "UI/UX Design",
-  "Motion Graphics & Video",
-  "CRM & Marketing Automation",
-  "Advertising Campaigns",
-  "Other / Not sure",
-];
+import {
+  ArrowRight,
+  ShieldCheck,
+  Loader2,
+  User,
+  Mail,
+  Phone,
+  MessageSquare,
+  Check,
+} from "lucide-react";
+import ServiceSelect from "@/components/site/service-select";
 
 interface InlineContactFormProps {
   defaultService?: string;
@@ -102,168 +98,195 @@ export default function InlineContactForm({
     }
   };
 
-  const inputClass =
-    "w-full rounded-xl border border-white/15 bg-[#060000]/55 backdrop-blur-md px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-[#E81C49] focus:outline-none transition-colors";
+  const fieldShell =
+    "flex items-center gap-2.5 rounded-xl border border-white/15 bg-[#060000]/60 backdrop-blur-xl px-4 py-3 transition-all focus-within:border-[#E81C49] focus-within:bg-[#140308]/80 focus-within:shadow-[0_0_0_3px_rgba(232,28,73,0.16)]";
   const labelClass =
     "block font-mono text-[10px] uppercase tracking-[0.18em] text-white/55 mb-1.5";
 
   return (
-    <div className="kd-obsidian-card rounded-3xl p-6 sm:p-8 lg:p-10">
-      <div className="mb-6">
-        <h3 className="font-display font-bold text-2xl text-white tracking-tight">
+    <div className="kd-obsidian-card rounded-3xl overflow-visible relative">
+      {/* Branded crimson satin header band */}
+      <div
+        className="rounded-t-3xl px-6 sm:px-8 lg:px-10 pt-7 pb-6 border-b border-white/12"
+        style={{
+          background:
+            "linear-gradient(120deg, rgba(6,0,0,0.88) 0%, rgba(47,0,10,0.8) 45%, rgba(154,14,40,0.58) 82%, rgba(199,31,66,0.5) 100%)",
+        }}
+      >
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#FF8CA4] mb-1.5">
+          Direct Inquiry · 24h Response
+        </p>
+        <h3 className="font-display font-bold text-2xl sm:text-[26px] text-white tracking-tight">
           {heading}
         </h3>
-        <p className="mt-1.5 text-sm text-white/65 leading-relaxed">
+        <p className="mt-1.5 text-sm text-white/70 leading-relaxed">
           {subheading}
         </p>
       </div>
 
-      {status === "success" ? (
-        <div className="kd-glass-tile rounded-2xl p-8 text-center space-y-3">
-          <div className="h-12 w-12 mx-auto rounded-full bg-[#C71F42]/20 border border-[#C71F42]/45 flex items-center justify-center text-[#FF4D73]">
-            <ShieldCheck className="h-6 w-6" />
-          </div>
-          <h4 className="font-display font-bold text-xl text-white">
-            Thanks — message sent!
-          </h4>
-          <p className="text-sm text-white/70 max-w-md mx-auto">
-            We&apos;ve received your inquiry and sent a confirmation email. A
-            senior strategist will follow up within 24 hours.
-          </p>
-          <button
-            type="button"
-            onClick={() => {
-              setStatus("idle");
-              setMathVerified(false);
-              setMathQ((prev) => ({ ...prev, answer: "" }));
-            }}
-            className="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-medium text-white/80 hover:text-white cursor-pointer"
-          >
-            Send another message
-          </button>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className={labelClass}>Full Name *</label>
-              <input
-                type="text"
-                required
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="Alex Carter"
-                className={inputClass}
-              />
+      <div className="p-6 sm:p-8 lg:p-10">
+        {status === "success" ? (
+          <div className="kd-glass-tile rounded-2xl p-8 text-center space-y-4">
+            <div className="h-14 w-14 mx-auto rounded-full bg-gradient-to-br from-[#FF3363] to-[#9A0E28] flex items-center justify-center shadow-[0_12px_36px_rgba(232,28,73,0.45)]">
+              <Check className="h-7 w-7 text-white stroke-[2.5]" />
             </div>
-            <div>
-              <label className={labelClass}>Work Email *</label>
-              <input
-                type="email"
-                required
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="alex@company.com"
-                className={inputClass}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className={labelClass}>
-                Phone <span className="normal-case text-white/35">(optional)</span>
-              </label>
-              <input
-                type="tel"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                placeholder="+1 (714) 555-0194"
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label className={labelClass}>Service *</label>
-              <select
-                required
-                value={form.service}
-                onChange={(e) => setForm({ ...form, service: e.target.value })}
-                className={`${inputClass} cursor-pointer`}
-              >
-                <option value="" className="bg-[#0d0205]">
-                  Select a service...
-                </option>
-                {defaultService && !serviceOptions.includes(defaultService) && (
-                  <option value={defaultService} className="bg-[#0d0205]">
-                    {defaultService}
-                  </option>
-                )}
-                {serviceOptions.map((opt) => (
-                  <option key={opt} value={opt} className="bg-[#0d0205]">
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label className={labelClass}>Project Goals &amp; Details *</label>
-            <textarea
-              required
-              rows={4}
-              value={form.details}
-              onChange={(e) => setForm({ ...form, details: e.target.value })}
-              placeholder="Tell us about your business goals, target market, timeline, and budget range..."
-              className={`${inputClass} resize-none`}
-            />
-          </div>
-
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
-            <div className="inline-flex items-center gap-2.5 rounded-xl border border-white/15 bg-[#060000]/50 px-3.5 py-2.5">
-              <span className="font-mono text-xs text-white/80">
-                Verify: {mathQ.a} + {mathQ.b} =
-              </span>
-              <input
-                type="number"
-                value={mathQ.answer}
-                onChange={(e) => checkMath(e.target.value)}
-                placeholder="?"
-                aria-label="Math verification answer"
-                className="w-12 bg-transparent border-b border-white/25 text-center text-sm text-white focus:border-[#E81C49] focus:outline-none"
-              />
-              {mathVerified && (
-                <ShieldCheck className="h-4 w-4 text-[#FF4D73]" />
-              )}
-            </div>
-
+            <h4 className="font-display font-bold text-2xl text-white">
+              Thanks — message sent!
+            </h4>
+            <p className="text-sm text-white/70 max-w-md mx-auto leading-relaxed">
+              We&apos;ve received your inquiry and sent a confirmation email. A
+              senior strategist will follow up within 24 hours.
+            </p>
             <button
-              type="submit"
-              disabled={!canSubmit || status === "submitting"}
-              className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all ${
-                canSubmit && status !== "submitting"
-                  ? "bg-white text-[#060000] hover:bg-white/90 cursor-pointer"
-                  : "bg-white/15 text-white/40 cursor-not-allowed"
-              }`}
+              type="button"
+              onClick={() => {
+                setStatus("idle");
+                setMathVerified(false);
+                setMathQ((prev) => ({ ...prev, answer: "" }));
+              }}
+              className="mt-2 inline-flex items-center justify-center rounded-full border border-white/25 bg-white/[0.06] hover:bg-white/[0.14] px-5 py-2 text-xs font-semibold text-white transition-colors cursor-pointer"
             >
-              {status === "submitting" ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" /> Sending...
-                </>
-              ) : (
-                <>
-                  {ctaLabel}
-                  <Send className="h-3.5 w-3.5" />
-                </>
-              )}
+              Send another message
             </button>
           </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className={labelClass}>Full Name *</label>
+                <div className={fieldShell}>
+                  <User className="h-4 w-4 text-white/40 shrink-0" />
+                  <input
+                    type="text"
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    placeholder="Alex Carter"
+                    className="w-full bg-transparent text-sm text-white placeholder:text-white/35 focus:outline-none"
+                  />
+                </div>
+              </div>
 
-          {status === "error" && (
-            <p className="text-xs text-[#FF6B8A]">{errorMsg}</p>
-          )}
-        </form>
-      )}
+              <div>
+                <label className={labelClass}>Work Email *</label>
+                <div className={fieldShell}>
+                  <Mail className="h-4 w-4 text-white/40 shrink-0" />
+                  <input
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={(e) =>
+                      setForm({ ...form, email: e.target.value })
+                    }
+                    placeholder="alex@company.com"
+                    className="w-full bg-transparent text-sm text-white placeholder:text-white/35 focus:outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className={labelClass}>
+                  Phone{" "}
+                  <span className="normal-case text-white/35">(optional)</span>
+                </label>
+                <div className={fieldShell}>
+                  <Phone className="h-4 w-4 text-white/40 shrink-0" />
+                  <input
+                    type="tel"
+                    value={form.phone}
+                    onChange={(e) =>
+                      setForm({ ...form, phone: e.target.value })
+                    }
+                    placeholder="+1 (714) 555-0194"
+                    className="w-full bg-transparent text-sm text-white placeholder:text-white/35 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className={labelClass}>Service *</label>
+                <ServiceSelect
+                  value={form.service}
+                  onChange={(val) => setForm({ ...form, service: val })}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className={labelClass}>Project Goals &amp; Details *</label>
+              <div className="flex items-start gap-2.5 rounded-xl border border-white/15 bg-[#060000]/60 backdrop-blur-xl px-4 py-3 transition-all focus-within:border-[#E81C49] focus-within:bg-[#140308]/80 focus-within:shadow-[0_0_0_3px_rgba(232,28,73,0.16)]">
+                <MessageSquare className="h-4 w-4 text-white/40 shrink-0 mt-0.5" />
+                <textarea
+                  required
+                  rows={4}
+                  value={form.details}
+                  onChange={(e) =>
+                    setForm({ ...form, details: e.target.value })
+                  }
+                  placeholder="Tell us about your business goals, website URL, timeline, and budget range..."
+                  className="w-full bg-transparent text-sm text-white placeholder:text-white/35 focus:outline-none resize-none"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
+              <div
+                className={`inline-flex items-center gap-2.5 rounded-xl border px-3.5 py-2.5 transition-colors ${
+                  mathVerified
+                    ? "border-[#E81C49]/60 bg-[#C71F42]/18"
+                    : "border-white/15 bg-[#060000]/55"
+                }`}
+              >
+                <span className="font-mono text-xs text-white/80">
+                  Verify: {mathQ.a} + {mathQ.b} =
+                </span>
+                <input
+                  type="number"
+                  value={mathQ.answer}
+                  onChange={(e) => checkMath(e.target.value)}
+                  placeholder="?"
+                  aria-label="Math verification answer"
+                  className="w-12 bg-transparent border-b border-white/30 text-center text-sm font-semibold text-white focus:border-[#FF4D73] focus:outline-none"
+                />
+                {mathVerified && (
+                  <ShieldCheck className="h-4 w-4 text-[#FF4D73]" />
+                )}
+              </div>
+
+              <button
+                type="submit"
+                disabled={!canSubmit || status === "submitting"}
+                className={`inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold tracking-tight transition-all ${
+                  canSubmit && status !== "submitting"
+                    ? "kd-cta-glow text-white cursor-pointer"
+                    : "bg-white/10 border border-white/12 text-white/35 cursor-not-allowed"
+                }`}
+              >
+                {status === "submitting" ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" /> Sending...
+                  </>
+                ) : (
+                  <>
+                    <span>{ctaLabel}</span>
+                    <span className="h-6 w-6 rounded-full bg-white text-[#C71F42] flex items-center justify-center">
+                      <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
+                    </span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {status === "error" && (
+              <p className="rounded-xl border border-[#FF4D73]/40 bg-[#C71F42]/15 px-4 py-2.5 text-xs text-[#FF9AB0]">
+                {errorMsg}
+              </p>
+            )}
+          </form>
+        )}
+      </div>
     </div>
   );
 }
