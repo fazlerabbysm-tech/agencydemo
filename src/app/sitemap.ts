@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
-import { serviceDetails } from "@/data/services";
+import { SERVICE_ROUTES } from "@/lib/service-routes";
 import { portfolioDetails } from "@/data/portfolio";
 import { caseStudyDetails } from "@/data/caseStudies";
 import { blogPosts } from "@/data/blog";
@@ -17,11 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ];
 
-  const serviceRoutes: MetadataRoute.Sitemap = serviceDetails.map((s) => ({
-    url: `${siteConfig.url}/services/${s.slug}`,
+  // Emit ONLY canonical hierarchical SEO silo URLs (Pillars 0.95, Sub-services 0.90)
+  const serviceRoutes: MetadataRoute.Sitemap = SERVICE_ROUTES.map((r) => ({
+    url: `${siteConfig.url}${r.path}`,
     lastModified: now,
     changeFrequency: "monthly",
-    priority: s.isPillar ? 0.92 : 0.85,
+    priority: r.isPillar ? 0.95 : 0.9,
   }));
 
   const portfolioRoutes: MetadataRoute.Sitemap = portfolioDetails.map((p) => ({

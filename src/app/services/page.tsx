@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import PageShell from "@/components/site/page-shell";
 import InlineContactForm from "@/components/site/inline-contact-form";
 import { serviceDetails } from "@/data/services";
+import { getRouteBySlug } from "@/lib/service-routes";
 import { JsonLd, getBreadcrumbSchema } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
@@ -117,10 +118,14 @@ export default function ServicesHubPage() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {items.map((svc) => (
+                    {items.map((svc) => {
+                      const canonicalPath =
+                        getRouteBySlug(svc.slug)?.path ||
+                        `/services/${svc.slug}`;
+                      return (
                       <Link
                         key={svc.slug}
-                        href={`/services/${svc.slug}`}
+                        href={canonicalPath}
                         className="group kd-glass-tile kd-obsidian-card-hover rounded-2xl overflow-hidden flex flex-col justify-between"
                       >
                         <div>
@@ -157,7 +162,8 @@ export default function ServicesHubPage() {
                           </span>
                         </div>
                       </Link>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               );

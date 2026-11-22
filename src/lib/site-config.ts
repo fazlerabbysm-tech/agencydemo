@@ -57,13 +57,13 @@ export const serviceMegaMenu: NavServiceGroup[] = [
     items: [
       {
         label: "Brand Strategy & Identity",
-        href: "/services/brand-strategy-identity",
+        href: "/branding",
         isPillar: true,
       },
-      { label: "Brand Strategy", href: "/services/brand-strategy" },
-      { label: "Brand Identity", href: "/services/brand-identity" },
-      { label: "Logo Design", href: "/services/logo-design" },
-      { label: "Motion Graphics", href: "/services/motion-graphics" },
+      { label: "Brand Strategy", href: "/branding/brand-strategy" },
+      { label: "Brand Identity", href: "/branding/brand-identity" },
+      { label: "Logo Design", href: "/branding/logo-design" },
+      { label: "Motion Graphics", href: "/branding/motion-graphics" },
     ],
   },
   {
@@ -71,21 +71,21 @@ export const serviceMegaMenu: NavServiceGroup[] = [
     items: [
       {
         label: "Digital Marketing",
-        href: "/services/digital-marketing",
+        href: "/digital-marketing",
         isPillar: true,
       },
-      { label: "SEO", href: "/services/seo" },
-      { label: "Local SEO", href: "/services/local-seo" },
-      { label: "Google Ads", href: "/services/google-ads" },
+      { label: "SEO", href: "/digital-marketing/seo" },
+      { label: "Local SEO", href: "/digital-marketing/local-seo" },
+      { label: "Google Ads", href: "/digital-marketing/google-ads" },
       {
         label: "Performance Marketing",
-        href: "/services/performance-marketing",
+        href: "/digital-marketing/performance-marketing",
       },
-      { label: "Content Marketing", href: "/services/content-marketing" },
-      { label: "AI Search (GEO)", href: "/services/ai-search-geo" },
+      { label: "Content Marketing", href: "/digital-marketing/content-marketing" },
+      { label: "AI Search (GEO)", href: "/digital-marketing/ai-search-geo" },
       {
         label: "Social Media Management",
-        href: "/services/social-media-management",
+        href: "/digital-marketing/social-media-management",
       },
     ],
   },
@@ -94,18 +94,18 @@ export const serviceMegaMenu: NavServiceGroup[] = [
     items: [
       {
         label: "Web & App Development",
-        href: "/services/web-app-dev",
+        href: "/web-development",
         isPillar: true,
       },
-      { label: "UI/UX Design", href: "/services/ui-ux" },
+      { label: "UI/UX Design", href: "/web-development/ui-ux" },
       {
         label: "E-commerce Development",
-        href: "/services/ecommerce-development",
+        href: "/web-development/ecommerce",
       },
-      { label: "Web Applications", href: "/services/web-applications" },
+      { label: "Web Applications", href: "/web-development/web-applications" },
       {
         label: "Mobile App Development",
-        href: "/services/mobile-app-development",
+        href: "/web-development/mobile-apps",
       },
     ],
   },
@@ -114,16 +114,16 @@ export const serviceMegaMenu: NavServiceGroup[] = [
     items: [
       {
         label: "Advertising Campaigns",
-        href: "/services/advertising-campaigns",
+        href: "/campaigns",
         isPillar: true,
       },
       {
         label: "Video & Brand Production",
-        href: "/services/video-production",
+        href: "/campaigns/video-production",
       },
       {
         label: "CRM & Marketing Automation",
-        href: "/services/crm-automation",
+        href: "/campaigns/crm-automation",
       },
     ],
   },
@@ -138,11 +138,11 @@ export const footerAgencyLinks = [
 ];
 
 export const footerServiceLinks = [
-  { label: "Digital Marketing & SEO", href: "/services/digital-marketing" },
-  { label: "Brand Strategy & Identity", href: "/services/brand-strategy-identity" },
-  { label: "Social Media Management", href: "/services/social-media-management" },
-  { label: "Web & App Development", href: "/services/web-app-dev" },
-  { label: "UI/UX Design", href: "/services/ui-ux" },
-  { label: "Motion Graphics", href: "/services/motion-graphics" },
-  { label: "AI Search (GEO)", href: "/services/ai-search-geo" },
+  { label: "Digital Marketing & SEO", href: "/digital-marketing" },
+  { label: "Local SEO & Google Maps", href: "/digital-marketing/local-seo" },
+  { label: "AI Search (GEO)", href: "/digital-marketing/ai-search-geo" },
+  { label: "Brand Strategy & Identity", href: "/branding" },
+  { label: "Web & App Development", href: "/web-development" },
+  { label: "Advertising Campaigns", href: "/campaigns" },
+  { label: "CRM & Automation", href: "/campaigns/crm-automation" },
 ];

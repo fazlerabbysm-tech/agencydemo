@@ -3,18 +3,15 @@
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, ArrowLeft } from "lucide-react";
 import { portfolioDetails, type PortfolioDetail } from "@/data/portfolio";
+import { getRouteBySlug } from "@/lib/service-routes";
 
 interface Props {
   project: PortfolioDetail;
 }
 
-/**
- * Portfolio detail page content. Refactored from the old modal:
- *  - Removed modal wrappers (Navbar / Footer / overlay)
- *  - Replaced onClick callbacks with Next.js Link to real URLs
- *    /services/<slug>, /portfolio/<slug>, /case-studies/<slug>
- */
 export default function PortfolioDetailPage({ project }: Props) {
+  const servicePath =
+    getRouteBySlug(project.serviceSlug)?.path || `/services`;
   const otherProjects = portfolioDetails.filter((p) => p.slug !== project.slug);
   const currentIndex = portfolioDetails.findIndex((p) => p.slug === project.slug);
   const prevProject =
@@ -81,7 +78,7 @@ export default function PortfolioDetailPage({ project }: Props) {
                 {project.services.map((s) => (
                   <Link
                     key={s}
-                    href={`/services/${project.serviceSlug}`}
+                    href={servicePath}
                     className="text-left text-sm md:text-base text-white/70 hover:text-[#C71F42] underline underline-offset-2 decoration-[#C71F42]/30 hover:decoration-[#C71F42] transition-colors"
                   >
                     {s}
@@ -93,7 +90,7 @@ export default function PortfolioDetailPage({ project }: Props) {
           <p className="mt-8 text-sm text-white/60">
             {" "}
             <Link
-              href={`/services/${project.serviceSlug}`}
+              href={servicePath}
               className="underline underline-offset-4 hover:text-[#C71F42] font-medium"
             >
               Explore {project.services[0]} →

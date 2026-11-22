@@ -18,7 +18,7 @@ const homeServices = [
   {
     no: "01",
     title: "Digital Marketing & SEO",
-    href: "/services/digital-marketing",
+    href: "/digital-marketing",
     icon: BarChart3,
     summary:
       "Targeted paid search, technical SEO, AI Search (GEO), and conversion content engineered to attract qualified buyers and drive measurable revenue growth.",
@@ -27,7 +27,7 @@ const homeServices = [
   {
     no: "02",
     title: "Brand Strategy & Identity",
-    href: "/services/brand-strategy-identity",
+    href: "/branding",
     icon: Palette,
     summary:
       "Distinctive brand positioning, visual identity systems, and design languages that command authority and elevate every touchpoint across web, print, and ads.",
@@ -36,7 +36,7 @@ const homeServices = [
   {
     no: "03",
     title: "Social Media Management",
-    href: "/services/social-media-management",
+    href: "/digital-marketing/social-media-management",
     icon: Share2,
     summary:
       "Consistent editorial calendars, short-form reels, community management, and paid social amplification built to grow engaged audiences that convert.",
@@ -45,7 +45,7 @@ const homeServices = [
   {
     no: "04",
     title: "Web & App Development",
-    href: "/services/web-app-dev",
+    href: "/web-development",
     icon: Code2,
     summary:
       "Sub-second marketing websites, conversion-focused e-commerce stores, and scalable web & mobile applications designed to turn traffic into paying customers.",
@@ -54,7 +54,7 @@ const homeServices = [
   {
     no: "05",
     title: "CRM & Marketing Automation",
-    href: "/services/crm-automation",
+    href: "/campaigns/crm-automation",
     icon: Workflow,
     summary:
       "Smart CRM pipelines, lead attribution, lifecycle email/SMS sequences, and automated reporting that connect marketing spend directly to closed revenue.",
@@ -63,7 +63,7 @@ const homeServices = [
   {
     no: "06",
     title: "Advertising Campaigns",
-    href: "/services/advertising-campaigns",
+    href: "/campaigns",
     icon: Megaphone,
     summary:
       "Integrated multi-channel launch campaigns — from concept and art direction to paid search, social, YouTube, and regional media buying for maximum impact.",
@@ -72,7 +72,7 @@ const homeServices = [
   {
     no: "07",
     title: "Video & Motion Production",
-    href: "/services/motion-graphics",
+    href: "/branding/motion-graphics",
     icon: Film,
     summary:
       "Scroll-stopping brand films, product animations, motion ads, and commercial video production crafted for modern vertical and widescreen feeds.",

@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
 import PageShell from "@/components/site/page-shell";
 import InlineContactForm from "@/components/site/inline-contact-form";
 import { blogPosts } from "@/data/blog";
+import { SERVICE_ROUTES } from "@/lib/service-routes";
 import {
   JsonLd,
   getArticleSchema,
@@ -152,6 +153,40 @@ export default async function BlogDetailPage({
                 )}
               </section>
             ))}
+
+            {/* Bidirectional SEO Silo Internal Links to Related Services */}
+            {(() => {
+              const matchingServices = SERVICE_ROUTES.filter((r) =>
+                r.guideSlugs.includes(post.slug)
+              ).slice(0, 4);
+              if (!matchingServices.length) return null;
+              return (
+                <div className="pt-8 border-t border-white/10 space-y-4">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#FF4D73]">
+                    Related Services · Put This Guide Into Action
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {matchingServices.map((svc) => (
+                      <Link
+                        key={svc.path}
+                        href={svc.path}
+                        className="group kd-glass-tile kd-obsidian-card-hover rounded-2xl p-4 flex items-center justify-between gap-3"
+                      >
+                        <div className="min-w-0">
+                          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/45 block">
+                            {svc.siloLabel}
+                          </span>
+                          <span className="font-display font-bold text-sm text-white group-hover:text-[#FF4D73] transition-colors truncate block mt-0.5">
+                            {svc.label}
+                          </span>
+                        </div>
+                        <ArrowUpRight className="h-4 w-4 shrink-0 text-white/45 group-hover:text-[#FF4D73]" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
 
             <div className="pt-6 border-t border-white/10">
               <Link

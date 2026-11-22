@@ -3,17 +3,15 @@
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, ArrowLeft } from "lucide-react";
 import { caseStudyDetails, type CaseStudyDetail } from "@/data/caseStudies";
+import { getRouteBySlug } from "@/lib/service-routes";
 
 interface Props {
   caseStudy: CaseStudyDetail;
 }
 
-/**
- * Case study detail page content. Refactored from the old modal:
- *  - Removed modal wrappers (Navbar / Footer / overlay)
- *  - Replaced onClick callbacks with Next.js Link to real URLs
- */
 export default function CaseStudyDetailPage({ caseStudy }: Props) {
+  const servicePath =
+    getRouteBySlug(caseStudy.serviceSlug)?.path || `/services`;
   const otherCaseStudies = caseStudyDetails.filter((c) => c.slug !== caseStudy.slug);
   const currentIndex = caseStudyDetails.findIndex((c) => c.slug === caseStudy.slug);
   const prevCS = caseStudyDetails[(currentIndex - 1 + caseStudyDetails.length) % caseStudyDetails.length];
@@ -90,7 +88,7 @@ export default function CaseStudyDetailPage({ caseStudy }: Props) {
                 {caseStudy.snapshot.services.map((s) => (
                   <Link
                     key={s}
-                    href={`/services/${caseStudy.serviceSlug}`}
+                    href={servicePath}
                     className="text-left text-sm text-white/70 hover:text-[#C71F42] underline underline-offset-2 decoration-[#C71F42]/30 hover:decoration-[#C71F42] transition-colors"
                   >
                     {s}
@@ -106,7 +104,7 @@ export default function CaseStudyDetailPage({ caseStudy }: Props) {
           <p className="mt-6 text-sm text-white/60">
             {" "}
             <Link
-              href={`/services/${caseStudy.serviceSlug}`}
+              href={servicePath}
               className="underline underline-offset-4 hover:text-[#C71F42] font-medium"
             >
               Explore {caseStudy.snapshot.services[0]} →
@@ -302,7 +300,7 @@ export default function CaseStudyDetailPage({ caseStudy }: Props) {
             {caseStudy.servicesUsed.map((s, i) => (
               <Link
                 key={i}
-                href={`/services/${caseStudy.serviceSlug}`}
+                href={servicePath}
                 className="group text-left p-6 md:p-8 border border-[#3a1518] hover:border-[#C71F42] hover:bg-[#C71F42]/5 transition-all duration-300 rounded-lg"
               >
                 <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#C71F42]">0{i + 1}</span>
