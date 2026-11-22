@@ -94,8 +94,8 @@ export default function Hero() {
             <div className="kd-obsidian-card rounded-3xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.65)]">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src="/images/home-hero-studio.webp"
-                  alt="Katella Digital marketing and creative studio workspace in Anaheim, California"
+                  src="/images/home-hero-agency.webp"
+                  alt="Katella Digital marketing strategists reviewing campaign analytics in Anaheim, California"
                   className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-transparent to-transparent opacity-70" />
@@ -104,10 +104,10 @@ export default function Hero() {
               <div className="p-5 sm:p-6 flex items-center justify-between gap-4 bg-[#060000]/45 backdrop-blur-xl border-t border-white/10">
                 <div>
                   <p className="font-display font-semibold text-white text-sm sm:text-base">
-                    Katella Digital — Our Creativity
+                    Katella Digital — Growth Engine
                   </p>
                   <p className="text-xs text-white/55 mt-0.5">
-                    Strategy · Creative · SEO &amp; GEO · Performance
+                    Strategy · SEO &amp; GEO · Paid Media · Web Engineering
                   </p>
                 </div>
                 <Link

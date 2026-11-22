@@ -83,17 +83,17 @@ export default function CreativityShowcase() {
               <div className="rounded-2xl overflow-hidden border border-white/12 bg-[#060000]">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img
-                    src="/images/home-creativity-shoot.webp"
-                    alt="Katella Digital commercial campaign production and creative direction studio"
+                    src="/images/home-creativity-agency.webp"
+                    alt="Katella Digital marketing agency team reviewing multi-channel campaign performance"
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060000]/80 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-xs">
-                    <span className="font-mono uppercase tracking-[0.18em] text-white/80">
-                      Katella Digital Studio
+                    <span className="font-mono uppercase tracking-[0.18em] text-white/85">
+                      Katella Digital Agency
                     </span>
-                    <span className="text-white/55">
-                      Creative Direction · Video · Campaign Production
+                    <span className="text-white/60">
+                      Campaign Strategy · Creative · Performance Analytics
                     </span>
                   </div>
                 </div>
