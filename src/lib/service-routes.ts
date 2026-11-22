@@ -32,9 +32,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: true,
     crossLinks: ["/web-development", "/branding", "/campaigns/crm-automation"],
     guideSlugs: [
+      "california-digital-marketing-trends-2026",
       "seo-vs-google-ads-where-to-spend-first",
-      "ai-search-visibility-how-to-check-your-brand",
-      "conversion-tracking-google-analytics-4-guide",
+      "california-local-seo-google-maps-playbook",
     ],
   },
   {
@@ -49,8 +49,8 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     crossLinks: ["/web-development", "/campaigns/crm-automation"],
     guideSlugs: [
       "seo-vs-google-ads-where-to-spend-first",
-      "ai-search-visibility-how-to-check-your-brand",
-      "high-converting-landing-page-anatomy",
+      "structured-data-for-ai-and-modern-seo",
+      "california-local-seo-google-maps-playbook",
     ],
   },
   {
@@ -64,9 +64,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: false,
     crossLinks: ["/web-development", "/campaigns/crm-automation"],
     guideSlugs: [
+      "california-local-seo-google-maps-playbook",
       "seo-vs-google-ads-where-to-spend-first",
       "how-to-appear-in-chatgpt-practical-guide",
-      "high-converting-landing-page-anatomy",
     ],
   },
   {
@@ -80,9 +80,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: false,
     crossLinks: ["/web-development/ui-ux", "/campaigns/crm-automation"],
     guideSlugs: [
+      "california-google-ads-cpc-benchmarks-budget-guide",
       "seo-vs-google-ads-where-to-spend-first",
       "conversion-tracking-google-analytics-4-guide",
-      "high-converting-landing-page-anatomy",
     ],
   },
   {
@@ -96,9 +96,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: false,
     crossLinks: ["/campaigns", "/web-development", "/campaigns/crm-automation"],
     guideSlugs: [
+      "performance-creative-that-actually-converts",
+      "california-google-ads-cpc-benchmarks-budget-guide",
       "conversion-tracking-google-analytics-4-guide",
-      "high-converting-landing-page-anatomy",
-      "seo-vs-google-ads-where-to-spend-first",
     ],
   },
   {
@@ -114,7 +114,7 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     guideSlugs: [
       "ai-search-visibility-how-to-check-your-brand",
       "how-to-appear-in-chatgpt-practical-guide",
-      "brand-positioning-before-scaling-paid-ads",
+      "california-digital-marketing-trends-2026",
     ],
   },
   {
@@ -130,7 +130,7 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     guideSlugs: [
       "ai-search-visibility-how-to-check-your-brand",
       "how-to-appear-in-chatgpt-practical-guide",
-      "seo-vs-google-ads-where-to-spend-first",
+      "structured-data-for-ai-and-modern-seo",
     ],
   },
   {
@@ -144,9 +144,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: false,
     crossLinks: ["/campaigns/video-production", "/branding/motion-graphics"],
     guideSlugs: [
+      "performance-creative-that-actually-converts",
+      "california-digital-marketing-trends-2026",
       "brand-positioning-before-scaling-paid-ads",
-      "conversion-tracking-google-analytics-4-guide",
-      "high-converting-landing-page-anatomy",
     ],
   },
 
@@ -162,9 +162,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: true,
     crossLinks: ["/web-development/ui-ux", "/digital-marketing", "/campaigns"],
     guideSlugs: [
+      "brand-identity-vs-logo-what-your-company-needs",
       "brand-positioning-before-scaling-paid-ads",
       "high-converting-landing-page-anatomy",
-      "ai-search-visibility-how-to-check-your-brand",
     ],
   },
   {
@@ -179,8 +179,8 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     crossLinks: ["/digital-marketing/content-marketing", "/campaigns"],
     guideSlugs: [
       "brand-positioning-before-scaling-paid-ads",
+      "california-digital-marketing-trends-2026",
       "how-to-appear-in-chatgpt-practical-guide",
-      "seo-vs-google-ads-where-to-spend-first",
     ],
   },
   {
@@ -194,9 +194,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: false,
     crossLinks: ["/web-development/ui-ux", "/campaigns"],
     guideSlugs: [
+      "brand-identity-vs-logo-what-your-company-needs",
       "brand-positioning-before-scaling-paid-ads",
       "high-converting-landing-page-anatomy",
-      "ai-search-visibility-how-to-check-your-brand",
     ],
   },
   {
@@ -210,8 +210,8 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: false,
     crossLinks: ["/web-development", "/digital-marketing/social-media-management"],
     guideSlugs: [
+      "brand-identity-vs-logo-what-your-company-needs",
       "brand-positioning-before-scaling-paid-ads",
-      "high-converting-landing-page-anatomy",
       "ai-search-visibility-how-to-check-your-brand",
     ],
   },
@@ -226,9 +226,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: false,
     crossLinks: ["/campaigns/video-production", "/digital-marketing/performance-marketing"],
     guideSlugs: [
-      "brand-positioning-before-scaling-paid-ads",
+      "performance-creative-that-actually-converts",
+      "brand-identity-vs-logo-what-your-company-needs",
       "high-converting-landing-page-anatomy",
-      "conversion-tracking-google-analytics-4-guide",
     ],
   },
 
@@ -245,8 +245,8 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     crossLinks: ["/digital-marketing/seo", "/branding", "/campaigns/crm-automation"],
     guideSlugs: [
       "high-converting-landing-page-anatomy",
+      "structured-data-for-ai-and-modern-seo",
       "conversion-tracking-google-analytics-4-guide",
-      "ai-search-visibility-how-to-check-your-brand",
     ],
   },
   {
@@ -261,7 +261,7 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     crossLinks: ["/branding/brand-identity", "/digital-marketing/performance-marketing"],
     guideSlugs: [
       "high-converting-landing-page-anatomy",
-      "brand-positioning-before-scaling-paid-ads",
+      "brand-identity-vs-logo-what-your-company-needs",
       "conversion-tracking-google-analytics-4-guide",
     ],
   },
@@ -277,8 +277,8 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     crossLinks: ["/digital-marketing/performance-marketing", "/digital-marketing/seo"],
     guideSlugs: [
       "high-converting-landing-page-anatomy",
-      "conversion-tracking-google-analytics-4-guide",
-      "seo-vs-google-ads-where-to-spend-first",
+      "performance-creative-that-actually-converts",
+      "structured-data-for-ai-and-modern-seo",
     ],
   },
   {
@@ -292,9 +292,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     isPillar: false,
     crossLinks: ["/campaigns/crm-automation", "/branding/brand-identity"],
     guideSlugs: [
+      "structured-data-for-ai-and-modern-seo",
       "conversion-tracking-google-analytics-4-guide",
       "high-converting-landing-page-anatomy",
-      "ai-search-visibility-how-to-check-your-brand",
     ],
   },
   {
@@ -330,9 +330,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
       "/web-development/ui-ux",
     ],
     guideSlugs: [
+      "california-google-ads-cpc-benchmarks-budget-guide",
+      "performance-creative-that-actually-converts",
       "brand-positioning-before-scaling-paid-ads",
-      "conversion-tracking-google-analytics-4-guide",
-      "high-converting-landing-page-anatomy",
     ],
   },
   {
@@ -350,9 +350,9 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
       "/digital-marketing/performance-marketing",
     ],
     guideSlugs: [
+      "performance-creative-that-actually-converts",
       "brand-positioning-before-scaling-paid-ads",
-      "high-converting-landing-page-anatomy",
-      "conversion-tracking-google-analytics-4-guide",
+      "california-digital-marketing-trends-2026",
     ],
   },
   {
@@ -371,8 +371,8 @@ export const SERVICE_ROUTES: ServiceRouteMeta[] = [
     ],
     guideSlugs: [
       "conversion-tracking-google-analytics-4-guide",
-      "seo-vs-google-ads-where-to-spend-first",
-      "high-converting-landing-page-anatomy",
+      "california-google-ads-cpc-benchmarks-budget-guide",
+      "california-digital-marketing-trends-2026",
     ],
   },
 ];

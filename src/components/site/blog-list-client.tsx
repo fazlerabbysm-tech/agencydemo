@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import type { BlogPost } from "@/data/blog";
 
 const categories = [
   "All",
-  "AI Search (GEO)",
   "Marketing",
-  "Branding",
+  "AI Search (GEO)",
   "Web & Tech",
+  "Branding",
   "Strategy",
 ] as const;
 
@@ -22,6 +22,11 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
     activeCategory === "All"
       ? posts
       : posts.filter((p) => p.category === activeCategory);
+
+  const countFor = (cat: string) =>
+    cat === "All"
+      ? posts.length
+      : posts.filter((p) => p.category === cat).length;
 
   return (
     <div className="space-y-12">
@@ -45,20 +50,28 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
 
           <div className="lg:col-span-6 p-7 sm:p-10 lg:p-12 flex flex-col justify-between gap-6 bg-[#060000]/35 backdrop-blur-xl">
             <div className="space-y-4">
-              <p className="font-mono text-xs text-[#FF4D73]">
-                {featured.category} · {featured.readTime} · {featured.date}
-              </p>
+              <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-[#FF4D73]">
+                <span>
+                  {featured.category} · {featured.readTime} · {featured.date}
+                </span>
+              </div>
               <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white leading-tight tracking-tight group-hover:text-[#FF4D73] transition-colors">
                 {featured.title}
               </h2>
               <p className="text-sm sm:text-base text-white/70 leading-relaxed">
                 {featured.excerpt}
               </p>
+              {featured.region && (
+                <p className="inline-flex items-center gap-1.5 text-xs font-mono text-white/65">
+                  <MapPin className="h-3.5 w-3.5 text-[#FF4D73]" />
+                  {featured.region}
+                </p>
+              )}
             </div>
 
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-white text-[#060000] group-hover:bg-white/90 px-5 py-2.5 text-sm font-semibold transition-colors">
-                Read the article
+                Read the full guide
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </span>
             </div>
@@ -66,22 +79,32 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
         </Link>
       )}
 
-      {/* Category Filter Pills */}
+      {/* Category Filter Pills with Live Counts */}
       <div className="flex flex-wrap items-center gap-2.5">
         {categories.map((cat) => {
           const isSelected = activeCategory === cat;
+          const count = countFor(cat);
           return (
             <button
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all cursor-pointer border ${
+              className={`rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all cursor-pointer border inline-flex items-center gap-2 ${
                 isSelected
                   ? "bg-white text-[#060000] border-white"
                   : "kd-glass-tile text-white/75 hover:text-white hover:border-white/30"
               }`}
             >
-              {cat}
+              <span>{cat}</span>
+              <span
+                className={`font-mono text-[10px] rounded-full px-1.5 py-0.5 ${
+                  isSelected
+                    ? "bg-[#060000]/10 text-[#060000]"
+                    : "bg-white/10 text-white/70"
+                }`}
+              >
+                {count}
+              </span>
             </button>
           );
         })}
@@ -123,10 +146,16 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
                   <p className="text-xs sm:text-sm text-white/65 leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
+                  {post.region && (
+                    <p className="inline-flex items-center gap-1 text-[11px] font-mono text-[#FF4D73]/90 pt-1">
+                      <MapPin className="h-3 w-3 shrink-0" />
+                      <span className="truncate">{post.region}</span>
+                    </p>
+                  )}
                 </div>
 
                 <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/80 group-hover:text-white">
-                  Read more
+                  Read full guide
                   <ArrowRight className="h-3.5 w-3.5 text-[#FF4D73] transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
