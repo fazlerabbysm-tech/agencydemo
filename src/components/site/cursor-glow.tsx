@@ -359,11 +359,80 @@ interface Star {
 
 export default function CursorGlow() {
   const pathname = usePathname();
+  const isAboutPage = pathname === "/about" || pathname === "/about/";
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
 
+  // Sitewide lightweight pointer spotlight for `.kd-obsidian-card-hover` cards & subtle desktop cursor ring
   useEffect(() => {
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
+    const pointer = {
+      x: -9999,
+      y: -9999,
+      active: false,
+      hoveringInteractive: false,
+    };
+    const ringPos = { x: -100, y: -100 };
+    let ringRafId = 0;
+
+    const onPointerMove = (e: PointerEvent) => {
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+      pointer.active = true;
+      const target = e.target as HTMLElement | null;
+      pointer.hoveringInteractive = Boolean(
+        target?.closest("a, button, input, textarea, select, [role='button']")
+      );
+
+      // Update cursor-following spotlight coordinates on hovered glass cards
+      const hoverCard = target?.closest<HTMLElement>(".kd-obsidian-card-hover");
+      if (hoverCard) {
+        const rect = hoverCard.getBoundingClientRect();
+        hoverCard.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+        hoverCard.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      }
+    };
+
+    const onPointerLeave = () => {
+      pointer.active = false;
+    };
+
+    const updateCursorRing = () => {
+      if (isFinePointer && ringRef.current && dotRef.current) {
+        if (pointer.active) {
+          ringPos.x += (pointer.x - ringPos.x) * 0.16;
+          ringPos.y += (pointer.y - ringPos.y) * 0.16;
+          const ringScale = pointer.hoveringInteractive ? 1.55 : 1;
+          ringRef.current.style.opacity = "1";
+          ringRef.current.style.transform = `translate3d(${ringPos.x - 18}px, ${ringPos.y - 18}px, 0) scale(${ringScale})`;
+          dotRef.current.style.opacity = "1";
+          dotRef.current.style.transform = `translate3d(${pointer.x - 3}px, ${pointer.y - 3}px, 0)`;
+        } else {
+          ringRef.current.style.opacity = "0";
+          dotRef.current.style.opacity = "0";
+        }
+      }
+      ringRafId = requestAnimationFrame(updateCursorRing);
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    document.addEventListener("pointerleave", onPointerLeave);
+    if (isFinePointer) {
+      ringRafId = requestAnimationFrame(updateCursorRing);
+    }
+
+    return () => {
+      cancelAnimationFrame(ringRafId);
+      window.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerleave", onPointerLeave);
+    };
+  }, []);
+
+  // Morphing particle canvas animation: active ONLY on /about, starting right from the Hero section and stopping before Footer
+  useEffect(() => {
+    if (!isAboutPage) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -377,15 +446,11 @@ export default function CursorGlow() {
     const isMobile = window.innerWidth < 768;
     const particleCount = isMobile ? 480 : 1050;
 
-    // Collect every <section> inside <main>: sectionEls[0] is always the Hero (no animation),
-    // and sectionEls.slice(1) are the post-Hero sections that drive the morphing particle sculpture.
+    // Collect every <section> inside <main> on /about starting from the Hero (sectionEls[0])
     const sectionEls = Array.from(
       document.querySelectorAll<HTMLElement>("main section")
     );
-    if (sectionEls.length < 2) return;
-
-    const heroEl = sectionEls[0];
-    const animatedSections = sectionEls.slice(1);
+    if (!sectionEls.length) return;
 
     const shapeCache = new Map<ShapeName, [number, number][]>();
     const getPts = (shape: ShapeName) => {
@@ -397,7 +462,7 @@ export default function CursorGlow() {
       return cached;
     };
 
-    const targets: SectionTarget[] = animatedSections.map((el, idx) => {
+    const targets: SectionTarget[] = sectionEls.map((el, idx) => {
       const attrShape = el.dataset.shape as ShapeName | undefined;
       const shape =
         attrShape && DEFAULT_SHAPE_CYCLE.includes(attrShape)
@@ -421,8 +486,7 @@ export default function CursorGlow() {
     let particles: Particle[] = [];
     let stars: Star[] = [];
 
-    const pointer = { x: -9999, y: -9999, active: false, hoveringInteractive: false };
-    const ringPos = { x: -100, y: -100 };
+    const pointer = { x: -9999, y: -9999, active: false };
 
     let curAx = targets[0].ax;
     let curAy = targets[0].ay;
@@ -503,22 +567,19 @@ export default function CursorGlow() {
       return { a: idx, b: idx + 1, k };
     };
 
-    const drawStars = (clipTop: number, clipBottom: number) => {
+    const drawStars = (clipBottom: number) => {
       for (const s of stars) {
-        if (s.y <= clipTop || s.y >= clipBottom) continue;
-        const topFade =
-          clipTop > 0 ? Math.max(0, Math.min(1, (s.y - clipTop) / 90)) : 1;
+        if (s.y >= clipBottom) continue;
         const bottomFade =
           clipBottom < height
             ? Math.max(0, Math.min(1, (clipBottom - s.y) / 100))
             : 1;
-        const edgeFade = Math.min(topFade, bottomFade);
-        if (edgeFade <= 0.01) continue;
+        if (bottomFade <= 0.01) continue;
 
         const alpha = reducedMotion
           ? s.a
           : Math.max(0, s.a + 0.16 * Math.sin(time * s.tw + s.ph));
-        ctx.globalAlpha = (isLightMode ? alpha * 0.45 : alpha) * edgeFade;
+        ctx.globalAlpha = (isLightMode ? alpha * 0.45 : alpha) * bottomFade;
         ctx.fillStyle = isLightMode
           ? "rgb(154, 14, 40)"
           : "rgb(255, 224, 232)";
@@ -538,23 +599,20 @@ export default function CursorGlow() {
       time += 0.016;
       ctx.clearRect(0, 0, width, height);
 
-      // Strictly start animation AFTER the Hero section and stop BEFORE the footer on every page
-      const heroBottom = heroEl.getBoundingClientRect().bottom;
-      const clipTop = Math.max(0, Math.min(height, heroBottom));
-
+      // Start right at the Hero section (y = 0) and stop strictly BEFORE the footer
       const footerEl = document.querySelector("footer");
       const footerTop = footerEl
         ? footerEl.getBoundingClientRect().top
         : height + 100;
       const clipBottom = Math.max(0, Math.min(height, footerTop));
 
-      if (clipBottom - clipTop > 16) {
+      if (clipBottom > 16) {
         ctx.save();
         ctx.beginPath();
-        ctx.rect(0, clipTop, width, clipBottom - clipTop);
+        ctx.rect(0, 0, width, clipBottom);
         ctx.clip();
 
-        drawStars(clipTop, clipBottom);
+        drawStars(clipBottom);
 
         const { a, b, k } = getScrollBlend();
         const tA = targets[a];
@@ -568,17 +626,9 @@ export default function CursorGlow() {
 
         const cx = width * curAx;
         const rawCy = height * curAy;
-        const cy = Math.max(
-          clipTop + 120,
-          Math.min(rawCy, Math.max(clipTop + 120, clipBottom - 160))
-        );
+        const cy = Math.min(rawCy, Math.max(120, clipBottom - 160));
 
-        if (
-          pointer.active &&
-          isFinePointer &&
-          pointer.y > clipTop &&
-          pointer.y < clipBottom
-        ) {
+        if (pointer.active && isFinePointer && pointer.y < clipBottom) {
           const grad = ctx.createRadialGradient(
             pointer.x,
             pointer.y,
@@ -626,7 +676,7 @@ export default function CursorGlow() {
           let fx = (destX - p.x) * 0.022;
           let fy = (destY - p.y) * 0.022;
 
-          if (pointer.active && pointer.y > clipTop && pointer.y < clipBottom) {
+          if (pointer.active && pointer.y < clipBottom) {
             const dx = p.x - pointer.x;
             const dy = p.y - pointer.y;
             const distSq = dx * dx + dy * dy;
@@ -645,19 +695,14 @@ export default function CursorGlow() {
           p.x += p.vx;
           p.y += p.vy;
 
-          // Gracefully fade particles in below the Hero edge and out above the Footer edge
-          const topFade =
-            clipTop > 0
-              ? Math.max(0, Math.min(1, (p.y - clipTop) / 90))
-              : 1;
+          // Gracefully fade particles out above the Footer edge
           const bottomFade =
             clipBottom < height
               ? Math.max(0, Math.min(1, (clipBottom - p.y) / 100))
               : 1;
-          const edgeFade = Math.min(topFade, bottomFade);
-          if (edgeFade <= 0.01) continue;
+          if (bottomFade <= 0.01) continue;
 
-          ctx.globalAlpha = edgeFade;
+          ctx.globalAlpha = bottomFade;
           ctx.fillStyle = p.col;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -669,21 +714,6 @@ export default function CursorGlow() {
         ctx.restore();
       }
 
-      if (isFinePointer && ringRef.current && dotRef.current) {
-        if (pointer.active) {
-          ringPos.x += (pointer.x - ringPos.x) * 0.16;
-          ringPos.y += (pointer.y - ringPos.y) * 0.16;
-          const ringScale = pointer.hoveringInteractive ? 1.55 : 1;
-          ringRef.current.style.opacity = "1";
-          ringRef.current.style.transform = `translate3d(${ringPos.x - 18}px, ${ringPos.y - 18}px, 0) scale(${ringScale})`;
-          dotRef.current.style.opacity = "1";
-          dotRef.current.style.transform = `translate3d(${pointer.x - 3}px, ${pointer.y - 3}px, 0)`;
-        } else {
-          ringRef.current.style.opacity = "0";
-          dotRef.current.style.opacity = "0";
-        }
-      }
-
       rafId = requestAnimationFrame(tick);
     };
 
@@ -691,18 +721,6 @@ export default function CursorGlow() {
       pointer.x = e.clientX;
       pointer.y = e.clientY;
       pointer.active = true;
-      const target = e.target as HTMLElement | null;
-      pointer.hoveringInteractive = Boolean(
-        target?.closest("a, button, input, textarea, select, [role='button']")
-      );
-
-      // Update cursor-following spotlight coordinates on hovered glass cards
-      const hoverCard = target?.closest<HTMLElement>(".kd-obsidian-card-hover");
-      if (hoverCard) {
-        const rect = hoverCard.getBoundingClientRect();
-        hoverCard.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-        hoverCard.style.setProperty("--my", `${e.clientY - rect.top}px`);
-      }
     };
 
     const onPointerDown = (e: PointerEvent) => {
@@ -738,7 +756,24 @@ export default function CursorGlow() {
     resize();
 
     if (reducedMotion) {
-      ctx.clearRect(0, 0, width, height);
+      drawStars(height);
+      const scale = getScale();
+      const first = targets[0];
+      ctx.globalCompositeOperation = isLightMode ? "source-over" : "lighter";
+      for (let i = 0; i < particleCount; i++) {
+        const pt = first.pts[i];
+        ctx.fillStyle = particles[i].col;
+        ctx.beginPath();
+        ctx.arc(
+          width * first.ax + pt[0] * scale,
+          height * first.ay + pt[1] * scale,
+          particles[i].r,
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+      }
+      ctx.globalCompositeOperation = "source-over";
     } else {
       rafId = requestAnimationFrame(tick);
     }
@@ -751,16 +786,18 @@ export default function CursorGlow() {
       document.removeEventListener("pointerleave", onPointerLeave);
       window.removeEventListener("resize", resize);
     };
-  }, [pathname]);
+  }, [isAboutPage]);
 
   return (
     <>
-      {/* Full-viewport section-morphing interactive particle canvas */}
-      <canvas
-        ref={canvasRef}
-        aria-hidden="true"
-        className="fixed inset-0 h-full w-full pointer-events-none z-[2] opacity-45 md:opacity-90"
-      />
+      {/* Morphing particle sculpture — rendered strictly on /about only */}
+      {isAboutPage && (
+        <canvas
+          ref={canvasRef}
+          aria-hidden="true"
+          className="fixed inset-0 h-full w-full pointer-events-none z-[2] opacity-45 md:opacity-90"
+        />
+      )}
 
       {/* Sleek tactile desktop cursor ring + crimson core dot */}
       <div
