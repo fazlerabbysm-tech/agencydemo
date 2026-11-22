@@ -6,7 +6,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { portfolioDetails } from "@/data/portfolio";
 
 export default function WorkShowcase() {
-  const featuredWork = portfolioDetails.slice(0, 6);
+  const featuredWork = portfolioDetails.slice(0, 3);
 
   return (
     <section id="work" className="py-16 sm:py-20 lg:py-24">

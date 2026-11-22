@@ -89,19 +89,19 @@ const sharedWork: WorkCard[] = [
   {
     title: "Apex Solar California",
     cat: "Google Ads & Local SEO · 3.8x installs",
-    image: "/images/detail-ecommerce-casestudy.webp",
+    image: "/images/portfolio-apex-solar.webp",
     href: "/portfolio/apex-solar",
   },
   {
     title: "Aurora Goods",
     cat: "E-commerce Growth · +34% CVR",
-    image: "/images/portfolio-aurora-1.webp",
+    image: "/images/portfolio-aurora-ecommerce.webp",
     href: "/portfolio/aurora-goods",
   },
   {
     title: "Vela Hospitality",
     cat: "Brand & Social Launch · 2.4M reach",
-    image: "/images/detail-color-casestudy.webp",
+    image: "/images/portfolio-vela-hospitality.webp",
     href: "/portfolio/vela-hospitality",
   },
 ];
@@ -222,7 +222,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "SEO agency in Anaheim built for commercial intent and revenue.",
     heroOutcome:
       "Ranking is the last step, not the first. We pair clean technical architecture, commercial topic clusters, and high-authority PR so organic search becomes your lowest-CAC acquisition channel.",
-    heroImage: "/images/detail-ecommerce-sub-arch.webp",
+    heroImage: "/images/service-seo.webp",
     bestFor: [
       "B2B companies targeting high-value queries",
       "E-commerce catalogs scaling non-branded traffic",
@@ -267,7 +267,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Dominate Google Maps and local search across Orange County & California.",
     heroOutcome:
       "Capture high-intent local buyers searching 'near me' with optimized Google Business Profiles, city-specific landing pages, review velocity systems, and clean local citations.",
-    heroImage: "/images/detail-ecommerce-process.webp",
+    heroImage: "/images/service-local-seo.webp",
     bestFor: [
       "Multi-location service businesses",
       "Healthcare, legal, home services & hospitality",
@@ -312,7 +312,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Google Ads management focused on qualified leads — not wasted clicks.",
     heroOutcome:
       "Capture high-intent buyers the exact moment they search for your solution with tightly structured Search, Shopping, and YouTube campaigns paired with dedicated conversion landing pages.",
-    heroImage: "/images/detail-ecommerce-work-1.webp",
+    heroImage: "/images/service-google-ads.webp",
     bestFor: [
       "Brands needing predictable lead flow fast",
       "High-ticket B2B & local service companies",
@@ -357,7 +357,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Performance marketing engineered around MER, CAC, and profitable scale.",
     heroOutcome:
       "Cross-channel paid acquisition across Google, Meta, LinkedIn, YouTube, and TikTok — powered by weekly creative testing sprints and rigorous revenue attribution.",
-    heroImage: "/images/detail-ecommerce-work-2.webp",
+    heroImage: "/images/service-performance-marketing.webp",
     bestFor: [
       "DTC e-commerce scaling past $100k/mo",
       "B2B SaaS & enterprise lead generation",
@@ -402,7 +402,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Content marketing that earns authority, ranks in search, and closes deals.",
     heroOutcome:
       "Editorial strategy, bottom-of-funnel buyer guides, case studies, and thought leadership crafted for both human decision-makers and AI answer engines.",
-    heroImage: "/images/detail-ecommerce-sub-copy.webp",
+    heroImage: "/images/service-content-marketing.webp",
     bestFor: [
       "B2B teams with considered sales cycles",
       "Brands building organic authority & trust",
@@ -447,7 +447,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Generative Engine Optimization (GEO) so AI assistants recommend your brand.",
     heroOutcome:
       "Make your business the cited answer across ChatGPT, Perplexity, Claude, and Google AI Overviews through entity engineering, structured knowledge graphs, and answer-first content.",
-    heroImage: "/images/detail-whitelabel-sub-dev.webp",
+    heroImage: "/images/service-ai-search-geo.webp",
     bestFor: [
       "Forward-thinking B2B & regional market leaders",
       "Brands noticing clicks shifting to AI summaries",
@@ -492,7 +492,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Social media management that builds real audience demand and bookings.",
     heroOutcome:
       "Cohesive visual feeds, vertical short-form video, active community management, and paid social amplification across Instagram, LinkedIn, TikTok, and YouTube Shorts.",
-    heroImage: "/images/detail-color-casestudy.webp",
+    heroImage: "/images/service-social-media.webp",
     bestFor: [
       "Hospitality, retail, lifestyle & consumer brands",
       "Founders & B2B teams growing LinkedIn authority",
@@ -540,7 +540,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Brand strategy & visual identity built to command premium market position.",
     heroOutcome:
       "We define your positioning, voice, logo system, color language, and design guidelines so every ad, website, and pitch deck looks unmistakably category-leading.",
-    heroImage: "/images/detail-color-sub-system.webp",
+    heroImage: "/images/service-brand-strategy-identity.webp",
     bestFor: [
       "New ventures launching with ambition",
       "Established companies outgrowing an outdated look",
@@ -585,7 +585,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Sharp positioning and messaging before a single pixel is designed.",
     heroOutcome:
       "Clarify who you serve, why you win, and how you speak — creating a strategic north star that aligns leadership, marketing campaigns, and sales conversations.",
-    heroImage: "/images/detail-color-sub-audit.webp",
+    heroImage: "/images/service-brand-strategy.webp",
     bestFor: [
       "Companies entering new markets or verticals",
       "Teams struggling to articulate their differentiation",
@@ -628,7 +628,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Cohesive visual identity systems built for digital-first brands.",
     heroOutcome:
       "Beyond a logo — complete color architecture, typography scales, motion cues, and component templates engineered to shine across web, social, and ad creative.",
-    heroImage: "/images/detail-color-sub-guide.webp",
+    heroImage: "/images/service-brand-identity.webp",
     bestFor: [
       "Digital-first brands scaling across web & social",
       "Companies unifying fragmented marketing collateral",
@@ -670,7 +670,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Timeless, scalable logo marks engineered to work from favicon to billboard.",
     heroOutcome:
       "Clean geometric precision and conceptual clarity — responsive logo lockups designed to remain sharp at 16px app icons and commanding at full campaign scale.",
-    heroImage: "/images/detail-color-work-2.webp",
+    heroImage: "/images/service-logo-design.webp",
     bestFor: [
       "New businesses launching their first flagship mark",
       "Established brands modernizing a dated legacy logo",
@@ -712,7 +712,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Motion graphics and animated ad creative built to stop the scroll.",
     heroOutcome:
       "Product explainers, animated brand systems, kinetic typography, and high-converting motion ads delivered in vertical, square, and widescreen formats.",
-    heroImage: "/images/detail-color-work-1.webp",
+    heroImage: "/images/service-motion-graphics.webp",
     bestFor: [
       "Paid social teams needing scroll-stopping video ads",
       "SaaS & tech products explaining complex features simply",
@@ -758,7 +758,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Sub-second websites and digital products engineered to convert.",
     heroOutcome:
       "Modern Next.js static & hybrid websites, e-commerce storefronts, and custom web applications designed for Core Web Vitals, SEO/GEO dominance, and measurable lead conversion.",
-    heroImage: "/images/detail-whitelabel-work-1.webp",
+    heroImage: "/images/service-web-app-dev.webp",
     bestFor: [
       "Brands replacing slow, bloated WordPress sites",
       "High-growth companies building SEO & conversion engines",
@@ -803,7 +803,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Interfaces that feel effortless — and guide visitors straight to action.",
     heroOutcome:
       "Research-backed UX wireframes, conversion-focused landing pages, and scalable Figma design systems built for modern web and mobile products.",
-    heroImage: "/images/detail-cgi-work-1.webp",
+    heroImage: "/images/service-ui-ux.webp",
     bestFor: [
       "Websites with high traffic but weak conversion rates",
       "SaaS products simplifying complex onboarding & workflows",
@@ -845,7 +845,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "High-converting e-commerce storefronts built for speed and higher AOV.",
     heroOutcome:
       "Shopify, Shopify Plus, and headless Next.js commerce builds paired with merchandising UX, clean product feeds, and conversion optimization.",
-    heroImage: "/images/portfolio-aurora-1.webp",
+    heroImage: "/images/service-ecommerce-dev.webp",
     bestFor: [
       "DTC brands scaling past $50k–$500k/mo",
       "Brands migrating from slow legacy themes",
@@ -888,7 +888,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Custom web applications, client portals, and interactive tools built to scale.",
     heroOutcome:
       "TypeScript, React, and Next.js engineering for SaaS dashboards, interactive calculators, booking platforms, and internal operational tools.",
-    heroImage: "/images/detail-whitelabel-work-2.webp",
+    heroImage: "/images/service-web-apps.webp",
     bestFor: [
       "Businesses launching customer portals or booking engines",
       "Startups building MVPs with production-grade code",
@@ -931,7 +931,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Polished iOS and Android apps built for retention and everyday speed.",
     heroOutcome:
       "Cross-platform React Native & modern mobile experiences designed with native-grade animations, intuitive UX, and seamless backend sync.",
-    heroImage: "/images/detail-whitelabel-work-3.webp",
+    heroImage: "/images/service-mobile-apps.webp",
     bestFor: [
       "Consumer & hospitality loyalty apps",
       "Service businesses launching mobile booking experiences",
@@ -977,7 +977,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Integrated advertising campaigns engineered for breakout market reach.",
     heroOutcome:
       "From big-idea creative concepting and campaign production to multi-channel digital, connected TV, and regional media buying — built to move markets and drive revenue.",
-    heroImage: "/images/home-creativity-agency.webp",
+    heroImage: "/images/service-advertising-campaigns.webp",
     bestFor: [
       "Major product, store, or brand launches",
       "Seasonal retail & hospitality promotions",
@@ -1020,7 +1020,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "Commercial video and campaign storytelling built for modern screens.",
     heroOutcome:
       "Strategic brand films, customer testimonial documentaries, executive thought leadership, and paid-ready short-form video suites crafted to convert attention into trust.",
-    heroImage: "/images/detail-cgi-work-2.webp",
+    heroImage: "/images/service-video-production.webp",
     bestFor: [
       "Brands elevating homepage & campaign storytelling",
       "B2B companies turning client wins into video case studies",
@@ -1062,7 +1062,7 @@ const seeds: CompactServiceSeed[] = [
     heroTitle: "CRM pipelines and lifecycle automation that turn leads into closed revenue.",
     heroOutcome:
       "Connect your website forms, ad platforms, HubSpot/CRM pipelines, and automated email/SMS follow-ups so zero qualified leads ever slip through the cracks.",
-    heroImage: "/images/detail-ecommerce-sub-pim.webp",
+    heroImage: "/images/service-crm-automation.webp",
     bestFor: [
       "Sales teams losing leads due to slow manual follow-up",
       "Growing brands connecting marketing spend to closed CRM deals",

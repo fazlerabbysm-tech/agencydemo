@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     category: "AI Search (GEO)",
     date: "Nov 18, 2026",
     readTime: "8 min read",
-    image: "/images/detail-ecommerce-sub-arch.webp",
+    image: "/images/service-ai-search-geo.webp",
     featured: true,
     author: {
       name: "Katella Strategy Team",
@@ -69,7 +69,7 @@ export const blogPosts: BlogPost[] = [
     category: "AI Search (GEO)",
     date: "Nov 14, 2026",
     readTime: "9 min read",
-    image: "/images/detail-ecommerce-process.webp",
+    image: "/images/service-seo.webp",
     author: {
       name: "Katella Strategy Team",
       role: "SEO & AI Search Practice",
@@ -97,7 +97,7 @@ export const blogPosts: BlogPost[] = [
     category: "Marketing",
     date: "Nov 10, 2026",
     readTime: "7 min read",
-    image: "/images/detail-ecommerce-work-1.webp",
+    image: "/images/service-google-ads.webp",
     author: {
       name: "Katella Growth Desk",
       role: "Paid Media & Acquisition",
@@ -125,7 +125,7 @@ export const blogPosts: BlogPost[] = [
     category: "Web & Tech",
     date: "Nov 6, 2026",
     readTime: "8 min read",
-    image: "/images/detail-whitelabel-sub-dev.webp",
+    image: "/images/service-web-app-dev.webp",
     author: {
       name: "Katella Engineering",
       role: "Web Performance & Architecture",
@@ -153,7 +153,7 @@ export const blogPosts: BlogPost[] = [
     category: "Branding",
     date: "Nov 2, 2026",
     readTime: "7 min read",
-    image: "/images/detail-color-sub-system.webp",
+    image: "/images/service-brand-identity.webp",
     author: {
       name: "Katella Creative Studio",
       role: "Brand & Art Direction",
@@ -181,7 +181,7 @@ export const blogPosts: BlogPost[] = [
     category: "Strategy",
     date: "Oct 27, 2026",
     readTime: "6 min read",
-    image: "/images/detail-cgi-work-1.webp",
+    image: "/images/service-performance-marketing.webp",
     author: {
       name: "Katella Growth Desk",
       role: "Performance & Conversion",

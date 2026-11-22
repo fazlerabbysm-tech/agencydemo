@@ -116,32 +116,41 @@ export default function ServicesHubPage() {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {items.map((svc) => (
                       <Link
                         key={svc.slug}
                         href={`/services/${svc.slug}`}
-                        className="group kd-glass-tile kd-obsidian-card-hover rounded-2xl p-6 flex flex-col justify-between gap-5"
+                        className="group kd-glass-tile kd-obsidian-card-hover rounded-2xl overflow-hidden flex flex-col justify-between"
                       >
-                        <div className="space-y-2.5">
-                          <div className="flex items-center justify-between gap-3">
-                            <span className="font-mono text-[11px] text-[#FF4D73]">
+                        <div>
+                          <div className="relative aspect-[16/9] overflow-hidden bg-[#0a0204]">
+                            <img
+                              src={svc.heroImage}
+                              alt={`${svc.name} — Katella Digital`}
+                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#060000]/75 via-transparent to-transparent" />
+                            <span className="absolute top-3 left-3 rounded-full bg-[#060000]/75 backdrop-blur-md border border-white/15 px-2.5 py-0.5 font-mono text-[10px] text-[#FF4D73]">
                               {svc.no}
                               {svc.isPillar ? " · PILLAR" : ""}
                             </span>
-                            <span className="h-8 w-8 rounded-full bg-white/10 group-hover:bg-white text-white group-hover:text-[#060000] flex items-center justify-center transition-colors">
+                            <span className="absolute top-3 right-3 h-8 w-8 rounded-full bg-white/15 backdrop-blur-md group-hover:bg-white text-white group-hover:text-[#060000] flex items-center justify-center transition-colors">
                               <ArrowUpRight className="h-4 w-4" />
                             </span>
                           </div>
-                          <h3 className="font-display font-bold text-lg text-white group-hover:text-[#FF4D73] transition-colors">
-                            {svc.name}
-                          </h3>
-                          <p className="text-xs sm:text-sm text-white/65 leading-relaxed line-clamp-3">
-                            {svc.heroOutcome}
-                          </p>
+
+                          <div className="p-5 space-y-2">
+                            <h3 className="font-display font-bold text-lg text-white group-hover:text-[#FF4D73] transition-colors">
+                              {svc.name}
+                            </h3>
+                            <p className="text-xs sm:text-sm text-white/65 leading-relaxed line-clamp-3">
+                              {svc.heroOutcome}
+                            </p>
+                          </div>
                         </div>
 
-                        <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
+                        <div className="px-5 py-3.5 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
                           <span>{svc.deliverablesStarting}</span>
                           <span className="inline-flex items-center gap-1 font-semibold text-white/85 group-hover:text-white">
                             Details <ArrowRight className="h-3.5 w-3.5 text-[#FF4D73]" />
