@@ -29,8 +29,8 @@ export default function BrandMarquee() {
       </div>
 
       <div className="relative overflow-hidden marquee-pause">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#060000] to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#060000] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 kd-marquee-fade-left z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 kd-marquee-fade-right z-10" />
 
         <div className="flex w-max marquee-track-left-slow">
           {[...trustedBrands, ...trustedBrands].map((brand, idx) => (

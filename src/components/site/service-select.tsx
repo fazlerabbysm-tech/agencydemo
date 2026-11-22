@@ -94,7 +94,7 @@ export default function ServiceSelect({
         aria-expanded={open}
         className={`w-full flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-left text-sm transition-all duration-200 cursor-pointer backdrop-blur-xl border ${
           open
-            ? "bg-[#140308]/85 border-[#E81C49] shadow-[0_0_0_3px_rgba(232,28,73,0.18)]"
+            ? "kd-service-trigger-open bg-[#140308]/85 border-[#E81C49] shadow-[0_0_0_3px_rgba(232,28,73,0.18)]"
             : "bg-[#060000]/60 border-white/15 hover:border-white/30"
         }`}
       >
@@ -129,7 +129,7 @@ export default function ServiceSelect({
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.16, ease: "easeOut" }}
             role="listbox"
-            className="absolute left-0 right-0 mt-2 z-50 rounded-2xl border border-white/18 bg-[#0b0104]/96 backdrop-blur-2xl shadow-[0_24px_64px_rgba(0,0,0,0.85),0_0_28px_rgba(199,31,66,0.2)] overflow-hidden"
+            className="kd-service-dropdown absolute left-0 right-0 mt-2 z-50 rounded-2xl border border-white/18 bg-[#0b0104]/96 backdrop-blur-2xl shadow-[0_24px_64px_rgba(0,0,0,0.85),0_0_28px_rgba(199,31,66,0.2)] overflow-hidden"
           >
             {/* Top crimson gradient hairline */}
             <div

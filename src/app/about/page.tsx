@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  ChevronRight,
+  Lightbulb,
+  BarChart3,
+  Compass,
+  Gem,
+  Handshake,
+  TrendingUp,
+} from "lucide-react";
 import PageShell from "@/components/site/page-shell";
 import FinalCTA from "@/components/site/final-cta";
 import { JsonLd, getBreadcrumbSchema } from "@/components/seo/json-ld";
@@ -8,7 +18,7 @@ import { JsonLd, getBreadcrumbSchema } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "About Us — Digital Marketing Agency in Anaheim, CA",
   description:
-    "Meet Katella Digital — a full-service digital marketing, SEO, AI Search (GEO), branding, and web engineering agency in Anaheim, Orange County, California.",
+    "Meet the Katella Digital leadership team — a full-service digital marketing, SEO, AI Search (GEO), branding, and web engineering agency in Anaheim, Orange County, California.",
   alternates: { canonical: "/about" },
 };
 
@@ -21,34 +31,85 @@ const stats = [
 
 const values = [
   {
-    no: "01",
+    icon: Lightbulb,
+    tag: "Strategy first",
     title: "Think first",
-    desc: "Strategy precedes execution. We diagnose market demand, positioning, and unit economics before spending a dollar on ads or code.",
+    desc: "Market strategy, positioning, and unit economics always come before launching a single ad or line of code.",
   },
   {
-    no: "02",
+    icon: BarChart3,
+    tag: "Evidence-led",
     title: "Data before spend",
-    desc: "Every channel decision, creative test, and landing-page iteration is backed by clean attribution and real buyer behavior.",
+    desc: "Every channel decision, creative test, and landing-page iteration is backed by clean attribution and real buyer intent.",
   },
   {
-    no: "03",
-    title: "California & national insight",
-    desc: "Rooted in Anaheim and Orange County while scaling ambitious brands across Southern California and nationwide US markets.",
+    icon: Compass,
+    tag: "California roots",
+    title: "Local & national insight",
+    desc: "Deeply rooted in Anaheim and Orange County while scaling ambitious growth brands across California and the US.",
   },
   {
-    no: "04",
-    title: "Global craft",
+    icon: Gem,
+    tag: "World-class craft",
+    title: "Global standards",
     desc: "Editorial design precision, sub-second web engineering, and clean AI-ready semantic architecture on every project.",
   },
   {
-    no: "05",
+    icon: Handshake,
+    tag: "Embedded team",
     title: "True partnership",
     desc: "Direct access to senior strategists and makers — transparent scorecards, clear timelines, and zero agency fluff.",
   },
   {
-    no: "06",
-    title: "Revenue that matters",
-    desc: "Impressions are easy; qualified pipeline and profitable customer acquisition are the only metrics we optimize for.",
+    icon: TrendingUp,
+    tag: "Revenue focus",
+    title: "Results that matter",
+    desc: "Every marketing decision we make is tied directly to qualified pipeline, lower acquisition cost, and real sales.",
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Daniel Reyes",
+    role: "Managing Director & Growth Strategy",
+    image: "/images/team-1.webp",
+    bio: "Leads client growth architecture and revenue alignment across paid search, SEO, and conversion funnels. Relentless about turning complex market data into decisive action.",
+    motto: "Clarity beats volume.",
+  },
+  {
+    name: "Elena Morales",
+    role: "Creative & Brand Director",
+    image: "/images/team-2.webp",
+    bio: "Directs brand identity systems, art direction, and high-converting visual campaigns. Obsessed with crafting unmistakable digital identities that earn instant buyer trust.",
+    motto: "Make every pixel earn its keep.",
+  },
+  {
+    name: "Marcus Vance",
+    role: "Head of Performance & Paid Media",
+    image: "/images/team-3.webp",
+    bio: "Architects multi-channel Google, Meta, and YouTube acquisition engines backed by weekly creative testing sprints and strict contribution-margin discipline.",
+    motto: "Test fast, scale what converts.",
+  },
+  {
+    name: "Claire Bennett",
+    role: "Director of SEO & AI Search (GEO)",
+    image: "/images/team-4.webp",
+    bio: "Spearheads technical SEO, Local Map Pack dominance, and Generative Engine Optimization so ambitious brands are cited across Google, ChatGPT, and Perplexity.",
+    motto: "Own the answer, not just the click.",
+  },
+  {
+    name: "Devon Brooks",
+    role: "Lead Web & Conversion Engineer",
+    image: "/images/team-5.webp",
+    bio: "Builds sub-second static Next.js websites, interactive funnels, and CRM integrations engineered for 98+ Core Web Vitals and frictionless lead capture.",
+    motto: "Speed is a conversion feature.",
+  },
+  {
+    name: "Hannah Kim",
+    role: "Social Strategy & Client Partnerships",
+    image: "/images/team-6.webp",
+    bio: "Guides brand storytelling, short-form content engines, and executive communication — keeping every client sprint transparent, calm, and ahead of schedule.",
+    motto: "Show up sharp, deliver early.",
   },
 ];
 
@@ -91,7 +152,12 @@ export default function AboutPage() {
 
       <div className="pt-28 sm:pt-32 lg:pt-40 pb-10">
         {/* 01 — Hero */}
-        <section className="pb-14 sm:pb-16">
+        <section
+          data-shape="rocket"
+          data-ax="0.78"
+          data-ay="0.48"
+          className="pb-14 sm:pb-16"
+        >
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
             <nav
               aria-label="Breadcrumb"
@@ -122,7 +188,12 @@ export default function AboutPage() {
         </section>
 
         {/* 02 — Editorial Statement + Stats Glass Grid */}
-        <section className="py-10 sm:py-14">
+        <section
+          data-shape="bars"
+          data-ax="0.22"
+          data-ay="0.50"
+          className="py-10 sm:py-14"
+        >
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 space-y-6">
             <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 lg:p-14">
               <p className="font-display font-semibold text-xl sm:text-2xl lg:text-3xl text-white leading-snug max-w-4xl">
@@ -155,7 +226,12 @@ export default function AboutPage() {
         </section>
 
         {/* 03 — Agency Standard Split + Headquarters Visual */}
-        <section className="py-12 sm:py-16">
+        <section
+          data-shape="globe"
+          data-ax="0.78"
+          data-ay="0.50"
+          className="py-12 sm:py-16"
+        >
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
             <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 lg:p-14">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -205,8 +281,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 04 — 6 Core Values Frosted Glass Grid */}
-        <section id="values" className="py-12 sm:py-16">
+        {/* 04 — 6 Core Values with Luminous Hover Spotlight & Lit Icon Boxes */}
+        <section
+          id="values"
+          data-shape="spark"
+          data-ax="0.50"
+          data-ay="0.52"
+          className="py-12 sm:py-16"
+        >
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
             <div className="max-w-3xl mb-10 sm:mb-12">
               <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73] mb-3">
@@ -218,28 +300,43 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {values.map((val) => (
-                <div
-                  key={val.no}
-                  className="kd-obsidian-card kd-obsidian-card-hover rounded-2xl p-7 space-y-3"
-                >
-                  <span className="font-mono text-xs text-[#FF4D73]">
-                    {val.no}
-                  </span>
-                  <h3 className="font-display font-bold text-xl text-white">
-                    {val.title}
-                  </h3>
-                  <p className="text-sm text-white/65 leading-relaxed">
-                    {val.desc}
-                  </p>
-                </div>
-              ))}
+              {values.map((val) => {
+                const Icon = val.icon;
+                return (
+                  <div
+                    key={val.title}
+                    className="group kd-obsidian-card kd-obsidian-card-hover rounded-2xl p-7 space-y-5"
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="kd-icon-box h-11 w-11 rounded-xl flex items-center justify-center">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#FF4D73]">
+                        {val.tag}
+                      </span>
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-display font-bold text-xl text-white">
+                        {val.title}
+                      </h3>
+                      <p className="text-sm text-white/65 leading-relaxed">
+                        {val.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* 05 — Vision Banner */}
-        <section className="py-10 sm:py-14">
+        <section
+          data-shape="prism"
+          data-ax="0.22"
+          data-ay="0.50"
+          className="py-10 sm:py-14"
+        >
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
             <div className="kd-obsidian-card rounded-3xl p-8 sm:p-12 lg:p-16 text-center space-y-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-[#FF4D73]">
@@ -258,8 +355,82 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 06 — One Team, Every Discipline */}
-        <section id="team" className="py-12 sm:py-16">
+        {/* 06 — The People: Leadership & Specialists Team Section (matching ltsthink.com/about/#team) */}
+        <section
+          id="team"
+          data-shape="network"
+          data-ax="0.50"
+          data-ay="0.50"
+          className="py-14 sm:py-20"
+        >
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+              <div className="max-w-2xl">
+                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73] mb-3">
+                  The people
+                </p>
+                <h2 className="font-display font-bold tracking-[-0.03em] text-3xl sm:text-4xl lg:text-[44px] text-white">
+                  One team, every discipline.
+                </h2>
+              </div>
+              <p className="text-sm text-white/65 max-w-md">
+                Senior strategists, designers, SEO engineers, and media buyers
+                working directly on your account — never handed off to junior
+                interns.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {teamMembers.map((member) => (
+                <article
+                  key={member.name}
+                  className="group kd-obsidian-card kd-obsidian-card-hover rounded-2xl overflow-hidden flex flex-col"
+                >
+                  <div className="p-6 pb-4 flex items-center gap-4">
+                    <div className="h-16 w-16 shrink-0 rounded-2xl overflow-hidden border border-white/15 group-hover:border-[#FF4D73]/70 transition-colors">
+                      <img
+                        src={member.image}
+                        alt={`${member.name} — ${member.role}`}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-display font-bold text-lg text-white leading-snug">
+                        {member.name}
+                      </h3>
+                      <p className="text-xs font-medium text-[#FF4D73] mt-0.5">
+                        {member.role}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="px-6 pb-6 flex-1 flex flex-col justify-between gap-5">
+                    <p className="text-sm text-white/70 leading-relaxed">
+                      {member.bio}
+                    </p>
+
+                    <div className="kd-glass-tile rounded-xl px-4 py-2.5 flex items-center justify-between gap-3">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+                        Motto
+                      </span>
+                      <span className="text-xs font-semibold text-white/90 text-right">
+                        {member.motto}
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 07 — In-House Practices */}
+        <section
+          data-shape="orbit"
+          data-ax="0.78"
+          data-ay="0.50"
+          className="py-12 sm:py-16"
+        >
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
               <div className="max-w-2xl">
@@ -267,7 +438,7 @@ export default function AboutPage() {
                   In-house practices
                 </p>
                 <h2 className="font-display font-bold tracking-[-0.03em] text-3xl sm:text-4xl text-white">
-                  One team, every discipline.
+                  Built to execute end to end.
                 </h2>
               </div>
               <Link
@@ -297,7 +468,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 07 — Final CTA */}
+        {/* 08 — Final CTA */}
         <FinalCTA />
       </div>
     </PageShell>

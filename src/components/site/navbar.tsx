@@ -16,6 +16,8 @@ import {
   Instagram,
   Linkedin,
   Youtube,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { siteConfig, serviceMegaMenu } from "@/lib/site-config";
 
@@ -32,9 +34,23 @@ function XIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
   );
 }
 
+function WhatsAppIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.35.14 11.92c0 2.1.55 4.15 1.59 5.95L0 24l6.31-1.65a11.9 11.9 0 0 0 5.75 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42zM12.06 21.8h-.01a9.89 9.89 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.52-5.25c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.88-9.9 9.88zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z" />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [mobileOpenForPath, setMobileOpenForPath] = useState<string | null>(
     null
   );
@@ -44,6 +60,26 @@ export default function Navbar() {
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const mobileOpen = mobileOpenForPath === pathname;
+
+  useEffect(() => {
+    const saved =
+      document.documentElement.getAttribute("data-theme") === "light"
+        ? "light"
+        : "dark";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTheme(saved);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("kd-theme", next);
+    } catch {
+      // Ignore storage errors in private mode
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 28);
@@ -95,7 +131,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`kd-site-header fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || mobileOpen || megaOpen
           ? "bg-[#060000]/90 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.45)]"
           : "bg-[#060000]/45 backdrop-blur-md border-b border-white/[0.06]"
@@ -103,7 +139,7 @@ export default function Navbar() {
     >
       {/* Top Utility Bar — desktop only, collapses smoothly on scroll */}
       <div
-        className={`hidden lg:block overflow-hidden transition-all duration-300 border-b border-white/[0.07] bg-[#060000]/65 ${
+        className={`kd-topbar hidden lg:block overflow-hidden transition-all duration-300 border-b border-white/[0.07] bg-[#060000]/65 ${
           scrolled ? "max-h-0 opacity-0 border-b-0" : "max-h-10 opacity-100"
         }`}
       >
@@ -142,7 +178,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-white/60 hover:text-[#C71F42] transition-colors"
             >
               <Instagram className="h-3.5 w-3.5" />
             </a>
@@ -151,7 +187,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-white/60 hover:text-[#C71F42] transition-colors"
             >
               <Linkedin className="h-3.5 w-3.5" />
             </a>
@@ -160,7 +196,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-white/60 hover:text-[#C71F42] transition-colors"
             >
               <XIcon className="h-3 w-3" />
             </a>
@@ -169,7 +205,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-white/60 hover:text-[#C71F42] transition-colors"
             >
               <Youtube className="h-3.5 w-3.5" />
             </a>
@@ -180,7 +216,7 @@ export default function Navbar() {
       {/* Main Navigation Bar */}
       <nav
         aria-label="Main navigation"
-        className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 h-16 md:h-[72px] flex items-center justify-between"
+        className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 h-16 md:h-[72px] flex items-center justify-between gap-4"
       >
         {/* Brand Logo */}
         <Link
@@ -203,7 +239,7 @@ export default function Navbar() {
             href="/"
             className={`text-[13px] font-medium tracking-wide transition-colors ${
               isActive("/")
-                ? "text-white"
+                ? "text-white font-semibold"
                 : "text-white/75 hover:text-white"
             }`}
           >
@@ -214,7 +250,7 @@ export default function Navbar() {
             href="/about"
             className={`text-[13px] font-medium tracking-wide transition-colors ${
               isActive("/about")
-                ? "text-white"
+                ? "text-white font-semibold"
                 : "text-white/75 hover:text-white"
             }`}
           >
@@ -234,7 +270,7 @@ export default function Navbar() {
               aria-expanded={megaOpen}
               className={`inline-flex items-center gap-1.5 text-[13px] font-medium tracking-wide transition-colors py-2 cursor-pointer ${
                 isActive("/services") || megaOpen
-                  ? "text-white"
+                  ? "text-white font-semibold"
                   : "text-white/75 hover:text-white"
               }`}
             >
@@ -255,7 +291,7 @@ export default function Navbar() {
                   transition={{ duration: 0.18, ease: "easeOut" }}
                   onMouseEnter={openMega}
                   onMouseLeave={scheduleCloseMega}
-                  className="fixed left-1/2 -translate-x-1/2 top-[76px] w-[min(1120px,calc(100vw-48px))] rounded-2xl border border-white/12 bg-[#0c0205]/96 backdrop-blur-2xl shadow-[0_24px_80px_rgba(0,0,0,0.75)] overflow-hidden z-50"
+                  className="kd-mega-menu fixed left-1/2 -translate-x-1/2 top-[76px] w-[min(1120px,calc(100vw-48px))] rounded-2xl border border-white/12 bg-[#0c0205]/96 backdrop-blur-2xl shadow-[0_24px_80px_rgba(0,0,0,0.75)] overflow-hidden z-50"
                 >
                   <div className="grid grid-cols-4 gap-6 p-7">
                     {serviceMegaMenu.map((group) => (
@@ -271,7 +307,7 @@ export default function Navbar() {
                                 onClick={() => setMegaOpen(false)}
                                 className={`block rounded-md px-2.5 py-1.5 text-[13px] transition-colors ${
                                   item.isPillar
-                                    ? "font-semibold text-white bg-white/[0.04] hover:bg-[#C71F42]/20 hover:text-white"
+                                    ? "font-semibold text-white bg-white/[0.04] hover:bg-[#C71F42]/20"
                                     : "text-white/70 hover:text-white hover:bg-white/[0.05]"
                                 }`}
                               >
@@ -285,7 +321,7 @@ export default function Navbar() {
                   </div>
 
                   {/* Mega-Menu Footer Strip */}
-                  <div className="flex items-center justify-between px-7 py-3.5 border-t border-white/10 bg-[#060000]/70">
+                  <div className="kd-mega-footer flex items-center justify-between px-7 py-3.5 border-t border-white/10 bg-[#060000]/70">
                     <p className="text-xs text-white/60">
                       Strategy, creative, paid media, SEO &amp; engineering —
                       all under one roof.
@@ -293,7 +329,7 @@ export default function Navbar() {
                     <Link
                       href="/services"
                       onClick={() => setMegaOpen(false)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white hover:text-[#FF4D73] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white hover:text-[#C71F42] transition-colors"
                     >
                       All Services
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -308,7 +344,7 @@ export default function Navbar() {
             href="/portfolio"
             className={`text-[13px] font-medium tracking-wide transition-colors ${
               isActive("/portfolio")
-                ? "text-white"
+                ? "text-white font-semibold"
                 : "text-white/75 hover:text-white"
             }`}
           >
@@ -319,7 +355,7 @@ export default function Navbar() {
             href="/blog"
             className={`text-[13px] font-medium tracking-wide transition-colors ${
               isActive("/blog")
-                ? "text-white"
+                ? "text-white font-semibold"
                 : "text-white/75 hover:text-white"
             }`}
           >
@@ -330,7 +366,7 @@ export default function Navbar() {
             href="/contact"
             className={`text-[13px] font-medium tracking-wide transition-colors ${
               isActive("/contact")
-                ? "text-white"
+                ? "text-white font-semibold"
                 : "text-white/75 hover:text-white"
             }`}
           >
@@ -338,28 +374,84 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Right Primary CTA */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Right Utility Cluster: WhatsApp + Dark/Light Mode + Get a Quote */}
+        <div className="hidden lg:flex items-center gap-2.5">
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            title="Chat with us on WhatsApp"
+            className="h-10 w-10 rounded-full border border-[#25D366]/45 bg-[#25D366]/15 hover:bg-[#25D366] text-[#25D366] hover:text-white flex items-center justify-center transition-all duration-200 shadow-[0_0_18px_rgba(37,211,102,0.18)] hover:shadow-[0_0_24px_rgba(37,211,102,0.5)]"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+          </a>
+
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+            title={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+            className="h-10 w-10 rounded-full border border-white/15 bg-white/[0.06] hover:border-[#E81C49]/60 hover:bg-[#C71F42]/15 text-white flex items-center justify-center transition-all duration-200 cursor-pointer"
+          >
+            {theme === "dark" ? (
+              <Sun className="h-4 w-4 text-[#FF8CA4]" />
+            ) : (
+              <Moon className="h-4 w-4 text-[#C71F42]" />
+            )}
+          </button>
+
           <button
             type="button"
             onClick={openContactModal}
-            className="group inline-flex items-center gap-2 rounded-full bg-[#C71F42] hover:bg-[#DF254C] text-white px-5 py-2.5 text-xs font-semibold tracking-[0.1em] uppercase transition-all duration-200 cursor-pointer shadow-[0_6px_24px_rgba(199,31,66,0.35)]"
+            className="kd-btn-crimson group inline-flex items-center gap-2 rounded-full bg-[#C71F42] hover:bg-[#DF254C] text-white px-5 py-2.5 text-xs font-semibold tracking-[0.1em] uppercase transition-all duration-200 cursor-pointer shadow-[0_6px_24px_rgba(199,31,66,0.35)]"
           >
             Get a Quote
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setMobileOpenForPath(mobileOpen ? null : pathname)}
-          className="lg:hidden h-10 w-10 rounded-lg border border-white/15 bg-white/[0.04] flex items-center justify-center text-white"
-          aria-label="Toggle navigation menu"
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Mobile Actions: WhatsApp + Theme Toggle + Hamburger */}
+        <div className="flex lg:hidden items-center gap-2">
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="h-9 w-9 rounded-full border border-[#25D366]/45 bg-[#25D366]/15 text-[#25D366] flex items-center justify-center"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+          </a>
+
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+            className="h-9 w-9 rounded-full border border-white/15 bg-white/[0.06] text-white flex items-center justify-center"
+          >
+            {theme === "dark" ? (
+              <Sun className="h-4 w-4 text-[#FF8CA4]" />
+            ) : (
+              <Moon className="h-4 w-4 text-[#C71F42]" />
+            )}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setMobileOpenForPath(mobileOpen ? null : pathname)}
+            className="h-9 w-9 rounded-lg border border-white/15 bg-white/[0.06] flex items-center justify-center text-white"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X size={19} /> : <Menu size={19} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Navigation Drawer */}
@@ -370,26 +462,26 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden overflow-hidden bg-[#060000]/98 border-t border-white/10 max-h-[calc(100svh-64px)] overflow-y-auto"
+            className="kd-mobile-drawer lg:hidden overflow-hidden bg-[#060000]/98 border-t border-white/10 max-h-[calc(100svh-64px)] overflow-y-auto"
           >
             <div className="px-5 sm:px-6 py-6 flex flex-col gap-3">
               <Link
                 href="/"
                 onClick={() => setMobileOpenForPath(null)}
-                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.06]"
+                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.08]"
               >
                 Home
               </Link>
               <Link
                 href="/about"
                 onClick={() => setMobileOpenForPath(null)}
-                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.06]"
+                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.08]"
               >
                 About Us
               </Link>
 
               {/* Expandable Services Accordion */}
-              <div className="border-b border-white/[0.06] pb-2">
+              <div className="border-b border-white/[0.08] pb-2">
                 <button
                   type="button"
                   onClick={() => setMobileServicesOpen((v) => !v)}
@@ -445,33 +537,44 @@ export default function Navbar() {
               <Link
                 href="/portfolio"
                 onClick={() => setMobileOpenForPath(null)}
-                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.06]"
+                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.08]"
               >
                 Portfolio
               </Link>
               <Link
                 href="/blog"
                 onClick={() => setMobileOpenForPath(null)}
-                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.06]"
+                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.08]"
               >
                 Blog
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileOpenForPath(null)}
-                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.06]"
+                className="py-2 text-lg font-display font-semibold text-white border-b border-white/[0.08]"
               >
                 Contact Us
               </Link>
 
-              <button
-                type="button"
-                onClick={openContactModal}
-                className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#C71F42] text-white px-5 py-3.5 text-sm font-semibold tracking-[0.1em] uppercase"
-              >
-                Get a Quote
-                <ArrowRight className="h-4 w-4" />
-              </button>
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button
+                  type="button"
+                  onClick={openContactModal}
+                  className="kd-btn-crimson w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#C71F42] text-white px-5 py-3.5 text-sm font-semibold tracking-[0.08em] uppercase"
+                >
+                  Get a Quote
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366]/50 bg-[#25D366]/15 text-[#25D366] px-5 py-3.5 text-sm font-semibold"
+                >
+                  <WhatsAppIcon className="h-4 w-4" />
+                  WhatsApp Chat
+                </a>
+              </div>
 
               <div className="pt-4 mt-2 border-t border-white/10 space-y-2 text-xs text-white/60">
                 <a

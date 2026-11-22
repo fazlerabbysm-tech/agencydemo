@@ -24,7 +24,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55 }}
-          className="relative rounded-3xl overflow-hidden border border-white/20 bg-[#060000]/75 backdrop-blur-2xl shadow-[0_28px_90px_rgba(0,0,0,0.7)]"
+          className="kd-keep-dark relative rounded-3xl overflow-hidden border border-white/20 bg-[#060000]/75 backdrop-blur-2xl shadow-[0_28px_90px_rgba(0,0,0,0.7)]"
         >
           {/* Bespoke crimson light-ribbon backdrop */}
           <img

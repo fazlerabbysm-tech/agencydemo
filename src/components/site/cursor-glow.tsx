@@ -423,6 +423,20 @@ export default function CursorGlow() {
     let curAx = targets[0].ax;
     let curAy = targets[0].ay;
 
+    const getIsLight = () =>
+      document.documentElement.getAttribute("data-theme") === "light";
+    let isLightMode = getIsLight();
+
+    const LIGHT_PARTICLE_COLORS = [
+      "rgba(199, 31, 66, 0.72)",
+      "rgba(154, 14, 40, 0.64)",
+      "rgba(232, 28, 73, 0.68)",
+      "rgba(90, 10, 26, 0.52)",
+    ];
+
+    const getPalette = () =>
+      isLightMode ? LIGHT_PARTICLE_COLORS : PARTICLE_COLORS;
+
     const getScale = () => Math.min(Math.min(width, height) * 0.78, 620);
 
     const resize = () => {
@@ -437,6 +451,7 @@ export default function CursorGlow() {
 
       const scale = getScale();
       const first = targets[0];
+      const palette = getPalette();
 
       particles = Array.from({ length: particleCount }, (_, i) => {
         const pt = first.pts[i];
@@ -446,9 +461,7 @@ export default function CursorGlow() {
           vx: 0,
           vy: 0,
           r: Math.random() * 1.65 + 0.7,
-          col: PARTICLE_COLORS[
-            Math.floor(Math.random() * PARTICLE_COLORS.length)
-          ],
+          col: palette[Math.floor(Math.random() * palette.length)],
           ph: Math.random() * Math.PI * 2,
           sp: 0.5 + Math.random() * 0.9,
           amp: 2.5 + Math.random() * 5,
@@ -482,7 +495,6 @@ export default function CursorGlow() {
 
       const span = centers[idx + 1] - centers[idx] || 1;
       const raw = Math.max(0, Math.min(1, (midY - centers[idx]) / span));
-      // Smoothstep easing for buttery section-to-section morphing
       const k = raw * raw * (3 - 2 * raw);
       return { a: idx, b: idx + 1, k };
     };
@@ -492,8 +504,10 @@ export default function CursorGlow() {
         const alpha = reducedMotion
           ? s.a
           : Math.max(0, s.a + 0.16 * Math.sin(time * s.tw + s.ph));
-        ctx.globalAlpha = alpha;
-        ctx.fillStyle = "rgb(255, 224, 232)";
+        ctx.globalAlpha = isLightMode ? alpha * 0.45 : alpha;
+        ctx.fillStyle = isLightMode
+          ? "rgb(154, 14, 40)"
+          : "rgb(255, 224, 232)";
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
@@ -509,94 +523,121 @@ export default function CursorGlow() {
 
       time += 0.016;
       ctx.clearRect(0, 0, width, height);
-      drawStars();
 
-      const { a, b, k } = getScrollBlend();
-      const tA = targets[a];
-      const tB = targets[b];
-      const scale = getScale();
+      // Strictly stop animation BEFORE the footer begins (never render on or over footer)
+      const footerEl = document.querySelector("footer");
+      const footerTop = footerEl
+        ? footerEl.getBoundingClientRect().top
+        : height + 100;
+      const clipBottom = Math.max(0, Math.min(height, footerTop));
 
-      const targetAx = tA.ax + (tB.ax - tA.ax) * k;
-      const targetAy = tA.ay + (tB.ay - tA.ay) * k;
-      curAx += (targetAx - curAx) * 0.075;
-      curAy += (targetAy - curAy) * 0.075;
-
-      const cx = width * curAx;
-      const cy = height * curAy;
-
-      // Subtle warm crimson radial aura around pointer on canvas
-      if (pointer.active && isFinePointer) {
-        const grad = ctx.createRadialGradient(
-          pointer.x,
-          pointer.y,
-          0,
-          pointer.x,
-          pointer.y,
-          210
-        );
-        grad.addColorStop(0, "rgba(232, 28, 73, 0.22)");
-        grad.addColorStop(0.45, "rgba(199, 31, 66, 0.08)");
-        grad.addColorStop(1, "rgba(199, 31, 66, 0)");
-        ctx.fillStyle = grad;
+      if (clipBottom > 10) {
+        ctx.save();
         ctx.beginPath();
-        ctx.arc(pointer.x, pointer.y, 210, 0, Math.PI * 2);
-        ctx.fill();
-      }
+        ctx.rect(0, 0, width, clipBottom);
+        ctx.clip();
 
-      ctx.globalCompositeOperation = "lighter";
+        drawStars();
 
-      const repulseRadiusSq = 24000; // ~155px interactive radius
-      const repulseRadius = Math.sqrt(repulseRadiusSq);
+        const { a, b, k } = getScrollBlend();
+        const tA = targets[a];
+        const tB = targets[b];
+        const scale = getScale();
 
-      for (let i = 0; i < particleCount; i++) {
-        const p = particles[i];
-        const ptA = tA.pts[i];
-        const ptB = tB.pts[i];
+        const targetAx = tA.ax + (tB.ax - tA.ax) * k;
+        const targetAy = tA.ay + (tB.ay - tA.ay) * k;
+        curAx += (targetAx - curAx) * 0.075;
+        curAy += (targetAy - curAy) * 0.075;
 
-        const mx = ptA[0] + (ptB[0] - ptA[0]) * k;
-        const my = ptA[1] + (ptB[1] - ptA[1]) * k;
+        const cx = width * curAx;
+        const cy = Math.min(height * curAy, Math.max(120, clipBottom - 160));
 
-        let destX = cx + mx * scale;
-        let destY = cy + my * scale;
-
-        if (!reducedMotion) {
-          destX += Math.cos(time * p.sp + p.ph) * p.amp * 0.35;
-          destY += Math.sin(time * p.sp + p.ph) * p.amp * 0.35;
+        if (pointer.active && isFinePointer && pointer.y < clipBottom) {
+          const grad = ctx.createRadialGradient(
+            pointer.x,
+            pointer.y,
+            0,
+            pointer.x,
+            pointer.y,
+            210
+          );
+          grad.addColorStop(
+            0,
+            isLightMode ? "rgba(232, 28, 73, 0.14)" : "rgba(232, 28, 73, 0.22)"
+          );
+          grad.addColorStop(
+            0.45,
+            isLightMode ? "rgba(199, 31, 66, 0.05)" : "rgba(199, 31, 66, 0.08)"
+          );
+          grad.addColorStop(1, "rgba(199, 31, 66, 0)");
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(pointer.x, pointer.y, 210, 0, Math.PI * 2);
+          ctx.fill();
         }
 
-        let fx = (destX - p.x) * 0.022;
-        let fy = (destY - p.y) * 0.022;
+        ctx.globalCompositeOperation = isLightMode ? "source-over" : "lighter";
 
-        // Interactive cursor magnetic repulsion + gentle orbital swirl
-        if (pointer.active) {
-          const dx = p.x - pointer.x;
-          const dy = p.y - pointer.y;
-          const distSq = dx * dx + dy * dy;
-          if (distSq < repulseRadiusSq) {
-            const dist = Math.sqrt(distSq) || 1;
-            const force = (1 - dist / repulseRadius) * 6.2;
-            const nx = dx / dist;
-            const ny = dy / dist;
-            // Push outward + slight vortex tangential swirl
-            fx += (nx - ny * 0.35) * force;
-            fy += (ny + nx * 0.35) * force;
+        const repulseRadiusSq = 24000;
+        const repulseRadius = Math.sqrt(repulseRadiusSq);
+
+        for (let i = 0; i < particleCount; i++) {
+          const p = particles[i];
+          const ptA = tA.pts[i];
+          const ptB = tB.pts[i];
+
+          const mx = ptA[0] + (ptB[0] - ptA[0]) * k;
+          const my = ptA[1] + (ptB[1] - ptA[1]) * k;
+
+          let destX = cx + mx * scale;
+          let destY = cy + my * scale;
+
+          if (!reducedMotion) {
+            destX += Math.cos(time * p.sp + p.ph) * p.amp * 0.35;
+            destY += Math.sin(time * p.sp + p.ph) * p.amp * 0.35;
           }
+
+          let fx = (destX - p.x) * 0.022;
+          let fy = (destY - p.y) * 0.022;
+
+          if (pointer.active && pointer.y < clipBottom) {
+            const dx = p.x - pointer.x;
+            const dy = p.y - pointer.y;
+            const distSq = dx * dx + dy * dy;
+            if (distSq < repulseRadiusSq) {
+              const dist = Math.sqrt(distSq) || 1;
+              const force = (1 - dist / repulseRadius) * 6.2;
+              const nx = dx / dist;
+              const ny = dy / dist;
+              fx += (nx - ny * 0.35) * force;
+              fy += (ny + nx * 0.35) * force;
+            }
+          }
+
+          p.vx = (p.vx + fx) * 0.85;
+          p.vy = (p.vy + fy) * 0.85;
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Gracefully fade particles in the last 100px above the footer edge
+          const edgeFade =
+            clipBottom < height
+              ? Math.max(0, Math.min(1, (clipBottom - p.y) / 100))
+              : 1;
+          if (edgeFade <= 0.01) continue;
+
+          ctx.globalAlpha = edgeFade;
+          ctx.fillStyle = p.col;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
         }
 
-        p.vx = (p.vx + fx) * 0.85;
-        p.vy = (p.vy + fy) * 0.85;
-        p.x += p.vx;
-        p.y += p.vy;
-
-        ctx.fillStyle = p.col;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.globalAlpha = 1;
+        ctx.globalCompositeOperation = "source-over";
+        ctx.restore();
       }
 
-      ctx.globalCompositeOperation = "source-over";
-
-      // Smoothly animate custom cursor ring on desktop fine pointers
       if (isFinePointer && ringRef.current && dotRef.current) {
         if (pointer.active) {
           ringPos.x += (pointer.x - ringPos.x) * 0.16;
@@ -623,6 +664,14 @@ export default function CursorGlow() {
       pointer.hoveringInteractive = Boolean(
         target?.closest("a, button, input, textarea, select, [role='button']")
       );
+
+      // Update cursor-following spotlight coordinates on hovered glass cards
+      const hoverCard = target?.closest<HTMLElement>(".kd-obsidian-card-hover");
+      if (hoverCard) {
+        const rect = hoverCard.getBoundingClientRect();
+        hoverCard.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+        hoverCard.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      }
     };
 
     const onPointerDown = (e: PointerEvent) => {
@@ -635,6 +684,21 @@ export default function CursorGlow() {
       pointer.active = false;
     };
 
+    const themeObserver = new MutationObserver(() => {
+      const nextLight = getIsLight();
+      if (nextLight !== isLightMode) {
+        isLightMode = nextLight;
+        const palette = getPalette();
+        particles.forEach((p) => {
+          p.col = palette[Math.floor(Math.random() * palette.length)];
+        });
+      }
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("pointerdown", onPointerDown, { passive: true });
     document.addEventListener("pointerleave", onPointerLeave);
@@ -645,7 +709,7 @@ export default function CursorGlow() {
     if (reducedMotion) {
       ctx.clearRect(0, 0, width, height);
       drawStars();
-      ctx.globalCompositeOperation = "lighter";
+      ctx.globalCompositeOperation = isLightMode ? "source-over" : "lighter";
       for (const p of particles) {
         ctx.fillStyle = p.col;
         ctx.beginPath();
@@ -659,6 +723,7 @@ export default function CursorGlow() {
 
     return () => {
       cancelAnimationFrame(rafId);
+      themeObserver.disconnect();
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("pointerleave", onPointerLeave);

@@ -57,7 +57,7 @@ export default function WhyUs() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="h-11 w-11 rounded-xl bg-[#C71F42]/18 border border-[#C71F42]/35 flex items-center justify-center text-[#FF4D73]">
+                    <span className="kd-icon-box h-11 w-11 rounded-xl flex items-center justify-center">
                       <Icon className="h-5 w-5" />
                     </span>
                     <span className="font-mono text-xs text-white/35">

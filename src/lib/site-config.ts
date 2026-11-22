@@ -19,6 +19,8 @@ export const siteConfig = {
   email: "info@katelladigital.com",
   phone: "+1 (714) 555-0194",
   phoneHref: "tel:+17145550194",
+  whatsappUrl:
+    "https://wa.me/17145550194?text=Hi%20Katella%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20digital%20marketing%20project.",
   hours: "Mon–Fri · 9 AM – 6 PM PST",
   address: {
     street: "1800 E Katella Ave, Suite 300",

@@ -50,7 +50,7 @@ export default function CreativityShowcase() {
                 {creativePoints.map((pt) => (
                   <div
                     key={pt.title}
-                    className="kd-glass-tile rounded-xl p-4 space-y-1.5"
+                    className="kd-glass-tile kd-obsidian-card-hover rounded-xl p-4 space-y-1.5"
                   >
                     <div className="flex items-center gap-2">
                       <span className="h-4 w-4 shrink-0 rounded-full bg-[#C71F42]/25 border border-[#C71F42]/50 flex items-center justify-center text-[#FF4D73]">
@@ -94,7 +94,7 @@ export default function CreativityShowcase() {
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060000]/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-xs">
+                  <div className="kd-keep-dark absolute bottom-4 left-5 right-5 flex items-center justify-between text-xs">
                     <span className="font-mono uppercase tracking-[0.18em] text-white/85">
                       Katella Digital Agency
                     </span>

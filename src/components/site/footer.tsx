@@ -52,7 +52,7 @@ export default function Footer({ className = "" }: { className?: string }) {
 
   return (
     <footer
-      className={`bg-[#060000]/95 backdrop-blur-md text-white border-t border-white/10 ${className}`}
+      className={`kd-site-footer relative z-20 bg-[#060000] text-white border-t border-white/10 ${className}`}
     >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 pt-16 md:pt-20 pb-10">
         {/* Top 4-column grid matching reference architecture */}

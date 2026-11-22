@@ -176,7 +176,7 @@ export default function ContactModal({
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.94, opacity: 0, y: 12 }}
             transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-xl rounded-3xl overflow-visible border border-white/18 shadow-[0_32px_90px_rgba(0,0,0,0.85),0_0_60px_rgba(199,31,66,0.22)]"
+            className="kd-keep-dark relative w-full max-w-xl rounded-3xl overflow-visible border border-white/18 shadow-[0_32px_90px_rgba(0,0,0,0.85),0_0_60px_rgba(199,31,66,0.22)]"
             style={{
               background:
                 "linear-gradient(145deg, rgba(24, 4, 10, 0.94) 0%, rgba(8, 1, 3, 0.96) 100%)",

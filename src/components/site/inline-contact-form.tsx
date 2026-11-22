@@ -99,7 +99,7 @@ export default function InlineContactForm({
   };
 
   const fieldShell =
-    "flex items-center gap-2.5 rounded-xl border border-white/15 bg-[#060000]/60 backdrop-blur-xl px-4 py-3 transition-all focus-within:border-[#E81C49] focus-within:bg-[#140308]/80 focus-within:shadow-[0_0_0_3px_rgba(232,28,73,0.16)]";
+    "kd-field-shell flex items-center gap-2.5 rounded-xl border border-white/15 bg-[#060000]/60 backdrop-blur-xl px-4 py-3 transition-all focus-within:border-[#E81C49] focus-within:bg-[#140308]/80 focus-within:shadow-[0_0_0_3px_rgba(232,28,73,0.16)]";
   const labelClass =
     "block font-mono text-[10px] uppercase tracking-[0.18em] text-white/55 mb-1.5";
 
@@ -107,7 +107,7 @@ export default function InlineContactForm({
     <div className="kd-obsidian-card rounded-3xl overflow-visible relative">
       {/* Branded crimson satin header band */}
       <div
-        className="rounded-t-3xl px-6 sm:px-8 lg:px-10 pt-7 pb-6 border-b border-white/12"
+        className="kd-keep-dark rounded-t-3xl px-6 sm:px-8 lg:px-10 pt-7 pb-6 border-b border-white/12"
         style={{
           background:
             "linear-gradient(120deg, rgba(6,0,0,0.88) 0%, rgba(47,0,10,0.8) 45%, rgba(154,14,40,0.58) 82%, rgba(199,31,66,0.5) 100%)",
@@ -216,7 +216,7 @@ export default function InlineContactForm({
 
             <div>
               <label className={labelClass}>Project Goals &amp; Details *</label>
-              <div className="flex items-start gap-2.5 rounded-xl border border-white/15 bg-[#060000]/60 backdrop-blur-xl px-4 py-3 transition-all focus-within:border-[#E81C49] focus-within:bg-[#140308]/80 focus-within:shadow-[0_0_0_3px_rgba(232,28,73,0.16)]">
+              <div className="kd-field-shell flex items-start gap-2.5 rounded-xl border border-white/15 bg-[#060000]/60 backdrop-blur-xl px-4 py-3 transition-all focus-within:border-[#E81C49] focus-within:bg-[#140308]/80 focus-within:shadow-[0_0_0_3px_rgba(232,28,73,0.16)]">
                 <MessageSquare className="h-4 w-4 text-white/40 shrink-0 mt-0.5" />
                 <textarea
                   required
