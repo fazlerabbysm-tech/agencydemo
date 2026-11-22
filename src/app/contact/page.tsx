@@ -8,6 +8,7 @@ import {
   Clock,
   ArrowUpRight,
   Check,
+  MessageCircle,
 } from "lucide-react";
 import PageShell from "@/components/site/page-shell";
 import InlineContactForm from "@/components/site/inline-contact-form";
@@ -99,8 +100,9 @@ export default function ContactPage() {
               <div className="lg:col-span-7">
                 <InlineContactForm
                   heading="Tell us about your project"
-                  subheading="Share your goals, website URL, and timeline — a senior strategist will reply within 24 hours."
+                  subheading="Share your goals, budget range, and timeline — a senior strategist will reply within 24 hours."
                   ctaLabel="Send message"
+                  showQualificationFields
                 />
               </div>
 
@@ -112,11 +114,33 @@ export default function ContactPage() {
 
                   <div className="space-y-3.5">
                     <a
+                      href={siteConfig.whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="kd-glass-tile kd-obsidian-card-hover rounded-2xl p-4 flex items-center justify-between gap-4 border-[#25D366]/35"
+                    >
+                      <div className="flex items-center gap-3.5">
+                        <span className="h-10 w-10 rounded-xl bg-[#25D366]/20 border border-[#25D366]/50 flex items-center justify-center text-[#25D366]">
+                          <MessageCircle className="h-4 w-4" />
+                        </span>
+                        <div>
+                          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-300/80">
+                            WhatsApp · Quick Quotes
+                          </p>
+                          <p className="text-sm font-semibold text-white">
+                            {siteConfig.phone}
+                          </p>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="h-4 w-4 text-[#25D366]" />
+                    </a>
+
+                    <a
                       href={siteConfig.phoneHref}
                       className="kd-glass-tile kd-obsidian-card-hover rounded-2xl p-4 flex items-center justify-between gap-4"
                     >
                       <div className="flex items-center gap-3.5">
-                        <span className="h-10 w-10 rounded-xl bg-[#C71F42]/20 border border-[#C71F42]/40 flex items-center justify-center text-[#FF4D73]">
+                        <span className="kd-icon-box h-10 w-10 rounded-xl flex items-center justify-center">
                           <Phone className="h-4 w-4" />
                         </span>
                         <div>
@@ -136,7 +160,7 @@ export default function ContactPage() {
                       className="kd-glass-tile kd-obsidian-card-hover rounded-2xl p-4 flex items-center justify-between gap-4"
                     >
                       <div className="flex items-center gap-3.5">
-                        <span className="h-10 w-10 rounded-xl bg-[#C71F42]/20 border border-[#C71F42]/40 flex items-center justify-center text-[#FF4D73]">
+                        <span className="kd-icon-box h-10 w-10 rounded-xl flex items-center justify-center">
                           <Mail className="h-4 w-4" />
                         </span>
                         <div>
@@ -152,7 +176,7 @@ export default function ContactPage() {
                     </a>
 
                     <div className="kd-glass-tile rounded-2xl p-4 flex items-center gap-3.5">
-                      <span className="h-10 w-10 rounded-xl bg-[#C71F42]/20 border border-[#C71F42]/40 flex items-center justify-center text-[#FF4D73] shrink-0">
+                      <span className="kd-icon-box h-10 w-10 rounded-xl flex items-center justify-center shrink-0">
                         <Clock className="h-4 w-4" />
                       </span>
                       <div>

@@ -187,23 +187,29 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 02 — Editorial Statement + Stats Glass Grid */}
+        {/* 02 — Gravity Manifesto + Stats Glass Grid */}
         <section
-          data-shape="bars"
+          data-shape="orbit"
           data-ax="0.22"
           data-ay="0.50"
           className="py-10 sm:py-14"
         >
           <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 space-y-6">
-            <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 lg:p-14">
-              <p className="font-display font-semibold text-xl sm:text-2xl lg:text-3xl text-white leading-snug max-w-4xl">
+            <div className="kd-obsidian-card kd-obsidian-card-hover rounded-3xl p-8 sm:p-12 lg:p-16 space-y-5">
+              <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-[#FF4D73]">
+                Our manifesto
+              </p>
+              <p className="font-display font-extrabold text-2xl sm:text-3xl lg:text-[42px] text-white leading-[1.15] tracking-[-0.025em] max-w-5xl">
+                We don&apos;t just launch campaigns.{" "}
+                <span className="text-[#FF4D73]">We build the gravity</span>{" "}
+                that pulls customers toward your brand — and keeps them in
+                orbit.
+              </p>
+              <p className="text-sm sm:text-base text-white/65 max-w-3xl leading-relaxed">
                 Most agencies split your growth across disconnected silos — one
-                vendor runs ads, another touches SEO, and a third patches a slow
-                website.{" "}
-                <span className="text-white/60">
-                  Katella Digital was founded to end that fragmentation and align
-                  every discipline around one shared revenue scorecard.
-                </span>
+                vendor buys ads, another touches SEO, and a third patches a slow
+                website. Katella Digital unifies every discipline around one
+                shared revenue scorecard.
               </p>
             </div>
 
@@ -221,6 +227,53 @@ export default function AboutPage() {
                   </p>
                 </div>
               ))}
+            </div>
+
+            {/* 3-Pillar Regional Growth Vision */}
+            <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 space-y-6">
+              <div className="max-w-3xl space-y-2">
+                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73]">
+                  Built for modern growth
+                </p>
+                <h2 className="font-display font-bold text-2xl sm:text-3xl text-white">
+                  Driving measurable market impact across Orange County &amp;
+                  nationwide.
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {[
+                  [
+                    "01",
+                    "Category Ambition",
+                    "Helping local California operators and high-growth B2B brands out-position legacy national competitors.",
+                  ],
+                  [
+                    "02",
+                    "AI-Era Readiness",
+                    "Structuring every site, brand entity, and content cluster to win both Google Search and AI answer engines.",
+                  ],
+                  [
+                    "03",
+                    "Commercial Craft",
+                    "Blending unmistakable creative taste with hard unit economics — CAC, payback period, and verified pipeline.",
+                  ],
+                ].map(([no, title, desc]) => (
+                  <div
+                    key={no}
+                    className="kd-glass-tile kd-obsidian-card-hover rounded-2xl p-5 space-y-2"
+                  >
+                    <span className="font-mono text-xs font-bold text-[#FF4D73]">
+                      {no}
+                    </span>
+                    <h3 className="font-display font-bold text-base text-white">
+                      {title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
+                      {desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

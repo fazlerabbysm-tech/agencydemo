@@ -695,6 +695,71 @@ export default function DigitalMarketingView() {
               ))}
             </div>
           </div>
+
+          {/* Southern California Market Playbook */}
+          <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 space-y-6">
+            <div className="max-w-3xl space-y-2">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73]">
+                Regional market intelligence
+              </p>
+              <h2 className="font-display font-bold text-2xl sm:text-3xl text-white">
+                Winning competitive California markets plays by different rules.
+              </h2>
+              <p className="text-sm text-white/70 leading-relaxed">
+                High-CPC metros like Orange County, Los Angeles, and San Diego
+                punish generic imported playbooks. Nine years scaling regional
+                and national brands taught us four levers that change the math:
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  title: "Vertical video is the creative default, not an extra",
+                  body: "Attention sits inside mobile feeds first. We brief short vertical hooks from day one alongside our social & paid media tracks.",
+                  href: "/digital-marketing/social-media-management",
+                  linkText: "Social Media Management →",
+                },
+                {
+                  title: "Hyper-local Map Pack beats broad geo-targeting",
+                  body: "In dense counties, buyers convert inside Google Maps before opening ten tabs. Clean branch profiles and 25-point geo-grids win cheap high-intent calls.",
+                  href: "/digital-marketing/local-seo",
+                  linkText: "Local SEO & Google Maps →",
+                },
+                {
+                  title: "AI answers now intercept early vendor research",
+                  body: "Buyers ask ChatGPT and Google AI Overviews to shortlist agencies and providers before clicking ads. Entity clarity and linked schema capture that demand early.",
+                  href: "/digital-marketing/ai-search-geo",
+                  linkText: "AI Search Optimization (GEO) →",
+                },
+                {
+                  title: "Landing page speed directly lowers your paid CPC",
+                  body: "In $15–$80 click auctions, cutting load time under 1 second and matching message intent lifts Quality Score and slashes acquisition cost.",
+                  href: "/web-development/ui-ux",
+                  linkText: "CRO Landing Pages & UI/UX →",
+                },
+              ].map((card) => (
+                <div
+                  key={card.title}
+                  className="kd-glass-tile kd-obsidian-card-hover rounded-2xl p-6 flex flex-col justify-between gap-4"
+                >
+                  <div className="space-y-2">
+                    <h3 className="font-display font-bold text-lg text-white">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-white/70 leading-relaxed">
+                      {card.body}
+                    </p>
+                  </div>
+                  <Link
+                    href={card.href}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#FF4D73] hover:underline"
+                  >
+                    {card.linkText}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

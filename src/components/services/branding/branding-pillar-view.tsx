@@ -262,6 +262,47 @@ export default function BrandingPillarView() {
                 );
               })}
             </div>
+
+            {/* Bold Brand Pull-Quote Band */}
+            <div className="rounded-2xl border border-[#FF4D73]/40 bg-gradient-to-r from-[#C71F42]/20 via-[#2F000A]/60 to-transparent p-6 sm:p-8">
+              <p className="font-display font-bold text-lg sm:text-2xl text-white leading-snug max-w-4xl">
+                &ldquo;Branding is your ultimate unfair advantage — the silent
+                multiplier that turns a commodity service into the unmistakable
+                category leader.&rdquo;
+              </p>
+            </div>
+
+            {/* Launching New vs Rebranding Decision Matrix */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+              <div className="kd-glass-tile kd-obsidian-card-hover rounded-2xl p-6 space-y-2.5">
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#FF4D73]">
+                  Scenario 01 · Fresh Launch
+                </span>
+                <h3 className="font-display font-bold text-xl text-white">
+                  Building a brand from zero
+                </h3>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  We lock positioning and target buyer language first, craft a
+                  future-proof logo &amp; visual system, and hand over launch
+                  templates so you enter the market looking established from day
+                  one.
+                </p>
+              </div>
+              <div className="kd-glass-tile kd-obsidian-card-hover rounded-2xl p-6 space-y-2.5">
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">
+                  Scenario 02 · Strategic Rebrand
+                </span>
+                <h3 className="font-display font-bold text-xl text-white">
+                  Modernizing without losing hard-won equity
+                </h3>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  We audit what existing customers already recognize, preserve
+                  your strongest trust cues, and stage the rollout cleanly
+                  across web, ads, signage, and sales decks so revenue never
+                  misses a beat.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

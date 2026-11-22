@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import {
   ArrowRight,
+  Building2,
+  Calendar,
+  DollarSign,
   ShieldCheck,
   Loader2,
   User,
@@ -18,18 +21,38 @@ interface InlineContactFormProps {
   heading?: string;
   subheading?: string;
   ctaLabel?: string;
+  showQualificationFields?: boolean;
 }
+
+const BUDGET_OPTIONS = [
+  "Under $5k",
+  "$5k – $15k",
+  "$15k – $40k",
+  "$40k+",
+  "Not sure yet",
+];
+
+const TIMELINE_OPTIONS = [
+  "ASAP",
+  "This quarter",
+  "Next 6 months",
+  "Just exploring",
+];
 
 export default function InlineContactForm({
   defaultService = "",
   heading = "Tell us about your project",
   subheading = "We usually reply within one business day with a clear plan and next steps.",
   ctaLabel = "Send message",
+  showQualificationFields = false,
 }: InlineContactFormProps) {
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
+    company: "",
+    budget: "",
+    timeline: "",
     service: defaultService || "",
     details: "",
   });
@@ -67,13 +90,24 @@ export default function InlineContactForm({
     setStatus("submitting");
     setErrorMsg("");
 
+    const metaLines: string[] = [];
+    if (form.company.trim()) metaLines.push(`Company: ${form.company.trim()}`);
+    if (form.budget) metaLines.push(`Budget Range: ${form.budget}`);
+    if (form.timeline) metaLines.push(`Timeline: ${form.timeline}`);
+    const enrichedDetails = metaLines.length
+      ? `${metaLines.join(" | ")}\n\n${form.details.trim()}`
+      : form.details.trim();
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...form,
+          name: form.name,
+          email: form.email,
           phone: form.phone.trim() || "Not provided",
+          service: form.service,
+          details: enrichedDetails,
           mathAnswer: mathQ.answer,
           mathExpected: mathQ.a + mathQ.b,
         }),
@@ -85,6 +119,9 @@ export default function InlineContactForm({
           name: "",
           email: "",
           phone: "",
+          company: "",
+          budget: "",
+          timeline: "",
           service: defaultService || "",
           details: "",
         });
@@ -213,6 +250,97 @@ export default function InlineContactForm({
                 />
               </div>
             </div>
+
+            {showQualificationFields && (
+              <div className="space-y-4">
+                <div>
+                  <label className={labelClass}>
+                    Company / Website{" "}
+                    <span className="normal-case text-white/35">(optional)</span>
+                  </label>
+                  <div className={fieldShell}>
+                    <Building2 className="h-4 w-4 text-white/40 shrink-0" />
+                    <input
+                      type="text"
+                      value={form.company}
+                      onChange={(e) =>
+                        setForm({ ...form, company: e.target.value })
+                      }
+                      placeholder="Acme Corp · acme.com"
+                      className="w-full bg-transparent text-sm text-white placeholder:text-white/35 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className={labelClass}>
+                      <span className="inline-flex items-center gap-1">
+                        <DollarSign className="h-3 w-3 text-[#FF4D73]" />
+                        Budget Range
+                      </span>
+                    </label>
+                    <div className="flex flex-wrap gap-1.5">
+                      {BUDGET_OPTIONS.map((opt) => {
+                        const active = form.budget === opt;
+                        return (
+                          <button
+                            key={opt}
+                            type="button"
+                            onClick={() =>
+                              setForm({
+                                ...form,
+                                budget: active ? "" : opt,
+                              })
+                            }
+                            className={`rounded-lg px-2.5 py-1.5 text-[11px] font-semibold border transition-all cursor-pointer ${
+                              active
+                                ? "bg-[#E81C49] border-[#FF6B8A] text-white"
+                                : "border-white/15 bg-[#060000]/55 text-white/75 hover:border-white/30 hover:text-white"
+                            }`}
+                          >
+                            {opt}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className={labelClass}>
+                      <span className="inline-flex items-center gap-1">
+                        <Calendar className="h-3 w-3 text-[#FF4D73]" />
+                        How Soon?
+                      </span>
+                    </label>
+                    <div className="flex flex-wrap gap-1.5">
+                      {TIMELINE_OPTIONS.map((opt) => {
+                        const active = form.timeline === opt;
+                        return (
+                          <button
+                            key={opt}
+                            type="button"
+                            onClick={() =>
+                              setForm({
+                                ...form,
+                                timeline: active ? "" : opt,
+                              })
+                            }
+                            className={`rounded-lg px-2.5 py-1.5 text-[11px] font-semibold border transition-all cursor-pointer ${
+                              active
+                                ? "bg-[#E81C49] border-[#FF6B8A] text-white"
+                                : "border-white/15 bg-[#060000]/55 text-white/75 hover:border-white/30 hover:text-white"
+                            }`}
+                          >
+                            {opt}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div>
               <label className={labelClass}>Project Goals &amp; Details *</label>

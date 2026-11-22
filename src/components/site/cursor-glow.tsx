@@ -377,11 +377,15 @@ export default function CursorGlow() {
     const isMobile = window.innerWidth < 768;
     const particleCount = isMobile ? 480 : 1050;
 
-    // Collect every <section> inside <main> so particles morph section by section on every page
+    // Collect every <section> inside <main>: sectionEls[0] is always the Hero (no animation),
+    // and sectionEls.slice(1) are the post-Hero sections that drive the morphing particle sculpture.
     const sectionEls = Array.from(
       document.querySelectorAll<HTMLElement>("main section")
     );
-    if (!sectionEls.length) return;
+    if (sectionEls.length < 2) return;
+
+    const heroEl = sectionEls[0];
+    const animatedSections = sectionEls.slice(1);
 
     const shapeCache = new Map<ShapeName, [number, number][]>();
     const getPts = (shape: ShapeName) => {
@@ -393,7 +397,7 @@ export default function CursorGlow() {
       return cached;
     };
 
-    const targets: SectionTarget[] = sectionEls.map((el, idx) => {
+    const targets: SectionTarget[] = animatedSections.map((el, idx) => {
       const attrShape = el.dataset.shape as ShapeName | undefined;
       const shape =
         attrShape && DEFAULT_SHAPE_CYCLE.includes(attrShape)
@@ -499,12 +503,22 @@ export default function CursorGlow() {
       return { a: idx, b: idx + 1, k };
     };
 
-    const drawStars = () => {
+    const drawStars = (clipTop: number, clipBottom: number) => {
       for (const s of stars) {
+        if (s.y <= clipTop || s.y >= clipBottom) continue;
+        const topFade =
+          clipTop > 0 ? Math.max(0, Math.min(1, (s.y - clipTop) / 90)) : 1;
+        const bottomFade =
+          clipBottom < height
+            ? Math.max(0, Math.min(1, (clipBottom - s.y) / 100))
+            : 1;
+        const edgeFade = Math.min(topFade, bottomFade);
+        if (edgeFade <= 0.01) continue;
+
         const alpha = reducedMotion
           ? s.a
           : Math.max(0, s.a + 0.16 * Math.sin(time * s.tw + s.ph));
-        ctx.globalAlpha = isLightMode ? alpha * 0.45 : alpha;
+        ctx.globalAlpha = (isLightMode ? alpha * 0.45 : alpha) * edgeFade;
         ctx.fillStyle = isLightMode
           ? "rgb(154, 14, 40)"
           : "rgb(255, 224, 232)";
@@ -524,20 +538,23 @@ export default function CursorGlow() {
       time += 0.016;
       ctx.clearRect(0, 0, width, height);
 
-      // Strictly stop animation BEFORE the footer begins (never render on or over footer)
+      // Strictly start animation AFTER the Hero section and stop BEFORE the footer on every page
+      const heroBottom = heroEl.getBoundingClientRect().bottom;
+      const clipTop = Math.max(0, Math.min(height, heroBottom));
+
       const footerEl = document.querySelector("footer");
       const footerTop = footerEl
         ? footerEl.getBoundingClientRect().top
         : height + 100;
       const clipBottom = Math.max(0, Math.min(height, footerTop));
 
-      if (clipBottom > 10) {
+      if (clipBottom - clipTop > 16) {
         ctx.save();
         ctx.beginPath();
-        ctx.rect(0, 0, width, clipBottom);
+        ctx.rect(0, clipTop, width, clipBottom - clipTop);
         ctx.clip();
 
-        drawStars();
+        drawStars(clipTop, clipBottom);
 
         const { a, b, k } = getScrollBlend();
         const tA = targets[a];
@@ -550,9 +567,18 @@ export default function CursorGlow() {
         curAy += (targetAy - curAy) * 0.075;
 
         const cx = width * curAx;
-        const cy = Math.min(height * curAy, Math.max(120, clipBottom - 160));
+        const rawCy = height * curAy;
+        const cy = Math.max(
+          clipTop + 120,
+          Math.min(rawCy, Math.max(clipTop + 120, clipBottom - 160))
+        );
 
-        if (pointer.active && isFinePointer && pointer.y < clipBottom) {
+        if (
+          pointer.active &&
+          isFinePointer &&
+          pointer.y > clipTop &&
+          pointer.y < clipBottom
+        ) {
           const grad = ctx.createRadialGradient(
             pointer.x,
             pointer.y,
@@ -600,7 +626,7 @@ export default function CursorGlow() {
           let fx = (destX - p.x) * 0.022;
           let fy = (destY - p.y) * 0.022;
 
-          if (pointer.active && pointer.y < clipBottom) {
+          if (pointer.active && pointer.y > clipTop && pointer.y < clipBottom) {
             const dx = p.x - pointer.x;
             const dy = p.y - pointer.y;
             const distSq = dx * dx + dy * dy;
@@ -619,11 +645,16 @@ export default function CursorGlow() {
           p.x += p.vx;
           p.y += p.vy;
 
-          // Gracefully fade particles in the last 100px above the footer edge
-          const edgeFade =
+          // Gracefully fade particles in below the Hero edge and out above the Footer edge
+          const topFade =
+            clipTop > 0
+              ? Math.max(0, Math.min(1, (p.y - clipTop) / 90))
+              : 1;
+          const bottomFade =
             clipBottom < height
               ? Math.max(0, Math.min(1, (clipBottom - p.y) / 100))
               : 1;
+          const edgeFade = Math.min(topFade, bottomFade);
           if (edgeFade <= 0.01) continue;
 
           ctx.globalAlpha = edgeFade;
@@ -708,15 +739,6 @@ export default function CursorGlow() {
 
     if (reducedMotion) {
       ctx.clearRect(0, 0, width, height);
-      drawStars();
-      ctx.globalCompositeOperation = isLightMode ? "source-over" : "lighter";
-      for (const p of particles) {
-        ctx.fillStyle = p.col;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.globalCompositeOperation = "source-over";
     } else {
       rafId = requestAnimationFrame(tick);
     }

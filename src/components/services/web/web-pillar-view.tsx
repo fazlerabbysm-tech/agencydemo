@@ -315,6 +315,200 @@ export default function WebPillarView() {
         </div>
       </section>
 
+      {/* 4. CORPORATE SITE, ONLINE STORE OR WEB APP? + PLATFORM COMPARISON TABLE */}
+      <section
+        data-shape="bars"
+        data-ax="0.22"
+        data-ay="0.50"
+        className="py-12 sm:py-16"
+      >
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 space-y-8">
+          <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 space-y-6">
+            <div className="max-w-3xl space-y-2">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73]">
+                Start with the right project type
+              </p>
+              <h2 className="font-display font-bold text-2xl sm:text-3xl text-white">
+                Corporate site, online store, or web application?
+              </h2>
+              <p className="text-sm text-white/70">
+                Deciding the category up front determines the stack, timeline,
+                and budget — and saves weeks of rework later.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                {
+                  tag: "01 · Lead Generation",
+                  title: "Corporate & Marketing Site",
+                  desc: "Who you are, deep service silos, proof, and fast lead capture. Built on Next.js SSG + headless CMS so your team publishes freely.",
+                  href: "/web-development/ui-ux",
+                },
+                {
+                  tag: "02 · Online Revenue",
+                  title: "E-Commerce Storefront",
+                  desc: "Product catalogs, Apple Pay / Shop Pay checkout, shipping, and Klaviyo flows — built on Shopify or Headless Next.js.",
+                  href: "/web-development/ecommerce",
+                },
+                {
+                  tag: "03 · Logged-In Software",
+                  title: "Web App or Client Portal",
+                  desc: "Interactive quote calculators, customer portals, booking engines, or SaaS dashboards engineered like real software.",
+                  href: "/web-development/web-applications",
+                },
+              ].map((t) => (
+                <Link
+                  key={t.title}
+                  href={t.href}
+                  className="group kd-glass-tile kd-obsidian-card-hover rounded-2xl p-6 space-y-2.5 flex flex-col justify-between"
+                >
+                  <div className="space-y-2">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#FF4D73]">
+                      {t.tag}
+                    </span>
+                    <h3 className="font-display font-bold text-lg text-white group-hover:text-[#FF4D73] transition-colors">
+                      {t.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
+                      {t.desc}
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-white/80 pt-2">
+                    Explore <ArrowUpRight className="h-3.5 w-3.5 text-[#FF4D73]" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Platform Selection Matrix */}
+          <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 space-y-6">
+            <div className="max-w-2xl space-y-1.5">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73]">
+                Choosing your platform
+              </p>
+              <h2 className="font-display font-bold text-2xl sm:text-3xl text-white">
+                Which website platform fits your business?
+              </h2>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr className="border-b border-white/15 font-mono text-[10px] uppercase tracking-[0.16em] text-[#FF4D73]">
+                    <th className="py-3 pr-4">Platform</th>
+                    <th className="py-3 pr-4">Best For</th>
+                    <th className="py-3 pr-4">Watch Out For</th>
+                    <th className="py-3">Who Updates It</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/10">
+                  {[
+                    [
+                      "Next.js + Headless CMS",
+                      "High-growth brands needing 0.6s speed, deep SEO silos & bespoke conversion UX",
+                      "Requires clear initial scope and clean modern deployment workflow",
+                      "Marketing edits content; engineers ship custom components",
+                    ],
+                    [
+                      "Shopify (Custom Theme)",
+                      "DTC & retail brands selling physical or digital catalogs online",
+                      "Monthly app creep if too many third-party plugins are stacked",
+                      "Store team manages SKUs, promos & orders daily",
+                    ],
+                    [
+                      "WordPress (Managed)",
+                      "Content-heavy editorial publishers already standardized on WP",
+                      "Plugin conflicts, security patching & slower mobile LCP without tuning",
+                      "Editorial team edits posts; dev maintains security updates",
+                    ],
+                  ].map(([opt, best, watch, who]) => (
+                    <tr key={opt} className="hover:bg-white/[0.02]">
+                      <td className="py-4 pr-4 font-display font-bold text-white whitespace-nowrap">
+                        {opt}
+                      </td>
+                      <td className="py-4 pr-4 text-white/80">{best}</td>
+                      <td className="py-4 pr-4 text-white/65">{watch}</td>
+                      <td className="py-4 text-white/75">{who}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* 6-Factor Website Cost Breakdown + Questions to Ask Before Signing */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-7 kd-obsidian-card rounded-3xl p-7 sm:p-8 space-y-5">
+              <div className="space-y-1.5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#FF4D73]">
+                  Website design cost
+                </p>
+                <h2 className="font-display font-bold text-2xl text-white">
+                  What actually drives the cost of a website.
+                </h2>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse text-xs">
+                  <thead>
+                    <tr className="border-b border-white/15 font-mono text-[10px] uppercase tracking-[0.14em] text-white/50">
+                      <th className="py-2.5 pr-3">Factor</th>
+                      <th className="py-2.5 pr-3">Smaller Scope</th>
+                      <th className="py-2.5 text-[#FF8CA4]">Larger Scope</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/10">
+                    {[
+                      ["Pages & templates", "5–8 core templates", "20+ bespoke silo pages & filters"],
+                      ["Copy & visuals", "You supply final copy", "Full positioning copy & custom visuals"],
+                      ["Functionality", "Lead forms & analytics", "Portals, calculators, bookings & payments"],
+                      ["Integrations", "GA4 + email alerts", "HubSpot/Salesforce CRM, ERP & CAPI"],
+                      ["Design & motion", "Component design system", "Bespoke interactive diagrams & motion"],
+                      ["SEO migration", "Fresh domain launch", "Full 301 redirect & schema migration"],
+                    ].map(([f, sm, lg]) => (
+                      <tr key={f}>
+                        <td className="py-3 pr-3 font-semibold text-white whitespace-nowrap">{f}</td>
+                        <td className="py-3 pr-3 text-white/65">{sm}</td>
+                        <td className="py-3 text-white/85">{lg}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 kd-obsidian-card rounded-3xl p-7 sm:p-8 space-y-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#FF4D73]">
+                Buyer checklist
+              </p>
+              <h2 className="font-display font-bold text-2xl text-white">
+                Questions to ask before you sign.
+              </h2>
+              <p className="text-xs text-white/65">
+                Ask any web agency — including us — for these six answers in
+                writing before signing:
+              </p>
+              <ul className="space-y-2.5 text-xs sm:text-sm text-white/80">
+                {[
+                  "Who owns the code repository, domain, and hosting account?",
+                  "Can our team edit copy and publish posts without paying a developer?",
+                  "Exactly which technical SEO & schema items ship on launch day?",
+                  "How fast will the site load on a real 4G mobile phone?",
+                  "Are legacy URL 301 redirects included so rankings never drop?",
+                  "What happens after launch for QA fixes, tracking checks & support?",
+                ].map((q, idx) => (
+                  <li key={q} className="kd-glass-tile rounded-xl p-3 flex items-start gap-2.5">
+                    <span className="font-mono text-[10px] font-bold text-[#FF4D73] pt-0.5">
+                      0{idx + 1}
+                    </span>
+                    <span>{q}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ServiceWorkStrip />
 
       <RegionalCoverageBand
