@@ -73,7 +73,7 @@ export const caseStudyDetails: CaseStudyDetail[] = [
       services: ["E-commerce Catalog Optimization", "Color Standardization Protocol"],
       timeline: "8 weeks · 2025",
     },
-    serviceSlug: "ecommerce",
+    serviceSlug: "ecommerce-development",
     challengeTitle: "A catalog that was actively losing revenue",
     challengeText: [
       "Aurora Goods had grown from 50 to 500 SKUs in two years, but their catalog hadn't grown with them. Every product had been photographed by a different freelancer, in different lighting, on different backgrounds. The result looked like a marketplace, not a brand.",
@@ -137,7 +137,7 @@ export const caseStudyDetails: CaseStudyDetail[] = [
       services: ["Color Standardization Protocol", "E-commerce Catalog Optimization"],
       timeline: "3 weeks · 2025",
     },
-    serviceSlug: "color",
+    serviceSlug: "brand-identity",
     challengeTitle: "A luxury brand built on one color — that looked different everywhere",
     challengeText: [
       "Maison Noir is a luxury fashion house where black isn't just a color — it's the entire brand identity. But their black looked different on Instagram, in their print lookbook, on their e-commerce store, and on the physical product.",
@@ -201,7 +201,7 @@ export const caseStudyDetails: CaseStudyDetail[] = [
       services: ["Virtual Production & CGI Studio", "Color Standardization Protocol"],
       timeline: "8 weeks · 2024",
     },
-    serviceSlug: "cgi",
+    serviceSlug: "motion-graphics",
     challengeTitle: "A car launch with no car to film",
     challengeText: [
       "ECHO Motors was launching their first electric vehicle, but the physical prototype wasn't ready. The marketing team had 8 weeks to produce a launch film, and there was no car to film.",
@@ -265,7 +265,7 @@ export const caseStudyDetails: CaseStudyDetail[] = [
       services: ["White-Label Agency Extension", "E-commerce Catalog Optimization"],
       timeline: "12 months · 2024-2025",
     },
-    serviceSlug: "whitelabel",
+    serviceSlug: "web-app-dev",
     challengeTitle: "Winning more pitches than they could staff",
     challengeText: [
       "Agency Collective was winning more pitches than they could staff. They had a small core team of strategists and creatives, but couldn't handle the production volume — design, development, and motion work for 6 concurrent clients.",

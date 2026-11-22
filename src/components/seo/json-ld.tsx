@@ -124,3 +124,30 @@ export function getServiceSchema(params: {
     })),
   };
 }
+
+export function getArticleSchema(params: {
+  title: string;
+  description: string;
+  path: string;
+  image: string;
+  datePublished: string;
+  authorName: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: params.title,
+    description: params.description,
+    image: `${siteConfig.url}${params.image}`,
+    url: `${siteConfig.url}${params.path}`,
+    datePublished: params.datePublished,
+    author: {
+      "@type": "Organization",
+      name: params.authorName,
+      url: siteConfig.url,
+    },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+  };
+}
