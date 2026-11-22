@@ -38,6 +38,7 @@ export function ServicePageFrame({
 }) {
   return (
     <div className="min-h-screen flex flex-col">
+      <div aria-hidden="true" className="h-0 w-0" />
       <CursorGlow />
       <Navbar />
       <main className="flex-1 pt-28 sm:pt-32 lg:pt-36">{children}</main>

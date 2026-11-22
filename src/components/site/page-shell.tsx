@@ -20,6 +20,7 @@ interface PageShellProps {
 export default function PageShell({ children }: PageShellProps) {
   return (
     <div className="min-h-screen flex flex-col text-white relative kd-canvas-bg">
+      <div aria-hidden="true" className="h-0 w-0" />
       <CursorGlow />
       <Navbar />
       <main className="flex-1 relative z-10">{children}</main>

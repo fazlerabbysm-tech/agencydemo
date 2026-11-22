@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import GlobalContactModal from "@/components/site/global-contact-modal";
+import ScrollToTop from "@/components/site/scroll-to-top";
 import { siteConfig } from "@/lib/site-config";
 import {
   JsonLd,
@@ -96,6 +97,7 @@ export default function RootLayout({
       <body
         className={`${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} kd-canvas-bg antialiased text-white font-sans selection:bg-[#C71F42] selection:text-white`}
       >
+        <ScrollToTop />
         {children}
         <GlobalContactModal />
         <Toaster />

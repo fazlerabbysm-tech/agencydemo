@@ -44,7 +44,7 @@ export default function PortfolioDetailPage({ project }: Props) {
 
           <div className="mt-8 sticky bottom-4 z-20 md:relative md:bottom-auto md:z-auto">
             <Link
-              href="/#contact"
+              href="/contact"
               className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 shadow-lg md:shadow-none"
             >
               <span className="text-sm font-medium tracking-wide uppercase">Start a similar project</span>
@@ -147,7 +147,7 @@ export default function PortfolioDetailPage({ project }: Props) {
           <div className="my-10 md:my-12 bg-[#C71F42] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="font-display font-bold text-xl md:text-2xl tracking-tight">Like this? Let&apos;s talk.</p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="group inline-flex items-center gap-3 bg-black text-[#C71F42] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300"
             >
               <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">Start a project</span>
@@ -257,7 +257,7 @@ export default function PortfolioDetailPage({ project }: Props) {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/#contact"
+              href="/contact"
               className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">Start a similar project</span>

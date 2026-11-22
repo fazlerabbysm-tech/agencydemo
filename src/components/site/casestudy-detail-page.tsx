@@ -58,7 +58,7 @@ export default function CaseStudyDetailPage({ caseStudy }: Props) {
 
           <div className="mt-8 sticky bottom-4 z-20 md:relative md:bottom-auto md:z-auto">
             <Link
-              href="/#contact"
+              href="/contact"
               className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300 shadow-lg md:shadow-none"
             >
               <span className="text-sm font-medium tracking-wide uppercase">{caseStudy.ctaSticky}</span>
@@ -238,7 +238,7 @@ export default function CaseStudyDetailPage({ caseStudy }: Props) {
           <div className="mt-10 bg-[#C71F42] text-black py-8 md:py-10 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="font-display font-bold text-xl md:text-2xl tracking-tight">Want these results?</p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="group inline-flex items-center gap-3 bg-black text-[#C71F42] pl-5 pr-1.5 py-1.5 rounded-full hover:bg-transparent hover:text-black border border-black transition-colors duration-300"
             >
               <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">Book a call</span>
@@ -265,7 +265,7 @@ export default function CaseStudyDetailPage({ caseStudy }: Props) {
             </p>
           </div>
           <Link
-            href="/#contact"
+            href="/contact"
             className="mt-10 inline-flex items-center gap-3 border border-[#C71F42]/40 hover:bg-[#C71F42] hover:text-black px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-colors duration-300"
           >
             Work with us
@@ -376,7 +376,7 @@ export default function CaseStudyDetailPage({ caseStudy }: Props) {
           <p className="mt-4 text-base md:text-lg text-white/60">Book a 30-minute call or view all our case studies.</p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/#contact"
+              href="/contact"
               className="group inline-flex items-center gap-3 bg-[#C71F42] text-black pl-6 pr-2 py-2 rounded-full hover:bg-transparent hover:text-[#C71F42] border border-[#C71F42] transition-colors duration-300"
             >
               <span className="text-sm font-medium tracking-wide uppercase">Book a call</span>
