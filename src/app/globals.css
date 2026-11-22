@@ -239,103 +239,144 @@ html[data-theme="light"] {
   color-scheme: light;
 }
 
+/* Signature Katella Digital Daylight Satin Crimson Canvas */
 html[data-theme="light"] body,
 html[data-theme="light"] .kd-canvas-bg {
-  background-color: #fdf7f8;
+  background-color: #fffafc;
   background-image:
-    radial-gradient(ellipse 62% 40% at 88% 10%, rgba(232, 28, 73, 0.16) 0%, rgba(199, 31, 66, 0.07) 40%, transparent 72%),
-    radial-gradient(ellipse 52% 46% at 86% 94%, rgba(199, 31, 66, 0.14) 0%, rgba(154, 14, 40, 0.05) 45%, transparent 76%),
-    radial-gradient(ellipse 50% 38% at 8% 82%, rgba(255, 77, 115, 0.1) 0%, transparent 72%),
-    linear-gradient(120deg, #ffffff 0%, #fdf5f7 38%, #fae7ec 74%, #f5d4dd 100%);
+    radial-gradient(ellipse 66% 42% at 90% 8%, rgba(232, 28, 73, 0.24) 0%, rgba(199, 31, 66, 0.10) 40%, transparent 72%),
+    radial-gradient(ellipse 56% 48% at 88% 94%, rgba(199, 31, 66, 0.22) 0%, rgba(154, 14, 40, 0.08) 44%, transparent 76%),
+    radial-gradient(ellipse 52% 40% at 6% 78%, rgba(255, 77, 115, 0.16) 0%, rgba(199, 31, 66, 0.05) 45%, transparent 74%),
+    linear-gradient(125deg, #ffffff 0%, #fff5f7 34%, #fde3ea 70%, #f5c2d0 100%);
   background-attachment: fixed;
-  color: #16070b;
+  color: #1a060b;
 }
 
+/* Frosted Pearl-Rose Glass Cards with Crisp Crimson Edge Definition */
 html[data-theme="light"] .kd-obsidian-card {
   background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.86) 0%,
-    rgba(255, 247, 249, 0.78) 100%
+    148deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 243, 246, 0.84) 100%
   );
-  border-color: rgba(154, 14, 40, 0.14);
+  border-color: rgba(199, 31, 66, 0.22);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    0 14px 38px rgba(47, 0, 10, 0.07);
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 14px 40px rgba(154, 14, 40, 0.09);
 }
 
 html[data-theme="light"] .kd-glass-tile {
   background: linear-gradient(
     155deg,
-    rgba(255, 255, 255, 0.92) 0%,
-    rgba(253, 242, 245, 0.78) 100%
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(254, 238, 243, 0.84) 100%
   );
-  border-color: rgba(154, 14, 40, 0.14);
+  border-color: rgba(199, 31, 66, 0.20);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 1),
-    0 6px 20px rgba(47, 0, 10, 0.05);
+    0 8px 24px rgba(154, 14, 40, 0.07);
 }
 
+/* Luminous Cursor-Following Crimson Card Spotlight in Light Mode */
 html[data-theme="light"] .kd-obsidian-card-hover::before {
   background: radial-gradient(
-    300px circle at var(--mx, 50%) var(--my, 18%),
-    rgba(232, 28, 73, 0.16) 0%,
-    rgba(199, 31, 66, 0.06) 45%,
+    320px circle at var(--mx, 50%) var(--my, 18%),
+    rgba(232, 28, 73, 0.24) 0%,
+    rgba(199, 31, 66, 0.09) 46%,
     transparent 76%
   );
 }
 
 html[data-theme="light"] .kd-obsidian-card-hover:hover,
 html[data-theme="light"] .kd-obsidian-card-hover:focus-within {
-  border-color: rgba(199, 31, 66, 0.55);
+  border-color: rgba(199, 31, 66, 0.68);
   box-shadow:
-    0 0 0 1px rgba(199, 31, 66, 0.2),
-    0 14px 40px rgba(199, 31, 66, 0.16),
+    0 0 0 1px rgba(232, 28, 73, 0.26),
+    0 18px 46px rgba(199, 31, 66, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
-/* Crisp readable light-mode typography & surfaces */
+/* Crimson Gem Icon Boxes — Vivid Crimson Resting, Solid Glowing Crimson on Hover */
+html[data-theme="light"] .kd-icon-box {
+  background: linear-gradient(
+    135deg,
+    rgba(232, 28, 73, 0.16) 0%,
+    rgba(154, 14, 40, 0.09) 100%
+  );
+  border-color: rgba(199, 31, 66, 0.36);
+  color: #C71F42;
+  box-shadow: 0 4px 14px rgba(199, 31, 66, 0.12);
+}
+
+html[data-theme="light"] .kd-obsidian-card-hover:hover .kd-icon-box,
+html[data-theme="light"] .group:hover .kd-icon-box {
+  background: linear-gradient(135deg, #FF3363 0%, #E81C49 52%, #B81136 100%);
+  border-color: #E81C49;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(232, 28, 73, 0.45);
+}
+
+/* Header with Signature Satin Crimson Topbar Ribbon */
 html[data-theme="light"] header.kd-site-header {
-  background: rgba(255, 255, 255, 0.88) !important;
-  border-color: rgba(154, 14, 40, 0.12) !important;
-  box-shadow: 0 8px 30px rgba(47, 0, 10, 0.06) !important;
+  background: rgba(255, 252, 253, 0.92) !important;
+  border-color: rgba(199, 31, 66, 0.2) !important;
+  box-shadow: 0 10px 34px rgba(154, 14, 40, 0.09) !important;
 }
 
 html[data-theme="light"] header.kd-site-header .kd-topbar {
-  background: rgba(250, 238, 241, 0.85) !important;
-  border-color: rgba(154, 14, 40, 0.1) !important;
+  background: linear-gradient(90deg, #2F000A 0%, #9A0E28 52%, #C71F42 100%) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] header.kd-site-header .kd-topbar,
+html[data-theme="light"] header.kd-site-header .kd-topbar a,
+html[data-theme="light"] header.kd-site-header .kd-topbar span,
+html[data-theme="light"] header.kd-site-header .kd-topbar .text-white,
+html[data-theme="light"] header.kd-site-header .kd-topbar .text-white\/80,
+html[data-theme="light"] header.kd-site-header .kd-topbar .text-white\/75,
+html[data-theme="light"] header.kd-site-header .kd-topbar .text-white\/70,
+html[data-theme="light"] header.kd-site-header .kd-topbar .text-white\/60,
+html[data-theme="light"] header.kd-site-header .kd-topbar .text-white\/50 {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html[data-theme="light"] header.kd-site-header .kd-topbar .text-\[\#FF4D73\] {
+  color: #FFD1DC !important;
 }
 
 html[data-theme="light"] .kd-mega-menu,
 html[data-theme="light"] .kd-mobile-drawer {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border-color: rgba(154, 14, 40, 0.15) !important;
-  box-shadow: 0 24px 70px rgba(47, 0, 10, 0.14) !important;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 245, 248, 0.98) 100%) !important;
+  border-color: rgba(199, 31, 66, 0.24) !important;
+  box-shadow: 0 26px 74px rgba(154, 14, 40, 0.16) !important;
 }
 
 html[data-theme="light"] .kd-mega-footer {
-  background: rgba(250, 239, 242, 0.9) !important;
-  border-color: rgba(154, 14, 40, 0.1) !important;
+  background: rgba(252, 232, 238, 0.85) !important;
+  border-color: rgba(199, 31, 66, 0.18) !important;
 }
 
+/* Deep Satin Crimson Footer in Light Mode */
 html[data-theme="light"] footer.kd-site-footer {
-  background: #140307 !important;
+  background: linear-gradient(135deg, #1B0106 0%, #3E0310 54%, #7E0B23 100%) !important;
   color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 110, 145, 0.22) !important;
 }
 
-/* Preserve white text inside intentionally dark banners, footer, crimson buttons & image overlays */
+/* High-Contrast Warm Plum-Ink Typography */
 html[data-theme="light"] main .text-white {
-  color: #16070b;
+  color: #1a060b;
 }
 html[data-theme="light"] main .text-white\/90,
 html[data-theme="light"] main .text-white\/85,
 html[data-theme="light"] main .text-white\/80 {
-  color: #2b1218;
+  color: #2f1018;
 }
 html[data-theme="light"] main .text-white\/75,
 html[data-theme="light"] main .text-white\/70,
 html[data-theme="light"] main .text-white\/65 {
-  color: #4f2f37;
+  color: #522934;
 }
 html[data-theme="light"] main .text-white\/60,
 html[data-theme="light"] main .text-white\/55,
@@ -343,31 +384,46 @@ html[data-theme="light"] main .text-white\/50,
 html[data-theme="light"] main .text-white\/45,
 html[data-theme="light"] main .text-white\/40,
 html[data-theme="light"] main .text-white\/35 {
-  color: #6f4d56;
+  color: #744451;
 }
 html[data-theme="light"] header .text-white {
-  color: #16070b;
+  color: #1a060b;
 }
 html[data-theme="light"] header .text-white\/80,
 html[data-theme="light"] header .text-white\/75,
 html[data-theme="light"] header .text-white\/70 {
-  color: #3a1d24;
+  color: #3d1620;
 }
 html[data-theme="light"] header .text-white\/60,
 html[data-theme="light"] header .text-white\/50,
 html[data-theme="light"] header .text-white\/45,
 html[data-theme="light"] header .text-white\/40 {
-  color: #6b4952;
+  color: #70414e;
 }
+
+/* Vivid Crimson Brand Accents */
 html[data-theme="light"] .text-\[\#FF4D73\] {
   color: #C71F42;
 }
+html[data-theme="light"] .text-\[\#E81C49\] {
+  color: #D9143E;
+}
+
+/* Refined Crimson-Tinted Dividers & Surface Tints */
 html[data-theme="light"] main .border-white\/10,
 html[data-theme="light"] main .border-white\/12,
 html[data-theme="light"] main .border-white\/15,
 html[data-theme="light"] main .border-white\/20,
 html[data-theme="light"] main .border-white\/25 {
-  border-color: rgba(154, 14, 40, 0.16);
+  border-color: rgba(199, 31, 66, 0.22);
+}
+html[data-theme="light"] header .border-white\/10,
+html[data-theme="light"] header .border-white\/15,
+html[data-theme="light"] header .border-white\/20 {
+  border-color: rgba(199, 31, 66, 0.22);
+}
+html[data-theme="light"] main .divide-white\/10 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(199, 31, 66, 0.14);
 }
 html[data-theme="light"] main .bg-\[\#060000\]\/35,
 html[data-theme="light"] main .bg-\[\#060000\]\/38,
@@ -375,61 +431,120 @@ html[data-theme="light"] main .bg-\[\#060000\]\/40,
 html[data-theme="light"] main .bg-\[\#060000\]\/45,
 html[data-theme="light"] main .bg-\[\#060000\]\/55,
 html[data-theme="light"] main .bg-\[\#060000\]\/60 {
-  background-color: rgba(255, 255, 255, 0.78);
+  background-color: rgba(255, 248, 250, 0.86);
 }
+html[data-theme="light"] main .bg-white\/\[0\.03\],
 html[data-theme="light"] main .bg-white\/\[0\.04\],
 html[data-theme="light"] main .bg-white\/\[0\.05\],
 html[data-theme="light"] main .bg-white\/\[0\.06\],
 html[data-theme="light"] main .bg-white\/\[0\.07\],
-html[data-theme="light"] main .bg-white\/\[0\.08\] {
-  background-color: rgba(199, 31, 66, 0.06);
+html[data-theme="light"] main .bg-white\/\[0\.08\],
+html[data-theme="light"] main .bg-white\/10 {
+  background-color: rgba(232, 28, 73, 0.09);
 }
-html[data-theme="light"] main .bg-white {
-  background-color: #16070b;
+
+/* Rich Crimson Tinted Pill Badges & Callout Surfaces */
+html[data-theme="light"] main .bg-\[\#C71F42\]\/12,
+html[data-theme="light"] main .bg-\[\#C71F42\]\/15,
+html[data-theme="light"] main .bg-\[\#C71F42\]\/20,
+html[data-theme="light"] main .bg-\[\#C71F42\]\/25,
+html[data-theme="light"] main .bg-\[\#E81C49\]\/15,
+html[data-theme="light"] main .bg-\[\#E81C49\]\/20 {
+  background-color: rgba(232, 28, 73, 0.12);
+  border-color: rgba(199, 31, 66, 0.36);
+}
+
+/* Crimson Table Header Strip in Light Mode */
+html[data-theme="light"] main table thead tr {
+  background: linear-gradient(
+    90deg,
+    rgba(232, 28, 73, 0.12) 0%,
+    rgba(199, 31, 66, 0.06) 100%
+  );
+}
+html[data-theme="light"] main table thead th {
+  color: #9A0E28;
+}
+
+/* Primary Action Buttons & Active Pills Shine in Katella Satin Crimson Gradient */
+html[data-theme="light"] main a.bg-white,
+html[data-theme="light"] main button.bg-white,
+html[data-theme="light"] main span.bg-white {
+  background: linear-gradient(135deg, #E81C49 0%, #C71F42 58%, #9A0E28 100%);
+  color: #ffffff;
+  border-color: rgba(199, 31, 66, 0.55);
+  box-shadow: 0 10px 26px rgba(199, 31, 66, 0.30);
+}
+html[data-theme="light"] main a.bg-white:hover,
+html[data-theme="light"] main button.bg-white:hover,
+html[data-theme="light"] main .group:hover span.bg-white {
+  filter: brightness(1.06);
+  box-shadow: 0 14px 34px rgba(232, 28, 73, 0.42);
+}
+html[data-theme="light"] main a.bg-white .text-\[\#060000\],
+html[data-theme="light"] main button.bg-white .text-\[\#060000\],
+html[data-theme="light"] main a.bg-white span,
+html[data-theme="light"] main button.bg-white span {
   color: #ffffff;
 }
-html[data-theme="light"] main .bg-white .bg-\[\#060000\] {
-  background-color: #ffffff;
-  color: #16070b;
+html[data-theme="light"] main a.bg-white .bg-\[\#060000\],
+html[data-theme="light"] main button.bg-white .bg-\[\#060000\] {
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
 }
+html[data-theme="light"] main button.bg-white .bg-\[\#060000\]\/10 {
+  background-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+
+/* Preserve Intentionally Dark Satin-Crimson Feature Sections, Modals & Banners */
 html[data-theme="light"] .kd-keep-dark,
 html[data-theme="light"] .kd-keep-dark .text-white {
   color: #ffffff !important;
 }
+html[data-theme="light"] .kd-keep-dark .bg-white {
+  background: #ffffff !important;
+  color: #9A0E28 !important;
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25) !important;
+}
+html[data-theme="light"] .kd-keep-dark .bg-white span {
+  color: #9A0E28 !important;
+}
 html[data-theme="light"] .kd-keep-dark .text-white\/90,
 html[data-theme="light"] .kd-keep-dark .text-white\/85,
 html[data-theme="light"] .kd-keep-dark .text-white\/80 {
-  color: rgba(255, 255, 255, 0.88) !important;
+  color: rgba(255, 255, 255, 0.90) !important;
 }
 html[data-theme="light"] .kd-keep-dark .text-white\/75,
 html[data-theme="light"] .kd-keep-dark .text-white\/70,
 html[data-theme="light"] .kd-keep-dark .text-white\/65 {
-  color: rgba(255, 255, 255, 0.76) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
 }
 html[data-theme="light"] .kd-keep-dark .text-white\/60,
 html[data-theme="light"] .kd-keep-dark .text-white\/55,
 html[data-theme="light"] .kd-keep-dark .text-white\/50 {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(255, 255, 255, 0.62) !important;
 }
 html[data-theme="light"] .kd-keep-dark .text-white\/45,
 html[data-theme="light"] .kd-keep-dark .text-white\/40,
 html[data-theme="light"] .kd-keep-dark .text-white\/35 {
-  color: rgba(255, 255, 255, 0.45) !important;
+  color: rgba(255, 255, 255, 0.48) !important;
 }
 html[data-theme="light"] .kd-keep-dark .border-white\/10,
 html[data-theme="light"] .kd-keep-dark .border-white\/12,
 html[data-theme="light"] .kd-keep-dark .border-white\/15,
 html[data-theme="light"] .kd-keep-dark .border-white\/20,
 html[data-theme="light"] .kd-keep-dark .border-white\/25 {
-  border-color: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
 }
 html[data-theme="light"] .kd-keep-dark .bg-\[\#060000\]\/45,
 html[data-theme="light"] .kd-keep-dark .bg-\[\#060000\]\/55,
 html[data-theme="light"] .kd-keep-dark .bg-\[\#060000\]\/60 {
-  background-color: rgba(6, 0, 0, 0.58) !important;
+  background-color: rgba(22, 2, 7, 0.62) !important;
 }
 html[data-theme="light"] .kd-keep-dark .text-\[\#FF4D73\] {
-  color: #FF4D73 !important;
+  color: #FF6B8A !important;
 }
 html[data-theme="light"] main .bg-\[\#E81C49\],
 html[data-theme="light"] main .bg-\[\#C71F42\],
@@ -439,24 +554,28 @@ html[data-theme="light"] main .bg-\[\#060000\]\/85,
 html[data-theme="light"] main .bg-\[\#060000\]\/90 {
   color: #ffffff !important;
 }
+
+/* Crisp Form Inputs & Crimson Focus Halos in Light Mode */
 html[data-theme="light"] main input::placeholder,
 html[data-theme="light"] main textarea::placeholder {
-  color: rgba(92, 54, 64, 0.58);
+  color: rgba(116, 68, 81, 0.62);
 }
 html[data-theme="light"] main .kd-field-shell:focus-within {
-  background-color: rgba(255, 255, 255, 0.96) !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
   border-color: #C71F42 !important;
+  box-shadow: 0 0 0 3px rgba(232, 28, 73, 0.16) !important;
 }
 html[data-theme="light"] main .kd-service-trigger-open {
-  background-color: rgba(255, 255, 255, 0.96) !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: #C71F42 !important;
 }
 html[data-theme="light"] main .kd-service-dropdown {
-  background-color: rgba(255, 255, 255, 0.98) !important;
-  border-color: rgba(154, 14, 40, 0.18) !important;
-  box-shadow: 0 24px 60px rgba(47, 0, 10, 0.16) !important;
+  background-color: rgba(255, 255, 255, 0.99) !important;
+  border-color: rgba(199, 31, 66, 0.24) !important;
+  box-shadow: 0 24px 60px rgba(154, 14, 40, 0.18) !important;
 }
 html[data-theme="light"] .kd-keep-dark .kd-service-dropdown {
-  background-color: rgba(11, 1, 4, 0.96) !important;
+  background-color: rgba(16, 2, 6, 0.97) !important;
   border-color: rgba(255, 255, 255, 0.18) !important;
 }
 .kd-marquee-fade-left {
@@ -466,10 +585,10 @@ html[data-theme="light"] .kd-keep-dark .kd-service-dropdown {
   background: linear-gradient(to left, #060000, transparent);
 }
 html[data-theme="light"] .kd-marquee-fade-left {
-  background: linear-gradient(to right, #fdf5f7, transparent);
+  background: linear-gradient(to right, #fff5f7, transparent);
 }
 html[data-theme="light"] .kd-marquee-fade-right {
-  background: linear-gradient(to left, #fdf5f7, transparent);
+  background: linear-gradient(to left, #fde3ea, transparent);
 }
 html[data-theme="light"] .kd-cta-glow,
 html[data-theme="light"] .kd-cta-glow span,
@@ -477,8 +596,16 @@ html[data-theme="light"] header .kd-btn-crimson,
 html[data-theme="light"] .kd-badge-white-text {
   color: #ffffff !important;
 }
+html[data-theme="light"] header .kd-btn-crimson {
+  background: linear-gradient(135deg, #E81C49 0%, #C71F42 58%, #9A0E28 100%) !important;
+  box-shadow: 0 8px 24px rgba(199, 31, 66, 0.38) !important;
+}
 html[data-theme="light"] .kd-cta-glow .bg-white {
-  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #C71F42 !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] .kd-cta-glow .bg-white span {
   color: #C71F42 !important;
 }
 
