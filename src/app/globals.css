@@ -136,21 +136,43 @@
   background-attachment: fixed;
 }
 
-/* Pure obsidian matte card framed by crisp hairline border (matches brand reference) */
+/* Luxury frosted obsidian glass card framed by crisp specular hairline */
 .kd-obsidian-card {
-  background: rgba(6, 0, 0, 0.86);
+  background: linear-gradient(
+    145deg,
+    rgba(22, 6, 11, 0.56) 0%,
+    rgba(6, 0, 0, 0.44) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 18px 48px rgba(0, 0, 0, 0.36);
+}
+
+/* Inner grid glass tile for nested grids inside sections */
+.kd-glass-tile {
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.085) 0%,
+    rgba(12, 3, 6, 0.46) 100%
+  );
   border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .kd-obsidian-card-hover {
-  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .kd-obsidian-card-hover:hover {
   border-color: rgba(255, 255, 255, 0.32);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 22px 54px rgba(0, 0, 0, 0.48);
   transform: translateY(-3px);
 }
 

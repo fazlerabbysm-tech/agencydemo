@@ -57,7 +57,7 @@ export default function InsightsSection() {
                   </span>
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col justify-between gap-5 bg-[#060000]">
+                <div className="p-6 flex-1 flex flex-col justify-between gap-5 bg-[#060000]/35 backdrop-blur-xl border-t border-white/10">
                   <div>
                     <p className="font-mono text-[11px] text-white/45 mb-2.5">
                       {post.date} · {post.readTime}

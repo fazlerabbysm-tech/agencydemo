@@ -74,7 +74,7 @@ export default function StatsValues() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.45, delay: idx * 0.08 }}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 flex flex-col justify-between min-h-[152px] sm:min-h-[176px]"
+                  className="kd-glass-tile kd-obsidian-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[152px] sm:min-h-[176px]"
                 >
                   <p className="font-display font-extrabold text-3xl sm:text-4xl lg:text-[44px] tracking-tight tabular-nums text-white">
                     {stat.value}

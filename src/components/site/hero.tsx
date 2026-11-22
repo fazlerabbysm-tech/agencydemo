@@ -101,7 +101,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#060000] via-transparent to-transparent opacity-70" />
               </div>
 
-              <div className="p-5 sm:p-6 flex items-center justify-between gap-4 bg-[#060000]">
+              <div className="p-5 sm:p-6 flex items-center justify-between gap-4 bg-[#060000]/45 backdrop-blur-xl border-t border-white/10">
                 <div>
                   <p className="font-display font-semibold text-white text-sm sm:text-base">
                     Katella Digital — Our Creativity

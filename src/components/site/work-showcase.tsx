@@ -57,7 +57,7 @@ export default function WorkShowcase() {
                   </span>
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col justify-between gap-5 bg-[#060000]">
+                <div className="p-6 flex-1 flex flex-col justify-between gap-5 bg-[#060000]/35 backdrop-blur-xl border-t border-white/10">
                   <div>
                     <h3 className="font-display font-bold text-xl text-white tracking-tight group-hover:text-[#FF4D73] transition-colors">
                       {project.title}

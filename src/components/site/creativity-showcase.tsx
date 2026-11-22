@@ -40,21 +40,26 @@ export default function CreativityShowcase() {
                 </h2>
               </div>
 
-              <ul className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {creativePoints.map((pt) => (
-                  <li key={pt.title} className="flex items-start gap-3">
-                    <span className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-[#C71F42]/20 border border-[#C71F42]/45 flex items-center justify-center text-[#FF4D73]">
-                      <Check className="h-3 w-3" />
-                    </span>
-                    <p className="text-sm text-white/65 leading-relaxed">
-                      <strong className="text-white font-semibold">
+                  <div
+                    key={pt.title}
+                    className="kd-glass-tile rounded-xl p-4 space-y-1.5"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="h-4 w-4 shrink-0 rounded-full bg-[#C71F42]/25 border border-[#C71F42]/50 flex items-center justify-center text-[#FF4D73]">
+                        <Check className="h-2.5 w-2.5" />
+                      </span>
+                      <h3 className="text-sm font-semibold text-white">
                         {pt.title}
-                      </strong>{" "}
-                      — {pt.desc}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-white/65 leading-relaxed">
+                      {pt.desc}
                     </p>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
               <div className="pt-2">
                 <Link
