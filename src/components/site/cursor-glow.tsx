@@ -737,7 +737,7 @@ export default function CursorGlow() {
       <canvas
         ref={canvasRef}
         aria-hidden="true"
-        className="fixed inset-0 h-full w-full pointer-events-none z-[2] opacity-90"
+        className="fixed inset-0 h-full w-full pointer-events-none z-[2] opacity-45 md:opacity-90"
       />
 
       {/* Sleek tactile desktop cursor ring + crimson core dot */}
