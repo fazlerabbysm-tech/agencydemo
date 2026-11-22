@@ -1,23 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const footerLinks = [
   {
     title: "Services",
     items: [
-      { label: "UI/UX Design", href: "#services" },
-      { label: "Motion Graphics", href: "#services" },
-      { label: "Digital Marketing", href: "#services" },
-      { label: "Web & App Dev", href: "#services" },
+      { label: "UI/UX Design", href: "/services/ui-ux" },
+      { label: "Motion Graphics", href: "/services/motion-graphics" },
+      { label: "Digital Marketing", href: "/services/digital-marketing" },
+      { label: "Web & App Dev", href: "/services/web-app-dev" },
     ],
   },
   {
     title: "Studio",
     items: [
-      { label: "About", href: "#about" },
-      { label: "Work", href: "#work" },
-      { label: "FAQ", href: "#faq" },
+      { label: "About", href: "/#about" },
+      { label: "Work", href: "/#work" },
+      { label: "FAQ", href: "/#faq" },
     ],
   },
   {
@@ -30,7 +31,7 @@ const footerLinks = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ className = "" }: { className?: string }) {
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -50,19 +51,19 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-[#060000] text-white border-t border-[#3a1518]">
+    <footer className={`bg-[#060000] text-white border-t border-[#3a1518] ${className}`}>
       <div className="overflow-hidden">
         {/* Top section: links */}
         <div className="mx-auto max-w-[1600px] px-5 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-10">
           <div className="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-12 md:gap-8">
             {/* Brand + tagline */}
             <div className="col-span-2 md:col-span-5">
-              <a href="#top" className="flex items-center gap-2 group mb-5 md:mb-6">
+              <Link href="/" className="flex items-center gap-2 group mb-5 md:mb-6">
                 <span className="h-2.5 w-2.5 bg-[#C71F42] rounded-full transition-transform group-hover:scale-150" />
                 <span className="font-display font-bold tracking-tight text-lg md:text-xl">
                   Katella <span className="font-light">Digital</span>
                 </span>
-              </a>
+              </Link>
               <p className="text-white/60 text-sm md:text-base max-w-sm leading-relaxed">
                 A full-service marketing agency built to drive business growth.
                 Strategy, creative, digital, and media — all under one roof.
@@ -82,13 +83,23 @@ export default function Footer() {
                 <ul className="space-y-2 sm:space-y-3">
                   {col.items.map((item) => (
                     <li key={item.label}>
-                      <a
-                        href={item.href}
-                        className="text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group"
-                      >
-                        {item.label}
-                        <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full" />
-                      </a>
+                      {item.href.startsWith("/") ? (
+                        <Link
+                          href={item.href}
+                          className="text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group"
+                        >
+                          {item.label}
+                          <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full" />
+                        </Link>
+                      ) : (
+                        <a
+                          href={item.href}
+                          className="text-sm md:text-base text-white/80 hover:text-[#C71F42] relative inline-block group"
+                        >
+                          {item.label}
+                          <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C71F42] transition-all duration-300 group-hover:w-full" />
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

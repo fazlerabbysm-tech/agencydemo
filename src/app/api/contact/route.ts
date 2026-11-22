@@ -1,5 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -32,6 +41,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: "All fields are required." }, { status: 400 });
     }
 
+    const safeName = escapeHtml(String(name).trim());
+    const safeEmail = escapeHtml(String(email).trim());
+    const safePhone = escapeHtml(String(phone).trim());
+    const safeService = escapeHtml(String(service).trim());
+    const safeDetails = escapeHtml(String(details).trim());
+
     // 4. Send emails via Brevo API
     const brevoApiKey = process.env.BREVO_API_KEY;
     const contactEmail = process.env.CONTACT_EMAIL || "info@katella.digital";
@@ -43,13 +58,13 @@ export async function POST(req: NextRequest) {
           New Contact Form Submission — Katella Digital
         </h2>
         <table style="width: 100%; border-collapse: collapse;">
-          <tr><td style="padding: 8px 0; font-weight: bold; width: 120px;">Name:</td><td style="padding: 8px 0;">${name}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;">${email}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold;">Phone:</td><td style="padding: 8px 0;">${phone}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold;">Service:</td><td style="padding: 8px 0;">${service}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold; width: 120px;">Name:</td><td style="padding: 8px 0;">${safeName}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;">${safeEmail}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Phone:</td><td style="padding: 8px 0;">${safePhone}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Service:</td><td style="padding: 8px 0;">${safeService}</td></tr>
         </table>
         <h3 style="color: #333; margin-top: 20px;">Project Details:</h3>
-        <p style="background: #f5f5f5; padding: 15px; border-radius: 8px; white-space: pre-wrap;">${details}</p>
+        <p style="background: #f5f5f5; padding: 15px; border-radius: 8px; white-space: pre-wrap;">${safeDetails}</p>
         <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
         <p style="color: #888; font-size: 12px;">
           Submitted: ${new Date().toISOString()}<br>
@@ -66,10 +81,10 @@ export async function POST(req: NextRequest) {
           <p style="color: #888; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; margin-top: 5px;">Full-Service Marketing Agency</p>
         </div>
         <div style="background: #1a0a0e; border: 1px solid #3a1518; border-radius: 12px; padding: 30px;">
-          <h2 style="color: #fff; font-size: 22px; margin: 0 0 15px 0;">Hi ${name},</h2>
+          <h2 style="color: #fff; font-size: 22px; margin: 0 0 15px 0;">Hi ${safeName},</h2>
           <p style="color: #aaa; font-size: 15px; line-height: 1.7;">
             Thank you for reaching out to Katella Digital! We've received your inquiry about
-            <strong style="color: #C71F42;">${service}</strong> and our team is already reviewing your project details.
+            <strong style="color: #C71F42;">${safeService}</strong> and our team is already reviewing your project details.
           </p>
           <p style="color: #aaa; font-size: 15px; line-height: 1.7; margin-top: 15px;">
             Here's what happens next:
@@ -83,7 +98,7 @@ export async function POST(req: NextRequest) {
             Need to talk sooner? Call us or reply to this email and we'll prioritize your inquiry.
           </p>
           <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #3a1518;">
-            <p style="color: #666; font-size: 13px; margin: 5px 0;">📞 ${phone}</p>
+            <p style="color: #666; font-size: 13px; margin: 5px 0;">📞 ${safePhone}</p>
             <p style="color: #666; font-size: 13px; margin: 5px 0;">✉️ info@katella.digital</p>
             <p style="color: #666; font-size: 13px; margin: 5px 0;">📍 Anaheim, Orange County, CA</p>
           </div>

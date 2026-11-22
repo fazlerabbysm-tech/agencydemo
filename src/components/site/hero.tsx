@@ -6,12 +6,12 @@ import { ArrowUpRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/hero-fashion.jpg",
+    image: "/images/hero-fashion.webp",
     kicker: "Full-Service Marketing",
     title: "Campaigns that\ndrive growth.",
   },
   {
-    image: "/images/hero-bridal.jpg",
+    image: "/images/hero-bridal.webp",
     kicker: "Strategy · Creative · Digital",
     title: "Built to\nmove markets.",
   },

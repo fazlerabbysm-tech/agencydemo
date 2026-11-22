@@ -10,28 +10,28 @@ const services = [
     slug: "ui-ux",
     title: "UI/UX Design",
     desc: "User research, wireframing, interface design, and design systems for digital products users love.",
-    image: "/images/svc-ecommerce.jpg",
+    image: "/images/svc-ecommerce.webp",
   },
   {
     no: "02",
     slug: "motion-graphics",
     title: "Motion Graphics",
     desc: "Brand films, social ads, explainer videos, and product animations that stop the scroll and drive action.",
-    image: "/images/svc-color.jpg",
+    image: "/images/svc-color.webp",
   },
   {
     no: "03",
     slug: "digital-marketing",
     title: "Digital Marketing",
     desc: "SEO, paid media, social, content, and analytics — integrated campaigns that drive measurable growth.",
-    image: "/images/svc-cgi.jpg",
+    image: "/images/svc-cgi.webp",
   },
   {
     no: "04",
     slug: "web-app-dev",
     title: "Web & App Development",
     desc: "Next.js, React Native, and Flutter — fast, scalable web and mobile apps built to grow with you.",
-    image: "/images/svc-whitelabel.jpg",
+    image: "/images/svc-whitelabel.webp",
   },
 ];
 

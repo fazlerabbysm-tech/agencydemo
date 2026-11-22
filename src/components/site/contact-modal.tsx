@@ -41,7 +41,6 @@ export default function ContactModal({
       const b = Math.floor(Math.random() * 9) + 1;
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setMathQ({ a, b, answer: "" });
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMathVerified(false);
 
       if (!document.getElementById("cf-turnstile-script")) {
@@ -53,13 +52,10 @@ export default function ContactModal({
         script.onload = () => setTurnstileLoaded(true);
         document.head.appendChild(script);
       } else {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setTurnstileLoaded(true);
       }
     } else {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setStatus("idle");
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setErrorMsg("");
     }
   }, [open]);
@@ -74,7 +70,9 @@ export default function ContactModal({
             container.innerHTML = "";
             // @ts-ignore
             window.turnstile.render(container, {
-              sitekey: "0x4AAAAAAGA9ybOPDfkQVn6e",
+              sitekey:
+                process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
+                "0x4AAAAAAGA9ybOPDfkQVn6e",
               callback: (token: string) => setTurnstileToken(token),
               "expired-callback": () => setTurnstileToken(null),
               "error-callback": () => setTurnstileToken(null),

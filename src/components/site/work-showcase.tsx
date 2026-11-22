@@ -10,28 +10,28 @@ const works = [
     slug: "aurora-goods",
     title: "Aurora Goods",
     cat: "Catalog System · 500 SKUs · 2025",
-    image: "/images/work-ecommerce.jpg",
+    image: "/images/work-ecommerce.webp",
   },
   {
     no: "02",
     slug: "maison-noir",
     title: "Maison Noir",
     cat: "Color Protocol · 12 Touchpoints · 2025",
-    image: "/images/work-color.jpg",
+    image: "/images/work-color.webp",
   },
   {
     no: "03",
     slug: "echo-motors",
     title: "ECHO Motors",
     cat: "CGI Launch Film · Zero Shoot · 2024",
-    image: "/images/work-cgi.jpg",
+    image: "/images/work-cgi.webp",
   },
   {
     no: "04",
     slug: "agency-collective",
     title: "Agency Collective",
     cat: "White-Label · 200+ Assets · 2024",
-    image: "/images/work-whitelabel.jpg",
+    image: "/images/work-whitelabel.webp",
   },
 ];
 

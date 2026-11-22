@@ -22,7 +22,8 @@ const navItems: NavItem[] = [
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [openForPath, setOpenForPath] = useState<string | null>(null);
+  const open = openForPath === pathname;
 
   const isHome = pathname === "/";
 
@@ -33,24 +34,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
   const onDark = !scrolled && !open && isHome;
 
   const handleNavClick = (e: React.MouseEvent, href: string) => {
-    setOpen(false);
-    // For in-page anchors on home, scroll smoothly
-    if (href.startsWith("/#")) {
+    setOpenForPath(null);
+    // For in-page anchors on home, scroll smoothly; otherwise let Next.js Link navigate
+    if (href.startsWith("/#") && isHome) {
       e.preventDefault();
-      if (isHome) {
-        const id = href.slice(2);
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        window.location.href = href;
-      }
+      const id = href.slice(2);
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -115,7 +107,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpenForPath(open ? null : pathname)}
           className={`md:hidden h-10 w-10 flex items-center justify-center transition-colors duration-300 ${
             onDark ? "text-white" : "text-white"
           }`}
@@ -149,7 +141,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => {
-                  setOpen(false);
+                  setOpenForPath(null);
                   window.dispatchEvent(new CustomEvent("open-contact-modal"));
                 }}
                 className="mt-2 inline-flex items-center justify-center gap-2 bg-[#C71F42] text-white px-5 py-3 text-sm font-medium tracking-wide uppercase"
