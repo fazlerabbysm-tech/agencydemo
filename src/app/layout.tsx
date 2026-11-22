@@ -1,36 +1,82 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import GlobalContactModal from "@/components/site/global-contact-modal";
+import { siteConfig } from "@/lib/site-config";
+import {
+  JsonLd,
+  getOrganizationSchema,
+  getWebsiteSchema,
+} from "@/components/seo/json-ld";
 
-const roboto = Roboto({
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Katella Digital — Best Marketing Agency in Anaheim California",
-  description:
-    "Katella Digital is a full-service marketing agency in Anaheim, Orange County, California. UI/UX design, motion graphics, digital marketing, and web & app development — all under one roof.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
   keywords: [
-    "marketing agency Anaheim",
-    "digital marketing California",
-    "full-service agency",
+    "digital marketing agency Anaheim",
+    "marketing agency Orange County",
+    "full-service marketing agency California",
     "Katella Digital",
-    "UI/UX design Anaheim",
-    "web development Orange County",
-    "advertising agency",
+    "SEO agency Anaheim",
+    "AI search optimization GEO",
+    "brand strategy and identity",
+    "web and app development Orange County",
+    "performance marketing California",
   ],
-  authors: [{ name: "Katella Digital" }],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Katella Digital — Best Marketing Agency in Anaheim California",
-    description:
-      "Katella Digital is a full-service marketing agency in Anaheim, Orange County, California. UI/UX design, motion graphics, digital marketing, and web & app development.",
-    siteName: "Katella Digital",
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -40,14 +86,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <JsonLd data={getOrganizationSchema()} />
+        <JsonLd data={getWebsiteSchema()} />
+      </head>
       <body
-        className={`${roboto.variable} antialiased text-foreground font-sans selection:bg-[#C71F42] selection:text-white`}
+        className={`${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased text-white font-sans selection:bg-[#C71F42] selection:text-white`}
         style={{
-          "--font-mono": "'Courier New', monospace",
-          background: "linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%)",
+          background:
+            "linear-gradient(120deg, #060000 0%, #2F000A 35%, #9A0E28 70%, #C71F42 100%)",
           backgroundAttachment: "fixed",
-        } as React.CSSProperties}
+        }}
       >
         {children}
         <GlobalContactModal />

@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
 
     // 4. Send emails via Brevo API
     const brevoApiKey = process.env.BREVO_API_KEY;
-    const contactEmail = process.env.CONTACT_EMAIL || "info@katella.digital";
+    const contactEmail = process.env.CONTACT_EMAIL || "info@katelladigital.com";
 
     // --- EMAIL 1: To us (lead notification) ---
     const leadHtml = `
@@ -98,9 +98,9 @@ export async function POST(req: NextRequest) {
             Need to talk sooner? Call us or reply to this email and we'll prioritize your inquiry.
           </p>
           <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #3a1518;">
-            <p style="color: #666; font-size: 13px; margin: 5px 0;">📞 ${safePhone}</p>
-            <p style="color: #666; font-size: 13px; margin: 5px 0;">✉️ info@katella.digital</p>
-            <p style="color: #666; font-size: 13px; margin: 5px 0;">📍 Anaheim, Orange County, CA</p>
+            <p style="color: #666; font-size: 13px; margin: 5px 0;">Phone: ${safePhone}</p>
+            <p style="color: #666; font-size: 13px; margin: 5px 0;">Email: ${contactEmail}</p>
+            <p style="color: #666; font-size: 13px; margin: 5px 0;">Location: Anaheim, Orange County, CA</p>
           </div>
         </div>
         <div style="text-align: center; padding: 20px 0;">
@@ -112,10 +112,6 @@ export async function POST(req: NextRequest) {
     `;
 
     if (brevoApiKey) {
-      // Send Email 1: Lead notification to us
-      // Use katelladigital@gmail.com as sender (active in Brevo, no brevosend.com wrapper)
-      // To: katelladigital@gmail.com (direct Gmail delivery)
-      // BCC: info@katella.digital for backup
       const leadRes = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
@@ -126,7 +122,7 @@ export async function POST(req: NextRequest) {
           sender: { name: "Katella Digital", email: "katelladigital@gmail.com" },
           to: [{ email: "katelladigital@gmail.com", name: "Katella Digital" }],
           bcc: [{ email: contactEmail, name: "Katella Digital" }],
-          replyTo: { email: "info@katella.digital", name: "Katella Digital" },
+          replyTo: { email: contactEmail, name: "Katella Digital" },
           subject: `New Lead: ${name} — ${service}`,
           htmlContent: leadHtml,
         }),
@@ -136,14 +132,11 @@ export async function POST(req: NextRequest) {
         const errorText = await leadRes.text();
         console.error("Brevo lead email error:", errorText);
         return NextResponse.json(
-          { success: false, error: "Failed to send. Please email us directly at info@katella.digital" },
+          { success: false, error: `Failed to send. Please email us directly at ${contactEmail}` },
           { status: 500 }
         );
       }
 
-      // Send Email 2: Auto-reply to user
-      // Use katelladigital@gmail.com as sender (Gmail-verified, won't go to spam)
-      // Reply-to: info@katella.digital (user replies to our official address)
       const autoReplyRes = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
@@ -153,7 +146,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           sender: { name: "Katella Digital", email: "katelladigital@gmail.com" },
           to: [{ email: email, name: name }],
-          replyTo: { email: "info@katella.digital", name: "Katella Digital" },
+          replyTo: { email: contactEmail, name: "Katella Digital" },
           subject: `We received your message, ${name}!`,
           htmlContent: autoReplyHtml,
         }),
