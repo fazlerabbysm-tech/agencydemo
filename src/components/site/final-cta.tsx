@@ -10,7 +10,13 @@ export default function FinalCTA() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24">
+    <section
+      id="contact"
+      data-shape="rocket"
+      data-ax="0.76"
+      data-ay="0.52"
+      className="py-16 sm:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

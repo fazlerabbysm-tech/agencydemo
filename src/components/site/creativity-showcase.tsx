@@ -25,7 +25,13 @@ const creativePoints = [
 
 export default function CreativityShowcase() {
   return (
-    <section id="creativity" className="py-16 sm:py-20 lg:py-24">
+    <section
+      id="creativity"
+      data-shape="prism"
+      data-ax="0.78"
+      data-ay="0.52"
+      className="py-16 sm:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
         <div className="kd-obsidian-card rounded-3xl p-7 sm:p-10 lg:p-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">

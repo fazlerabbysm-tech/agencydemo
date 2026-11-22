@@ -17,6 +17,9 @@ export default function BrandMarquee() {
   return (
     <section
       aria-label="Trusted clients"
+      data-shape="globe"
+      data-ax="0.50"
+      data-ay="0.50"
       className="py-8 sm:py-10 border-y border-white/10 bg-[#060000]/55 backdrop-blur-md overflow-hidden"
     >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10 mb-5">

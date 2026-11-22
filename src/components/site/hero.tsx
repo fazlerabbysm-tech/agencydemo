@@ -12,6 +12,9 @@ export default function Hero() {
   return (
     <section
       id="home"
+      data-shape="growth-arrow"
+      data-ax="0.74"
+      data-ay="0.48"
       className="relative pt-28 sm:pt-32 lg:pt-40 pb-16 sm:pb-20 lg:pb-24"
     >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">

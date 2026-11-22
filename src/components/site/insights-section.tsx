@@ -9,7 +9,13 @@ export default function InsightsSection() {
   const latestPosts = blogPosts.slice(0, 6);
 
   return (
-    <section id="insights" className="py-16 sm:py-20 lg:py-24">
+    <section
+      id="insights"
+      data-shape="network"
+      data-ax="0.78"
+      data-ay="0.50"
+      className="py-16 sm:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">

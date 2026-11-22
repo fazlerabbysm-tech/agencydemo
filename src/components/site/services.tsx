@@ -86,7 +86,13 @@ export default function Services() {
   const ActiveIcon = active.icon;
 
   return (
-    <section id="services" className="py-16 sm:py-20 lg:py-24">
+    <section
+      id="services"
+      data-shape="spark"
+      data-ax="0.78"
+      data-ay="0.52"
+      className="py-16 sm:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">

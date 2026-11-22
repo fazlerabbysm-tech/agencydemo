@@ -26,7 +26,13 @@ const pillars = [
 
 export default function WhyUs() {
   return (
-    <section id="why" className="py-16 sm:py-20 lg:py-24">
+    <section
+      id="why"
+      data-shape="target"
+      data-ax="0.80"
+      data-ay="0.52"
+      className="py-16 sm:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
         <div className="max-w-3xl mb-12 sm:mb-14">
           <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FF4D73] mb-3">
