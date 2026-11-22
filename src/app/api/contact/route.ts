@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { recordContactLead } from "@/lib/admin-store";
 
 function escapeHtml(value: string): string {
   return value
@@ -39,6 +40,20 @@ export async function POST(req: NextRequest) {
     // 3. Validate required fields
     if (!name?.trim() || !email?.trim() || !phone?.trim() || !service?.trim() || !details?.trim()) {
       return NextResponse.json({ success: false, error: "All fields are required." }, { status: 400 });
+    }
+
+    // 3b. Persist lead to Admin Dashboard storage (non-blocking if storage unavailable)
+    try {
+      await recordContactLead({
+        name: String(name),
+        email: String(email),
+        phone: String(phone),
+        service: String(service),
+        details: String(details),
+        source: "katelladigital.com",
+      });
+    } catch (storageErr) {
+      console.error("Lead storage warning:", storageErr);
     }
 
     const safeName = escapeHtml(String(name).trim());

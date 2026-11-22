@@ -17,3 +17,4 @@ tool-results/
 tests/
 examples/
 mini-services/
+.data/
